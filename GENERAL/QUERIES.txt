@@ -2266,3 +2266,175 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/dicoverytyp
 end
 
 
+if not exists
+(select * from config_apiforentityname where API='api/home/correspondenceall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('api/home/correspondenceall','systemx.api.model.correspondance',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/observationall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/observationall','systemx.api.model.complianceobservation',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/incidentreportall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/incidentreportall','systemx.api.model.loss',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/incidentproposalall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/incidentproposalall','systemx.api.model.loss',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/actionplanall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/actionplanall','systemx.api.model.actionplan',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/complianceruleall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/complianceruleall','systemx.api.model.compliancelibrary',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+End
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/assignedCorrespondenceall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/assignedCorrespondenceall','systemx.api.model.correspondance',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/home/bucketAll')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/bucketAll','systemx.api.beans.LoginRequest',
+(select MENU_ID from config_menu where MENU_KEY = 'B'))
+end
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/config/parentworkflows')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/parentworkflows','systemx.api.model.workflow.Bucket',
+(select MENU_ID from config_menu where MENU_KEY = 'B'))
+end
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/config/childworkflows/')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/childworkflows/','systemx.api.model.workflow.Bucket',
+(select MENU_ID from config_menu where MENU_KEY = 'B'))
+end
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/home/assigncomplianceruleall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/assigncomplianceruleall','systemx.api.model.workflow.Bucket',
+(select MENU_ID from config_menu where MENU_KEY = 'B'))
+end
+
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/home/assigncomplianceruleall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dashboardFiltersData','systemx.api.model.workflow.Bucket',
+(select MENU_ID from config_menu where MENU_KEY = 'RM'))
+end
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/home/workshopall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/workshopall','systemx.api.model.rcsa',
+(select top 1 MENU_ID from config_menu where MENU_KEY = 'RA_AW' order by MENU_ID desc))
+end
+if not exists
+(select * from config_apiforentityname where API='/api/home/controlplanlinkcontrollinkusersall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/controlplanlinkcontrollinkusersall',null,
+(select MENU_ID from config_menu where LINK ='/bucket'))
+End
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/home/workshopall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/workshopall','systemx.api.model.rcsa',
+(select top 1 MENU_ID from config_menu where MENU_KEY = 'RA_AW' order by MENU_ID desc))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/correspondenceall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/correspondenceall',
+(select menu_id from config_menu where LINK ='/bucket'))
+end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/KIall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/KIall',null,
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+if not exists
+(select * from config_apiforentityname where API='/api/home/exceptionsall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/exceptionsall',null,
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/incidentreportlinkUserall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/incidentreportlinkUserall',null,
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/home/bucketAll')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/bucketAll','systemx.api.beans.LoginRequest',
+(select MENU_ID from config_menu where MENU_KEY = 'B'))
+end
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/config/parentworkflows')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/parentworkflows','systemx.api.model.workflow.Bucket',
+(select MENU_ID from config_menu where MENU_KEY = 'B'))
+end
+
+
