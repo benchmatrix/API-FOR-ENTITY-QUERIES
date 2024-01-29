@@ -282,3 +282,12 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/compliance/compliancerule_linkcontrol','systemx.api.model.compliancelibrary.ComplianceRuleLinkControl',
 (select MENU_ID from config_menu where LINK ='/compliance/rule'))
 end
+
+if not exists
+(select * from config_apiforentityname where API='/api/compliance/compliancerule_linkobservation')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/compliancerule_linkobservation',null,
+(select MENU_ID from config_menu where LINK ='/compliance/rule'))
+end
+
