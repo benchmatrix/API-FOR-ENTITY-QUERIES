@@ -2769,4 +2769,29 @@ End
 
 
 
+if not exists
+(select * from config_apiforentityname where API='/api/config/configteamall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/configteamall',null,
+(select MENU_ID from config_menu where LINK ='/config/config-team'))
+end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/IA/assessmentmeasurevalues')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/IA/assessmentmeasurevalues',null,
+(select MENU_ID from config_menu where LINK ='/internalaudit/assessmentmeasurevalues'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/genericupload/uploadtemplate')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/genericupload/uploadtemplate',null,
+(select MENU_ID from config_menu where LINK ='/config/userprofile'))
+end
+
 
