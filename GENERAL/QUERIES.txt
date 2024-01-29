@@ -4460,3 +4460,49 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/answertype',
 (select MENU_ID from config_menu where Link='/config/answer_type'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersbytermallFromAllUsers')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersbytermallFromAllUsers',
+(select MENU_ID from config_menu where Link='/config/user'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersWithAdditionalInfoall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersWithAdditionalInfoall',
+(select MENU_ID from config_menu where Link='/config/user'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/alternateemployees')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/alternateemployees',
+(select MENU_ID from config_menu where Link='/config/employee-replacement'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocess')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/productlinkedprocess',
+(select MENU_ID from config_menu where Link='/config/productlinked_process'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/service/updateActivityWorkflowLog')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/service/updateActivityWorkflowLog',
+(select MENU_ID from config_menu where Link='/scheduleservice'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/segmentAll')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll',
+(select menu_id from config_menu where Link='/config/segment'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/auditstatusall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/auditstatusall',
+(select menu_id from config_menu where Link='/config/compliance/auditstatus'))
+end
+
