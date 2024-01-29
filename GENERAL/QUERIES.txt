@@ -4924,3 +4924,10 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/makercheckerall',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
+if not exists
+(select * from config_apiforentityname where API='/api/genericupload/uploadtemplate')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/genericupload/uploadtemplate',null,
+(select MENU_ID from config_menu where LINK ='/config/userprofile'))
+end
