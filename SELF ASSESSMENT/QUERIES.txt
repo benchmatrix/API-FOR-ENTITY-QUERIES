@@ -228,5 +228,11 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/assignedselfassessmentall',(select menu_id from config_menu where DISPLAYNAME = 'Questionnaire Details'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/SA/consolidationcriteriaall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/SA/consolidationcriteriaall',
+(select menu_id from config_menu where Link='/compliance/questionnaire/consolidationcriteria'))
+end
+
 
 
