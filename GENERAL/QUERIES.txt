@@ -2528,3 +2528,34 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/broadcategory',null,
 (select MENU_ID from config_menu where LINK ='/config/compliance/broadcategory'))
 end
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
+(select MENU_ID from config_menu where Link='/config/user'))
+end
+
+delete CONFIG_APIFORENTITYNAME where api='/api/config/users'
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/users')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/users',
+(select menu_id from config_menu where DISPLAYNAME ='Model & Hierarchy'))
+end
+
+
+
+update CONFIG_APIFORENTITYNAME
+set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
+where API='/api/config/businessFunctions'
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/makercheckerall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/makercheckerall',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
