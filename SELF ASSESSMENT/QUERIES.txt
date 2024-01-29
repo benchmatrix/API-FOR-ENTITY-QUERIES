@@ -206,3 +206,9 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionareLink
 (select menu_id from config_menu where DISPLAYNAME ='/selfassessment/createquestionare'))
 end 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/SA/questionareusersIRAF')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('api/SA/questionareusersIRAF',(select menu_id from config_menu where DISPLAYNAME = 'Questionnaire Details'))
+end
+
+
