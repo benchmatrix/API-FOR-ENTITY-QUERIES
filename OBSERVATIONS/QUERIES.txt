@@ -1,0 +1,54 @@
+--/api/observation/tableofcontent
+if not exists
+(select * from config_apiforentityname where API='/api/observation/tableofcontent')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/tableofcontent',null,
+(select MENU_ID from config_menu where LINK ='/compliance/InternaladdAuditReport'))
+end
+
+--api/observation/auditreports
+if not exists
+(select * from config_apiforentityname where API='/api/observation/auditreports')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/auditreports/',null,
+(select MENU_ID from config_menu where LINK ='/compliance/Audit/externalauditReport' and DISPLAYNAME='External Reports'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/observation/auditreports')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/auditreports',null,
+(select MENU_ID from config_menu where LINK ='/compliance/Audit/externalauditReport' and DISPLAYNAME='External Reports'))
+end
+
+
+
+
+if not exists
+ (select * from config_apiforentityname where API='/api/observation/auditreportattachments')
+ begin
+ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+ values('/api/observation/auditreportattachments',null,
+ (select MENU_ID from config_menu where LINK ='/compliance/Audit/InternalAuditReport' and MENU_KEY='O_IRO'))
+ end
+
+if not exists
+ (select * from config_apiforentityname where API='/api/observation/auditreportattachments')
+ begin
+ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+ values('/api/observation/auditreportattachments',null,
+ (select MENU_ID from config_menu where LINK ='/compliance/Audit/ExternalAuditReport' and menu_key='O_ERO' and DISPLAYNAME='External Reports Observation'))
+ end
+
+
+
+if not exists(select * from config_apiforentityname where API='/api/observations/observationall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observations/observationall',null,
+(select MENU_ID from config_menu where DISPLAYNAME ='Observations' AND MENU_KEY='O'))
+end
+
