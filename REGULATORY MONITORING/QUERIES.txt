@@ -247,3 +247,38 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/compliance/complianceactivity',null,
 (select MENU_ID from config_menu where LINK ='/compliance/activity'))
 end
+
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/compliancerequirement_linkki')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID,ENTITYNAME) values('/api/compliance/compliancerequirement_linkki',
+(select MENU_ID from config_menu where LINK = '/compliance/requirement'),'systemx.api.model.regulatorycompliance.RequirementLinkKI'
+)
+end 
+
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/requirementlinkrule')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID,ENTITYNAME) values('/api/compliance/requirementlinkrule',
+(select MENU_ID from config_menu where LINK = '/compliance/rule'),'systemx.api.model.regulatorycompliance.RequirementLinkRule'
+)
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/requirement/requirementMultipleDocs')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/requirement/requirementMultipleDocs',
+(select menu_id from config_menu where LINK='/compliance/requirement'))
+end 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/activity/activityLinkActionPlan')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/activity/activityLinkActionPlan',null,(select   menu_id from config_menu where menu_key ='RM_AA'));
+end
+
+if not exists(select * from config_apiforentityname where API='/api/compliance/compliancerule_linkcontrol')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/compliancerule_linkcontrol','systemx.api.model.compliancelibrary.ComplianceRuleLinkControl',
+(select MENU_ID from config_menu where LINK ='/compliance/rule'))
+end
