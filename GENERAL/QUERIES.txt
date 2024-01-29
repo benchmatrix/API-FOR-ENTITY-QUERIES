@@ -3667,3 +3667,23 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/makercheckerall',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
+(select MENU_ID from config_menu where Link='/config/user'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyforconfigDD')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/hierarchyforconfigDD',
+(select MENU_ID from config_menu where Link='/config/business_hierarchy'))
+End
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controltypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controltypeall',
+(select menu_id from config_menu where Link='/config/rcsa/controltype'))
+end
+
