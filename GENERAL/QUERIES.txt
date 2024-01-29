@@ -2684,4 +2684,10 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/addstakeholderall',null,
 (select top 1 MENU_ID from config_menu where LINK='/config/addstakeholders'))
 end
+if not exists(select * from config_apiforentityname where API='/api/config/assetlinkage')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/assetlinkage',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/Asset/AssetForm'))
+end
 
