@@ -239,3 +239,11 @@ update CONFIG_APIFORENTITYNAME set MENU_ID=(select MENU_ID from config_menu wher
 where api='/api/compliance/compliancerulewithrequirement' 
 
 
+--/api/compliance/complianceactivity
+if not exists
+(select * from config_apiforentityname where API='/api/compliance/complianceactivity')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/complianceactivity',null,
+(select MENU_ID from config_menu where LINK ='/compliance/activity'))
+end
