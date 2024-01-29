@@ -1,0 +1,236 @@
+if not exists(select * from config_apiforentityname where API='/api/home/kisetupall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/kisetupall','systemx.api.model.ki',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/assigndatapointsall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/assigndatapointsall','systemx.api.model.ki',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='
+/api/ki/kidashboard')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('
+/api/ki/kidashboard',(select menu_id from config_menu where DISPLAYNAME = 'KI dashboard '))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/getallkidashboards')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/getallkidashboards',(select menu_id from config_menu where DISPLAYNAME = 'KI Dashboard '))
+end 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kimeasure')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kimeasure',(select menu_id from config_menu where DISPLAYNAME = 'KI Measure'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kimeasureall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kimeasureall',(select menu_id from config_menu where DISPLAYNAME = 'KI Measure'))
+end 
+
+-- KI Weightage Queries--
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiweightage')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiweightage',(select menu_id from config_menu where DISPLAYNAME = 'KI Weightage'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiweightageall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiweightageall',(select menu_id from config_menu where DISPLAYNAME = 'KI Weightage'))
+end 
+
+-- KI Threshold Queries–
+
+
+delete from CONFIG_APIFORENTITYNAME where api='/api/config/kithreshold'
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithreshold')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID)values('/api/config/kithreshold',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold'))
+end 
+
+update CONFIG_APIFORENTITYNAME
+set MENU_ID=(select MENU_ID from config_menu where link='/config/kithreshold')
+where API='/api/config/kithreshold'
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdall',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold'))
+end
+
+-- KI Threshold Category Queries
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdcategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold Category'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdcategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdcategory',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold Category'))
+end
+
+
+-- KI Format Queries
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiformatall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiformatall',(select menu_id from config_menu where DISPLAYNAME = 'KI Format'))
+end 
+
+delete from CONFIG_APIFORENTITYNAME where api='/api/config/kiformat'
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiformat')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiformat',(select menu_id from config_menu where DISPLAYNAME ='KI Format'))
+end
+
+
+update CONFIG_APIFORENTITYNAME
+set MENU_ID=(select MENU_ID from config_menu where link='/config/kiformat')
+where API='/api/config/kiformat'
+
+
+-- KI Impacttype Queries
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttypeall',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
+end 
+
+delete CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttype'
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttype',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
+end
+-- KI category Queries--
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypecategoryall',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
+end 
+
+delete CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategory'
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypecategory',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
+end
+
+
+-- KI type
+
+delete CONFIG_APIFORENTITYNAME where api='/api/config/kitype'
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitype',(select menu_id from config_menu where DISPLAYNAME = 'KI type '))
+end 
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypeall',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
+end
+
+--KI direction  query
+
+delete CONFIG_APIFORENTITYNAME where api='/api/config/kidirection'
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kidirection')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kidirection',(select menu_id from config_menu where DISPLAYNAME = 'KI direction'))
+end 
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kidirectionall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kidirectionall',(select menu_id from config_menu where DISPLAYNAME = 'KI direction'))
+end
+
+----Score thresholds
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/scorethresholdall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/scorethresholdall',
+(select menu_id from config_menu where DISPLAYNAME = 'Score threshold'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/scorethreshold')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/scorethreshold',
+(select menu_id from config_menu where DISPLAYNAME = 'Score threshold'))
+end
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/kisetupall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/kisetupall',
+(select menu_id from config_menu where LINK = '/keyriskindicators/create-kilisting'))
+end 
+
+if not exists(select * from config_apiforentityname where API='/api/ki/assigndatapointsall')
+begin
+Insert into config_apiforentityname(API,MENU_ID)
+values('/api/ki/assigndatapointsall',
+(select top 1 MENU_ID from config_menu where LINK = '/keyriskindicators/assigndatapointsListing' order by 
+MENU_ID desc))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/ki/assigndatapointsall')
+begin
+Insert into config_apiforentityname(API,MENU_ID)
+values('/api/ki/assigndatapointsall',
+(select top 1 MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints' order by 
+MENU_ID desc))
+end
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/kisetupall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/kisetupall',
+(select menu_id from config_menu where LINK = '/keyriskindicators/create-kilisting'))
+end 
+
+
+if not exists
+(select * from config_apiforentityname where API='api/home/kiSetupBreachesAll')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('api/home/kiSetupBreachesAll',null,
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+if not exists
+(select * from config_apiforentityname where API='/api/ki/getallki')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/ki/getallki',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/ki/getallkireports')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/ki/getallkireports',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/ki/getotherkis')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/ki/getotherkis',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
+end
+
+
