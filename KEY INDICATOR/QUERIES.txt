@@ -246,4 +246,12 @@ values('/api/ki/datafieldbyempid',null,
 (select MENU_ID from config_menu where LINK ='/keyriskindicators/mydatapoints'))
 end
 
+if not exists
+(select * from config_apiforentityname where API='/api/dynamicFiltersData')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/assigndatapointsListing'))
+end
+
 
