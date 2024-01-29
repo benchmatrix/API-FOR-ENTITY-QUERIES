@@ -298,3 +298,61 @@ values('/api/compliance/compliancerule_linkactionplan','systemx.api.model.regula
 (select MENU_ID from config_menu where LINK ='/compliance/rule'))
 end
 
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/compliancerule_linkprocess')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/compliancerule_linkprocess',
+(select menu_id from config_menu where LINK like '%compliance/rule%'))
+end 
+
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/compliancerule_linkproduct')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/compliancerule_linkproduct',
+(select menu_id from config_menu where LINK like '%compliance/rule%'))
+end
+
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/activity_linkcorrespondance')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/activity_linkcorrespondance',
+(select menu_id from config_menu where LINK like '%compliance/activity%'))
+end 
+
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/complianceactivity_linkproduct')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/complianceactivity_linkproduct',
+(select menu_id from config_menu where LINK like '%compliance/activity%'))
+end 
+ 
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/complianceactivity_linkprocess')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/complianceactivity_linkprocess',
+(select menu_id from config_menu where LINK like '%compliance/activity%'))
+end 
+
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/compliancerequirement_linkcorrespondance')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/compliancerequirement_linkcorrespondance',
+(select MENU_ID from config_menu where LINK = '/compliance/requirement')
+)
+end 
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/compliancerequirement_linkproduct')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/compliancerequirement_linkproduct',
+(select MENU_ID from config_menu where LINK = '/compliance/requirement')
+)
+end 
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/compliancerequirement_linkprocess')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/compliancerequirement_linkprocess',
+(select MENU_ID from config_menu where LINK = '/compliance/requirement')
+)
+end 
+
+
