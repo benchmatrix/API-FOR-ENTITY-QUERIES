@@ -89,3 +89,32 @@ values('/api/dynamic',null,
 end
 
 
+--/api/loss/incidentreportdocs
+if not exists
+(select * from config_apiforentityname where API='/api/loss/incidentreportdocs')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/loss/incidentreportdocs',null,
+(select MENU_ID from config_menu where LINK ='/lossmanagement/lossmanagement'))
+end
+
+--/api/loss/comments
+if not exists
+(select * from config_apiforentityname where API='/api/loss/comments')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/loss/comments',null,
+(select MENU_ID from config_menu where LINK ='/lossmanagement/lossmanagement'))
+end
+
+--/api/loss/attribution
+if not exists
+(select * from config_apiforentityname where API='/api/loss/attribution')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/loss/attribution',null,
+(select MENU_ID from config_menu where LINK ='/lossmanagement/lossmanagement'))
+end
+
+
+
