@@ -3032,3 +3032,9 @@ values('/api/config/answertypeall',null,
 end
 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
