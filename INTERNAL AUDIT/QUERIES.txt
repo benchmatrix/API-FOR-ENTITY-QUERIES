@@ -163,4 +163,9 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentareaall',
 (select MENU_ID from config_menu where Link='/config/RCSA/assessmentarea'))
 end
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentmeasurevaluesall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentmeasurevaluesall',
+(select MENU_ID from config_menu where Link='/config/RCSA/assessmentmeasurevalues'))
+end
 
