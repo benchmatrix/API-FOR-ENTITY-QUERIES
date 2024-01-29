@@ -512,4 +512,31 @@ values('/api/RCSA/wsrcsarisk',null,
 (select MENU_ID from config_menu where LINK ='/RCSA/workshopassessment'))
 end
 
+if not exists
+(select * from config_apiforentityname where API='/api/config/rcsaactivitylink')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/rcsaactivitylink',null,
+(select MENU_ID from config_menu where LINK ='/RCSA/rcsa_activity'))
+end
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/rcsa/wsriskcontrol')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/rcsa/wsriskcontrol',null,
+(select MENU_ID from config_menu where LINK ='/RCSA/riskandcontrolassessment'))
+end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/rcsa/wsassessment')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/rcsa/wsassessment',null,
+(select MENU_ID from config_menu where LINK ='/RCSA/riskandcontrolassessment'))
+end
+
 
