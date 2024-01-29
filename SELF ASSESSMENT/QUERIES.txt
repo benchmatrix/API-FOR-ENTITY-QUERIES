@@ -200,3 +200,9 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/certificati
 (select menu_id from config_menu where DISPLAYNAME = 'Certification Type'))
 end 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api ='/api/SA/questionareLinkObservation')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionareLinkObservation',
+(select menu_id from config_menu where DISPLAYNAME ='/selfassessment/createquestionare'))
+end 
+
