@@ -4692,3 +4692,145 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/syncHistory
 (select menu_id from config_menu where Link='/notification-center'))
 end
 
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/biaclassificationall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/biaclassificationall',null,
+(select MENU_ID from config_menu where LINK ='/config/bia_classification'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/assetfunctionall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/assetfunctionall',null,
+(select MENU_ID from config_menu where LINK ='/config/asset_function'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/closeAuditFactorsall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/closeAuditFactorsall',null,
+(select MENU_ID from config_menu where LINK ='/config/close_Audit_Factors'))
+end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/incidentchannelall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/incidentchannelall',null,
+(select MENU_ID from config_menu where LINK ='/config/incident_channel'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/reportTypeall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/reportTypeall',null,
+(select MENU_ID from config_menu where LINK ='/config/report_Type'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/profileownerall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/profileownerall',null,
+(select MENU_ID from config_menu where LINK ='/config/profileowners'))
+end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/assetserviceAvailabilityall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/assetserviceAvailabilityall',null,
+(select MENU_ID from config_menu where LINK ='/config/asset_serviceavailability'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/potentialincidentimpactall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/potentialincidentimpactall',null,
+(select MENU_ID from config_menu where LINK ='/config/potential_incident_impact'))
+end
+
+
+
+
+
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/miscellaneousall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/miscellaneousall',null,
+(select MENU_ID from config_menu where LINK ='/config/miscellaneousfieldsoptions'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/workPaperExecutionResultall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/workPaperExecutionResultall',null,
+(select MENU_ID from config_menu where LINK ='/config/work_Paper_Execution_Result'))
+end
+if not exists
+(select * from config_apiforentityname where API='/api/config/activityProgressStatusAll')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/activityProgressStatusAll',null,
+(select MENU_ID from config_menu where LINK ='/config/activityProgressstatus'))
+end
+
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/riskmethdologyall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/riskmethdologyall',null,
+(select MENU_ID from config_menu where LINK ='/config/rcsa/methodology'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/assetapplicationcategoryall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/assetapplicationcategoryall',null,
+(select MENU_ID from config_menu where LINK ='/config/asset_applicationcategory'))
+end
+if not exists
+(select * from config_apiforentityname where API='/api/config/operationalriskcategoryall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/operationalriskcategoryall',null,
+(select MENU_ID from config_menu where LINK ='/config/operationalrisk_category'))
+end
+
+
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/configroleall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/configroleall',null,
+(select MENU_ID from config_menu where LINK ='/config/config-role'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/answertypeall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/answertypeall',null,
+(select MENU_ID from config_menu where LINK ='/config/answer_type'))
+end
