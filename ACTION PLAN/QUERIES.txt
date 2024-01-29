@@ -14,3 +14,10 @@ values('/api/actionplan/actionplancomments2',null,
 (select MENU_ID from config_menu where LINK ='/actionplan/actionplan'))
 end
  
+if not exists(select * from config_apiforentityname where API='/api/actionplan/actionPlanLinkObservation')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/actionplan/actionPlanLinkObservation',null,
+(select MENU_ID from config_menu where LINK ='/actionplan/actionplan'))
+end
+
