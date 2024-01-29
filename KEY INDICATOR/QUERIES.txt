@@ -254,4 +254,17 @@ values('/api/dynamicFiltersData',null,
 (select MENU_ID from config_menu where LINK ='/keyriskindicators/assigndatapointsListing'))
 end
 
+if not exists(select * from config_apiforentityname where API='/api/ki/getdatafieldbydatestring')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/ki/getdatafieldbydatestring',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/ki/datafieldcomments/')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/ki/datafieldcomments/',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/mydatapoints'))
+end
 
