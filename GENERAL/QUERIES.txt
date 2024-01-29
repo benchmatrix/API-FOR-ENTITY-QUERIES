@@ -4371,3 +4371,33 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/audittag',
 (select MENU_ID from config_menu where Link='/compliance/questionnaire/audittag'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowLinkColumn')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowLinkColumn',
+(select MENU_ID from config_menu where Link='/config/workflow-setup'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowLinkColumn')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowLinkColumn',
+(select MENU_ID from config_menu where Link='/config/workflow-setup'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersaveonly')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersaveonly',
+(select MENU_ID from config_menu where Link='/config/user'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStep')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowStep',
+(select MENU_ID from config_menu where Link='/config/workflow-setup'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowState')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowState',
+(select MENU_ID from config_menu where Link='/config/workflow-setup'))
+end
+
