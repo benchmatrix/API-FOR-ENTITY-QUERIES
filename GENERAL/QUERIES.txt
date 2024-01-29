@@ -4204,3 +4204,54 @@ values(GETDATE(),1,NULL,'Incident Type',NULL,11,(select MODULE_ID from CONFIG_MO
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/incident_type','GIT',0,1,1)
 End
 
+if not exists(select * from CONFIG_MENU where LINK='/config/profilemapping')
+begin
+insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
+values(GETDATE(),1,NULL,'Profile Mapping',NULL,11,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
+(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/profilemapping','GPM',0,1,1)
+End
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/profilemapping')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/profilemapping',
+(select MENU_ID from config_menu where Link='/config/incident_type'))
+end
+
+if not exists(select * from CONFIG_MENU where LINK='/config/compliance/risk_severity')
+begin
+insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
+values(GETDATE(),1,NULL,'Risk Severity',NULL,12,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
+(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/compliance/risk_severity','GRS',0,1,1)
+End
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskseverity')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskseverity',
+(select MENU_ID from config_menu where Link='/config/compliance/risk_severity'))
+end
+
+if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/impactcategory')
+begin
+insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
+values(GETDATE(),1,NULL,'Impact Category',NULL,13,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
+(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/rcsa/impactcategory','GIC',0,1,1)
+End
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/rcsaimpactcategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/rcsaimpactcategory',
+(select MENU_ID from config_menu where Link='/config/rcsa/impactcategory'))
+end
+
+if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/thresholdcategory')
+begin
+insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
+values(GETDATE(),1,NULL,'Threshold Category',NULL,14,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
+(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/rcsa/thresholdcategory','GTC',0,1,1)
+End
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/thresholdcategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/thresholdcategory',
+(select MENU_ID from config_menu where Link='/config/rcsa/thresholdcategory'))
+end
