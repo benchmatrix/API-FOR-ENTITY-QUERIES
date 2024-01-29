@@ -275,3 +275,11 @@ values('/api/ki/datafield',null,
 (select MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints/create_datapoints'))
 end
 
+
+if not exists(select * from config_apiforentityname where API='/api/ki/datafieldall')
+begin
+Insert into config_apiforentityname(API,MENU_ID)
+values('/api/ki/datafieldall',
+(select top 1 MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints' order by 
+MENU_ID desc))
+end
