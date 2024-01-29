@@ -25,3 +25,11 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/correspondance/correspondanceMultipleDocs',null,
 (select MENU_ID from config_menu where LINK ='/compliance/correspondance'))
 end
+
+
+if not exists(select * from config_apiforentityname where API='/api/correspondance/correspondanceall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/correspondance/correspondanceall','systemx.api.model.correspondance.Correspondance',
+(select menu_id from config_menu where MENU_KEY='CL'));
+end
