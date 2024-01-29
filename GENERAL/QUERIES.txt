@@ -4988,4 +4988,21 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/syncLogAll',null,
 (select MENU_ID from config_menu where LINK ='/config/user'))
 end
+if not exists(select * from config_apiforentityname where API='/api/config/RCSA/configChildMeasureMatrix')
+begin
+Insert into config_apiforentityname(API,MENU_ID)
+values('/api/config/RCSA/configChildMeasureMatrix',
+(select top 1 MENU_ID from config_menu where LINK ='/config/RCSA/assessmentchildmeasurematrix' 
+order by 
+MENU_ID desc))
+End
+
+
+
+if not exists(select * from config_apiforentityname where API='/api/home/workshopall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/workshopall','systemx.api.model.rcsa',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
 
