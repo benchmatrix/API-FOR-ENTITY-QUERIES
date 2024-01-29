@@ -1,0 +1,202 @@
+if not exists
+(select * from config_apiforentityname where API='/api/home/selfassessmentall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/selfassessmentall','systemx.api.model.compliance.selfassessment',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
+LINK = '/config/compliance/questionnaire/certificationtype') where api ='/api/config/certificationtype' 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionsall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionsall',
+(select MENU_ID from config_menu where LINK = '/selfassessment/questions'))
+end 
+
+update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
+LINK = '/config/compliance/questionnaire/certificationtype') where api ='/api/config/certificationtype' 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionsall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionsall',
+(select MENU_ID from config_menu where LINK = '/selfassessment/questions'))
+end 
+
+-----Questionniare Answer type
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertype',
+(select menu_id from config_menu where DISPLAYNAME = 'Questionniare Answer Type'))
+end 
+
+
+update CONFIG_APIFORENTITYNAME
+set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/questionnaire/answertype')
+where API='/api/config/questionnaireanswertype'
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertypeall',
+(select menu_id from config_menu where DISPLAYNAME = 'Questionniare Answer Type'))
+end 
+
+----Certification Type---
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/certificationtype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/certificationtype',
+(select menu_id from config_menu where DISPLAYNAME = 'Certification Type'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/certificationtypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/certificationtypeall',
+(select menu_id from config_menu where DISPLAYNAME = 'Certification Type'))
+end 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/SA/consolidationcriteria')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/SA/consolidationcriteria',
+(select menu_id from config_menu where DISPLAYNAME = 'Consolidation criteria'))
+end 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/SA/consolidationcriteriaall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/SA/consolidationcriteriaall',
+(select menu_id from config_menu where DISPLAYNAME = 'Consolidation criteria'))
+end 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionareall' 
+and MENU_ID=(select MENU_ID from config_menu where LINK = '/selfassessment/questionare' and MENU_KEY='SA_QN'))
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionareall',
+(select MENU_ID from config_menu where LINK = '/selfassessment/questionare' and MENU_KEY='SA_QN'))
+end 
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertype',
+(select menu_id from config_menu where LINK = '/selfassessment/questionare'))
+end 
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/certificationtype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/certificationtype',
+(select menu_id from config_menu where LINK = '/selfassessment/questionare'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tag')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tag',
+(select MENU_ID from config_menu where DISPLAYNAME = 'Tag'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionare')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionare',
+(select MENU_ID from config_menu where LINK = '/config/compliance/questionnaire/answertype'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertype',
+(select menu_id from config_menu where LINK = '/selfassessment/questionare'))
+end 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionareall' 
+and MENU_ID=(select MENU_ID from config_menu where LINK = '/selfassessment/questionare' and MENU_KEY='SA_QN'))
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionareall',
+(select MENU_ID from config_menu where LINK = '/selfassessment/questionare' and MENU_KEY='SA_QN'))
+end 
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertype',
+(select menu_id from config_menu where LINK = '/selfassessment/questionare'))
+end 
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/certificationtype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/certificationtype',
+(select menu_id from config_menu where LINK = '/selfassessment/questionare'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tag')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tag',
+(select MENU_ID from config_menu where DISPLAYNAME = 'Tag'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionare')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionare',
+(select MENU_ID from config_menu where LINK = '/config/compliance/questionnaire/answertype'))
+end
+----Category assessment---
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/categoryassessment')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/categoryassessment',
+(select menu_id from config_menu where DISPLAYNAME = 'Category assessment'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/categoryassessmentall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/categoryassessmentall',
+(select menu_id from config_menu where DISPLAYNAME = 'Category assessment'))
+end 
+
+--Tag-----
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tag')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tag',
+(select menu_id from config_menu where DISPLAYNAME = 'Tag'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tagall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tagall',
+(select menu_id from config_menu where DISPLAYNAME = 'Tag'))
+end 
+
+-----Questionniare Answer type
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertype',
+(select menu_id from config_menu where DISPLAYNAME = 'Questionniare Answer Type'))
+end 
+
+
+update CONFIG_APIFORENTITYNAME
+set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/questionnaire/answertype')
+where API='/api/config/questionnaireanswertype'
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertypeall',
+(select menu_id from config_menu where DISPLAYNAME = 'Questionniare Answer Type'))
+end 
+
+----Certification Type---
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/certificationtype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/certificationtype',
+(select menu_id from config_menu where DISPLAYNAME = 'Certification Type'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/certificationtypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/certificationtypeall',
+(select menu_id from config_menu where DISPLAYNAME = 'Certification Type'))
+end 
+
