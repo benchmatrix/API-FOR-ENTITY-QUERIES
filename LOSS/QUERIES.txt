@@ -190,4 +190,10 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/loss/lossamount',
 (select menu_id from config_menu where LINK='/lossmanagement/lossmanagement'))
 end 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/loss/incidentreportlinkproductall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/loss/incidentreportlinkproductall',
+(select menu_id from config_menu where Link='/config/product'))
+end
+
 
