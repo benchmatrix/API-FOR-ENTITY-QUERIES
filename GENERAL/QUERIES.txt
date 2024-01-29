@@ -2465,3 +2465,11 @@ values('/api/email/failedmaillogall',null,
 
 end
 
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/kiSetupBreachesAll')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/kiSetupBreachesAll',null,
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
