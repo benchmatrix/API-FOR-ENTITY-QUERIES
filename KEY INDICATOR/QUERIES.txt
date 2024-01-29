@@ -233,4 +233,17 @@ values('/api/ki/getotherkis',null,
 (select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
 end
 
+(select * from config_apiforentityname where API='/api/ki/datafieldbyempid/')
+
+update CONFIG_APIFORENTITYNAME set ENTITYNAME='systemx.api.model.complianceobservation.ObservationResponseLinkCompliancePlan'
+where api='/api/observation/observationresponse' 
+
+if not exists
+(select * from config_apiforentityname where API='/api/ki/datafieldbyempid')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/ki/datafieldbyempid',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/mydatapoints'))
+end
+
 
