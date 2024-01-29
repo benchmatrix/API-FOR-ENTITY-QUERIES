@@ -2437,4 +2437,31 @@ values('/api/config/parentworkflows','systemx.api.model.workflow.Bucket',
 (select MENU_ID from config_menu where MENU_KEY = 'B'))
 end
 
+if not exists
+
+(select * from config_apiforentityname where API='/api/config/workflowStep')
+
+begin
+
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+
+values('/api/config/workflowStep',null,
+
+(select MENU_ID from config_menu where LINK ='/config/workflow-setup'))
+
+end
+
+if not exists
+
+(select * from config_apiforentityname where API='/api/email/failedmaillogall')
+
+begin
+
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+
+values('/api/email/failedmaillogall',null,
+
+(select MENU_ID from config_menu where LINK ='/config/configurations'))
+
+end
 
