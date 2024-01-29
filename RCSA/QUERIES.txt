@@ -464,3 +464,17 @@ null,
 end
 
 
+
+if not exists(select * from config_apiforentityname where API='/api/controlRegister/doc')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/controlRegister/doc',null,
+(select top 1 MENU_ID from config_menu where LINK='/RCSA/control-register'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/controlRegister/linkages')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/controlRegister/linkages',null,
+(select top 1 MENU_ID from config_menu where LINK='/RCSA/control-register'))
+end
