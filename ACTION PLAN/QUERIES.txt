@@ -21,3 +21,23 @@ values('/api/actionplan/actionPlanLinkObservation',null,
 (select MENU_ID from config_menu where LINK ='/actionplan/actionplan'))
 end
 
+if not exists(select * from config_apiforentityname where API='/api/actionplan/actionplanall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/actionplan/actionplanall',null,
+(select top 1 MENU_ID from config_menu where LINK='/actionplan/actionplanlisting'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/actionplan/actionplan')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/actionplan/actionplan',null,
+(select MENU_ID from config_menu where LINK ='/actionplan/actionplan'))
+end
+if not exists(select * from config_apiforentityname where API='/api/actionplan/linkages')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/actionplan/linkages',null,
+(select MENU_ID from config_menu where LINK ='/actionplan/actionplan'))
+end
+
