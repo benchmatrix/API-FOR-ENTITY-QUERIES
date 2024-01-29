@@ -2599,4 +2599,68 @@ end
 
 
 
+if not exists(select * from config_apiforentityname where API='/api/config/memoryanalysisall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/memoryanalysisall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/memoryanalysis'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/registryanalysisall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/registryanalysisall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/registryanalysis'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/originofattackall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/originofattackall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/originofattack'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/evidencesall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/evidencesall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/evidence'))
+end
+if not exists(select * from config_apiforentityname where API='/api/config/meansofexportationall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/meansofexportationall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/meansofexportation'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/compromisetypeall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/compromisetypeall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/compromisetype'))
+end
+
+
+if not exists(select * from config_apiforentityname where API='/api/config/lawenforcementnotifiedall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/lawenforcementnotifiedall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/lawenforcementnotified'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/prioritylevelall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/prioritylevelall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/prioritylevel'))
+end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/staticConfiguration')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/staticConfiguration',null,
+(select MENU_ID from config_menu where LINK ='/config/staticconfiguration'))
+end
 
