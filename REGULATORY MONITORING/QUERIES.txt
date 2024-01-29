@@ -383,5 +383,17 @@ end
 
 
 
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/delinkUserFromActivity')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/compliance/delinkUserFromActivity',
+null,
+(select menu_id from config_menu 
+where link = '/compliance/activity')
+);
+End
+
 
 
