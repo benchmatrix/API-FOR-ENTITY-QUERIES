@@ -293,3 +293,12 @@ values('/api/ki/getkisbydashboardid',null,
 end
 
 
+
+if not exists
+(select * from config_apiforentityname where API='/api/ki/kidashboardscore')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/ki/kidashboardscore',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kidashboards'))
+end
+
