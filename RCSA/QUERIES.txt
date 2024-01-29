@@ -750,3 +750,27 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/riskregistera
 end 
 
 
+if not exists
+(select * from config_apiforentityname where API='/api/RCSA/riskregisterheatmapall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/RCSA/riskregisterheatmapall',null,
+(select MENU_ID from config_menu where LINK ='/RCSA/heatmap'))
+end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/RCSA/residualAssessment')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/RCSA/residualAssessment',null,
+(select MENU_ID from config_menu where LINK ='/RCSA/heatmap'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/RCSA/riskappetitematrix')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/riskappetitematrix',
+(select menu_id from config_menu where LINK='/RCSA/riskappetitematrix'))
+end 
+
