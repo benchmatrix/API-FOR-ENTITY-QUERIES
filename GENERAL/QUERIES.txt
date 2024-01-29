@@ -4972,3 +4972,20 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/rcsa/wsassessment',null,
 (select MENU_ID from config_menu where LINK ='/RCSA/riskandcontrolassessment'))
 end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/syncHistoryAll')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/syncHistoryAll',null,
+(select MENU_ID from config_menu where LINK ='/config/user'))
+end
+if not exists
+(select * from config_apiforentityname where API='/api/config/syncLogAll')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/syncLogAll',null,
+(select MENU_ID from config_menu where LINK ='/config/user'))
+end
+
