@@ -140,4 +140,47 @@ values('/api/loss/classification','systemx.api.model.loss.IncidentReport',
 end
 
 
+if not exists(select * from config_apiforentityname where API='/api/loss/incidentreport')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/loss/incidentreport','systemx.api.model.loss.IncidentReport',
+(select MENU_ID from config_menu where LINK ='/lossmanagement/lossmanagement'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/loss/incidentreportlinkki')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/loss/incidentreportlinkki','systemx.api.model.loss.IncidentReportLinkKISetup',
+(select MENU_ID from config_menu where LINK ='/lossmanagement/lossmanagement'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/loss/getlossamountsbyincidentandrecoverytype')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/loss/getlossamountsbyincidentandrecoverytype','systemx.api.model.loss.LossAmount',
+(select MENU_ID from config_menu where LINK ='/lossmanagement/lossmanagement'))
+End
+
+if not exists(select * from config_apiforentityname where API='/api/loss/incidentreportlinkincidentreport')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/loss/incidentreportlinkincidentreport','systemx.api.model.loss.IncidentReportLinkIncidentReport',
+(select MENU_ID from config_menu where LINK ='/lossmanagement/lossmanagement'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/loss/incidentReportLinkRisk')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/loss/incidentReportLinkRisk','systemx.api.model.loss.IncidentReportLinkRisk',
+(select MENU_ID from config_menu where LINK ='/lossmanagement/lossmanagement'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/loss/incidentreportlinkrcsacontrol')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/loss/incidentreportlinkrcsacontrol','systemx.api.model.loss.IncidentReportLinkRCSAControl',
+(select MENU_ID from config_menu where LINK ='/lossmanagement/lossmanagement'))
+end
+
+
 
