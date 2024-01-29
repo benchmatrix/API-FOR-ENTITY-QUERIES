@@ -227,4 +227,15 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliances
 end
 
 
+if not exists
+(select * from config_apiforentityname where API='/api/compliance/compliancerulewithrequirement/')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/compliancerulewithrequirement/',null,
+(select MENU_ID from config_menu where LINK ='/compliance/library-detail'))
+end
+
+update CONFIG_APIFORENTITYNAME set MENU_ID=(select MENU_ID from config_menu where LINK ='/compliance/library-detail')
+where api='/api/compliance/compliancerulewithrequirement' 
+
 
