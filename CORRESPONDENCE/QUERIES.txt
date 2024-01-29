@@ -44,3 +44,29 @@ values
 (select menu_id from config_menu 
 where link = '/compliance/correspondance'));
 end
+
+
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api = '/api/correspondance')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/correspondance',
+'systemx.api.model.correspondance.Correspondance',
+(select menu_id from config_menu 
+where link = '/compliance/correspondance'));
+end
+
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api = '/api/correspondance/correspondancecomments')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/correspondance/correspondancecomments',
+'systemx.api.model.correspondance.CorrespondanceComments',
+(select menu_id from config_menu 
+where link = '/compliance/correspondance'));
+End
+
+
+
