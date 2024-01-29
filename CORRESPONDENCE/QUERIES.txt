@@ -18,3 +18,10 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/correspondance/correspondance_linkobservation',null,
 (select MENU_ID from config_menu where LINK ='/compliance/correspondance'))
 end
+
+if not exists(select * from config_apiforentityname where API='/api/correspondance/correspondanceMultipleDocs')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/correspondance/correspondanceMultipleDocs',null,
+(select MENU_ID from config_menu where LINK ='/compliance/correspondance'))
+end
