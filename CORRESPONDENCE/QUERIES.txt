@@ -5,3 +5,16 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/correspondance/correspondanceall','systemx.api.model.correspondance.Correspondance',
 (select MENU_ID from config_menu where LINK ='/compliance/correspondancelisting'))
 end
+if not exists(select * from config_apiforentityname where API='/api/correspondancelinkusers')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/correspondancelinkusers',null,
+(select MENU_ID from config_menu where LINK ='/compliance/correspondance'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/correspondance/correspondance_linkobservation')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/correspondance/correspondance_linkobservation',null,
+(select MENU_ID from config_menu where LINK ='/compliance/correspondance'))
+end
