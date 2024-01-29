@@ -3095,3 +3095,66 @@ null,
 (select MENU_ID from config_menu where link ='/config/positions'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/ramcategorythreshold')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/ramcategorythreshold',
+(select menu_id from config_menu where Link='/RAM'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languageall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/languageall',
+(select menu_id from config_menu where Link='/config/LanguageTerms'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/segmentAll')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll',
+(select menu_id from config_menu where Link='/segment'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/ki/getdatafieldbydatestring')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/ki/getdatafieldbydatestring',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskseveritysall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskseveritysall',
+(select menu_id from config_menu where Link='/compliance/risk_severity'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/rcsa/fraudcategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/rcsa/fraudcategoryall',
+(select menu_id from config_menu where Link='/config/rcsa/fraudcategory'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/timeSheetall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/timeSheetall',
+(select menu_id from config_menu where Link='/time_Sheet'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/holidayall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/holidayall',
+(select menu_id from config_menu where Link='/config/holiday'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/makerCheckerForDT')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/makerCheckerForDT',
+(select menu_id from config_menu where Link='/makerchecker'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/syncHistoryAll')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/syncHistoryAll',
+(select menu_id from config_menu where Link='/notification-center'))
+end
