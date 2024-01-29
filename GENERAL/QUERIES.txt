@@ -2579,4 +2579,24 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controltype
 (select menu_id from config_menu where Link='/config/rcsa/controltype'))
 end
 
+if not exists(select * from config_apiforentityname where API='/api/dynamicFiltersData')
+begin
+Insert into config_apiforentityname(API,MENU_ID)
+values('/api/dynamicFiltersData',
+(select top 1 MENU_ID from config_menu where LINK = '/listingFilters' order by 
+MENU_ID desc))
+end
+
+
+if not exists(select * from config_apiforentityname where API='/api/config/Years')
+begin
+Insert into config_apiforentityname(API,MENU_ID)
+values('/api/config/Years',
+(select top 1 MENU_ID from config_menu where LINK = '/Report/reportlisting' order by 
+MENU_ID desc))
+end
+
+
+
+
 
