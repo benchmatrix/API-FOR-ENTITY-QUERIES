@@ -3721,4 +3721,287 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/integration
 (select MENU_ID from config_menu where Link='/config/IntegrationLog'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/generalDashboardFilters')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFilters',
+(select menu_id from config_menu where LINK ='/dashboard/newdashboard'))
+end
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/broadcategoryall',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/broadcategory'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/broadcategory',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/correspondenceall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/correspondenceall',
+(select menu_id from config_menu where LINK ='/bucket'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertype',
+(select menu_id from config_menu where LINK = '/selfassessment/questionare'))
+end 
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/languages',
+(select menu_id from config_menu where DISPLAYNAME ='Language'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languagesall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values
+('/api/config/languagesall',(select menu_id from config_menu where DISPLAYNAME = 'Language'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/librarytypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/librarytypeall',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'REGULATION TYPE'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/compliance/ruleTypeAllAI'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/ruleTypeAllAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/compliance/ruleTypeAllAI',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'REGULATION TYPE'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/requirementstatusall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/requirementstatusall',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'REQUIREMENT STATUS'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/compliance/ruleTypeAllAI'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/ruleTypeAllAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/compliance/ruleTypeAllAI',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'REQUIREMENT STATUS'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsAI',
+(select menu_id from config_menu where DISPLAYNAME ='Fields(dev)'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancetypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/compliancetypeall',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'COMPLIANCE TYPE'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/compliancetype'	
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsAI',
+(select menu_id from config_menu where Link='/config/dynamicforms/fields'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsall',
+(select menu_id from config_menu where Link='/config/dynamicforms/fields'))
+End
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fields')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fields',
+(select menu_id from config_menu where Link='/config/dynamicforms/fields'))
+end
+
+
+
+delete CONFIG_APIFORENTITYNAME where api='/api/config/userprofile'
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/userprofile')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/userprofile',
+(select menu_id from config_menu where Link='/config/userprofile'))
+end
+
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/loginAudit')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/loginAudit',
+(select menu_id from config_menu where Link='/config/loginAudit'))
+end
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowWithColumns')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowWithColumns',
+(select menu_id from config_menu where Link='/config/extract-report'))
+end
+
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/Reportall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/Reportall',
+(select menu_id from config_menu where Link='/config/report'))
+end
+
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/levelsall')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/levelsall',
+	'systemx.api.model.config',
+	(select menu_id from config_menu where DISPLAYNAME = 'LEVELS'))
+	end
+	delete CONFIG_APIFORENTITYNAME where API= '/api/config/levelsAI'	
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/levelsAI')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/levelsAI',
+	'systemx.api.model.config',
+	(select menu_id from config_menu where DISPLAYNAME = 'LEVELS'))
+	end
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businesslinesall')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businesslinesall',
+	'systemx.api.model.config',
+	(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS LINES'))
+	end
+	delete CONFIG_APIFORENTITYNAME where API= '/api/config/businesslinesAI/'	
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businesslinesAI')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businesslinesAI',
+	'systemx.api.model.config',
+	(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS LINES'))
+	end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowstatetypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowstatetypeall',
+(select menu_id from config_menu where Link='/config/workflowstatetype'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowstatetype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowstatetype',
+(select menu_id from config_menu where Link='/config/workflowstatetype'))
+End
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/locationsall')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/locationsall',
+	'systemx.api.model.config',
+	(select menu_id from config_menu where DISPLAYNAME = 'LOCATION'))
+	end
+	delete CONFIG_APIFORENTITYNAME where API= '/api/config/locationsAI'	
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/locationsAI')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/locationsAI',
+	'systemx.api.model.config',
+	(select menu_id from config_menu where DISPLAYNAME = 'LOCATION'))
+	End
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyall')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/hierarchyall',
+	'systemx.api.model.config',
+	(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS HIERARCHY'))
+	end
+	delete CONFIG_APIFORENTITYNAME where API= '/api/config/getBusinessHierarchy'	
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getBusinessHierarchy')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/getBusinessHierarchy',
+	'systemx.api.model.config',
+	(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS HIERARCHY'))
+	end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/processall')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/processall',
+	'systemx.api.model.config',
+	(select menu_id from config_menu where DISPLAYNAME = 'PROCESS'))
+	end
+	delete CONFIG_APIFORENTITYNAME where API= '/api/config/processAI'	
+
+	
+
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/menuall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/menuall',
+(select menu_id from config_menu where Link='/config/menu'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getAllMenu')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getAllMenu',
+(select menu_id from config_menu where Link='/config/menu'))
+end
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
+(select menu_id from config_menu where Link='/compliance/workFlowStatus'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatusall',
+(select menu_id from config_menu where Link='/compliance/workFlowStatus'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businessFunctionsall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/businessFunctionsall',
+(select menu_id from config_menu where Link='/config/businessFunctions'))
+end
+
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeall')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeall',
+	'systemx.api.model.config',
+	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
+	end
+	delete CONFIG_APIFORENTITYNAME where API= '/api/config/officetypeAI'	
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeAI')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeAI',
+	'systemx.api.model.config',
+	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
+	end
 
