@@ -211,4 +211,11 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('api/SA/questionareusersIRAF',(select menu_id from config_menu where DISPLAYNAME = 'Questionnaire Details'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertype',
+(select menu_id from config_menu where DISPLAYNAME = 'Questionniare Answer Type'))
+end
+
+
 
