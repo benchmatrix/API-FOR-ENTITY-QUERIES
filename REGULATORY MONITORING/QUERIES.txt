@@ -355,4 +355,33 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/complia
 )
 end 
 
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/rulelinkrule')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/rulelinkrule',
+(select menu_id from config_menu where LINK like '%compliance/rule%'))
+end 
+
+
+
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/rule_linkcorrespondance')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/rule_linkcorrespondance',
+(select menu_id from config_menu where LINK like '%compliance/rule%'))
+end 
+
+
+
+
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/rulelinkruleSuperseded')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/rulelinkruleSuperseded',
+(select menu_id from config_menu where LINK like '%compliance/rule%'))
+end 
+
+
+
+
 
