@@ -78,3 +78,14 @@ values('/api/loss/attributionall',null,
 (select MENU_ID from config_menu where LINK ='/lossmanagement/lossmanagement'))
 end
 
+
+--/api/dynamic/
+if not exists
+(select * from config_apiforentityname where API='/api/dynamic')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamic',null,
+(select MENU_ID from config_menu where LINK ='/lossmanagement/lossComment'))
+end
+
+
