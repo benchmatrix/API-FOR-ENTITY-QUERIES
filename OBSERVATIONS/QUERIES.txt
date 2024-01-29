@@ -331,3 +331,9 @@ null,
 (select menu_id from config_menu where LINK='/config/compliance/observation/auditreporttype'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/observation/getallauditauthoritiesbyauditreporttypeandaudittype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/observation/getallauditauthoritiesbyauditreporttypeandaudittype',
+(select menu_id from config_menu where Link='/config/compliance/observation/auditauthorities'))
+end
+
