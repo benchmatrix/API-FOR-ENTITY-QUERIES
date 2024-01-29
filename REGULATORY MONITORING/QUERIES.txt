@@ -1,0 +1,230 @@
+
+if not exists(select * from config_apiforentityname where API='/api/compliance/compliancerequirementall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/compliancerequirementall',null,
+(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_Q' order by MENU_ID desc))
+end
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/compliance/complianceruleall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/complianceruleall','systemx.api.model.compliancelibrary',
+(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_R' order by MENU_ID desc))
+end
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/compliance/rulecomments')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/rulecomments',null,
+(select menu_id from config_menu where DISPLAYNAME='Rule Details'));
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/ruledocs')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/compliance/ruledocs',null,(select  top 1 menu_id from config_menu where menu_key = 'RM_AR'));
+end
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/assignRuleToUser/')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/compliance/assignRuleToUser/',null,(select top 1  menu_id from config_menu where menu_key = 'RM_AR'));
+end
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/activitylinkrequirement')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/compliance/activitylinkrequirement',null,(select top 1  menu_id from config_menu where menu_key = 'RM_AQ'));
+end
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/requirementcomments')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/compliance/requirementcomments',null,(select top 1  menu_id from config_menu where menu_key = 'RM_AQ'));
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/requirementdocs')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/compliance/requirementdocs',null,(select top 1  menu_id from config_menu where menu_key = 'RM_AQ'));
+end
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/linkedRulesInRequirement')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/compliance/linkedRulesInRequirement',null,(select top 1  menu_id from config_menu where menu_key = 'RM_AQ'));
+end
+
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/requirementcomments')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/compliance/requirementcomments',null,(select top 1  menu_id from config_menu where menu_key = 'RM_AQ'));
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/requirementdocs')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/compliance/requirementdocs',null,(select top 1  menu_id from config_menu where menu_key = 'RM_AQ'));
+end
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/activitylinkusers')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/compliance/activitylinkusers',null,(select top 1  menu_id from config_menu where menu_key = 'RM_AA'));
+end
+
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/activitydocs')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/compliance/activitydocs',null,(select top 1  menu_id from config_menu where menu_key = 'RM_AA'));
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/linkedRequirementsInActivity')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/compliance/linkedRequirementsInActivity',null,(select top 1  menu_id from config_menu where menu_key = 'RM_AA'));
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/sendNotificationCheck')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/compliance/sendNotificationCheck',null,(select top 1  menu_id from config_menu where menu_key = 'RM_AA'));
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/riskregister')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/compliance/riskregister',null,(select top 1  menu_id from config_menu where menu_key = 'RM_AQ'));
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/activity/activitycommentsLinkUser')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/activity/activitycommentsLinkUser',null,(select top 1  menu_id from config_menu where menu_key = 'RM_AA'));
+end
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/library/getComplianceLibraryParentAndFirstChildren')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/library/getComplianceLibraryParentAndFirstChildren','systemx.api.model.compliancelibrary',
+(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_L' order by MENU_ID desc))
+end
+
+
+if not exists(select * from config_apiforentityname where API='/api/library/complianceCategoryall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/library/complianceCategoryall','systemx.api.model.compliancelibrary',
+(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_Q' order by MENU_ID desc))
+end
+
+if not exists(select * from CONFIG_MENU where LINK='/compliance/workFlowStatus')
+begin
+insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
+values(GETDATE(),1,NULL,'Workflow status',NULL,1,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
+(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/compliance/workFlowStatus',
+null,0,1,1)
+End
+if not exists(select * from CONFIG_MENU where LINK='/compliance/workFlowStatus')
+begin
+insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
+values(GETDATE(),1,NULL,'Workflow status',NULL,1,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
+(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/compliance/workFlowStatus',
+null,0,1,1)
+End
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/compliance/complianceruleall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/complianceruleall','systemx.api.model.compliancelibrary',
+(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_R' order by MENU_ID desc))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/librarytypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/librarytypeall',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'REGULATION TYPE'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/compliance/ruleTypeAllAI'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/ruleTypeAllAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/compliance/ruleTypeAllAI',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'REGULATION TYPE'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/requirementstatusall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/requirementstatusall',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'REQUIREMENT STATUS'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/compliance/ruleTypeAllAI'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/ruleTypeAllAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/compliance/ruleTypeAllAI',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'REQUIREMENT STATUS'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/compliance/helperexcelComplianceCategory')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/helperexcelComplianceCategory',null,
+(select MENU_ID from config_menu where LINK ='/compliance/library-tree'))
+end
+delete CONFIG_APIFORENTITYNAME where api='/api/config/compliancestatus'
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancestatus')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancestatus',
+(select menu_id from config_menu where LINK='/compliance/rule'))
+end
+delete CONFIG_APIFORENTITYNAME where  api='/api/config/compliancestatusall'
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancestatusall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancestatusall',
+(select menu_id from config_menu where LINK='/compliance/rule'))
+end
+
+
+
