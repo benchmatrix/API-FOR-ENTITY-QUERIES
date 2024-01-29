@@ -4350,3 +4350,10 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/assetenvironmentall',null,
 (select MENU_ID from config_menu where LINK ='/config/asset_enviroment'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/incidenttype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/incidenttype',
+(select MENU_ID from config_menu where Link='/config/incident_type'))
+end
+
