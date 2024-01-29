@@ -583,3 +583,11 @@ values(GETDATE(),1,NULL,'Assessment Measure Weightage',NULL,2,(select MODULE_ID 
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasureweightage','GAMW',
 0,1,1)
 End
+
+if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentarea')
+begin
+insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
+values(GETDATE(),1,NULL,'Assessment Area',NULL,2,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
+(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentarea','GAA',0,1,1)
+End
+
