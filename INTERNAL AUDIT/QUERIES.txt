@@ -272,3 +272,9 @@ end
 
 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/scorethreshold')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/scorethreshold',
+(select menu_id from config_menu where Link='/internalaudit/scorethreshold'))
+end
+
