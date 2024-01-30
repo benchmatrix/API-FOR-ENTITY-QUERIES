@@ -5493,3 +5493,9 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/responseAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/responseAI',
+'systemx.api.model.config.compliance.Response',
+(select menu_id from config_menu where DISPLAYNAME = 'Response'))
+end
