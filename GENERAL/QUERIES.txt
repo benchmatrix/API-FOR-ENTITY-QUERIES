@@ -8104,4 +8104,11 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'INDIVIDUAL INVOLVED'))
 End
 
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/home/bucketAll')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/bucketAll','systemx.api.beans.LoginRequest',
+(select MENU_ID from config_menu where MENU_KEY = 'B'))
+end
 
