@@ -7668,3 +7668,23 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/libraryLogs',
 (select menu_id from config_menu where Link='/config/libraryupdate'))
 end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/designation')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/designation',
+(select menu_id from config_menu where Link='/config/designation'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/designationall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/designationall',
+(select menu_id from config_menu where Link='/config/designation'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/designationAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/designationAI',
+(select menu_id from config_menu where Link='/config/designation'))
+end
+
