@@ -8120,3 +8120,93 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/childworkflows/','systemx.api.model.workflow.Bucket',
 (select MENU_ID from config_menu where MENU_KEY = 'B'))
 end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/assetenvironmentall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/assetenvironmentall',null,
+(select MENU_ID from config_menu where LINK ='/config/asset_enviroment'))
+end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/assetlocationall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/assetlocationall',null,
+(select MENU_ID from config_menu where LINK ='/config/asset_location'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/fraudincidenttypeall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/fraudincidenttypeall',null,
+(select MENU_ID from config_menu where LINK ='/config/fraud_incident_type'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/assettypecategoryall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/assettypecategoryall',null,
+(select MENU_ID from config_menu where LINK ='/config/assettype_category'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/landscapeall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/landscapeall',null,
+(select MENU_ID from config_menu where LINK ='/risk/landscape'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/assetapplicationall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/assetapplicationall',null,
+(select MENU_ID from config_menu where LINK ='/config/asset_application'))
+end
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/incidentimpactall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/incidentimpactall',null,
+(select MENU_ID from config_menu where LINK ='/config/incident_impact'))
+end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/eyriskcategoryall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/eyriskcategoryall',null,
+(select MENU_ID from config_menu where LINK ='/config/eyrisk_category'))
+end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/biaclassificationall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/biaclassificationall',null,
+(select MENU_ID from config_menu where LINK ='/config/bia_classification'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/assetfunctionall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/assetfunctionall',null,
+(select MENU_ID from config_menu where LINK ='/config/asset_function'))
+end
+
+
+
+
+
