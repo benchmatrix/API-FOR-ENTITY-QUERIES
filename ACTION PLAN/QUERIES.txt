@@ -95,3 +95,10 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/actionplans
 where link = '/config/actionplan_severity'))
 end
 
+delete CONFIG_APIFORENTITYNAME where api='/api/config/actionplanseverity'
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/actionplanseverity')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/actionplanseverity',(select menu_id from config_menu
+where link = '/config/actionplan_severity'))
+end
