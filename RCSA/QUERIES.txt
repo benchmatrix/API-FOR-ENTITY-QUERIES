@@ -1614,3 +1614,77 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/likelihoodcategoryall',
 (select menu_id from config_menu where Link='/config/rcsa/likelihoodcategory'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/scorethresholdall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/scorethresholdall',
+(select menu_id from config_menu where DISPLAYNAME = 'Score threshold'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/scorethreshold')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/scorethreshold',
+(select menu_id from config_menu where DISPLAYNAME = 'Score threshold'))
+end
+
+
+----Risk type
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/risktypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/risktypeall',
+(select menu_id from config_menu where DISPLAYNAME = 'Risk type'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/risktype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/risktype',
+(select menu_id from config_menu where DISPLAYNAME = 'Risk type'))
+end 
+
+
+----Assessment Area type
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareatype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareatype',
+(select menu_id from config_menu where Link='/config/RCSA/assessmentareatype'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareatypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareatypeall',
+(select menu_id from config_menu where Link='/config/RCSA/assessmentareatype'))
+end 
+
+----Formula
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/formulaall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/formulaall',
+(select menu_id from config_menu where DISPLAYNAME = 'Formula'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/formula')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/formula',
+(select menu_id from config_menu where DISPLAYNAME = 'Formula'))
+end 
+
+
+
+---- Control coso category-----
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlcosocategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcosocategory',
+(select menu_id from config_menu where DISPLAYNAME = 'Control Coso Category'))
+end 
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlcosocategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcosocategoryall',
+(select menu_id from config_menu where DISPLAYNAME = 'Control Coso Category'))
+end 
