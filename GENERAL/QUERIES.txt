@@ -7068,3 +7068,14 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'SYSTEM NAME'))
 end
 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/broadcategory',(select menu_id from config_menu where DISPLAYNAME = 'Broad category'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/broadcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'Broad category'))
+end
+
