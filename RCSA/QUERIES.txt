@@ -1249,3 +1249,18 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/controlRegister/linkages',null,
 (select top 1 MENU_ID from config_menu where LINK='/RCSA/control-register'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/riskcategoryall',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/riskcategory',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
+end
+
