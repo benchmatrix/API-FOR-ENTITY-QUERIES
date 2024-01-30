@@ -7833,3 +7833,11 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/impactcoverage',
 (select menu_id from config_menu where Link='/config/impactcoverage'))
 end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/ruleTypeAllAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/ruleTypeAllAI',
+(select menu_id from config_menu where Link='/config/compliance/regulationtype'))
+end
+
