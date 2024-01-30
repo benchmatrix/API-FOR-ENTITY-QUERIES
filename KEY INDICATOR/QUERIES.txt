@@ -756,3 +756,51 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/getkidashboards
 (select menu_id from config_menu where Link='/keyriskindicators/create-kidashboards'))
 end
 
+if not exists
+(select * from config_apiforentityname where API='api/home/kiSetupBreachesAll')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('api/home/kiSetupBreachesAll',null,
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/ki/getallki')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/ki/getallki',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/ki/getallkireports')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/ki/getallkireports',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/KIall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/KIall',null,
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+
+
+
+
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/ki/getotherkis')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/ki/getotherkis',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
+end
+
