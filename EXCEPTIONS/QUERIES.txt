@@ -1,0 +1,5 @@
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/exceptions/exceptionsall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/exceptions/exceptionsall',
+(select menu_id from config_menu where MENU_KEY='EX'))
+end 
