@@ -8334,3 +8334,17 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/correspondenceall',
 (select menu_id from config_menu where LINK ='/bucket'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/languages',
+(select menu_id from config_menu where DISPLAYNAME ='Language'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languagesall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values
+('/api/config/languagesall',(select menu_id from config_menu where DISPLAYNAME = 'Language'))
+end
+
+
