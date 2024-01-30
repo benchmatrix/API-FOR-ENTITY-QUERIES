@@ -459,3 +459,15 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 'systemx.api.model.config.compliance',
 (select menu_id from config_menu where DISPLAYNAME = 'RESPONSE TYPE'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationrisklevel')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/observationrisklevel',
+(select menu_id from config_menu where Link='/config/compliance/observation/observationrisklevel'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationrisklevelall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/observationrisklevelall',
+(select menu_id from config_menu where Link='/config/compliance/observation/observationrisklevel'))
+end
