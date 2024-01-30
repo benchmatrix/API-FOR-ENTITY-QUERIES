@@ -427,3 +427,27 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/requirementstatusall',(select menu_id from config_menu where DISPLAYNAME = 'Requirement status'))
 end
 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancetype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancetype',(select menu_id from config_menu where DISPLAYNAME = 'Compliance type'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancetypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancetypeall',(select menu_id from config_menu where DISPLAYNAME = 'Compliance type'))
+end
+
+
+--Activity status--
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/activitystatus')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/activitystatus',(select menu_id from config_menu where DISPLAYNAME = 'Activity status'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/activitystatusall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/activitystatusall',(select menu_id from config_menu where DISPLAYNAME = 'Activity status'))
+end
+
