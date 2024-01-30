@@ -1135,3 +1135,14 @@ end
 
 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskthresholdall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskthresholdall',
+(select menu_id from config_menu where Link='/config/compliance/riskthreshold'))
+end
+
+
+update CONFIG_APIFORENTITYNAME set MENU_ID =(select menu_id from config_menu where LINK = '/config/RCSA/scorethreshold')  where api='/api/config/RCSA/scorethreshold'
+
+
+
