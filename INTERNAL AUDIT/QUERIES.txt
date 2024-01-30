@@ -244,3 +244,25 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentmeasurevaluesall',
 (select MENU_ID from config_menu where Link='/config/RCSA/assessmentmeasurevalues'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentcategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentcategory',
+(select menu_id from config_menu where LINK='/internalaudit/assessmentcategory'))
+end
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentdimensionall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentdimensionall',
+(select menu_id from config_menu where Link='/internalaudit/assessmentdimension'))
+end
+
+
+
+
+
+
+
+
