@@ -7158,3 +7158,77 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/theme',
 (select menu_id from config_menu where DISPLAYNAME = 'Theme'))
 end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/responseall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/responseall',
+(select menu_id from config_menu where DISPLAYNAME = 'response'))
+end 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/response')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/response',
+(select menu_id from config_menu where DISPLAYNAME = 'response'))
+end 
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowScreenOption
+')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowScreenOption
+',
+(select menu_id from config_menu where DISPLAYNAME = 'WorkflowScreenoption'))
+end 
+
+
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/home/bucketAll')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/bucketAll','systemx.api.beans.LoginRequest',
+(select MENU_ID from config_menu where MENU_KEY = 'B'))
+end
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/config/parentworkflows')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/parentworkflows','systemx.api.model.workflow.Bucket',
+(select MENU_ID from config_menu where MENU_KEY = 'B'))
+end
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/config/childworkflows/')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/childworkflows/','systemx.api.model.workflow.Bucket',
+(select MENU_ID from config_menu where MENU_KEY = 'B'))
+end
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/home/assigncomplianceruleall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/assigncomplianceruleall','systemx.api.model.workflow.Bucket',
+(select MENU_ID from config_menu where MENU_KEY = 'B'))
+end
+
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/home/assigncomplianceruleall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dashboardFiltersData','systemx.api.model.workflow.Bucket',
+(select MENU_ID from config_menu where MENU_KEY = 'RM'))
+end
+
+---------------------------Regulatory Monitoring ------------------------
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/dashboardFiltersData')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dashboardFiltersData','systemx.api.model.dashboards',
+(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_AD' order by MENU_ID desc))
+end
+
+
+
