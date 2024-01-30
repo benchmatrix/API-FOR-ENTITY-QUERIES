@@ -663,3 +663,15 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/observation
 (select menu_id from config_menu where Link='/config/compliance/observation/observationpriority'))
 end
 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationratingtypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/observationratingtypeall',
+(select menu_id from config_menu where Link='/config/compliance/observation/observationratingtype'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationratingtype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/observationratingtype',
+(select menu_id from config_menu where Link='/config/compliance/observation/observationratingtype'))
+end
