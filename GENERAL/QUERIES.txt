@@ -6407,3 +6407,224 @@ where API='/api/config/WorkFlowStatus'
 
 
 
+if not exists(select * from config_apiforentityname where API='/api/config/dynamicconfigbylink')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/dynamicconfigbylink',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/addadditionalmembers'))
+end
+if not exists(select * from config_apiforentityname where API='/api/config/malwareanalysisall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/malwareanalysisall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/malwareanalysis'))
+end
+
+
+if not exists(select * from config_apiforentityname where API='/api/config/addstakeholderall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/addstakeholderall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/addstakeholders'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/memoryanalysisall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/memoryanalysisall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/memoryanalysis'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/registryanalysisall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/registryanalysisall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/registryanalysis'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/originofattackall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/originofattackall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/originofattack'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/evidencesall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/evidencesall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/evidence'))
+end
+if not exists(select * from config_apiforentityname where API='/api/config/meansofexportationall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/meansofexportationall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/meansofexportation'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/compromisetypeall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/compromisetypeall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/compromisetype'))
+end
+
+
+if not exists(select * from config_apiforentityname where API='/api/config/lawenforcementnotifiedall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/lawenforcementnotifiedall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/lawenforcementnotified'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/prioritylevelall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/prioritylevelall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/prioritylevel'))
+end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/staticConfiguration')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/staticConfiguration',null,
+(select MENU_ID from config_menu where LINK ='/config/staticconfiguration'))
+end
+
+
+
+
+
+if not exists(select * from config_apiforentityname where API='/api/home/workshopall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/workshopall','systemx.api.model.rcsa',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+
+if not exists(select * from config_apiforentityname where API='/api/home/kisetupall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/kisetupall','systemx.api.model.ki',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/assigndatapointsall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/assigndatapointsall','systemx.api.model.ki',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+	if not exists(select * from CONFIG_MENU where MENU_KEY='RP')
+begin
+insert into CONFIG_MENU (DISPLAYNAME,MODULE_ID,PARENTID,CREATEDBY,CREATEDON,HIDE_IN_MENU,IS_CONFIG,MENU_KEY)
+values ('changePassword' , (select MODULE_ID from CONFIG_MODULE where MODULE_KEY='CNFG'), 
+(select menu_id from CONFIG_MENU where DISPLAYNAME='General'),1,GETDATE(),1,1,'RP')
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME  where api='/api/config/changePassword')
+begin
+insert into CONFIG_APIFORENTITYNAME (API,MENU_ID) values ('/api/config/changePassword',(select menu_id from CONFIG_MENU where MENU_KEY='RP'))
+end
+
+
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/selfassessmentall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/selfassessmentall','systemx.api.model.compliance.selfassessment',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/compliancerequirementall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/compliancerequirementall','systemx.api.model.regulatorycompliance',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/RCSAall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/RCSAall','systemx.api.model.rcsa',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+
+
+if not exists
+(select * from config_apiforentityname where API='api/home/correspondenceall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('api/home/correspondenceall','systemx.api.model.correspondance',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/observationall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/observationall','systemx.api.model.complianceobservation',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/incidentreportall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/incidentreportall','systemx.api.model.loss',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/incidentproposalall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/incidentproposalall','systemx.api.model.loss',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/actionplanall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/actionplanall','systemx.api.model.actionplan',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/complianceruleall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/complianceruleall','systemx.api.model.compliancelibrary',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+End
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/assignedCorrespondenceall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/assignedCorrespondenceall','systemx.api.model.correspondance',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
