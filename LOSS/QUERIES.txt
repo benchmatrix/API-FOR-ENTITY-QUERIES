@@ -334,3 +334,13 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losstypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/losstypeall',
+(select menu_id from config_menu where DISPLAYNAME = 'Loss type'))
+end 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losstype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/losstype',
+(select menu_id from config_menu where DISPLAYNAME = 'Loss type'))
+end 
