@@ -8355,3 +8355,28 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/closeAuditFactorsall',null,
 (select MENU_ID from config_menu where LINK ='/config/close_Audit_Factors'))
 end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/ramcategorythreshold')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/ramcategorythreshold',
+(select menu_id from config_menu where Link='/RAM'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languageall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/languageall',
+(select menu_id from config_menu where Link='/config/LanguageTerms'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/segmentAll')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll',
+(select menu_id from config_menu where Link='/segment'))
+end
+
+
+
+
+
