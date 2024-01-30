@@ -6139,3 +6139,21 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowStateReminder',
 (select menu_id from config_menu where Link='/config/workflow-setup'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevelAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevelAI',
+(select menu_id from config_menu where Link='/config/compliance/prioritylevel'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevelall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevelall',
+(select menu_id from config_menu where Link='/config/compliance/prioritylevel'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevel')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevel',
+(select menu_id from config_menu where Link='/config/compliance/prioritylevel'))
+end
