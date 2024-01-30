@@ -7626,3 +7626,11 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFilters',
 (select menu_id from config_menu where LINK ='/dashboard/newdashboard'))
 end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/resolutiontypes')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/resolutiontypes',
+'systemx.api.model.config.actionplan.ResolutionType',
+(select menu_id from config_menu where DISPLAYNAME = 'RESOLUTION TYPE'))
+End
