@@ -926,4 +926,19 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/formul
 end 
 
 
+---- Control coso category-----
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlcosocategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcosocategory',
+(select menu_id from config_menu where DISPLAYNAME = 'Control Coso Category'))
+end 
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlcosocategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcosocategoryall',
+(select menu_id from config_menu where DISPLAYNAME = 'Control Coso Category'))
+end 
 
