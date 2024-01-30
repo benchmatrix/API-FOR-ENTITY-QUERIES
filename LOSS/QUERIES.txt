@@ -197,3 +197,17 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/loss/incidentrepor
 end
 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losscontrolstatusall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/losscontrolstatusall',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/losscontrolstatus'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losscontrolstatus')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/losscontrolstatus',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
+end
