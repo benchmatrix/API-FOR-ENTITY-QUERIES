@@ -551,3 +551,46 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/library/complianceCategoryall','systemx.api.model.compliancelibrary',
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_Q' order by MENU_ID desc))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/librarytypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/librarytypeall',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'REGULATION TYPE'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/compliance/ruleTypeAllAI'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/ruleTypeAllAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/compliance/ruleTypeAllAI',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'REGULATION TYPE'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/requirementstatusall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/requirementstatusall',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'REQUIREMENT STATUS'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/compliance/ruleTypeAllAI'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/ruleTypeAllAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/compliance/ruleTypeAllAI',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'REQUIREMENT STATUS'))
+end
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancetypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/compliancetypeall',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'COMPLIANCE TYPE'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/compliancetype'	
+
+
