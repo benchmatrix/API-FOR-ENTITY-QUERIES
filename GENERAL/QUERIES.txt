@@ -23,6 +23,55 @@ values('/api/config/fieldsall','systemx.api.model.config.dynamicpages',
 end
 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocessall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocessall',
+'systemx.api.model.config',
+(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/productlinkedprocess'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocess')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocess',
+'systemx.api.model.config',
+(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/recoverytypeall',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'RECOVERY TYPE'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/recoverytype'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/recoverytype',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'RECOVERY TYPE'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/systemnameall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/systemnameall',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'SYSTEM NAME'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/systemname'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/systemname')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/systemname',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'SYSTEM NAME'))
+end
+
+
+
+
+
 if not exists
 (select * from config_apiforentityname where API='/api/config/validationall')
 begin
