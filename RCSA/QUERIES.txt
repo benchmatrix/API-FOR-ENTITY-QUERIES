@@ -1296,3 +1296,10 @@ end
 
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
 LINK = '/config/RCSA/assessmentarea') where API = '/api/config/RCSA/assessmentarea'
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/rcsa/threatcategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/rcsa/threatcategoryall',
+(select menu_id from config_menu where Link='/config/rcsa/threatcategory'))
+end
