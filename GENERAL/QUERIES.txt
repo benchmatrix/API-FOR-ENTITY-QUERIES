@@ -6821,3 +6821,60 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 'systemx.api.model.config.compliance.Response',
 (select menu_id from config_menu where DISPLAYNAME = 'Response'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/pagesall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/pagesall',
+'systemx.api.model.config.dynamicpages.Pages',
+(select menu_id from config_menu where DISPLAYNAME = 'PAGES'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldlinkpagesall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldlinkpagesall',
+'systemx.api.model.config.dynamicpages.FieldLinkPages',
+(select menu_id from config_menu where DISPLAYNAME = 'FIELD LINK PAGES'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflow')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/workflow',
+'systemx.api.model.config.dynamicpages.FieldLinkPages',
+(select menu_id from config_menu where link = '/config/workflow-setup'))
+end
+
+update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where link = '/config/workflow-setup') where
+api='/api/config/workflow'
+
+update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where link = '/config/workflow-setup') where
+api='/api/config/workflowStateType'
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/domainall',
+'systemx.api.model.config.Domain',
+(select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboardall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboardall',
+'systemx.api.model.config.Dashboard',
+(select MENU_ID from config_menu where LINK = '/config/dashboard'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboard')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboard',
+'systemx.api.model.config.Dashboard',
+(select MENU_ID from config_menu where LINK = '/config/dashboard'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/locationsall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/locationsall',
+'systemx.api.model.config.Locations',
+(select MENU_ID from config_menu where LINK = '/config/location'))
+end
+
