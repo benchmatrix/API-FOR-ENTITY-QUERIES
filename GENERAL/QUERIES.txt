@@ -5323,3 +5323,20 @@ values('/api/home/assignedCorrespondenceall','systemx.api.model.correspondance',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainTree')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/domainTree',
+'systemx.api.model.config.Domain',
+(select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboard')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboard',
+'systemx.api.model.config.Dashboard',
+(select menu_id from config_menu where DISPLAYNAME = 'DASHBOARDS'))
+end
+
+
+
