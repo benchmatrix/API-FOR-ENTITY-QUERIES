@@ -7613,3 +7613,9 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/produ
 	'systemx.api.model.config',
 	(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT'))
 	end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/complianceCategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/complianceCategoryall',(select menu_id from config_menu where DISPLAYNAME = 'Industry library'))
+end
