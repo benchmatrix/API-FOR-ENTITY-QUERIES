@@ -502,3 +502,20 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/observation/getall
 (select menu_id from config_menu where LINK ='/compliance/Audit/externalauditReport' and menu_key='O_ER'))
 end 
 
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/config/getColumnsOfFindings')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/getColumnsOfFindings','systemx.api.model.config.dynamicpages',
+(select top 1 MENU_ID from config_menu where MENU_KEY = 'O_IO' order by MENU_ID desc))
+end
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/observation/getallobervationsbyobservationtype')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/getallobervationsbyobservationtype','systemx.api.model.complianceobservation',
+(select top 1 MENU_ID from config_menu where MENU_KEY = 'O_EO' order by MENU_ID desc))
+end
+
+
