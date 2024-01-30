@@ -1561,4 +1561,33 @@ values('/api/rcsa/rcsaworkshopall',
 MENU_ID desc))
 end
 
+update CONFIG_APIFORENTITYNAME set MENU_ID =(select menu_id from config_menu where LINK = '/config/RCSA/scorethreshold')  where api='/api/config/RCSA/scorethreshold'
+
+
+if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentareatype')
+begin
+insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
+values(GETDATE(),1,NULL,'Assessment Area Type',NULL,1,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'CNFG'),
+(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'RCSA'),'fa fa-exclamation-triangle','/config/RCSA/assessmentareatype',
+null,1,1,1)
+End
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmenttypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmenttypeall',
+(select menu_id from config_menu where LINK ='/config/RCSA/assessmentareatype'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmenttype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmenttype',
+(select menu_id from config_menu where LINK = '/config/RCSA/assessmentareatype'))
+end
+
+
+update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
+LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmenttypeall'
+update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
+LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmenttype'
+
 
