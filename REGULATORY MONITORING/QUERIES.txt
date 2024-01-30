@@ -505,3 +505,15 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/complianceactivityall',
 (select menu_id from config_menu where LINK='/compliance/compliance-activity'))
 end
+
+--Requirement status--
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/requirementstatus')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/requirementstatus',(select menu_id from config_menu where DISPLAYNAME = 'Requirement status'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/requirementstatusall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/requirementstatusall',(select menu_id from config_menu where DISPLAYNAME = 'Requirement status'))
+end
