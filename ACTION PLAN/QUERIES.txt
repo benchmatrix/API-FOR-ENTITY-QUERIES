@@ -41,3 +41,18 @@ values('/api/actionplan/linkages',null,
 (select MENU_ID from config_menu where LINK ='/actionplan/actionplan'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/actionPlanCategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/actionPlanCategoryall',
+(select menu_id from config_menu where Link='/config/actionPlanCategoryComponent'))
+end
+
+delete CONFIG_APIFORENTITYNAME where api='/api/config/actionPlanCategory'
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/actionPlanCategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/actionPlanCategory',
+(select menu_id from config_menu where Link='/config/actionPlanCategoryComponent'))
+End
+
+
