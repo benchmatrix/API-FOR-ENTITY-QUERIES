@@ -549,3 +549,19 @@ LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmentt
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
 LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmenttype'
 
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/generalDashboardFilters')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFilters',
+(select menu_id from config_menu where LINK ='/dashboard/newdashboard'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/correspondenceall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/correspondenceall',
+(select menu_id from config_menu where LINK ='/bucket'))
+end
+
+
