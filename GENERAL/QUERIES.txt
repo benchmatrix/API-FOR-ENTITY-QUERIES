@@ -7791,3 +7791,45 @@ update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/workFlowStatus')
 where API='/api/config/WorkFlowStatus'
 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowstatetypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowstatetypeall',
+(select menu_id from config_menu where Link='/config/workflowstatetype'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowstatetype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowstatetype',
+(select menu_id from config_menu where Link='/config/workflowstatetype'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatusall',
+(select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
+(select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/themeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/themeall',
+(select menu_id from config_menu where Link='/config/theme'))
+end
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcoverageall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/impactcoverageall',
+(select menu_id from config_menu where Link='/config/impactcoverage'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcoverage')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/impactcoverage',
+(select menu_id from config_menu where Link='/config/impactcoverage'))
+end
