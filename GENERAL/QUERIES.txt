@@ -7311,3 +7311,24 @@ values('/api/config/userprofileAI',
 MENU_ID desc))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/broadcategoryall',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/broadcategory'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/broadcategory',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/correspondenceall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/correspondenceall',
+(select menu_id from config_menu where LINK ='/bucket'))
+end
