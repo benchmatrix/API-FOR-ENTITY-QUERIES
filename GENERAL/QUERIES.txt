@@ -8208,5 +8208,35 @@ end
 
 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/rcsa/fraudcategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/rcsa/fraudcategoryall',
+(select menu_id from config_menu where Link='/config/rcsa/fraudcategory'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/timeSheetall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/timeSheetall',
+(select menu_id from config_menu where Link='/time_Sheet'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/holidayall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/holidayall',
+(select menu_id from config_menu where Link='/config/holiday'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/makerCheckerForDT')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/makerCheckerForDT',
+(select menu_id from config_menu where Link='/makerchecker'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/syncHistoryAll')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/syncHistoryAll',
+(select menu_id from config_menu where Link='/notification-center'))
+end
 
 
