@@ -559,3 +559,17 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/ki/getotherkis',null,
 (select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/kisetuplinkriskcategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/kisetuplinkriskcategory',
+(select menu_id from config_menu where Link='config/risk_category'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/addkistodashboard')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/addkistodashboard',
+(select MENU_ID from config_menu where Link='/keyriskindicators/create-kidashboards'))
+end
+
