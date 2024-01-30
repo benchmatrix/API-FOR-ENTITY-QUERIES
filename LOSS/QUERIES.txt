@@ -431,3 +431,34 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/loss/attributionall',null,
 (select MENU_ID from config_menu where LINK ='/lossmanagement/lossmanagement'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losscontrolstatusall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/losscontrolstatusall',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/losscontrolstatus'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losscontrolstatus')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/losscontrolstatus',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/config/potentialcustomerimpactall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/potentialcustomerimpactall',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
+end
+delete CONFIG_APIFORENTITYNAME where API= 'api/config/potentialcustomerimpact'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/config/potentialcustomerimpact')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/potentialcustomerimpact',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
+end
