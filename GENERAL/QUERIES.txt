@@ -6404,3 +6404,6 @@ end
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/workFlowStatus')
 where API='/api/config/WorkFlowStatus'
+
+
+
