@@ -7694,3 +7694,15 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowStateReminder',
 (select menu_id from config_menu where Link='/config/workflow-setup'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskseverityall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskseverityall',
+(select menu_id from config_menu where Link='/config/compliance/risk_severity'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskseverity')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskseverity',
+(select menu_id from config_menu where Link='/config/compliance/risk_severity'))
+end
