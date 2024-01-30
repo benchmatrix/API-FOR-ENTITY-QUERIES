@@ -942,3 +942,17 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcoso
 (select menu_id from config_menu where DISPLAYNAME = 'Control Coso Category'))
 end 
 
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/categoryassessment')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/categoryassessment',
+(select menu_id from config_menu where DISPLAYNAME = 'Category assessment'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/categoryassessmentall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/categoryassessmentall',
+(select menu_id from config_menu where DISPLAYNAME = 'Category assessment'))
+end 
+
