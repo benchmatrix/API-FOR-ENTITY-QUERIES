@@ -963,3 +963,23 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/home/workshopall','systemx.api.model.rcsa',
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'RA_AW' order by MENU_ID desc))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/riskall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/riskall',
+(select menu_id from config_menu where DISPLAYNAME = 'RISK REGISTER'))
+end 
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/RCSA/getrcsaformula')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/getrcsaformula',
+(select menu_id from config_menu where DISPLAYNAME = 'RISK REGISTER'))
+end 
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/RCSA/riskregisterall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/riskregisterall',
+(select menu_id from config_menu where DISPLAYNAME = 'RISK REGISTER'))
+end 
