@@ -594,3 +594,21 @@ end
 delete CONFIG_APIFORENTITYNAME where API= '/api/config/compliancetype'	
 
 
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/home/assigncomplianceruleall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/assigncomplianceruleall','systemx.api.model.workflow.Bucket',
+(select MENU_ID from config_menu where MENU_KEY = 'B'))
+end
+
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/home/assigncomplianceruleall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dashboardFiltersData','systemx.api.model.workflow.Bucket',
+(select MENU_ID from config_menu where MENU_KEY = 'RM'))
+end
+
+
