@@ -6000,3 +6000,79 @@ values('/api/config/userprofileAI',
 MENU_ID desc))
 end
 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/assignToProfileAll')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/assignToProfileAll',
+(select menu_id from config_menu where Link='/config/assigntoprofile'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/assignToProfile')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/assignToProfile',
+(select menu_id from config_menu where Link='/config/assigntoprofile'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeall')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeall',
+	'systemx.api.model.config',
+	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
+	end
+	delete CONFIG_APIFORENTITYNAME where API= '/api/config/officetypeAI'	
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeAI')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeAI',
+	'systemx.api.model.config',
+	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
+	end
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domain')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domain',
+(select menu_id from config_menu where Link='/config/domain'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domainall',
+(select menu_id from config_menu where Link='/config/domain'))
+end
+
+
+
+
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dicoverytypeall')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dicoverytypeall',
+	'systemx.api.model.config',
+	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
+	end
+	delete CONFIG_APIFORENTITYNAME where API= '/api/config/discoverytype'	
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/discoverytype')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/discoverytype',
+	'systemx.api.model.config',
+	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
+	end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productall')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productall',
+	'systemx.api.model.config',
+	(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT'))
+	end
+	delete CONFIG_APIFORENTITYNAME where API= '/api/config/productAI'	
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productAI')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productAI',
+	'systemx.api.model.config',
+	(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT'))
+	end
+
+
