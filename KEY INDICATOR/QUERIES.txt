@@ -804,3 +804,93 @@ values('/api/ki/getotherkis',null,
 (select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
 end
 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kimeasure')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kimeasure',(select menu_id from config_menu where DISPLAYNAME = 'KI Measure'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kimeasureall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kimeasureall',(select menu_id from config_menu where DISPLAYNAME = 'KI Measure'))
+end 
+
+-- KI Weightage Queries--
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiweightage')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiweightage',(select menu_id from config_menu where DISPLAYNAME = 'KI Weightage'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiweightageall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiweightageall',(select menu_id from config_menu where DISPLAYNAME = 'KI Weightage'))
+end 
+
+-- KI Threshold Queries
+
+
+delete from CONFIG_APIFORENTITYNAME where api='/api/config/kithreshold'
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithreshold')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID)values('/api/config/kithreshold',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold'))
+end 
+
+update CONFIG_APIFORENTITYNAME
+set MENU_ID=(select MENU_ID from config_menu where link='/config/kithreshold')
+where API='/api/config/kithreshold'
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdall',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold'))
+end
+
+-- KI Threshold Category Queries
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdcategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold Category'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdcategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdcategory',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold Category'))
+end
+
+
+-- KI Format Queries
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiformatall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiformatall',(select menu_id from config_menu where DISPLAYNAME = 'KI Format'))
+end 
+
+delete from CONFIG_APIFORENTITYNAME where api='/api/config/kiformat'
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiformat')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiformat',(select menu_id from config_menu where DISPLAYNAME ='KI Format'))
+end
+
+
+update CONFIG_APIFORENTITYNAME
+set MENU_ID=(select MENU_ID from config_menu where link='/config/kiformat')
+where API='/api/config/kiformat'
+
+
+-- KI Impacttype Queries
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttypeall',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
+end 
+
+delete CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttype'
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttype',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
+end
