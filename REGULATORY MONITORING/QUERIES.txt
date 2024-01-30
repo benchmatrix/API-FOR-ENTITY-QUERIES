@@ -480,3 +480,22 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/ruleTyp
 (select menu_id from config_menu where Link='/config/compliance/regulationtype'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getActivityNotificationsall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getActivityNotificationsall',
+(select menu_id from config_menu where Link='/config/compliance/activitynotifications'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getActivityNotifications')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getActivityNotifications',
+(select menu_id from config_menu where Link='/config/compliance/activitynotifications'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/libraryLogs')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/libraryLogs',
+(select menu_id from config_menu where Link='/config/libraryupdate'))
+end
