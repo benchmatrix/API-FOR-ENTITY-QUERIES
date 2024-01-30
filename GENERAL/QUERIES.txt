@@ -5249,3 +5249,77 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/home/compliancerequirementall','systemx.api.model.regulatorycompliance',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/RCSAall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/RCSAall','systemx.api.model.rcsa',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+
+
+if not exists
+(select * from config_apiforentityname where API='api/home/correspondenceall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('api/home/correspondenceall','systemx.api.model.correspondance',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/observationall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/observationall','systemx.api.model.complianceobservation',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/incidentreportall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/incidentreportall','systemx.api.model.loss',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/incidentproposalall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/incidentproposalall','systemx.api.model.loss',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/actionplanall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/actionplanall','systemx.api.model.actionplan',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/complianceruleall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/complianceruleall','systemx.api.model.compliancelibrary',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+End
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/assignedCorrespondenceall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/assignedCorrespondenceall','systemx.api.model.correspondance',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
