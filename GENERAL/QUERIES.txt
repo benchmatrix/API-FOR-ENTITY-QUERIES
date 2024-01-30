@@ -7841,3 +7841,36 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/ruleTyp
 (select menu_id from config_menu where Link='/config/compliance/regulationtype'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fraudincidentgeographyall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fraudincidentgeographyall',
+(select menu_id from config_menu where Link='/config/fraud_incident_goegraphy'))
+end
+
+
+if not exists
+(select * from CONFIG_MENU where LINK='/compliance/compliance-key-area')
+begin
+insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
+values(GETDATE(),1,NULL,'Compliance Key Area',NULL,1,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
+(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'Compliance'),'fa fa-exclamation-triangle','/compliance/compliance-key-area',
+null,1,1,1)
+End
+if not exists
+(select * from config_apiforentityname where API='/api/config/compliance/compliance-key-area-all')
+begin
+Insert into config_apiforentityname(API,MENU_ID)
+values('/api/config/compliance/compliance-key-area-all',
+(select top 1 MENU_ID from config_menu where LINK = '/compliance/compliance-key-area' order by 
+MENU_ID desc))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controltypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controltypeall',
+(select menu_id from config_menu where Link='/config/rcsa/controltype'))
+end
+
+
+
