@@ -7688,3 +7688,9 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/designation
 (select menu_id from config_menu where Link='/config/designation'))
 end
 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStateReminder')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowStateReminder',
+(select menu_id from config_menu where Link='/config/workflow-setup'))
+end
