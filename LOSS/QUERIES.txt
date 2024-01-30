@@ -246,3 +246,40 @@ values('/api/loss/LinkIncidentProposal','systemx.api.model.loss',
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'LD_AIP' order by MENU_ID desc))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentiallossall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentiallossall',
+(select menu_id from config_menu where DISPLAYNAME = 'Potential Loss'))
+end
+
+
+delete from CONFIG_APIFORENTITYNAME where api='/api/config/potentialloss'
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentialloss')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentialloss',
+(select menu_id from config_menu where LINK = '/config/potential_loss'))
+end
+
+
+
+
+update CONFIG_APIFORENTITYNAME
+set MENU_ID=(select MENU_ID from config_menu where link='/config/potential_loss')
+where API='/api/config/potentialloss'
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentiallossall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentiallossall',
+(select menu_id from config_menu where DISPLAYNAME ='Potential Loss'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentialloss')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentialloss',
+(select menu_id from config_menu where DISPLAYNAME ='Potential Loss'))
+end
+
