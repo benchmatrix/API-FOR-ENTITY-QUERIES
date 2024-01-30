@@ -1107,3 +1107,31 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/Workshop/ShowWorkshopLinkages',
 (select menu_id from config_menu where Link='/RCSA/workshop'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlfrequencyall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlfrequencyall',
+(select menu_id from config_menu where Link='/config/rcsa/controlfrequency'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlfrequency')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlfrequency',
+(select menu_id from config_menu where Link='/config/rcsa/controlfrequency'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskseverityall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskseverityall',
+(select menu_id from config_menu where Link='/config/compliance/risk_severity'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskseverity')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskseverity',
+(select menu_id from config_menu where Link='/config/compliance/risk_severity'))
+end
+
+
+
