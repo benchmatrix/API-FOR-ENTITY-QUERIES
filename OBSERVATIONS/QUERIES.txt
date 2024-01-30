@@ -612,3 +612,18 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'AUDIT TYPE'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationresponsetypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationresponsetypeall',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'RESPONSE TYPE'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/observationresponsetype'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationresponsetype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationresponsetype',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'RESPONSE TYPE'))
+end
+
