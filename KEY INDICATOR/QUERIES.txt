@@ -750,4 +750,9 @@ values('/api/ki/assigndatapointsall',
 MENU_ID desc))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/getkidashboards')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/getkidashboards',
+(select menu_id from config_menu where Link='/keyriskindicators/create-kidashboards'))
+end
 
