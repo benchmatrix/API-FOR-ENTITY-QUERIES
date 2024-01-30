@@ -5781,3 +5781,26 @@ end
 
 
 
+--Broad category----
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/broadcategory',(select menu_id from config_menu where DISPLAYNAME = 'Broad category'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/broadcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'Broad category'))
+end
+
+--Compliance status--
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancestatus')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancestatus',(select menu_id from config_menu where DISPLAYNAME = 'Rule status'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancestatusall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancestatusall',(select menu_id from config_menu where DISPLAYNAME = 'Rule status'))
+end
