@@ -9926,3 +9926,23 @@ values('/api/config/WorkFlowStatus',
 (select top 1 MENU_ID from config_menu where LINK = '/compliance/workFlowStatus' order by 
 MENU_ID desc))
 end
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/config/userprofileall')
+begin
+Insert into config_apiforentityname(API,MENU_ID)
+values('/api/config/userprofileall',
+(select top 1 MENU_ID from config_menu where LINK = '/config/userprofile' order by 
+MENU_ID desc))
+end
+
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/config/userprofileAI')
+begin
+Insert into config_apiforentityname(API,MENU_ID)
+values('/api/config/userprofileAI',
+(select top 1 MENU_ID from config_menu where LINK = '/config/userprofile' order by 
+MENU_ID desc))
+end
+
