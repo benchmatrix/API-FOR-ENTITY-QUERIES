@@ -9975,3 +9975,18 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 'systemx.api.model.config.compliance',
 (select menu_id from config_menu where DISPLAYNAME = 'AUDIT TYPE'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/generalDashboardFilters')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFilters',
+(select menu_id from config_menu where LINK ='/dashboard/newdashboard'))
+end
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/correspondenceall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/correspondenceall',
+(select menu_id from config_menu where LINK ='/bucket'))
+end
+
