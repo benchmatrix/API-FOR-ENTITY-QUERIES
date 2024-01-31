@@ -60,3 +60,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/preinspection/preinspectionall',
 (select menu_id from config_menu where Link='/preinspection/preinspection'))
 end
+
+
+
