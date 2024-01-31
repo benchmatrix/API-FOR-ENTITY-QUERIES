@@ -1855,3 +1855,16 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/likelihoodcategoryall',
 (select menu_id from config_menu where Link='/config/rcsa/likelihoodcategory'))
 end
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlstrengthall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlstrengthall',
+(select menu_id from config_menu where Link='/config/controlstrength'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskthresholdall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskthresholdall',
+(select menu_id from config_menu where Link='/config/compliance/riskthreshold'))
+end
+
