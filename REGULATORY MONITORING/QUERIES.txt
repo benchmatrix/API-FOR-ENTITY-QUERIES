@@ -638,3 +638,34 @@ end
 
 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/librarytypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/librarytypeall',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'REGULATION TYPE'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/compliance/ruleTypeAllAI'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/ruleTypeAllAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/compliance/ruleTypeAllAI',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'REGULATION TYPE'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/requirementstatusall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/requirementstatusall',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'REQUIREMENT STATUS'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/compliance/ruleTypeAllAI'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/ruleTypeAllAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/compliance/ruleTypeAllAI',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'REQUIREMENT STATUS'))
+end
+
