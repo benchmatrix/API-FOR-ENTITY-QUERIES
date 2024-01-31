@@ -9038,3 +9038,29 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getmandatoryTrainingall',
 (select menu_id from config_menu where Link='/config/compliance/mandatory-training'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/notificationlog')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/notificationlog',
+(select menu_id from config_menu where LINK ='/webcapture'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/notificationlog')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/notificationlog',
+(select menu_id from config_menu where LINK ='/bucket'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/decrypt')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/decrypt',
+(select menu_id from config_menu where LINK ='/webcapture'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/decrypt')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/decrypt',
+(select menu_id from config_menu where LINK ='/bucket'))
+end
