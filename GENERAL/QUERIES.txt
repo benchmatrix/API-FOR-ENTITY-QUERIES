@@ -8673,3 +8673,23 @@ values(GETDATE(),1,NULL,'Frequency',NULL,1,(select MODULE_ID from CONFIG_MODULE 
 null,0,1,1)
 End
 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/staticconfigurationall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/staticconfigurationall',
+(select menu_id from config_menu where Link='/config/staticconfiguration'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/getkidashboards')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/getkidashboards',
+(select menu_id from config_menu where Link='/keyriskindicators/create-kidashboards'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dicoverytypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/dicoverytypeall',
+(select menu_id from config_menu where Link='/config/discoverytype'))
+end
+
