@@ -10677,3 +10677,9 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/hierarchyforconfigDD',
 (select MENU_ID from config_menu where Link='/config/business_hierarchy'))
 End
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStateReminder')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowStateReminder',
+(select menu_id from config_menu where Link='/config/workflow-setup'))
+end
