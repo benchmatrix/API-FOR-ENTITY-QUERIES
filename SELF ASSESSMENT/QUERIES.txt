@@ -571,3 +571,9 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnai
 (select menu_id from config_menu where DISPLAYNAME = 'Questionniare Answer Type'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/SA/consolidationcriteriaall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/SA/consolidationcriteriaall',
+(select menu_id from config_menu where Link='/compliance/questionnaire/consolidationcriteria'))
+end
+
