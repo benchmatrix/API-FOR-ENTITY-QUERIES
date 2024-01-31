@@ -2069,3 +2069,59 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
+if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/riskarea')
+begin
+insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
+values(GETDATE(),1,NULL,'Risk Area ',NULL,6,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
+(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/rcsa/riskarea','GRA',0,1,1)
+End
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskarea')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskarea',
+(select MENU_ID from config_menu where Link='/config/rcsa/riskarea'))
+end
+
+
+if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/risklevel')
+begin
+insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
+values(GETDATE(),1,NULL,'Risk Level ',NULL,6,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
+(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/rcsa/risklevel','GRL',0,1,1)
+End
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/risklevel')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/risklevel',
+(select MENU_ID from config_menu where Link='/config/rcsa/risklevel'))
+end
+
+
+if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/methodology')
+begin
+insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
+values(GETDATE(),1,NULL,'Methodolgy ',NULL,6,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
+(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/rcsa/methodology','GCM',0,1,1)
+End
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/methodology')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/methodology',
+(select MENU_ID from config_menu where Link='/config/rcsa/methodology'))
+end
+
+
+
+if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/riskobjective')
+begin
+insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
+values(GETDATE(),1,NULL,'Risk Objective ',NULL,6,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
+(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/rcsa/riskobjective','GRO',0,1,1)
+End
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskobjective')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskobjective',
+(select MENU_ID from config_menu where Link='/config/rcsa/riskobjective'))
+end
+
