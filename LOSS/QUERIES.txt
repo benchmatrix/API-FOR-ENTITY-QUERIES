@@ -733,3 +733,20 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/loss/incidentpropo
 (select menu_id from config_menu where LINK = '/loss/losscapture'))
 end
 
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/loss/newincidentreportall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/loss/newincidentreportall','systemx.api.model.loss',
+(select top 1 MENU_ID from config_menu where MENU_KEY = 'LD_DI' order by MENU_ID desc))
+end
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/loss/LinkIncidentProposal/')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/loss/LinkIncidentProposal','systemx.api.model.loss',
+(select top 1 MENU_ID from config_menu where MENU_KEY = 'LD_AIP' order by MENU_ID desc))
+end
+
+
