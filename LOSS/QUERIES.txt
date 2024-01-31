@@ -709,3 +709,18 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/config/potentialcustomerimpactall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/potentialcustomerimpactall',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
+end
+delete CONFIG_APIFORENTITYNAME where API= 'api/config/potentialcustomerimpact'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/config/potentialcustomerimpact')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/potentialcustomerimpact',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
+end
