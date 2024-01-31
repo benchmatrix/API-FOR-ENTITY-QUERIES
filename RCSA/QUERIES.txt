@@ -2184,3 +2184,9 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/rcsacontrolcl
 (select menu_id from config_menu where Link='/RCSA/control-register'))
 end
 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/RCSA/workshoprisk')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/workshoprisk',
+(select MENU_ID from config_menu where Link='/RCSA/workshopassessment'))
+end
