@@ -8851,4 +8851,17 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/channelall',
 (select menu_id from config_menu where Link='/config/compliance/correspondance/channel'))
 end
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getActivityNotificationsall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getActivityNotificationsall',
+(select menu_id from config_menu where Link='/config/compliance/activitynotifications'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getActivityNotifications')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getActivityNotifications',
+(select menu_id from config_menu where Link='/config/compliance/activitynotifications'))
+end
+
 
