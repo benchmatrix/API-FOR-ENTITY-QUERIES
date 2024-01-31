@@ -9012,3 +9012,10 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 null,
 (select MENU_ID from config_menu where link ='/config/positions'))
 end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/parentworkflows/')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/parentworkflows/',
+(select menu_id from config_menu where Link='/config/workflow-setup'))
+end
