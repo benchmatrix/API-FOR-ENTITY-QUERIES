@@ -9319,3 +9319,10 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/dashboard/data',
 (select menu_id from config_menu where Link='/dashboard/dashboard-datasource'))
 end
 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersbytermallFromAllUsers')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersbytermallFromAllUsers',
+(select MENU_ID from config_menu where Link='/config/user'))
+end
+
