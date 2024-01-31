@@ -8787,3 +8787,18 @@ values('/api/dashboard/requirementdataall',null,
 (select MENU_ID from config_menu where DISPLAYNAME ='Dashboards' and link = '/dashboard/dashboards'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatusall',
+(select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
+(select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
+End
+
+update CONFIG_APIFORENTITYNAME
+set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/workFlowStatus')
+where API='/api/config/WorkFlowStatus'
