@@ -2315,3 +2315,14 @@ update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu wh
 LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmenttype'
 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmenttype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmenttype',
+(select menu_id from config_menu where LINK = '/config/RCSA/assessmentareatype'))
+end
+
+
+update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
+LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmenttypeall'
+update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
+LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmenttype'
