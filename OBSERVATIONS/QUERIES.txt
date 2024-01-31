@@ -846,3 +846,16 @@ null,
 (select menu_id from config_menu where LINK='/config/compliance/observation/auditreporttype'))
 end
 
+
+if not exists(select * from CONFIG_MENU where LINK='/compliance/observation/observationratingtype')
+begin
+insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
+values(GETDATE(),1,NULL,'Observation Rating Type',NULL,10,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
+(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/compliance/observation/observationratingtype','GORT',0,1,1)
+End
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationratingtype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/observationratingtype',
+(select MENU_ID from config_menu where Link='/compliance/observation/observationratingtype'))
+end
