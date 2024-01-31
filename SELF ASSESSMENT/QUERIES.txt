@@ -601,3 +601,5 @@ end
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/questionnaire/answertype')
 where API='/api/config/questionnaireanswertype'
+
+
