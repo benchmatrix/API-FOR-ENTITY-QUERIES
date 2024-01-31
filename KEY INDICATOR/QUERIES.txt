@@ -1161,3 +1161,18 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kidirectionall',(select menu_id from config_menu where DISPLAYNAME = 'KI direction'))
 end
 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/kisetupall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/kisetupall',
+(select menu_id from config_menu where LINK = '/keyriskindicators/create-kilisting'))
+end 
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/ki/assigndatapointsall')
+begin
+Insert into config_apiforentityname(API,MENU_ID)
+values('/api/ki/assigndatapointsall',
+(select top 1 MENU_ID from config_menu where LINK = '/keyriskindicators/assigndatapointsListing' order by 
+MENU_ID desc))
+end
