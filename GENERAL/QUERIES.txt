@@ -9266,3 +9266,50 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowSta
 (select MENU_ID from config_menu where Link='/config/workflow-setup'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersWithAdditionalInfoall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersWithAdditionalInfoall',
+(select MENU_ID from config_menu where Link='/config/user'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/alternateemployees')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/alternateemployees',
+(select MENU_ID from config_menu where Link='/config/employee-replacement'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocess')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/productlinkedprocess',
+(select MENU_ID from config_menu where Link='/config/productlinked_process'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/service/updateActivityWorkflowLog')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/service/updateActivityWorkflowLog',
+(select MENU_ID from config_menu where Link='/scheduleservice'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/segmentAll')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll',
+(select menu_id from config_menu where Link='/config/segment'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/auditstatusall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/auditstatusall',
+(select menu_id from config_menu where Link='/config/compliance/auditstatus'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/dashboard/rcsaall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dashboard/rcsaall',null,
+(select MENU_ID from config_menu where DISPLAYNAME ='Dashboards' and link = '/dashboard/dashboards'))
+end
+
