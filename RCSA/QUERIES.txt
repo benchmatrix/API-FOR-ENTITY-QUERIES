@@ -1844,3 +1844,14 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlfreq
 (select menu_id from config_menu where Link='/config/rcsa/controlfrequency'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/likelihoodcategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/likelihoodcategory',
+(select menu_id from config_menu where Link='/config/rcsa/likelihoodcategory'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/likelihoodcategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/likelihoodcategoryall',
+(select menu_id from config_menu where Link='/config/rcsa/likelihoodcategory'))
+end
