@@ -2195,3 +2195,13 @@ update CONFIG_APIFORENTITYNAME set MENU_ID =(select menu_id from config_menu whe
 
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
 LINK = '/config/RCSA/assessmentarea') where API = '/api/config/RCSA/assessmentarea'
+
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/home/workshopall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/workshopall','systemx.api.model.rcsa',
+(select top 1 MENU_ID from config_menu where MENU_KEY = 'RA_AW' order by MENU_ID desc))
+end
+
