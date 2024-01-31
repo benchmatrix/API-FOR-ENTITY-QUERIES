@@ -10262,3 +10262,36 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/produ
 	end
 
 
+if not exists
+(select * from config_apiforentityname where API='/api/config/getreportsall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/getreportsall',null,
+(select MENU_ID from config_menu where LINK ='/config/report'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/dimensionall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/dimensionall',null,
+(select MENU_ID from config_menu where LINK ='/config/dimension'))
+end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/compliance/helperexcelComplianceCategory')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/helperexcelComplianceCategory',null,
+(select MENU_ID from config_menu where LINK ='/compliance/library-tree'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/dashboard/requirementdataall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dashboard/requirementdataall',null,
+(select MENU_ID from config_menu where DISPLAYNAME ='Dashboards' and link = '/dashboard/dashboards'))
+end
+
