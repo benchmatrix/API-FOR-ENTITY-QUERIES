@@ -691,3 +691,11 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/compliance/complianceruleall','systemx.api.model.compliancelibrary',
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_R' order by MENU_ID desc))
 end
+
+
+if not exists(select * from config_apiforentityname where API='/api/library/complianceCategoryall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/library/complianceCategoryall','systemx.api.model.compliancelibrary',
+(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_Q' order by MENU_ID desc))
+end
