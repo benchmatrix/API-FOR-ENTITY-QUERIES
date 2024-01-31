@@ -872,3 +872,65 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/observation/getallobervationsbyobservationtype','systemx.api.model.complianceobservation',
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'O_EO' order by MENU_ID desc))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationtypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationtypeall',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'TYPE'))
+end
+
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/observationtype'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationtype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationtype',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'TYPE'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationnatureall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationnatureall',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'NATURE'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/observationnature'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationnature')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationnature',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'NATURE'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationpriorityall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationpriorityall',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'PRIORITY'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/observationpriority'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationpriority')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationpriority',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'PRIORITY'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationrootcauseall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationrootcauseall',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'ROOT CAUSE'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/observationrootcause'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationrootcause')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationrootcause',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'ROOT CAUSE'))
+end
