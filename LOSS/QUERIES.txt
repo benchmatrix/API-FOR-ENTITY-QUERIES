@@ -587,4 +587,108 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/dashboard/lossdataall',null,
 (select MENU_ID from config_menu where DISPLAYNAME ='Dashboards' and link = '/dashboard/dashboards'))
 end
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/marsratingall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/marsratingall',
+(select menu_id from config_menu where Link='/config/marsrating'))
+end
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/auditratingall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/auditratingall',
+(select menu_id from config_menu where Link='/config/auditrating'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/auditrisklevelall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/auditrisklevelall',
+(select menu_id from config_menu where Link='/config/auditrisklevel'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskseveritysall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskseveritysall',
+(select menu_id from config_menu where Link='/config/compliance/risk_severity'))
+end
+
+
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getActiveEntityReplaceTab')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getActiveEntityReplaceTab',	(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement'))
+	End
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getEntityReplaceByTab')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getEntityReplaceByTab',
+	(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement'))
+	end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/getBucketReplacedRecordsisActive')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/getBucketReplacedRecordsisActive',
+	(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE REPLACEMENT'))
+	end
+insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement')) 
+
+insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE')) 
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/userstree')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/userstree',
+	(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE'))
+	End
+
+insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE')) 
+
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/natureall')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/natureall',
+	(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE'))
+	end
+
+
+
+
+
+if not exists(select * from CONFIG_MENU where LINK='/listingFilters')
+begin
+insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
+values(GETDATE(),1,NULL,'Listing Filters',NULL,1,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
+(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/listingFilters',
+null,0,1,1)
+End
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData')
+begin
+Insert into config_apiforentityname(API,MENU_ID)
+values('/api/deleteDynamicFiltersData',
+(select top 1 MENU_ID from config_menu where LINK = '/listingFilters' order by 
+MENU_ID desc))
+end
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/dynamicFiltersData')
+begin
+Insert into config_apiforentityname(API,MENU_ID)
+values('/api/dynamicFiltersData',
+(select top 1 MENU_ID from config_menu where LINK = '/listingFilters' order by 
+MENU_ID desc))
+end
+
+
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/jsonuploader/error')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/jsonuploader/error',
+(select menu_id from config_menu where Link='/config/libraryupdate'))
+end
+
+
 
