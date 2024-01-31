@@ -964,3 +964,47 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/ki/getdatafieldbydatestring',null,
 (select MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints'))
 end
+
+
+if not exists
+(select * from config_apiforentityname where API='api/home/kiSetupBreachesAll')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('api/home/kiSetupBreachesAll',null,
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/ki/getallki')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/ki/getallki',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/ki/getallkireports')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/ki/getallkireports',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/KIall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/KIall',null,
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/ki/getotherkis')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/ki/getotherkis',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
+end
+
