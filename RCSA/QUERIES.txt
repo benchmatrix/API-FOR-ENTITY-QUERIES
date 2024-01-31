@@ -1978,3 +1978,14 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
 end
 
 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Workshop/WorkshopLinkages')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/Workshop/WorkshopLinkages',
+(select menu_id from config_menu where Link='/RCSA/workshop'))
+end
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Workshop/ShowWorkshopLinkages')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/Workshop/ShowWorkshopLinkages',
+(select menu_id from config_menu where Link='/RCSA/workshop'))
+end
