@@ -9815,3 +9815,9 @@ end
 
 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/profileLinkWfState')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/profileLinkWfState',
+(select menu_id from config_menu where DISPLAYNAME = 'Profile Link WF state'))
+end 
+
