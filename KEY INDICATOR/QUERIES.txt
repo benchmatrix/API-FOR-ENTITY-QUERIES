@@ -1256,6 +1256,14 @@ end
 
 
 
+if not exists
+(select * from config_apiforentityname where API='/api/ki/getdatafieldbydatestring')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/ki/getdatafieldbydatestring',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints'))
+end
+
 
 
 
