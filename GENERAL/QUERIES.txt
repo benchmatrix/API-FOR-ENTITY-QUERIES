@@ -10714,3 +10714,17 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/parentworkflows/',
 (select menu_id from config_menu where Link='/config/workflow-setup'))
 end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentialcustomerimpact')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentialcustomerimpact',
+(select menu_id from config_menu where LINK = '/config/potentialcustomer_impact'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentialcustomerimpactall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentialcustomerimpactall',
+(select menu_id from config_menu where LINK = '/config/potentialcustomer_impact'))
+end
