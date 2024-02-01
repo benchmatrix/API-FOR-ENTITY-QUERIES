@@ -10696,3 +10696,10 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/extraNotificationwfstate',
 (select MENU_ID from config_menu where Link='/config/workflow-setup'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/positionsall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/positionsall',
+null,
+(select MENU_ID from config_menu where link ='/config/positions'))
+end
