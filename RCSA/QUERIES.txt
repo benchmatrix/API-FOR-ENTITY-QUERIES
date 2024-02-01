@@ -2630,3 +2630,21 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/rcsa/wsassessment',null,
 (select MENU_ID from config_menu where LINK ='/RCSA/riskandcontrolassessment'))
 end
+
+if not exists
+(select * from config_apiforentityname where API='/api/rcsa/riskassessment')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/rcsa/riskassessment',null,
+(select MENU_ID from config_menu where menu_key='RA'))
+end
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/RCSA/wsrcsarisk')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/RCSA/wsrcsarisk',null,
+(select MENU_ID from config_menu where LINK ='/RCSA/workshopassessment'))
+end
