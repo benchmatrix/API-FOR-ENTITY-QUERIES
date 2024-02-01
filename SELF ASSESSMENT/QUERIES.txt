@@ -695,5 +695,11 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/answertypeall',null,
 (select MENU_ID from config_menu where LINK ='/config/answer_type'))
 end
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertype',
+(select menu_id from config_menu where DISPLAYNAME = 'Questionniare Answer Type'))
+end
+
 
 
