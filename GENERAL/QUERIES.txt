@@ -11370,4 +11370,11 @@ values('/api/config/configroleall',null,
 (select MENU_ID from config_menu where LINK ='/config/config-role'))
 end
 
+if not exists
+(select * from config_apiforentityname where API='/api/config/configteamall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/configteamall',null,
+(select MENU_ID from config_menu where LINK ='/config/config-team'))
+end
 
