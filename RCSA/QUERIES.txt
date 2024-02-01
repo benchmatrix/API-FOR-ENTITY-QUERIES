@@ -2575,3 +2575,9 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/rcsacontrolclassification',
 (select menu_id from config_menu where Link='/RCSA/control-register'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/ramcategorythreshold')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/ramcategorythreshold',
+(select menu_id from config_menu where Link='/RAM'))
+end
