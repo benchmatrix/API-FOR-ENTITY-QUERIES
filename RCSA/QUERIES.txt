@@ -2581,3 +2581,15 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/ramcategorythreshold',
 (select menu_id from config_menu where Link='/RAM'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskseveritysall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskseveritysall',
+(select menu_id from config_menu where Link='/compliance/risk_severity'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/rcsa/fraudcategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/rcsa/fraudcategoryall',
+(select menu_id from config_menu where Link='/config/rcsa/fraudcategory'))
+end
