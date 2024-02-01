@@ -11343,5 +11343,31 @@ values('/api/config/activityProgressStatusAll',null,
 end
 
 
+if not exists
+(select * from config_apiforentityname where API='/api/config/assetapplicationcategoryall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/assetapplicationcategoryall',null,
+(select MENU_ID from config_menu where LINK ='/config/asset_applicationcategory'))
+end
+if not exists
+(select * from config_apiforentityname where API='/api/config/operationalriskcategoryall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/operationalriskcategoryall',null,
+(select MENU_ID from config_menu where LINK ='/config/operationalrisk_category'))
+end
+
+
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/configroleall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/configroleall',null,
+(select MENU_ID from config_menu where LINK ='/config/config-role'))
+end
 
 
