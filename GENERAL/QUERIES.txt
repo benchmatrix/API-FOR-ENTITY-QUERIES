@@ -636,10 +636,7 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancetype',(select menu_id from config_menu where DISPLAYNAME = 'Compliance type'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancetypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancetypeall',(select menu_id from config_menu where DISPLAYNAME = 'Compliance type'))
-end
+
 
 
 --Activity status--
@@ -1288,12 +1285,7 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/librarytypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/librarytypeall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'REGULATION TYPE'))
-end
+
 delete CONFIG_APIFORENTITYNAME where API= '/api/compliance/ruleTypeAllAI'	
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/ruleTypeAllAI')
@@ -1371,22 +1363,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/loginAudit'
 (select menu_id from config_menu where Link='/config/loginAudit'))
 end
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowWithColumns')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowWithColumns',
-(select menu_id from config_menu where Link='/config/extract-report'))
-end
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/Reportall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/Reportall',
-(select menu_id from config_menu where Link='/config/report'))
-end
 
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/levelsall')
@@ -2087,13 +2063,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsAI',
 (select menu_id from config_menu where DISPLAYNAME ='Fields(dev)'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancetypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/compliancetypeall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'COMPLIANCE TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/compliancetype'	
+
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
@@ -2132,22 +2102,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/loginAudit'
 (select menu_id from config_menu where Link='/config/loginAudit'))
 end
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowWithColumns')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowWithColumns',
-(select menu_id from config_menu where Link='/config/extract-report'))
-end
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/Reportall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/Reportall',
-(select menu_id from config_menu where Link='/config/report'))
-end
 
 
 	
@@ -3818,12 +3772,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/librarytypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/librarytypeall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'REGULATION TYPE'))
-end
+
 delete CONFIG_APIFORENTITYNAME where API= '/api/compliance/ruleTypeAllAI'	
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/ruleTypeAllAI')
@@ -3856,13 +3805,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsAI',
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancetypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/compliancetypeall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'COMPLIANCE TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/compliancetype'	
+
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
@@ -3902,24 +3845,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/loginAudit'
 end
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowWithColumns')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowWithColumns',
-(select menu_id from config_menu where Link='/config/extract-report'))
-end
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/Reportall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/Reportall',
-(select menu_id from config_menu where Link='/config/report'))
-end
-
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/levelsall')
+       if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/levelsall')
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/levelsall',
 	'systemx.api.model.config',
@@ -7175,20 +7101,13 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/librarytype',(select menu_id from config_menu where DISPLAYNAME = 'Regulation type'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/librarytypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/librarytypeall',(select menu_id from config_menu where DISPLAYNAME = 'Regulation type'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancetype')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancetype',(select menu_id from config_menu where DISPLAYNAME = 'Compliance type'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancetypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancetypeall',(select menu_id from config_menu where DISPLAYNAME = 'Compliance type'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/profileLinkWfState')
@@ -7428,30 +7347,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/userprofile
 end
 
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/loginAudit')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/loginAudit',
-(select menu_id from config_menu where Link='/config/loginAudit'))
-end
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowWithColumns')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowWithColumns',
-(select menu_id from config_menu where Link='/config/extract-report'))
-end
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/Reportall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/Reportall',
-(select menu_id from config_menu where Link='/config/report'))
-end
 
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/levelsall')
@@ -8385,13 +8280,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsAI',
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancetypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/compliancetypeall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'COMPLIANCE TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/compliancetype'	
+
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
@@ -8431,21 +8320,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/loginAudit'
 end
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowWithColumns')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowWithColumns',
-(select menu_id from config_menu where Link='/config/extract-report'))
-end
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/Reportall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/Reportall',
-(select menu_id from config_menu where Link='/config/report'))
-end
 
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/levelsall')
@@ -9990,13 +9864,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/correspondenc
 (select menu_id from config_menu where LINK ='/bucket'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancetypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/compliancetypeall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'COMPLIANCE TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/compliancetype'	
+
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
@@ -10037,11 +9905,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowWithColumns')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowWithColumns',
-(select menu_id from config_menu where Link='/config/extract-report'))
-end
 
 
 
@@ -11544,3 +11407,15 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/correspondenc
 end
 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowWithColumns')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowWithColumns',
+(select menu_id from config_menu where Link='/notification-center'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowWithColumns')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowWithColumns',
+(select menu_id from config_menu where Link='/bucket'))
+end
