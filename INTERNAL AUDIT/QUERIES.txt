@@ -521,3 +521,8 @@ values('/api/config/IA/assessmentmeasurevalues',null,
 (select MENU_ID from config_menu where LINK ='/internalaudit/assessmentmeasurevalues'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api=' /api/config/IA/assessmentcategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentcategoryall',
+(select menu_id from config_menu where Link='/internalaudit/assessmentcategory'))
+end
