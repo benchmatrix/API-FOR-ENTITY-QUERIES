@@ -10792,3 +10792,23 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/makercheckera
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
+update CONFIG_APIFORENTITYNAME
+set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/workFlowStatus')
+where API='/api/config/WorkFlowStatus'
+
+update CONFIG_APIFORENTITYNAME
+set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/questionnaire/answertype')
+where API='/api/config/questionnaireanswertype'
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
+(select MENU_ID from config_menu where Link='/config/user'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyforconfigDD')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/hierarchyforconfigDD',
+(select MENU_ID from config_menu where Link='/config/business_hierarchy'))
+End
+
