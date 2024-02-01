@@ -445,3 +445,7 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentmeasureweightageall',
 (select menu_id from config_menu where Link='/config/RCSA/assessmentmeasureweightage'))
 end
+
+
+
+
