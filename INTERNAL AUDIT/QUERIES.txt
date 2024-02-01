@@ -512,3 +512,12 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentmeasurevaluesall',
 (select MENU_ID from config_menu where Link='/config/RCSA/assessmentmeasurevalues'))
 end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/IA/assessmentmeasurevalues')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/IA/assessmentmeasurevalues',null,
+(select MENU_ID from config_menu where LINK ='/internalaudit/assessmentmeasurevalues'))
+end
+
