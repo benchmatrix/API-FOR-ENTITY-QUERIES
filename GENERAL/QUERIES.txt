@@ -1439,11 +1439,7 @@ end
 	'systemx.api.model.config',
 	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
 	end
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domain')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domain',
-(select menu_id from config_menu where Link='/config/domain'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
 begin
@@ -1586,11 +1582,7 @@ end
 	'systemx.api.model.config',
 	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
 	end
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domain')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domain',
-(select menu_id from config_menu where Link='/config/domain'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
 begin
@@ -8114,11 +8106,7 @@ end
 	'systemx.api.model.config',
 	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
 	end
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domain')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domain',
-(select menu_id from config_menu where Link='/config/domain'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
 begin
