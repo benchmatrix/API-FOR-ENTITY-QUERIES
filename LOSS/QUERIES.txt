@@ -56,17 +56,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getincident
 (select menu_id from config_menu where Link='/lossmanagement/lossmanagementlisting'))
 end
 
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/loss/attributionall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/attributionall',null,
-(select MENU_ID from config_menu where LINK ='/lossmanagement/lossmanagement'))
-end
-
-
 --/api/dynamic/
 if not exists
 (select * from config_apiforentityname where API='/api/dynamic')
@@ -273,14 +262,6 @@ end
 
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/loss/attributionall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/attributionall',null,
-(select MENU_ID from config_menu where LINK ='/lossmanagement/lossmanagement'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/loss/incidentreportlinkproductall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/loss/incidentreportlinkproductall',
@@ -474,15 +455,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/loss/inciden
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/loss/incidentproposalallreports',
 (select menu_id from config_menu where Link='/loss/losscapture'))
-end
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/loss/attributionall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/attributionall',null,
-(select MENU_ID from config_menu where LINK ='/lossmanagement/lossmanagement'))
 end
 
 
@@ -716,14 +688,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getincident
 end
 
 
-
-if not exists
-(select * from config_apiforentityname where API='/api/loss/attributionall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/attributionall',null,
-(select MENU_ID from config_menu where LINK ='/lossmanagement/lossmanagement'))
-end
 
 if not exists(select * from CONFIG_MENU where LINK='/config/incident_type')
 begin
