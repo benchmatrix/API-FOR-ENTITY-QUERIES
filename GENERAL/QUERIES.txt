@@ -2004,24 +2004,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/likelihoodc
 (select menu_id from config_menu where Link='/config/rcsa/likelihoodcategory'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/designation')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/designation',
-(select menu_id from config_menu where Link='/config/designation'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/designationall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/designationall',
-(select menu_id from config_menu where Link='/config/designation'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/designationAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/designationAI',
-(select menu_id from config_menu where Link='/config/designation'))
-end
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/actionPlanCategoryall')
@@ -7143,11 +7125,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/libraryLogs',
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/designation')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/designation',
-(select menu_id from config_menu where Link='/config/designation'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/designationall')
 begin
@@ -7965,26 +7943,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/getkidashboards
 (select menu_id from config_menu where Link='/keyriskindicators/create-kidashboards'))
 end
 
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/designation')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/designation',
-(select menu_id from config_menu where Link='/config/designation'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/designationall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/designationall',
-(select menu_id from config_menu where Link='/config/designation'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/designationAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/designationAI',
-(select menu_id from config_menu where Link='/config/designation'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStateReminder')
 begin
