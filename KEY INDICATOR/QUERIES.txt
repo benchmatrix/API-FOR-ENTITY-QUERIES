@@ -753,22 +753,6 @@ values('/api/ki/getallkireports',null,
 end
 
 if not exists
-(select * from config_apiforentityname where API='/api/home/KIall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/KIall',null,
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-
-
-
-
-
-
-
-
-if not exists
 (select * from config_apiforentityname where API='/api/ki/getotherkis')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
@@ -945,16 +929,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('api/home/kiSetupBreachesAll',null,
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/KIall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/KIall',null,
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
 
 
 if not exists
@@ -1141,17 +1115,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('api/home/kiSetupBreachesAll',null,
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/KIall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/KIall',null,
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
 
 
 if not exists
