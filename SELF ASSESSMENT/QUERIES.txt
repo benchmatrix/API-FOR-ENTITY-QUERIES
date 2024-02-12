@@ -84,11 +84,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/certificati
 (select menu_id from config_menu where LINK = '/selfassessment/questionare'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tag')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tag',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Tag'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionare')
 begin
@@ -143,14 +139,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/categoryass
 (select menu_id from config_menu where DISPLAYNAME = 'Category assessment'))
 end 
 
---Tag-----
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tag')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tag',
-(select menu_id from config_menu where DISPLAYNAME = 'Tag'))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tagall')
 begin
@@ -256,11 +244,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/certificati
 (select menu_id from config_menu where DISPLAYNAME = 'Certification Type'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tag')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tag',
-(select menu_id from config_menu where DISPLAYNAME = 'Tag'))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tagall')
 begin
@@ -305,11 +288,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/certificati
 (select menu_id from config_menu where LINK = '/selfassessment/questionare'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tag')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tag',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Tag'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionare')
 begin
@@ -455,11 +434,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/certificati
 (select menu_id from config_menu where LINK = '/selfassessment/questionare'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tag')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tag',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Tag'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionare')
 begin
@@ -587,11 +562,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/certificati
 (select menu_id from config_menu where LINK = '/selfassessment/questionare'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tag')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tag',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Tag'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionare')
 begin
