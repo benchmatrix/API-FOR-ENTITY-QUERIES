@@ -5740,11 +5740,6 @@ end
 	end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/frequency')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/frequency',
-(select MENU_ID from config_menu where LINK = '/config/frequency'))
-end
 
 if not exists(select * from CONFIG_MENU where LINK='/config/frequency')
 begin
@@ -7159,12 +7154,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'RESOLUTION TYPE'))
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/frequency')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/frequency',
-(select MENU_ID from config_menu where LINK = '/config/frequency'))
-end
-
 if not exists(select * from CONFIG_MENU where LINK='/config/frequency')
 begin
 insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,
@@ -8005,14 +7994,6 @@ end
 	end
 
 
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/frequency')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/frequency',
-(select MENU_ID from config_menu where LINK = '/config/frequency'))
-end
 
 if not exists(select * from CONFIG_MENU where LINK='/config/frequency')
 begin
