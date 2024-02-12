@@ -5737,15 +5737,6 @@ end
 
 
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/staticconfigurationall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/staticconfigurationall',
-(select menu_id from config_menu where Link='/config/staticconfiguration'))
-end
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/getkidashboards')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/getkidashboards',
@@ -7145,14 +7136,6 @@ End
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/staticconfigurationall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/staticconfigurationall',
-(select menu_id from config_menu where Link='/config/staticconfiguration'))
-end
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/libraryLogs')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/libraryLogs',
@@ -7974,14 +7957,6 @@ end
 	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
 	end
 
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/staticconfigurationall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/staticconfigurationall',
-(select menu_id from config_menu where Link='/config/staticconfiguration'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/getkidashboards')
