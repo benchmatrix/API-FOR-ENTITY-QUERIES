@@ -284,12 +284,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentiallo
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getincidentreportsall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getincidentreportsall',
-(select menu_id from config_menu where Link='/lossmanagement/lossmanagementlisting'))
-end
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getincidentreportsallreports')
 begin
@@ -403,11 +397,7 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentialloss',
 (select menu_id from config_menu where DISPLAYNAME ='Potential Loss'))
 end
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getincidentreportsall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getincidentreportsall',
-(select menu_id from config_menu where Link='/lossmanagement/lossmanagementlisting'))
-end
+
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getincidentreportsallreports')
@@ -517,11 +507,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentiallo
 (select menu_id from config_menu where DISPLAYNAME ='Potential Loss'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getincidentreportsall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getincidentreportsall',
-(select menu_id from config_menu where Link='/lossmanagement/lossmanagementlisting'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getincidentreportsallreports')
@@ -767,11 +752,7 @@ values('/api/config/discoverytype','systemx.api.model.config.loss',
 (select top 1 MENU_ID from config_menu where LINK = '/lossmanagement/lossmanagement' order by MENU_ID desc))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getincidentreportsall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getincidentreportsall',
-(select menu_id from config_menu where Link='/lossmanagement/lossmanagementlisting'))
-end
+
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getincidentreportsallreports')
