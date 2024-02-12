@@ -1980,13 +1980,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/actionPlanC
 (select menu_id from config_menu where Link='/config/actionPlanCategoryComponent'))
 End
 
-if not exists
-(select * from config_apiforentityname where API='/api/home/inboxall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/inboxall',null,
-(select MENU_ID from config_menu where LINK ='/notification-center'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/home/sentItemsall')
@@ -5697,14 +5690,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/designation
 end
 
 
-i
-if not exists
-(select * from config_apiforentityname where API='/api/home/inboxall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/inboxall',null,
-(select MENU_ID from config_menu where LINK ='/notification-center'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/home/sentItemsall')
@@ -7850,15 +7835,6 @@ end
 
 
 
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/inboxall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/inboxall',null,
-(select MENU_ID from config_menu where LINK ='/notification-center'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/home/sentItemsall')
