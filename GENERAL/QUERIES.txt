@@ -1455,12 +1455,7 @@ end
 	end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT'))
-	end
+
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/productAI'	
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productAI')
@@ -1578,14 +1573,6 @@ end
 	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/discoverytype',
 	'systemx.api.model.config',
 	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
-	end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT'))
 	end
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/productAI'	
 
@@ -5759,12 +5746,6 @@ end
 	end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT'))
-	end
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/productAI'	
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productAI')
@@ -7172,12 +7153,7 @@ end
 	end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT'))
-	end
+
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/productAI'	
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productAI')
@@ -8054,12 +8030,6 @@ end
 	end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT'))
-	end
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/productAI'	
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productAI')
