@@ -562,21 +562,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliances
 end
 
 
---Activity Priority level--
-
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/prioritylevelAI'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevelAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/prioritylevelAI',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'ACTIVITY PRIORITY'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevelall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevelall',(select menu_id from config_menu where DISPLAYNAME = 'Activity Priority'))
-end
 
 --Resolution type--
 
@@ -1899,23 +1884,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevelAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevelAI',
-(select menu_id from config_menu where Link='/config/compliance/prioritylevel'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevelall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevelall',
-(select menu_id from config_menu where Link='/config/compliance/prioritylevel'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevel')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevel',
-(select menu_id from config_menu where Link='/config/compliance/prioritylevel'))
-end
 
 delete CONFIG_APIFORENTITYNAME where  api='/api/config/frequency'
 
@@ -5471,19 +5439,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancestatusall',(select menu_id from config_menu where DISPLAYNAME = 'Rule status'))
 end
 
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/prioritylevelAI'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevelAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/prioritylevelAI',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'ACTIVITY PRIORITY'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevelall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevelall',(select menu_id from config_menu where DISPLAYNAME = 'Activity Priority'))
-end
 
 --Resolution type--
 
@@ -5742,24 +5697,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/designation
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevelAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevelAI',
-(select menu_id from config_menu where Link='/config/compliance/prioritylevel'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevelall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevelall',
-(select menu_id from config_menu where Link='/config/compliance/prioritylevel'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevel')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevel',
-(select menu_id from config_menu where Link='/config/compliance/prioritylevel'))
-end
-
+i
 if not exists
 (select * from config_apiforentityname where API='/api/home/inboxall')
 begin
@@ -7133,11 +7071,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowSta
 (select menu_id from config_menu where Link='/config/workflow-setup'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskseverityall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskseverityall',
-(select menu_id from config_menu where Link='/config/compliance/risk_severity'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskseverity')
 begin
@@ -7147,23 +7081,7 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevelAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevelAI',
-(select menu_id from config_menu where Link='/config/compliance/prioritylevel'))
-end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevelall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevelall',
-(select menu_id from config_menu where Link='/config/compliance/prioritylevel'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevel')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevel',
-(select menu_id from config_menu where Link='/config/compliance/prioritylevel'))
-end
 if not exists
 (select * from config_apiforentityname where API='/api/home/inboxall')
 begin
@@ -7931,23 +7849,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/getkidashboards
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevelAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevelAI',
-(select menu_id from config_menu where Link='/config/compliance/prioritylevel'))
-end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevelall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevelall',
-(select menu_id from config_menu where Link='/config/compliance/prioritylevel'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevel')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevel',
-(select menu_id from config_menu where Link='/config/compliance/prioritylevel'))
-end
 
 
 if not exists
