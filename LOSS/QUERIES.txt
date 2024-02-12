@@ -58,12 +58,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/loss/incidentproposalallreports')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/loss/incidentproposalallreports',
-(select menu_id from config_menu where Link='/loss/losscapture'))
-end
-
 if not exists
 (select * from config_apiforentityname where API='/api/loss/attributionall')
 begin
@@ -279,13 +273,6 @@ end
 
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/loss/incidentproposalallreports')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/loss/incidentproposalallreports',
-(select menu_id from config_menu where Link='/loss/losscapture'))
-end
-
 if not exists
 (select * from config_apiforentityname where API='/api/loss/attributionall')
 begin
@@ -386,12 +373,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentiallo
 (select menu_id from config_menu where DISPLAYNAME ='Potential Loss'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/loss/incidentproposalallreports')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/loss/incidentproposalallreports',
-(select menu_id from config_menu where Link='/loss/losscapture'))
-end
 
 
 if not exists
@@ -734,12 +715,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getincident
 (select menu_id from config_menu where Link='/lossmanagement/lossmanagementlisting'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/loss/incidentproposalallreports')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/loss/incidentproposalallreports',
-(select menu_id from config_menu where Link='/loss/losscapture'))
-end
 
 
 if not exists
