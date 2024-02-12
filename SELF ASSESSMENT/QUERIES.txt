@@ -75,11 +75,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionareall'
 end 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertype',
-(select menu_id from config_menu where LINK = '/selfassessment/questionare'))
-end 
+
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/certificationtype')
@@ -100,11 +96,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionare',
 (select MENU_ID from config_menu where LINK = '/config/compliance/questionnaire/answertype'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertype',
-(select menu_id from config_menu where LINK = '/selfassessment/questionare'))
-end 
+
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionareall' 
 and MENU_ID=(select MENU_ID from config_menu where LINK = '/selfassessment/questionare' and MENU_KEY='SA_QN'))
 begin
@@ -211,11 +203,7 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('api/SA/questionareusersIRAF',(select menu_id from config_menu where DISPLAYNAME = 'Questionnaire Details'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertype',
-(select menu_id from config_menu where DISPLAYNAME = 'Questionniare Answer Type'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersbyassigntoprofilesall')
 begin
@@ -236,11 +224,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertype',
-(select menu_id from config_menu where DISPLAYNAME = 'Questionniare Answer Type'))
-end
 
 
 -----Questionniare Answer type
@@ -363,6 +346,7 @@ end
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/questionnaire/answertype')
 where API='/api/config/questionnaireanswertype'
+
 
 
 
