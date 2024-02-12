@@ -1441,11 +1441,7 @@ end
 	end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domainall',
-(select menu_id from config_menu where Link='/config/domain'))
-end
+
 
 
 
@@ -1584,11 +1580,7 @@ end
 	end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domainall',
-(select menu_id from config_menu where Link='/config/domain'))
-end
+
 
 
 
@@ -5319,12 +5311,6 @@ update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu wh
 api='/api/config/workflowStateType'
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/domainall',
-'systemx.api.model.config.Domain',
-(select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboardall')
 begin
@@ -5778,11 +5764,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domain',
 (select menu_id from config_menu where Link='/config/domain'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domainall',
-(select menu_id from config_menu where Link='/config/domain'))
-end
+
 
 
 
@@ -7206,11 +7188,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domain',
 (select menu_id from config_menu where Link='/config/domain'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domainall',
-(select menu_id from config_menu where Link='/config/domain'))
-end
 
 
 
@@ -8107,18 +8084,7 @@ end
 	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
 	end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domainall',
-(select menu_id from config_menu where Link='/config/domain'))
-end
-
-
-
-
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dicoverytypeall')
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dicoverytypeall')
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dicoverytypeall',
 	'systemx.api.model.config',
@@ -9639,17 +9605,8 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domain',
 (select menu_id from config_menu where Link='/config/domain'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domainall',
-(select menu_id from config_menu where Link='/config/domain'))
-end
 
-
-
-
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dicoverytypeall')
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dicoverytypeall')
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dicoverytypeall',
 	'systemx.api.model.config',
