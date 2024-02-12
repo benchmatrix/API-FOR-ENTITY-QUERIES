@@ -120,11 +120,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tag',
 (select MENU_ID from config_menu where DISPLAYNAME = 'Tag'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionare')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionare',
-(select MENU_ID from config_menu where LINK = '/config/compliance/questionnaire/answertype'))
-end
+
 ----Category assessment---
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/categoryassessment')
@@ -290,12 +286,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionare')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionare',
-(select MENU_ID from config_menu where LINK = '/config/compliance/questionnaire/answertype'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertype',
@@ -436,11 +426,7 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionare')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionare',
-(select MENU_ID from config_menu where LINK = '/config/compliance/questionnaire/answertype'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
 begin
@@ -486,11 +472,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tag',
 (select MENU_ID from config_menu where DISPLAYNAME = 'Tag'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionare')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionare',
-(select MENU_ID from config_menu where LINK = '/config/compliance/questionnaire/answertype'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
 begin
@@ -563,12 +544,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/certificati
 end 
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionare')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionare',
-(select MENU_ID from config_menu where LINK = '/config/compliance/questionnaire/answertype'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
