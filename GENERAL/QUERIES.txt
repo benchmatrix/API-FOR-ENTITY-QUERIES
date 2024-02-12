@@ -5695,15 +5695,6 @@ values('/api/config/getreportsall',null,
 end
 
 
-
-if not exists
-(select * from config_apiforentityname where API='/api/dashboard/requirementdataall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/dashboard/requirementdataall',null,
-(select MENU_ID from config_menu where DISPLAYNAME ='Dashboards' and link = '/dashboard/dashboards'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatusall',
@@ -7067,13 +7058,7 @@ end
 
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/dashboard/requirementdataall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/dashboard/requirementdataall',null,
-(select MENU_ID from config_menu where DISPLAYNAME ='Dashboards' and link = '/dashboard/dashboards'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
 begin
@@ -9209,15 +9194,6 @@ values('/api/config/dimensionall',null,
 (select MENU_ID from config_menu where LINK ='/config/dimension'))
 end
 
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/dashboard/requirementdataall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/dashboard/requirementdataall',null,
-(select MENU_ID from config_menu where DISPLAYNAME ='Dashboards' and link = '/dashboard/dashboards'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
