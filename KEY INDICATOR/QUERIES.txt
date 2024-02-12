@@ -532,13 +532,7 @@ end
 
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/ki/getotherkis')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/ki/getotherkis',null,
-(select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/kisetuplinkriskcategory')
 begin
@@ -752,13 +746,6 @@ values('/api/ki/getallkireports',null,
 (select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/ki/getotherkis')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/ki/getotherkis',null,
-(select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kimeasure')
@@ -931,13 +918,6 @@ values('api/home/kiSetupBreachesAll',null,
 end
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/ki/getotherkis')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/ki/getotherkis',null,
-(select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/kisetuplinkriskcategory')
 begin
@@ -1117,13 +1097,6 @@ values('api/home/kiSetupBreachesAll',null,
 end
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/ki/getotherkis')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/ki/getotherkis',null,
-(select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/kisetuplinkriskcategory')
 begin
