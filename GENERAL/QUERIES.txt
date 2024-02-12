@@ -5694,14 +5694,6 @@ values('/api/config/getreportsall',null,
 (select MENU_ID from config_menu where LINK ='/config/report'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/dimensionall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/dimensionall',null,
-(select MENU_ID from config_menu where LINK ='/config/dimension'))
-end
-
 
 if not exists
 (select * from config_apiforentityname where API='/api/compliance/helperexcelComplianceCategory')
