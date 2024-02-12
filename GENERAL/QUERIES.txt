@@ -1445,14 +1445,6 @@ end
 
 
 
-
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dicoverytypeall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dicoverytypeall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
-	end
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/discoverytype'	
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/discoverytype')
@@ -1579,20 +1571,7 @@ end
 	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
 	end
 
-
-
-
-
-
-
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dicoverytypeall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dicoverytypeall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
-	end
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/discoverytype'	
+      delete CONFIG_APIFORENTITYNAME where API= '/api/config/discoverytype'	
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/discoverytype')
 	begin
@@ -5770,12 +5749,6 @@ end
 
 
 
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dicoverytypeall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dicoverytypeall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
-	end
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/discoverytype'	
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/discoverytype')
@@ -5831,11 +5804,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/getkidashboards
 (select menu_id from config_menu where Link='/keyriskindicators/create-kidashboards'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dicoverytypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/dicoverytypeall',
-(select menu_id from config_menu where Link='/config/discoverytype'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/complianceCategoryall')
 begin
@@ -7193,12 +7161,7 @@ end
 
 
 
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dicoverytypeall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dicoverytypeall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
-	end
+
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/discoverytype'	
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/discoverytype')
@@ -7267,11 +7230,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/staticconfi
 (select menu_id from config_menu where Link='/config/staticconfiguration'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dicoverytypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/dicoverytypeall',
-(select menu_id from config_menu where Link='/config/discoverytype'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/libraryLogs')
 begin
@@ -8084,12 +8043,7 @@ end
 	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
 	end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dicoverytypeall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dicoverytypeall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
-	end
+
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/discoverytype'	
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/discoverytype')
@@ -8145,11 +8099,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/getkidashboards
 (select menu_id from config_menu where Link='/keyriskindicators/create-kidashboards'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dicoverytypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/dicoverytypeall',
-(select menu_id from config_menu where Link='/config/discoverytype'))
-end
+
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/designation')
@@ -9606,12 +9556,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domain',
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dicoverytypeall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dicoverytypeall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
-	end
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/discoverytype'	
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/discoverytype')
