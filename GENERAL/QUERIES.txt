@@ -5695,13 +5695,6 @@ values('/api/config/getreportsall',null,
 end
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/compliance/helperexcelComplianceCategory')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/compliance/helperexcelComplianceCategory',null,
-(select MENU_ID from config_menu where LINK ='/compliance/library-tree'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/dashboard/requirementdataall')
@@ -7073,13 +7066,6 @@ values('/api/config/dimensionall',null,
 end
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/compliance/helperexcelComplianceCategory')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/compliance/helperexcelComplianceCategory',null,
-(select MENU_ID from config_menu where LINK ='/compliance/library-tree'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/dashboard/requirementdataall')
@@ -9224,13 +9210,6 @@ values('/api/config/dimensionall',null,
 end
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/compliance/helperexcelComplianceCategory')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/compliance/helperexcelComplianceCategory',null,
-(select MENU_ID from config_menu where LINK ='/compliance/library-tree'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/dashboard/requirementdataall')
