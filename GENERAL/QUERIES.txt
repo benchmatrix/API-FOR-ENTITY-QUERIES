@@ -1883,14 +1883,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/loginAudit'
 end
 
 
-
-	
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStateReminder')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowStateReminder',
-(select menu_id from config_menu where Link='/config/workflow-setup'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskseverityall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskseverityall',
@@ -5749,11 +5741,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/designation
 (select menu_id from config_menu where Link='/config/designation'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStateReminder')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowStateReminder',
-(select menu_id from config_menu where Link='/config/workflow-setup'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevelAI')
 begin
@@ -7944,13 +7931,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/getkidashboards
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStateReminder')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowStateReminder',
-(select menu_id from config_menu where Link='/config/workflow-setup'))
-end
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevelAI')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevelAI',
@@ -9815,11 +9795,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/hierarchyfo
 (select MENU_ID from config_menu where Link='/config/business_hierarchy'))
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStateReminder')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowStateReminder',
-(select menu_id from config_menu where Link='/config/workflow-setup'))
-end
+
 
 if not exists(select * from CONFIG_MENU where LINK='/config/workflow-setup')
 begin
