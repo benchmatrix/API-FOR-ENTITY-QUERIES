@@ -951,12 +951,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/auditreporttype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/auditreporttype',
-null,
-(select menu_id from config_menu where LINK='/config/compliance/observation/auditreporttype'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/observation/getallauditauthoritiesbyauditreporttypeandaudittype')
 begin
