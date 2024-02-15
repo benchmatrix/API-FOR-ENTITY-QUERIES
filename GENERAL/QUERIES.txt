@@ -4147,12 +4147,6 @@ end
 
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/dashboard/data')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/dashboard/data',
-(select menu_id from config_menu where Link='/dashboard/dashboard-datasource'))
-end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/auditreporttypeall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/auditreporttypeall',
