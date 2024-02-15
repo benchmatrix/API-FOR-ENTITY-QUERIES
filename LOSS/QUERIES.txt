@@ -701,3 +701,4 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/incidenttype',
 (select MENU_ID from config_menu where Link='/config/incident_type'))
 end
+
