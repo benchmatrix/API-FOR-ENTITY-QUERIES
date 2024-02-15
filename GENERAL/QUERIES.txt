@@ -2796,11 +2796,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/ramcategoryth
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languageall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/languageall',
-(select menu_id from config_menu where Link='/config/LanguageTerms'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/segmentAll')
 begin
@@ -4159,12 +4154,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/ramcategoryth
 (select menu_id from config_menu where Link='/RAM'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languageall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/languageall',
-(select menu_id from config_menu where Link='/config/LanguageTerms'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskseveritysall')
