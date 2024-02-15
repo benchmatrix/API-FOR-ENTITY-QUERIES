@@ -2890,11 +2890,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowLin
 (select MENU_ID from config_menu where Link='/config/workflow-setup'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersaveonly')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersaveonly',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStep')
 begin
@@ -2920,11 +2915,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersbyterm
 (select MENU_ID from config_menu where Link='/config/user'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersWithAdditionalInfoall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersWithAdditionalInfoall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/alternateemployees')
 begin
@@ -2945,12 +2935,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/service/updateActi
 (select MENU_ID from config_menu where Link='/scheduleservice'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/segmentAll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll',
-(select menu_id from config_menu where Link='/config/segment'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/auditstatusall')
@@ -4068,11 +4052,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll'
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/auditstatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/auditstatusall',
-(select menu_id from config_menu where Link='/config/compliance/auditstatus'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/dashboard/rcsaall')
@@ -4218,11 +4197,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/languageall
 (select menu_id from config_menu where Link='/config/LanguageTerms'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/segmentAll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll',
-(select menu_id from config_menu where Link='/segment'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskseveritysall')
 begin
@@ -8168,11 +8142,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowSta
 (select MENU_ID from config_menu where Link='/config/workflow-setup'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersWithAdditionalInfoall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersWithAdditionalInfoall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/alternateemployees')
 begin
@@ -8194,18 +8163,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/service/updateActi
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/segmentAll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll',
-(select menu_id from config_menu where Link='/config/segment'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/auditstatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/auditstatusall',
-(select menu_id from config_menu where Link='/config/compliance/auditstatus'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/dashboard/rcsaall')
@@ -9681,12 +9638,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowLin
 (select MENU_ID from config_menu where Link='/config/workflow-setup'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersaveonly')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersaveonly',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStep')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowStep',
@@ -9738,11 +9689,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll'
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/auditstatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/auditstatusall',
-(select menu_id from config_menu where Link='/config/compliance/auditstatus'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/dashboard/rcsaall')
