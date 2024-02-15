@@ -3176,11 +3176,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentialcu
 (select menu_id from config_menu where LINK = '/config/potentialcustomer_impact'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getmandatoryTrainingall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getmandatoryTrainingall',
-(select menu_id from config_menu where Link='/config/compliance/mandatory-training'))
-end
 
 
 if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/controltype')
@@ -7970,11 +7965,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentialcu
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getmandatoryTrainingall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getmandatoryTrainingall',
-(select menu_id from config_menu where Link='/config/compliance/mandatory-training'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/notificationlog')
 begin
@@ -9529,11 +9520,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/loss/incidentrepor
 (select menu_id from config_menu where Link='/config/product'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getmandatoryTrainingall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getmandatoryTrainingall',
-(select menu_id from config_menu where Link='/config/compliance/mandatory-training'))
-end
+
 
 if not exists(select * from CONFIG_MENU where LINK='/config/workflow-setup')
 begin
