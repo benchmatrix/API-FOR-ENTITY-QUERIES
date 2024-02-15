@@ -3054,17 +3054,6 @@ end
 
 
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/jsonuploader/error')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/jsonuploader/error',
-(select menu_id from config_menu where Link='/config/libraryupdate'))
-end
-
-
-
-
 if not exists(select * from CONFIG_MENU where LINK='/compliance/remindercolumns')
 begin
 insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
@@ -4061,13 +4050,7 @@ values('/api/dashboard/rcsaall',null,
 (select MENU_ID from config_menu where DISPLAYNAME ='Dashboards' and link = '/dashboard/dashboards'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/dashboard/lossdataall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/dashboard/lossdataall',null,
-(select MENU_ID from config_menu where DISPLAYNAME ='Dashboards' and link = '/dashboard/dashboards'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/marsratingall')
 begin
@@ -4163,14 +4146,6 @@ MENU_ID desc))
 end
 
 
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/jsonuploader/error')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/jsonuploader/error',
-(select menu_id from config_menu where Link='/config/libraryupdate'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/dashboard/data')
@@ -10575,5 +10550,31 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevel',
 (select menu_id from config_menu where Link='/config/compliance/prioritylevel'))
 end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/getBucketReplacedRecordsisActive')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/getBucketReplacedRecordsisActive',
+	(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE REPLACEMENT'))
+	end
+insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement')) 
+
+insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE')) 
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/userstree')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/userstree',
+	(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE'))
+	End
+
+insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE')) 
+
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/natureall')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/natureall',
+	(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE'))
+	end
+
 
 
