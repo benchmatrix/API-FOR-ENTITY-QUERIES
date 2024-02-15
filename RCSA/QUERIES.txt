@@ -567,11 +567,7 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/Workshop/WorkshopLinkages',
 (select menu_id from config_menu where Link='/RCSA/workshop'))
 end
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Workshop/ShowWorkshopLinkages')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/Workshop/ShowWorkshopLinkages',
-(select menu_id from config_menu where Link='/RCSA/workshop'))
-end
+
 if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasureweightage')
 begin
 insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
@@ -1966,11 +1962,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/Workshop/WorkshopLinkages',
 (select menu_id from config_menu where Link='/RCSA/workshop'))
 end
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Workshop/ShowWorkshopLinkages')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/Workshop/ShowWorkshopLinkages',
-(select menu_id from config_menu where Link='/RCSA/workshop'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/rcsa/threatcategoryall')
@@ -2337,12 +2328,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Workshop/ShowWorkshopLinkages')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/Workshop/ShowWorkshopLinkages',
-(select menu_id from config_menu where Link='/RCSA/workshop'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/rcsa/threatcategoryall')
