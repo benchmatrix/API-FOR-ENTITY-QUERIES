@@ -10423,3 +10423,42 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowWithColumns',
 (select menu_id from config_menu where Link='/bucket'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/generalDashboardFilters')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFilters',
+(select menu_id from config_menu where LINK ='/dashboard/newdashboard'))
+end
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/broadcategoryall',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/broadcategory'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/broadcategory',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/correspondenceall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/correspondenceall',
+(select menu_id from config_menu where LINK ='/bucket'))
+end
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/languages',
+(select menu_id from config_menu where DISPLAYNAME ='Language'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languagesall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values
+('/api/config/languagesall',(select menu_id from config_menu where DISPLAYNAME = 'Language'))
+end
+
