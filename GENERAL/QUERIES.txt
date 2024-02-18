@@ -10660,3 +10660,16 @@ values('/api/config/staticConfiguration',null,
 (select MENU_ID from config_menu where LINK ='/config/staticconfiguration'))
 end
 
+if not exists(select * from CONFIG_MENU where MENU_KEY='RP')
+begin
+insert into CONFIG_MENU (DISPLAYNAME,MODULE_ID,PARENTID,CREATEDBY,CREATEDON,HIDE_IN_MENU,IS_CONFIG,MENU_KEY)
+values ('changePassword' , (select MODULE_ID from CONFIG_MODULE where MODULE_KEY='CNFG'), 
+(select menu_id from CONFIG_MENU where DISPLAYNAME='General'),1,GETDATE(),1,1,'RP')
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME  where api='/api/config/changePassword')
+begin
+insert into CONFIG_APIFORENTITYNAME (API,MENU_ID) values ('/api/config/changePassword',(select menu_id from CONFIG_MENU where MENU_KEY='RP'))
+end
+
+
