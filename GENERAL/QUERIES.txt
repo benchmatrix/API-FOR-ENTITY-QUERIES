@@ -10732,3 +10732,40 @@ update  CONFIG_FIELDLINKPAGES set path='/api/config/frequency'  where FIELD_ID i
 
 
 
+
+if not exists(select * from config_apiforentityname where API='/api/home/workshopall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/workshopall','systemx.api.model.rcsa',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+
+if not exists(select * from config_apiforentityname where API='/api/home/kisetupall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/kisetupall','systemx.api.model.ki',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/assigndatapointsall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/assigndatapointsall','systemx.api.model.ki',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/selfassessmentall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/selfassessmentall','systemx.api.model.compliance.selfassessment',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
