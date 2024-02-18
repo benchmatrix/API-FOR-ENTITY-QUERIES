@@ -1112,3 +1112,19 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/ki/getkisbydashboardid',null,
 (select MENU_ID from config_menu where LINK ='/keyriskindicators/kidashboards'))
 end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/keyindicators/KIbreaches'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/deleteDynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/keyindicators/KIbreaches'))
+end
+if not exists
+(select * from config_apiforentityname where API='/api/dynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/keyindicators/KIbreaches'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/keyindicators/KIbreaches'))
+End
