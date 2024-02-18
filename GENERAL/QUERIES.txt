@@ -10842,3 +10842,150 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/home/assignedCorrespondenceall','systemx.api.model.correspondance',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/currencyall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/currencyall','systemx.api.model.config',
+(select MENU_ID from config_menu where DISPLAYNAME = 'Currency'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/prefixall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/prefixall','systemx.api.model.config',
+(select MENU_ID from config_menu where DISPLAYNAME = 'Prefix'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/fieldsall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/fieldsall','systemx.api.model.config.dynamicpages',
+(select MENU_ID from config_menu where DISPLAYNAME = 'Fields'))
+end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/validationall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/validationall','systemx.api.model.config.dynamicpages',
+(select MENU_ID from config_menu where DISPLAYNAME = 'Validation'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/workflow')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/workflow','systemx.api.model.workflow',
+(select MENU_ID from config_menu where DISPLAYNAME = 'Workflow Setup'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/modulesall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/modulesall','systemx.api.model.config',
+(select MENU_ID from config_menu where DISPLAYNAME = 'MODULE '))
+end
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/currencyAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/currencyAI','systemx.api.model.config.Currency',
+(select menu_id from config_menu where DISPLAYNAME = 'Currency'))
+end 
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prefixAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/prefixAI','systemx.api.model.config.Prefix',
+(select menu_id from config_menu where DISPLAYNAME = 'Prefix'))
+end 
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/pagesAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/pagesAI','systemx.api.model.config.dynamicpages.Pages',
+(select menu_id from config_menu where DISPLAYNAME = 'Pages'))
+end 
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/languages','systemx.api.model.config.Languages',
+(select menu_id from config_menu where DISPLAYNAME = 'LANGUAGE'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldsAI','systemx.api.model.config.dynamicpages.Fields',
+(select menu_id from config_menu where DISPLAYNAME = 'FIELDS'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/validationAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/validationAI','systemx.api.model.config.dynamicpages.Validation',
+(select menu_id from config_menu where DISPLAYNAME = 'VALIDATION'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/Report/Report','systemx.api.model.report.Report',
+(select menu_id from config_menu where DISPLAYNAME = 'REPORT'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/modules')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/modules','systemx.api.model.config.Module',
+(select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStateType')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/workflowStateType','systemx.api.model.workflow.WorkflowStateType',
+(select menu_id from config_menu where DISPLAYNAME = 'WORKFLOW STATE TYPE'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businessFunctions')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businessFunctions',
+'systemx.api.model.config.compliance.BusinessFunctions',
+(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS FUNCTIONS'))
+End
+
+update CONFIG_APIFORENTITYNAME
+set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
+where API='/api/config/businessFunctions'
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/assigntoprofile')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/assigntoprofile',
+'systemx.api.model.config.compliance.AssignToProfile',
+(select menu_id from config_menu where DISPLAYNAME = 'ASSIGN TO PROFILE'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainTree')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/domainTree',
+'systemx.api.model.config.Domain',
+(select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboard')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboard',
+'systemx.api.model.config.Dashboard',
+(select menu_id from config_menu where DISPLAYNAME = 'DASHBOARDS'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/subjectofcorrespondance')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/subjectofcorrespondance',
+'systemx.api.model.config.compliance.SubjectOfCorrespondence',
+(select menu_id from config_menu where DISPLAYNAME = 'SUBJECT OF CORRESPONDANCE'))
+end
