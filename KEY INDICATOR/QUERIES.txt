@@ -1128,3 +1128,50 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/dynamicFiltersData',null,
 (select MENU_ID from config_menu where LINK ='/keyindicators/KIbreaches'))
 End
+
+if not exists
+(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/deleteDynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints'))
+end
+if not exists
+(select * from config_apiforentityname where API='/api/dynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints'))
+End
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/deleteDynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
+end
+if not exists
+(select * from config_apiforentityname where API='/api/dynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/create-kilisting'))
+End
+
+if not exists
+(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/keyriskindicators/assigndatapointsListing'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/deleteDynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/assigndatapointsListing'))
+end
+if not exists
+(select * from config_apiforentityname where API='/api/dynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/keyriskindicators/assigndatapointsListing'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/assigndatapointsListing'))
+End
