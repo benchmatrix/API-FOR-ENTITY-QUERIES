@@ -10728,4 +10728,7 @@ values('/api/home/incidentreportall','systemx.api.model.loss',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
+update  CONFIG_FIELDLINKPAGES set path='/api/config/frequency'  where FIELD_ID in (select FIELD_ID from CONFIG_FIELDS where FIELD_KEY='frequency')
+
+
 
