@@ -1175,3 +1175,20 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/dynamicFiltersData',null,
 (select MENU_ID from config_menu where LINK ='/keyriskindicators/assigndatapointsListing'))
 End
+
+if not exists
+(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/keyriskindicators/assigndatapoints'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/deleteDynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/assigndatapoints'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/dynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu 
+where LINK ='/keyriskindicators/assigndatapoints'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/keyriskindicators/assigndatapoints'))
+End
