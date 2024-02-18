@@ -752,3 +752,53 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/complianceactivityall',
 (select menu_id from config_menu where LINK='/compliance/compliance-activity'))
 end
+
+if not exists
+(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/compliance/compliance-rule'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/deleteDynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/compliance/compliance-rule'))
+end
+if not exists
+(select * from config_apiforentityname where API='/api/dynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/compliance/compliance-rule'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/compliance/compliance-rule'))
+End
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/compliance/compliance-activity'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/deleteDynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/compliance/compliance-activity'))
+end
+if not exists
+(select * from config_apiforentityname where API='/api/dynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/compliance/compliance-activity'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/compliance/compliance-activity'))
+End
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/compliance/compliance-requirement'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/deleteDynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/compliance/compliance-requirement'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/dynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/compliance/compliance-requirement'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/compliance/compliance-requirement'))
+End
+
+
