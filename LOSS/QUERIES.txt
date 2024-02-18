@@ -691,3 +691,10 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/incidenttyp
 (select MENU_ID from config_menu where Link='/config/incident_type'))
 end
 
+if not exists
+(select * from config_apiforentityname where API='/api/RCSA/riskappetitematrix' and MENU_ID= (select MENU_ID from config_menu where LINK ='/lossmanagement/lossmanagement'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/RCSA/riskappetitematrix',null,
+(select MENU_ID from config_menu where LINK ='/lossmanagement/lossmanagement'))
+end
