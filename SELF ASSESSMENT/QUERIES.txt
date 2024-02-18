@@ -608,4 +608,38 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionare',
 (select MENU_ID from config_menu where LINK = '/config/compliance/questionnaire/answertype'))
 end
 
+--------------------------self assessment
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/selfassessment/questionare'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/deleteDynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/selfassessment/questionare'))
+end
+if not exists
+(select * from config_apiforentityname where API='/api/dynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/selfassessment/questionare'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/selfassessment/questionare'))
+End
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/selfassessment/questions'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/deleteDynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/selfassessment/questions'))
+end
+if not exists
+(select * from config_apiforentityname where API='/api/dynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/selfassessment/questions'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/selfassessment/questions'))
+End
 
