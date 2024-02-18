@@ -179,4 +179,17 @@ values('/api/dynamicFiltersData',null,
 End
 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/actionplantypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/actionplantypeall',(select menu_id from config_menu where link = '/config/actionplan_type'))
+End
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/actionplanseverityall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/actionplanseverityall',(select menu_id from config_menu
+where link = '/config/actionplan_severity'))
+end
+
+
 
