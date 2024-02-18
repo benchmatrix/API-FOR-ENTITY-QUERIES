@@ -2684,3 +2684,87 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/RCSA',null,
 (select MENU_ID from config_menu where LINK ='/RCSA/riskAssessment'))
 end
+
+----------------------------RCSA
+if not exists
+(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/RCSA/riskregister'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/deleteDynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/RCSA/heatmap'))
+end
+if not exists
+(select * from config_apiforentityname where API='/api/dynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/RCSA/riskregister'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/RCSA/heatmap'))
+End
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/RCSA/riskregister'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/deleteDynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/RCSA/riskregister'))
+end
+if not exists
+(select * from config_apiforentityname where API='/api/dynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/RCSA/riskregister'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/RCSA/riskregister'))
+End
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/RCSA/controlregister'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/deleteDynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/RCSA/controlregister'))
+end
+if not exists
+(select * from config_apiforentityname where API='/api/dynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/RCSA/controlregister'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/RCSA/controlregister'))
+End
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/RCSA/workshop'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/deleteDynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/RCSA/workshop'))
+end
+if not exists
+(select * from config_apiforentityname where API='/api/dynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/RCSA/workshop'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/RCSA/workshop'))
+End
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/RCSA/workshopassessment'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/deleteDynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/RCSA/workshopassessment'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/dynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/RCSA/workshopassessment'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/RCSA/workshopassessment'))
+End
