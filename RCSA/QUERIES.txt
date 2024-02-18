@@ -2662,3 +2662,10 @@ values('/api/controlRegister/linkages',null,
 (select top 1 MENU_ID from config_menu where LINK='/RCSA/control-register'))
 end
 
+if not exists(select * from config_apiforentityname where API='/api/home/workshopall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/workshopall','systemx.api.model.rcsa',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
