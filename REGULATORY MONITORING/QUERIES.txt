@@ -802,3 +802,11 @@ values('/api/dynamicFiltersData',null,
 End
 
 
+
+if not exists(select * from config_apiforentityname where API='/api/compliance/compliancerequirementall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/compliancerequirementall',null,
+(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_Q' order by MENU_ID desc))
+end
+
