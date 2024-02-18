@@ -1004,3 +1004,43 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/observation/getallauditreports',null,
 (select top 1 MENU_ID from config_menu where LINK='/compliance/Audit/externalauditReport'))
 end
+
+if not exists
+(select * from config_apiforentityname where API='/api/config/RCSA/assessmentmeasurevalues' and MENU_ID=(select MENU_ID from config_menu where LINK like '%auditentitydetails%'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/RCSA/assessmentmeasurevalues',null,
+(select MENU_ID from config_menu where LINK like '%auditentitydetails%'))
+end
+  if not exists
+(select * from config_apiforentityname where API='/api/config/RCSA/assessmentcategory/' and MENU_ID=(select MENU_ID from config_menu where LINK like '%tprm/findings-details%'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/RCSA/assessmentcategory/',null,
+(select MENU_ID from config_menu where LINK like '%tprm/findings-details%'))
+end
+
+  if not exists
+(select * from config_apiforentityname where API='/api/config/RCSA/assessmentcategory/' and MENU_ID=(select MENU_ID from config_menu where LINK like '%addObservation%'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/RCSA/assessmentcategory/',null,
+(select MENU_ID from config_menu where LINK like '%addObservation%'))
+end
+
+  if not exists
+(select * from config_apiforentityname where API='/api/config/RCSA/assessmentcategory/' and MENU_ID=(select MENU_ID from config_menu where LINK like '%addExternalObservation%'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/RCSA/assessmentcategory/',null,
+(select MENU_ID from config_menu where LINK like '%addExternalObservation%'))
+end
+
+  if not exists
+(select * from config_apiforentityname where API='/api/config/RCSA/assessmentcategory/' and MENU_ID=(select MENU_ID from config_menu where LINK like '%findings%'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/RCSA/assessmentcategory/',null,
+(select MENU_ID from config_menu where LINK like '%findings%'))
+End
+
