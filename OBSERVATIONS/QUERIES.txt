@@ -1121,6 +1121,7 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/deleteDynamicFiltersData',null,
 (select MENU_ID from config_menu where LINK ='/compliance/Audit/internalObservation'))
 end
+
 if not exists
 (select * from config_apiforentityname where API='/api/dynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/compliance/Audit/internalObservation'))
 begin
@@ -1128,6 +1129,7 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/dynamicFiltersData',null,
 (select MENU_ID from config_menu where LINK ='/compliance/Audit/internalObservation'))
 End
+
 if not exists
 (select * from config_apiforentityname where API='/api/deleteDynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/compliance/Audit/externalObservation'))
 begin
@@ -1135,6 +1137,7 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/deleteDynamicFiltersData',null,
 (select MENU_ID from config_menu where LINK ='/compliance/Audit/externalObservation'))
 end
+
 if not exists
 (select * from config_apiforentityname where API='/api/dynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/compliance/Audit/externalObservation'))
 begin
@@ -1162,3 +1165,22 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/dynamicFiltersData',null,
 (select MENU_ID from config_menu where LINK ='/compliance/Audit/findings'))
 End
+
+if not exists
+(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/compliance/Audit/externalobservation-listing'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/deleteDynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/compliance/Audit/externalobservation-listing'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/dynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where 
+LINK ='/compliance/Audit/externalobservation-listing'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamicFiltersData',null,
+(select MENU_ID from config_menu where LINK ='/compliance/Audit/externalobservation-listing'))
+End
+
+
