@@ -747,3 +747,8 @@ values(GETDATE(),1,NULL,'Compliance Key Area',NULL,1,(select MODULE_ID from CONF
 null,1,1,1)
 End
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/complianceactivityall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/complianceactivityall',
+(select menu_id from config_menu where LINK='/compliance/compliance-activity'))
+end
