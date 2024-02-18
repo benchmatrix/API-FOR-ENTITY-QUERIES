@@ -10989,3 +10989,241 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 'systemx.api.model.config.compliance.SubjectOfCorrespondence',
 (select menu_id from config_menu where DISPLAYNAME = 'SUBJECT OF CORRESPONDANCE'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/subjectofcorrespondanceall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/subjectofcorrespondanceall',
+'systemx.api.model.config.compliance.SubjectOfCorrespondence',
+(select menu_id from config_menu where DISPLAYNAME = 'SUBJECT OF CORRESPONDANCE'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/source')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/source',
+'systemx.api.model.config.compliance.Source',
+(select menu_id from config_menu where DISPLAYNAME = 'SOURCE'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/sourceall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/sourceall',
+'systemx.api.model.config.compliance.Source',
+(select menu_id from config_menu where DISPLAYNAME = 'SOURCE'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/channel')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/channel',
+'systemx.api.model.config.compliance.Channel',
+(select menu_id from config_menu where DISPLAYNAME = 'CHANNEL'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/nature')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/nature',
+'systemx.api.model.config.compliance.Nature',
+(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/responseAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/responseAI',
+'systemx.api.model.config.compliance.Response',
+(select menu_id from config_menu where DISPLAYNAME = 'Response'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/actionplantypes')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/actionplantypes',
+'systemx.api.model.config.actionplan.ActionPlanType',
+(select menu_id from config_menu where DISPLAYNAME = 'ACTION PLAN TYPE'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/resolutiontypes')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/resolutiontypes',
+'systemx.api.model.config.actionplan.ResolutionType',
+(select menu_id from config_menu where DISPLAYNAME = 'RESOLUTION TYPE'))
+End
+
+delete CONFIG_APIFORENTITYNAME where api='/api/config/actionplanseverity'
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/actionplanseverity')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/actionplanseverity',(select menu_id from config_menu
+where link = '/config/actionplan_severity'))
+end
+
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/pagesall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/pagesall',
+'systemx.api.model.config.dynamicpages.Pages',
+(select menu_id from config_menu where DISPLAYNAME = 'PAGES'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldlinkpagesall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldlinkpagesall',
+'systemx.api.model.config.dynamicpages.FieldLinkPages',
+(select menu_id from config_menu where DISPLAYNAME = 'FIELD LINK PAGES'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflow')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/workflow',
+'systemx.api.model.config.dynamicpages.FieldLinkPages',
+(select menu_id from config_menu where link = '/config/workflow-setup'))
+end
+
+update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where link = '/config/workflow-setup') where
+api='/api/config/workflow'
+
+update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where link = '/config/workflow-setup') where
+api='/api/config/workflowStateType'
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/domainall',
+'systemx.api.model.config.Domain',
+(select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboardall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboardall',
+'systemx.api.model.config.Dashboard',
+(select MENU_ID from config_menu where LINK = '/config/dashboard'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboard')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboard',
+'systemx.api.model.config.Dashboard',
+(select MENU_ID from config_menu where LINK = '/config/dashboard'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/locationsall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/locationsall',
+'systemx.api.model.config.Locations',
+(select MENU_ID from config_menu where LINK = '/config/location'))
+end
+
+
+
+
+
+
+
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/riskcategoryall',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/riskcategory',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/eventtypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/eventtypeall',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'EVENT TYPE'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/eventtype'
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/eventtype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/eventtype',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'EVENT TYPE'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/causalcategoryall',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'CAUSAL CATEGORIES'))
+end
+
+
+delete from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategory'
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/causalcategory',
+null,
+(select menu_id from config_menu where LINK ='/config/casual_category'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/impactcategoryall',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'IMPACT CATEGORIES'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/impactcategory',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'IMPACT CATEGORIES'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/glaccountall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/glaccountall',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'GL ACCOUNTS'))
+end
+
+delete from CONFIG_APIFORENTITYNAME where api='/api/config/glaccount'
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/glaccount')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/glaccount',
+(select menu_id from config_menu where LINK = '/config/GLA_Account'))
+end
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausalall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/externalcausalall',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'EXTERNAL CAUSAL'))
+end
+
+
+delete from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausal'
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausal')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/externalcausal',
+'systemx.api.model.config.loss.ExternalCausal',
+(select menu_id from config_menu where DISPLAYNAME ='EXTERNAL CAUSAL'))
+end
+
+
