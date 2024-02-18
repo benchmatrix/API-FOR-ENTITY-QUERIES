@@ -1192,3 +1192,17 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/dynamicFiltersData',null,
 (select MENU_ID from config_menu where LINK ='/keyriskindicators/assigndatapoints'))
 End
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='
+/api/ki/kidashboard')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('
+/api/ki/kidashboard',(select menu_id from config_menu where DISPLAYNAME = 'KI dashboard '))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/getallkidashboards')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/getallkidashboards',(select menu_id from config_menu where DISPLAYNAME = 'KI Dashboard '))
+end 
+
