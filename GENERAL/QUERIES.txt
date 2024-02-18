@@ -11227,3 +11227,101 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
+update CONFIG_APIFORENTITYNAME
+set MENU_ID=(select MENU_ID from config_menu where link='/config/external_causal')
+where API='/api/config/externalcausal'
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/individualinvolvedall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/individualinvolvedall',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'INDIVIDUAL INVOLVED'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/individualinvolved')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/individualinvolved',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'INDIVIDUAL INVOLVED'))
+End
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losscontrolstatusall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/losscontrolstatusall',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/losscontrolstatus'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losscontrolstatus')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/losscontrolstatus',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/config/potentialcustomerimpactall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/potentialcustomerimpactall',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
+end
+delete CONFIG_APIFORENTITYNAME where API= 'api/config/potentialcustomerimpact'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/config/potentialcustomerimpact')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/potentialcustomerimpact',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocessall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocessall',
+'systemx.api.model.config',
+(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/productlinkedprocess'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocess')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocess',
+'systemx.api.model.config',
+(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/recoverytypeall',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'RECOVERY TYPE'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/recoverytype'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/recoverytype',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'RECOVERY TYPE'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/systemnameall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/systemnameall',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'SYSTEM NAME'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/systemname'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/systemname')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/systemname',
+'systemx.api.model.config.loss',
+(select menu_id from config_menu where DISPLAYNAME = 'SYSTEM NAME'))
+end
+
+
+
+
