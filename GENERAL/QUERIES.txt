@@ -10672,4 +10672,60 @@ begin
 insert into CONFIG_APIFORENTITYNAME (API,MENU_ID) values ('/api/config/changePassword',(select menu_id from CONFIG_MENU where MENU_KEY='RP'))
 end
 
+if not exists
+(select * from config_apiforentityname where API='/api/home/selfassessmentall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/selfassessmentall','systemx.api.model.compliance.selfassessment',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/compliancerequirementall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/compliancerequirementall','systemx.api.model.regulatorycompliance',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/RCSAall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/RCSAall','systemx.api.model.rcsa',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+
+
+if not exists
+(select * from config_apiforentityname where API='api/home/correspondenceall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('api/home/correspondenceall','systemx.api.model.correspondance',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/observationall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/observationall','systemx.api.model.complianceobservation',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/incidentreportall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/incidentreportall','systemx.api.model.loss',
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
+
 
