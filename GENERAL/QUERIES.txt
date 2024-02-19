@@ -11422,3 +11422,28 @@ values('/api/config/workflowison','systemx.api.model.workflow',
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_Q' order by MENU_ID desc))
 end
 
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/users/getConfigurationMenuRights')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/users/getConfigurationMenuRights','systemx.api.model.loss',
+(select top 1 MENU_ID from config_menu where MENU_KEY = 'A' order by MENU_ID desc))
+end
+
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/config/usersbytermall')
+begin
+Insert into config_apiforentityname(API,MENU_ID)
+values('/api/config/usersbytermall',
+(select top 1 MENU_ID from config_menu where LINK = '/lossmanagement/lossmanagement' order by MENU_ID desc))
+end
+
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/config/discoverytype')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/discoverytype','systemx.api.model.config.loss',
+(select top 1 MENU_ID from config_menu where LINK = '/lossmanagement/lossmanagement' order by MENU_ID desc))
+end
