@@ -810,3 +810,54 @@ values('/api/compliance/compliancerequirementall',null,
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_Q' order by MENU_ID desc))
 end
 
+
+--Regulation type--
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/librarytype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/librarytype',(select menu_id from config_menu where DISPLAYNAME = 'Regulation type'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/librarytypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/librarytypeall',(select menu_id from config_menu where DISPLAYNAME = 'Regulation type'))
+end
+
+
+
+--Requirement status--
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/requirementstatus')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/requirementstatus',(select menu_id from config_menu where DISPLAYNAME = 'Requirement status'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/requirementstatusall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/requirementstatusall',(select menu_id from config_menu where DISPLAYNAME = 'Requirement status'))
+end
+
+--Compliance type--
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancetype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancetype',(select menu_id from config_menu where DISPLAYNAME = 'Compliance type'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancetypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancetypeall',(select menu_id from config_menu where DISPLAYNAME = 'Compliance type'))
+end
+
+
+--Activity status--
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/activitystatus')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/activitystatus',(select menu_id from config_menu where DISPLAYNAME = 'Activity status'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/activitystatusall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/activitystatusall',(select menu_id from config_menu where DISPLAYNAME = 'Activity status'))
+end
