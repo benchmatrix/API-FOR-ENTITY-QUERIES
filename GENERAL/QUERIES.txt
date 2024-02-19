@@ -11447,3 +11447,30 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/discoverytype','systemx.api.model.config.loss',
 (select top 1 MENU_ID from config_menu where LINK = '/lossmanagement/lossmanagement' order by MENU_ID desc))
 end
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/config/bucketStatus')
+begin
+Insert into config_apiforentityname(API,MENU_ID)
+values('/api/config/bucketStatus',
+(select top 1 MENU_ID from config_menu where LINK ='/config/configurations' 
+order by 
+MENU_ID desc))
+End
+
+if not exists(select * from CONFIG_MENU where LINK='/compliance/workFlowStatus')
+begin
+insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
+values(GETDATE(),1,NULL,'Workflow status',NULL,1,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
+(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/compliance/workFlowStatus',
+null,0,1,1)
+End
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/config/WorkFlowStatus')
+begin
+Insert into config_apiforentityname(API,MENU_ID)
+values('/api/config/WorkFlowStatus',
+(select top 1 MENU_ID from config_menu where LINK = '/compliance/workFlowStatus' order by 
+MENU_ID desc))
+end
