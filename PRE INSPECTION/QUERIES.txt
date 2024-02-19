@@ -68,4 +68,19 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/preinspection/prei
 (select menu_id from config_menu where Link='/preinspection/preinspection'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/preinspectioncategoriesall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/preinspectioncategoriesall',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'PREINSPECTION CATEGORY'))
+end
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/preinspectioncategories'	
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/preinspectioncategories')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/preinspectioncategories',
+'systemx.api.model.config.compliance',
+(select menu_id from config_menu where DISPLAYNAME = 'PREINSPECTION CATEGORY'))
+End
+
 
