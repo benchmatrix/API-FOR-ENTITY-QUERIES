@@ -11353,3 +11353,14 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/theme',
 (select menu_id from config_menu where DISPLAYNAME = 'Theme'))
 end 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/responseall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/responseall',
+(select menu_id from config_menu where DISPLAYNAME = 'response'))
+end 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/response')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/response',
+(select menu_id from config_menu where DISPLAYNAME = 'response'))
+end 
+
