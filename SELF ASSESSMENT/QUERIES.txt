@@ -676,3 +676,33 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/certificationtypeall',
 (select menu_id from config_menu where DISPLAYNAME = 'Certification Type'))
 end 
+
+----Category assessment---
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/categoryassessment')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/categoryassessment',
+(select menu_id from config_menu where DISPLAYNAME = 'Category assessment'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/categoryassessmentall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/categoryassessmentall',
+(select menu_id from config_menu where DISPLAYNAME = 'Category assessment'))
+end 
+
+--Tag-----
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tag')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tag',
+(select menu_id from config_menu where DISPLAYNAME = 'Tag'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tagall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tagall',
+(select menu_id from config_menu where DISPLAYNAME = 'Tag'))
+end 
+
