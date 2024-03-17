@@ -895,3 +895,38 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/library/complianceCategoryall','systemx.api.model.compliancelibrary',
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_Q' order by MENU_ID desc))
 end
+
+if not exists (select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/activitylinkrequirementmultiple' and menu_id = (select menu_id from CONFIG_MENU where link = '/compliance/activity') )
+insert into CONFIG_APIFORENTITYNAME (api,MENU_ID) values ('/api/compliance/activitylinkrequirementmultiple', (select menu_id from CONFIG_MENU where link = 
+'/compliance/activity'))
+
+if not exists (select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/complianceactivity_linkproduct' and menu_id = (select menu_id from CONFIG_MENU where link = '/compliance/addObservation') )
+insert into CONFIG_APIFORENTITYNAME (api,MENU_ID) values ('/api/compliance/complianceactivity_linkproduct', (select menu_id from CONFIG_MENU where link = 
+'/compliance/activity'))
+
+if not exists (select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/assignRuleToUser' and menu_id = (select menu_id from CONFIG_MENU where
+link = '/compliance/rule') )
+insert into CONFIG_APIFORENTITYNAME (api,MENU_ID) values ('/api/compliance/assignRuleToUser', (select menu_id from CONFIG_MENU where link = 
+'/compliance/rule'))
+
+if not exists (select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/requirementlinkrulemultiple' and menu_id = (select menu_id from CONFIG_MENU where
+link = '/compliance/requirement') )
+insert into CONFIG_APIFORENTITYNAME (api,MENU_ID) values ('/api/compliance/requirementlinkrulemultiple', (select menu_id from CONFIG_MENU where link = 
+'/compliance/requirement'))
+
+if not exists (select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/compliancerequirement_linkcontrol' and menu_id = (select menu_id from CONFIG_MENU where
+link = '/compliance/requirement') )
+insert into CONFIG_APIFORENTITYNAME (api,MENU_ID) values ('/api/compliance/compliancerequirement_linkcontrol', (select menu_id from CONFIG_MENU where link = 
+'/compliance/requirement'))
+
+if not exists (select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/assignRequirementToUser' and menu_id = (select menu_id from CONFIG_MENU where
+link = '/compliance/requirement') )
+insert into CONFIG_APIFORENTITYNAME (api,MENU_ID) values ('/api/compliance/assignRequirementToUser', (select menu_id from CONFIG_MENU where link = 
+'/compliance/requirement'))
+
+if not exists (select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/complianceactivity_linkprocess' and menu_id = (select menu_id from CONFIG_MENU where
+link = '/compliance/activity') )
+insert into CONFIG_APIFORENTITYNAME (api,MENU_ID) values ('/api/compliance/complianceactivity_linkprocess', (select menu_id from CONFIG_MENU where link = 
+'/compliance/activity'))
+
+
