@@ -3067,3 +3067,9 @@ LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmentt
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
 LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmenttype'
 
+if not exists(select * from config_apiforentityname where API ='/api/RCSA/residualriskcalculationmatrix')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/RCSA/residualriskcalculationmatrix',null,
+(select MENU_ID from config_menu where LINK ='/rcsa/riskappetitematrix'))
+end
