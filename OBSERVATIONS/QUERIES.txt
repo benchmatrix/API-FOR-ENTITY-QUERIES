@@ -1273,3 +1273,6 @@ insert into CONFIG_APIFORENTITYNAME (api,MENU_ID) values ('/api/observation/save
 if not exists (select * from CONFIG_APIFORENTITYNAME where api = '/api/observation/saveobservationAuditcomments' and menu_id = (select menu_id from CONFIG_MENU where link = '/compliance/addObservation') )
 insert into CONFIG_APIFORENTITYNAME (api,MENU_ID) values ('/api/observation/saveobservationAuditcomments', (select menu_id from CONFIG_MENU where link = 
 '/compliance/addObservation'))
+
+
+if not exists (select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/activitylinkrequirementmultiple' and menu_id = (select menu_id from CONFIG_MENU where link = '/compliance/addObservation') )
