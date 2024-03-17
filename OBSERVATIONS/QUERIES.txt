@@ -1263,3 +1263,13 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'ROOT CAUSE'))
 end
 
+if not exists (select * from CONFIG_APIFORENTITYNAME where api = '/api/observation/auditreports/' and menu_id = (select menu_id from CONFIG_MENU where link = '/compliance/ExternaladdAuditReport') )
+insert into CONFIG_APIFORENTITYNAME (api,MENU_ID) values ('/api/observation/auditreports/', (select menu_id from CONFIG_MENU where link = '/compliance/ExternaladdAuditReport'))
+
+
+if not exists (select * from CONFIG_APIFORENTITYNAME where api = '/api/observation/saveobservationAuditcomments' and menu_id = (select menu_id from CONFIG_MENU where link = '/compliance/addExternalObservation') )
+insert into CONFIG_APIFORENTITYNAME (api,MENU_ID) values ('/api/observation/saveobservationAuditcomments', (select menu_id from CONFIG_MENU where link = '/compliance/addExternalObservation'))
+
+if not exists (select * from CONFIG_APIFORENTITYNAME where api = '/api/observation/saveobservationAuditcomments' and menu_id = (select menu_id from CONFIG_MENU where link = '/compliance/addObservation') )
+insert into CONFIG_APIFORENTITYNAME (api,MENU_ID) values ('/api/observation/saveobservationAuditcomments', (select menu_id from CONFIG_MENU where link = 
+'/compliance/addObservation'))
