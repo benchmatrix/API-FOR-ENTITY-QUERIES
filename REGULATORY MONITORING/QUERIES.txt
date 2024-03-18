@@ -982,6 +982,27 @@ end
 
 
 
+if not exists(select * from config_apiforentityname where API='/api/compliancerule/linkages')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliancerule/linkages',null,
+(select MENU_ID from config_menu where LINK ='/compliance/rule'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/compliancerule/comment')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliancerule/comment',null,
+(select MENU_ID from config_menu where LINK ='/compliance/rule'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/compliancerule/doc')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliancerule/doc',null,
+(select MENU_ID from config_menu where LINK ='/compliance/rule'))
+end
+
 
 
 
