@@ -2613,11 +2613,6 @@ values('/api/config/RCSA/residualAssessment',null,
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/RCSA/riskappetitematrix')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/riskappetitematrix',
-(select menu_id from config_menu where LINK='/RCSA/riskappetitematrix'))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Risk/assetall')
 begin
