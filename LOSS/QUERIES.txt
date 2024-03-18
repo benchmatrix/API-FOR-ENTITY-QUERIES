@@ -731,3 +731,11 @@ values('/api/loss/LinkIncidentProposal','systemx.api.model.loss',
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'LD_AIP' order by MENU_ID desc))
 end
 
+
+if not exists(select * from config_apiforentityname where API='/api/dynamic/EVT')
+begin
+Insert into config_apiforentityname(API,MENU_ID)
+values('/api/dynamic/EVT',
+(select MENU_ID from config_menu where LINK ='/lossmanagement/lossmanagement' ))
+end
+
