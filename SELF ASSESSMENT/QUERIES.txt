@@ -57,16 +57,7 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/certificationtypeall',
 (select menu_id from config_menu where DISPLAYNAME = 'Certification Type'))
 end 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/SA/consolidationcriteria')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/SA/consolidationcriteria',
-(select menu_id from config_menu where DISPLAYNAME = 'Consolidation criteria'))
-end 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/SA/consolidationcriteriaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/SA/consolidationcriteriaall',
-(select menu_id from config_menu where DISPLAYNAME = 'Consolidation criteria'))
-end 
+
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionareall' 
 and MENU_ID=(select MENU_ID from config_menu where LINK = '/selfassessment/questionare' and MENU_KEY='SA_QN'))
 begin
@@ -187,15 +178,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/assignedselfassessmentall',(select menu_id from config_menu where DISPLAYNAME = 'Questionnaire Details'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/SA/consolidationcriteriaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/SA/consolidationcriteriaall',
-(select menu_id from config_menu where Link='/compliance/questionnaire/consolidationcriteria'))
-end
-
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertypeall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertypeall',
@@ -232,12 +214,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tagall',
 (select menu_id from config_menu where DISPLAYNAME = 'Tag'))
 end 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/SA/consolidationcriteria')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/SA/consolidationcriteria',
-(select menu_id from config_menu where DISPLAYNAME = 'Consolidation criteria'))
-end 
 
 
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
@@ -364,16 +340,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tagall',
 (select menu_id from config_menu where DISPLAYNAME = 'Tag'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/SA/consolidationcriteria')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/SA/consolidationcriteria',
-(select menu_id from config_menu where DISPLAYNAME = 'Consolidation criteria'))
-end 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/SA/consolidationcriteriaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/SA/consolidationcriteriaall',
-(select menu_id from config_menu where DISPLAYNAME = 'Consolidation criteria'))
-end 
+
 
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
 LINK = '/config/compliance/questionnaire/certificationtype') where api ='/api/config/certificationtype' 
@@ -491,11 +458,7 @@ update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/questionnaire/answertype')
 where API='/api/config/questionnaireanswertype'
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/SA/consolidationcriteria')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/SA/consolidationcriteria',
-(select menu_id from config_menu where DISPLAYNAME = 'Consolidation criteria'))
-end 
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionareall' 
 and MENU_ID=(select MENU_ID from config_menu where LINK = '/selfassessment/questionare' and MENU_KEY='SA_QN'))
@@ -528,11 +491,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnai
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/SA/consolidationcriteriaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/SA/consolidationcriteriaall',
-(select menu_id from config_menu where Link='/compliance/questionnaire/consolidationcriteria'))
-end
 
 if not exists(select * from CONFIG_MENU where LINK='/compliance/questionnaire/audittag')
 begin
@@ -706,16 +664,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tagall',
 (select menu_id from config_menu where DISPLAYNAME = 'Tag'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/SA/consolidationcriteria')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/SA/consolidationcriteria',
-(select menu_id from config_menu where DISPLAYNAME = 'Consolidation criteria'))
-end 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/SA/consolidationcriteriaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/SA/consolidationcriteriaall',
-(select menu_id from config_menu where DISPLAYNAME = 'Consolidation criteria'))
-end 
 
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
 LINK = '/config/compliance/questionnaire/certificationtype') where api ='/api/config/certificationtype' 
