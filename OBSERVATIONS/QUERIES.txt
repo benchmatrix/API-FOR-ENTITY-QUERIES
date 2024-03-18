@@ -1282,3 +1282,11 @@ values('/api/dynamic/OBS_DETAILS',null,
 (select MENU_ID from config_menu where link='/compliance/Audit/observations'))
 end
 
+if not exists(select * from config_apiforentityname where API='/api/dynamic/OBS' 
+and MENU_ID=(select MENU_ID from config_menu where LINK ='/compliance/Audit/ExternalAuditReport' and MENU_KEY='O_ERO'))
+begin
+Insert into config_apiforentityname(API,MENU_ID)
+values('/api/dynamic/OBS',
+(select MENU_ID from config_menu where LINK ='/compliance/Audit/ExternalAuditReport' and MENU_KEY='O_ERO'))
+end
+
