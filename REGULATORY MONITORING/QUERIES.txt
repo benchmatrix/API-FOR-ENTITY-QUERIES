@@ -966,6 +966,20 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values
 
 end
 
+if not exists(select * from config_apiforentityname where API='/api/compliancerule/department')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliancerule/department',null,
+(select MENU_ID from config_menu where LINK ='/compliance/rule'))
+End
+
+if not exists(select * from config_apiforentityname where API='/api/compliancerule/version')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliancerule/version',null,
+(select MENU_ID from config_menu where LINK ='/compliance/rule'))
+end
+
 
 
 
