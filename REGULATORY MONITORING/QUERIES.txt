@@ -954,6 +954,19 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values
 
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/dynamic/A')
+
+begin
+
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values
+
+('/api/dynamic/A', null,
+
+(select MENU_ID from CONFIG_MENU where LINK ='/compliance/activity'))
+
+end
+
+
 
 
 
