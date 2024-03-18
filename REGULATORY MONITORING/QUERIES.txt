@@ -929,4 +929,43 @@ link = '/compliance/activity') )
 insert into CONFIG_APIFORENTITYNAME (api,MENU_ID) values ('/api/compliance/complianceactivity_linkprocess', (select menu_id from CONFIG_MENU where link = 
 '/compliance/activity'))
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/dynamic/Q')
+
+begin
+
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values
+
+('/api/dynamic/Q', null,
+
+(select MENU_ID from CONFIG_MENU where LINK ='/compliance/requirement'))
+
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/dynamic/R')
+
+begin
+
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values
+
+('/api/dynamic/R', 'systemx.api.model.regulatorycompliance.ComplianceRuleDetail',
+
+(select MENU_ID from CONFIG_MENU where LINK ='/compliance/rule'))
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
