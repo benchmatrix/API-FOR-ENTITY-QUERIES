@@ -1136,15 +1136,6 @@ end
 
 
 /*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/usersbytermall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/usersbytermall',
-(select top 1 MENU_ID from config_menu where LINK = '/lossmanagement/lossmanagement' order by MENU_ID desc))
-end
-
-
-/*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/config/discoverytype')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
@@ -1184,13 +1175,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcoso
 end 
 
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/usersbytermall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/usersbytermall',
-(select top 1 MENU_ID from config_menu where LINK = '/lossmanagement/lossmanagement' order by MENU_ID desc))
-end
 
 
 /*ApiEntity insertion*/
@@ -2757,11 +2741,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/workshoprisk'
 (select MENU_ID from config_menu where Link='/RCSA/workshopassessment'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersbytermallFromAllUsers')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersbytermallFromAllUsers',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/alternateemployees')
@@ -3721,11 +3700,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/answertype'
 (select MENU_ID from config_menu where Link='/config/answer_type'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersbytermallFromAllUsers')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersbytermallFromAllUsers',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersWithAdditionalInfoall')
 begin
@@ -5099,7 +5073,7 @@ if not exists(select * from config_apiforentityname where API='/api/config/users
 begin
 Insert into config_apiforentityname(API,MENU_ID)
 values('/api/config/usersbytermall',
-(select top 1 MENU_ID from config_menu where LINK = '/lossmanagement/lossmanagement' order by MENU_ID desc))
+(select top 1 MENU_ID from config_menu where Link='/notification-center' order by MENU_ID desc))
 end
 
 
@@ -6193,14 +6167,6 @@ values('/api/users/getConfigurationMenuRights','systemx.api.model.loss',
 end
 
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/usersbytermall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/usersbytermall',
-(select top 1 MENU_ID from config_menu where LINK = '/lossmanagement/lossmanagement' order by MENU_ID desc))
-end
-
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/config/discoverytype')
@@ -6948,14 +6914,6 @@ values('/api/users/getConfigurationMenuRights','systemx.api.model.loss',
 end
 
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/usersbytermall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/usersbytermall',
-(select top 1 MENU_ID from config_menu where LINK = '/lossmanagement/lossmanagement' order by MENU_ID desc))
-end
-
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/config/discoverytype')
@@ -7645,13 +7603,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/dashboard/da
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/dashboard/data',
 (select menu_id from config_menu where Link='/dashboard/dashboard-datasource'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersbytermallFromAllUsers')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersbytermallFromAllUsers',
-(select MENU_ID from config_menu where Link='/config/user'))
 end
 
 update CONFIG_APIFORENTITYNAME
@@ -9016,11 +8967,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowSta
 (select MENU_ID from config_menu where Link='/config/workflow-setup'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersbytermallFromAllUsers')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersbytermallFromAllUsers',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersWithAdditionalInfoall')
 begin
@@ -10839,14 +10786,6 @@ values('/api/users/getConfigurationMenuRights','systemx.api.model.loss',
 end
 
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/usersbytermall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/usersbytermall',
-(select top 1 MENU_ID from config_menu where LINK = '/lossmanagement/lossmanagement' order by MENU_ID desc))
-end
-
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/config/discoverytype')
@@ -10932,4 +10871,10 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workf
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowState',
 (select MENU_ID from config_menu where Link='/config/workflow-setup'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersbytermallFromAllUsers')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersbytermallFromAllUsers',
+(select MENU_ID from config_menu where Link='/notification-center'))
 end
