@@ -2755,11 +2755,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowLin
 (select MENU_ID from config_menu where Link='/config/workflow-setup'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowLinkColumn')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowLinkColumn',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStep')
@@ -3694,17 +3689,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/audittag',
 (select MENU_ID from config_menu where Link='/compliance/questionnaire/audittag'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowLinkColumn')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowLinkColumn',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowLinkColumn')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowLinkColumn',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersaveonly')
 begin
@@ -7633,11 +7618,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/answertype'
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowLinkColumn')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowLinkColumn',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersaveonly')
 begin
@@ -9049,17 +9029,6 @@ values(GETDATE(),1,NULL,'Reminder Columns',NULL,15,(select MODULE_ID from CONFIG
 End
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowLinkColumn')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowLinkColumn',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowLinkColumn')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowLinkColumn',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStep')
 begin
