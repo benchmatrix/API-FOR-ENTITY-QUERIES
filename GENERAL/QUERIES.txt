@@ -834,15 +834,6 @@ set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/ques
 where API='/api/config/questionnaireanswertype'
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyforconfigDD')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/hierarchyforconfigDD',
-(select MENU_ID from config_menu where Link='/config/business_hierarchy'))
-End
-
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getmandatoryTrainingall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getmandatoryTrainingall',
@@ -870,14 +861,6 @@ where API='/api/config/WorkFlowStatus'
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/questionnaire/answertype')
 where API='/api/config/questionnaireanswertype'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyforconfigDD')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/hierarchyforconfigDD',
-(select MENU_ID from config_menu where Link='/config/business_hierarchy'))
-End
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controltypeall')
 begin
@@ -2209,13 +2192,6 @@ where API='/api/config/businessFunctions'
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyforconfigDD')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/hierarchyforconfigDD',
-(select MENU_ID from config_menu where Link='/config/business_hierarchy'))
-End
-
-
 if not exists(select * from config_apiforentityname where API='/api/dynamicFiltersData')
 begin
 Insert into config_apiforentityname(API,MENU_ID)
@@ -3198,17 +3174,6 @@ end
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
 where API='/api/config/businessFunctions'
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyforconfigDD')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/hierarchyforconfigDD',
-(select MENU_ID from config_menu where Link='/config/business_hierarchy'))
-End
-
-
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/addkistodashboard')
 begin
@@ -7521,13 +7486,6 @@ set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/work
 where API='/api/config/WorkFlowStatus'
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyforconfigDD')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/hierarchyforconfigDD',
-(select MENU_ID from config_menu where Link='/config/business_hierarchy'))
-End
-
-
 
 if not exists(select * from CONFIG_MENU where LINK='/config/workflow-setup')
 begin
@@ -8970,15 +8928,6 @@ set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctio
 where API='/api/config/businessFunctions'
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyforconfigDD')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/hierarchyforconfigDD',
-(select MENU_ID from config_menu where Link='/config/business_hierarchy'))
-End
-
-
-
 if not exists(select * from CONFIG_MENU where LINK='/config/workflow-setup')
 begin
 insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
@@ -9045,12 +8994,6 @@ update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/questionnaire/answertype')
 where API='/api/config/questionnaireanswertype'
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyforconfigDD')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/hierarchyforconfigDD',
-(select MENU_ID from config_menu where Link='/config/business_hierarchy'))
-End
 
 if not exists(select * from CONFIG_MENU where LINK='/config/workflow-setup')
 begin
