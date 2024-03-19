@@ -29,14 +29,7 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 'systemx.api.model.config',
 (select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
 end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/productlinkedprocess'	
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocess')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocess',
-'systemx.api.model.config',
-(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytypeall')
 begin
@@ -472,14 +465,6 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocessall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocessall',
-'systemx.api.model.config',
-(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/productlinkedprocess'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocess')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocess',
 'systemx.api.model.config',
 (select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
 end
@@ -2741,27 +2726,11 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/workshoprisk'
 (select MENU_ID from config_menu where Link='/RCSA/workshopassessment'))
 end
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/alternateemployees')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/alternateemployees',
-(select MENU_ID from config_menu where Link='/config/employee-replacement'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocess')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/productlinkedprocess',
-(select MENU_ID from config_menu where Link='/config/productlinked_process'))
-end
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/service/updateActivityWorkflowLog')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/service/updateActivityWorkflowLog',
 (select MENU_ID from config_menu where Link='/scheduleservice'))
 end
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/auditstatusall')
@@ -3698,19 +3667,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/answe
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/answertype',
 (select MENU_ID from config_menu where Link='/config/answer_type'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/alternateemployees')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/alternateemployees',
-(select MENU_ID from config_menu where Link='/config/employee-replacement'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocess')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/productlinkedprocess',
-(select MENU_ID from config_menu where Link='/config/productlinked_process'))
 end
 
 
@@ -4864,14 +4820,7 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 'systemx.api.model.config',
 (select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
 end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/productlinkedprocess'	
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocess')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocess',
-'systemx.api.model.config',
-(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytypeall')
 begin
@@ -5950,14 +5899,7 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 'systemx.api.model.config',
 (select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
 end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/productlinkedprocess'	
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocess')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocess',
-'systemx.api.model.config',
-(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytypeall')
 begin
@@ -7563,27 +7505,11 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowSta
 (select MENU_ID from config_menu where Link='/config/workflow-setup'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/alternateemployees')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/alternateemployees',
-(select MENU_ID from config_menu where Link='/config/employee-replacement'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocess')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/productlinkedprocess',
-(select MENU_ID from config_menu where Link='/config/productlinked_process'))
-end
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/service/updateActivityWorkflowLog')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/service/updateActivityWorkflowLog',
 (select MENU_ID from config_menu where Link='/scheduleservice'))
 end
-
-
 
 if not exists
 (select * from config_apiforentityname where API='/api/dashboard/rcsaall')
@@ -8034,14 +7960,6 @@ End
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocessall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocessall',
-'systemx.api.model.config',
-(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/productlinkedprocess'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocess')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocess',
 'systemx.api.model.config',
 (select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
 end
@@ -8961,12 +8879,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowSta
 (select MENU_ID from config_menu where Link='/config/workflow-setup'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/alternateemployees')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/alternateemployees',
-(select MENU_ID from config_menu where Link='/config/employee-replacement'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocess')
 begin
@@ -10625,14 +10537,8 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 'systemx.api.model.config',
 (select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
 end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/productlinkedprocess'	
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocess')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocess',
-'systemx.api.model.config',
-(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytypeall')
 begin
