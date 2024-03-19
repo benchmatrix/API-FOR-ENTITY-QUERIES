@@ -107,15 +107,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessme
 end
 
 
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentdimensionall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentdimensionall',
-(select menu_id from config_menu where Link='/internalaudit/assessmentdimension'))
-end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentmeasureweightageall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentmeasureweightageall',
@@ -224,17 +215,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentcategory',
 (select menu_id from config_menu where LINK='/internalaudit/assessmentcategory'))
 end
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentdimensionall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentdimensionall',
-(select menu_id from config_menu where Link='/internalaudit/assessmentdimension'))
-end
-
-
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentmeasureweightageall')
@@ -419,8 +399,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentdimensionandarea',
 (select menu_id from config_menu where Link='/config/RCSA/assessmentdimensionandarea'))
 end
-
-
 
 
 
