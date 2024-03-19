@@ -50,7 +50,7 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentareaall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentareaall',
-(select MENU_ID from config_menu where Link='/config/RCSA/assessmentarea'))
+(select MENU_ID from config_menu where Link='/internalaudit/assessmentarea'))
 end
 
 
@@ -60,15 +60,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessme
 (select MENU_ID from config_menu where Link='/config/RCSA/assessmentmeasurevalues'))
 end
 
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentareaall',
-(select MENU_ID from config_menu where Link='/config/RCSA/assessmentarea'))
-End
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentmeasurevaluesall')
 begin
@@ -100,25 +91,12 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessme
 (select menu_id from config_menu where Link='/assessmentmeasure'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentareaall',
-(select MENU_ID from config_menu where Link='/config/RCSA/assessmentarea'))
-end
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentmeasurevaluesall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentmeasurevaluesall',
 (select MENU_ID from config_menu where Link='/config/RCSA/assessmentmeasurevalues'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentareaall',
-(select MENU_ID from config_menu where Link='/config/RCSA/assessmentarea'))
-end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentmeasurevaluesall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentmeasurevaluesall',
@@ -154,21 +132,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessme
 (select MENU_ID from config_menu where Link='/config/RCSA/assessmentmeasurevalues'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentareaall',
-(select MENU_ID from config_menu where Link='/config/RCSA/assessmentarea'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentareaall',
-(select MENU_ID from config_menu where Link='/config/RCSA/assessmentarea'))
-end
-
-
-
 if not exists
 (select * from config_apiforentityname where API='/api/config/IA/assessmentmeasurevalues')
 begin
@@ -198,18 +161,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessme
 (select menu_id from config_menu where LINK='/internalaudit/assessmentcategory'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentareaall',
-(select MENU_ID from config_menu where Link='/config/RCSA/assessmentarea'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentareaall',
-(select MENU_ID from config_menu where Link='/config/RCSA/assessmentarea'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentmeasurevaluesall')
@@ -246,25 +197,10 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessme
 end
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentareaall',
-(select MENU_ID from config_menu where Link='/config/RCSA/assessmentarea'))
-end
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentmeasurevaluesall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentmeasurevaluesall',
 (select MENU_ID from config_menu where Link='/config/RCSA/assessmentmeasurevalues'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentareaall',
-(select MENU_ID from config_menu where Link='/config/RCSA/assessmentarea'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentmeasurevaluesall')
@@ -280,24 +216,10 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessme
 end
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentareaall',
-(select MENU_ID from config_menu where Link='/config/RCSA/assessmentarea'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentmeasurevaluesall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentmeasurevaluesall',
 (select MENU_ID from config_menu where Link='/config/RCSA/assessmentmeasurevalues'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentareaall',
-(select MENU_ID from config_menu where Link='/config/RCSA/assessmentarea'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentmeasurevaluesall')
@@ -313,11 +235,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessme
 (select menu_id from config_menu where Link='/internalaudit/assessmentmeasureweightage'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentareaall',
-(select MENU_ID from config_menu where Link='/config/RCSA/assessmentarea'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentmeasurevaluesall')
 begin
@@ -356,11 +274,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessme
 (select menu_id from config_menu where Link='/internalaudit/assessmentdimension'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentareaall',
-(select MENU_ID from config_menu where Link='/config/RCSA/assessmentarea'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentmeasurevaluesall')
 begin
@@ -368,12 +282,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessme
 (select MENU_ID from config_menu where Link='/config/RCSA/assessmentmeasurevalues'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/IA/assessmentareaall',
-(select MENU_ID from config_menu where Link='/config/RCSA/assessmentarea'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentmeasurevaluesall')
 begin
