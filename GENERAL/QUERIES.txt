@@ -3701,12 +3701,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/answertype'
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersWithAdditionalInfoall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersWithAdditionalInfoall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/alternateemployees')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/alternateemployees',
@@ -8968,13 +8962,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowSta
 end
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersWithAdditionalInfoall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersWithAdditionalInfoall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/alternateemployees')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/alternateemployees',
@@ -10878,3 +10865,10 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersbytermallFromAllUsers',
 (select MENU_ID from config_menu where Link='/notification-center'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersWithAdditionalInfoall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersWithAdditionalInfoall',
+(select MENU_ID from config_menu where Link='/config/employee-replacement’))
+end
+
