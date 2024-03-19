@@ -802,11 +802,7 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatus',
 (select menu_id from config_menu where Link='/config/empstatus'))
 end
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
+
 
 delete CONFIG_APIFORENTITYNAME where api='/api/config/users'
 
@@ -843,11 +839,6 @@ update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/questionnaire/answertype')
 where API='/api/config/questionnaireanswertype'
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyforconfigDD')
 begin
@@ -886,11 +877,6 @@ update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/questionnaire/answertype')
 where API='/api/config/questionnaireanswertype'
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyforconfigDD')
 begin
@@ -2211,11 +2197,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/broadcategory',null,
 (select MENU_ID from config_menu where LINK ='/config/compliance/broadcategory'))
 end
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
 
 delete CONFIG_APIFORENTITYNAME where api='/api/config/users'
 
@@ -2231,11 +2212,6 @@ update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
 where API='/api/config/businessFunctions'
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/makercheckerall')
 begin
@@ -2243,11 +2219,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/makercheckera
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyforconfigDD')
 begin
@@ -2708,13 +2679,6 @@ values('/api/config/answertypeall',null,
 (select MENU_ID from config_menu where LINK ='/config/answer_type'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
 if not exists(select * from CONFIG_MENU where LINK='/config/workflow-setup')
 begin
 insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
@@ -2736,24 +2700,10 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlmech
 (select MENU_ID from config_menu where Link='/config/rcsa/Controlmechanism'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/makercheckerall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/makercheckerall',
 (select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
 end
 
 
@@ -3260,46 +3210,16 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatusal
 (select menu_id from config_menu where Link='/config/empstatus'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/empstatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatus',
-(select menu_id from config_menu where Link='/config/empstatus'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
-
 
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
 where API='/api/config/businessFunctions'
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/makercheckerall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/makercheckerall',
 (select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyforconfigDD')
@@ -3308,12 +3228,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/hierarchyfo
 (select MENU_ID from config_menu where Link='/config/business_hierarchy'))
 End
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
 
 
 
@@ -3546,29 +3460,11 @@ values(GETDATE(),1,NULL,'Control Mechanism ',NULL,4,(select MODULE_ID from CONFI
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/rcsa/Controlmechanism','GCM',0,1,1)
 End
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/makercheckerall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/makercheckerall',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
-
-
 
 if not exists(select * from CONFIG_MENU where LINK='/config/IntegrationLog')
 begin
@@ -4339,28 +4235,11 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatus',
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
-
 
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
 where API='/api/config/businessFunctions'
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/makercheckerall')
 begin
@@ -4466,11 +4345,6 @@ values('/api/home/assigndatapointsall','systemx.api.model.ki',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyforconfigDD')
 begin
@@ -5600,19 +5474,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatus',
 end
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
-
 delete CONFIG_APIFORENTITYNAME where api='/api/config/users'
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/users')
@@ -5627,11 +5488,6 @@ update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
 where API='/api/config/businessFunctions'
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/makercheckerall')
 begin
@@ -5647,24 +5503,12 @@ values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID f
 End
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/makercheckerall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/makercheckerall',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
 
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/workFlowStatus')
@@ -7701,20 +7545,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatus',
 (select menu_id from config_menu where Link='/config/empstatus'))
 end
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
-
 delete CONFIG_APIFORENTITYNAME where api='/api/config/users'
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/users')
@@ -7729,11 +7559,7 @@ update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
 where API='/api/config/businessFunctions'
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/makercheckerall')
 begin
@@ -7746,11 +7572,6 @@ update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/workFlowStatus')
 where API='/api/config/WorkFlowStatus'
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyforconfigDD')
 begin
@@ -7774,12 +7595,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/makercheckera
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/positionsall')
@@ -7840,28 +7655,12 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatus',
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
-
 
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
 where API='/api/config/businessFunctions'
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/makercheckerall')
 begin
@@ -9232,19 +9031,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatus',
 end
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
-
 delete CONFIG_APIFORENTITYNAME where api='/api/config/users'
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/users')
@@ -9259,23 +9045,12 @@ update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
 where API='/api/config/businessFunctions'
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/makercheckerall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/makercheckerall',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyforconfigDD')
 begin
@@ -9331,19 +9106,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatus',
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
-
-
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
 where API='/api/config/businessFunctions'
@@ -9368,11 +9130,6 @@ update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/questionnaire/answertype')
 where API='/api/config/questionnaireanswertype'
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersall',
-(select MENU_ID from config_menu where Link='/config/user'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyforconfigDD')
 begin
