@@ -1,0 +1,50 @@
+
+
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (378,(select MENU_ID from CONFIG_MENU where  LINK like '%/compliance/compliance-rule%'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (378,(select MENU_ID from CONFIG_MENU where  LINK like '/compliance/rule'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (1386,(select MENU_ID from CONFIG_MENU where  LINK like '%compliance/compliance-requirement%'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (1386,(select MENU_ID from CONFIG_MENU where  LINK like '/compliance/requirement'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (1385,(select MENU_ID from CONFIG_MENU where  LINK like '%ompliance/compliance-activity%'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (1385,(select MENU_ID from CONFIG_MENU where  LINK like '/compliance/activity'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (13,(select MENU_ID from CONFIG_MENU where  LINK like '%RCSA/riskregister%'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (13,(select MENU_ID from CONFIG_MENU where  LINK like '/RCSA/riskandcontrolassessment'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (210,(select MENU_ID from CONFIG_MENU where  LINK like '%ossmanagement/lossmanagementlisting%'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (210,(select MENU_ID from CONFIG_MENU where  LINK like '/lossmanagement/lossmanagement'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (46,(select MENU_ID from CONFIG_MENU where  LINK like '%Audit/externalauditReport%' and MENU_KEY='O_ER'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (46,(select MENU_ID from CONFIG_MENU where  LINK like '%compliance/ExternaladdAuditReport%'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (46,(select MENU_ID from CONFIG_MENU where  LINK like '%/compliance/Audit/internalauditReport%' and MENU_KEY='O_IR'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (46,(select MENU_ID from CONFIG_MENU where  LINK like  '%compliance/InternaladdAuditReport%'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (357,(select MENU_ID from CONFIG_MENU where  LINK like  '%/loss/losscapture%' and menu_key='LD_IP'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (357,(select MENU_ID from CONFIG_MENU where  LINK like  '%/webcapture%' and menu_key='LD_AIP'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (377,(select MENU_ID from CONFIG_MENU where  LINK like  '%/RCSA/controlregister%' and menu_key='RA_CR'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (377,(select MENU_ID from CONFIG_MENU where  LINK like  '%/RCSA/control-register%' and menu_key='RA_ACR'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (376,(select MENU_ID from CONFIG_MENU where  LINK like  '%/compliance/correspondancelisting%' and menu_key='CL'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (376,(select MENU_ID from CONFIG_MENU where  LINK like  '%/compliance/correspondance%' and menu_key='C_A'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (4,(select MENU_ID from CONFIG_MENU where  LINK like  '%/actionplan/actionplanlisting%' and menu_key='APL'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (4,(select MENU_ID from CONFIG_MENU where  LINK like  '%/actionplan/actionplan%' and menu_key='AP_A'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (83,(select MENU_ID from CONFIG_MENU where  LINK like  '%/keyriskindicators/ki_datapoints%' and menu_key='KI_DP'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (83,(select MENU_ID from CONFIG_MENU where  LINK like  '%/keyriskindicators/ki_datapoints/create_datapoints%' and menu_key='KI_DP_CDP'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (82,(select MENU_ID from CONFIG_MENU where  LINK like  '%/keyindicators/KIbreaches%' and menu_key='KI_B'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (82,(select MENU_ID from CONFIG_MENU where  LINK like  '/keyindicators/KIbreaches/view' ))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (82,(select MENU_ID from CONFIG_MENU where  LINK like  '%/keyriskindicators/create-kilisting%' and menu_key='KI_KI'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (82,(select MENU_ID from CONFIG_MENU where  LINK like  '%/keyriskindicators/create-ki%' and menu_key='KI_AKI'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (82,(select MENU_ID from CONFIG_MENU where  LINK like  '%/keyriskindicators/assigndatapoints%' and menu_key='KI_I'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (82,(select MENU_ID from CONFIG_MENU where  LINK like  '%/keyriskindicators/mydatapoints%' and menu_key='KI_DP_IDP'))
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (5420,(select MENU_ID from CONFIG_MENU where  LINK like  '%/RCSA/workshopassessment%' and menu_key='RA_AW'))
+
+
+
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (1388,(select MENU_ID from CONFIG_MENU where  LINK like  '%/compliance/Audit/ExternalAuditReport%' and menu_key='O_ERO'))
+
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (1388,(select MENU_ID from CONFIG_MENU where  LINK like  '%/compliance/Audit/InternalAuditReport%' and menu_key='O_IRO'))
+
+
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (1389,(select MENU_ID from CONFIG_MENU where  LINK like  '/selfassessment/createquestionare'))
+
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (1389,(select MENU_ID from CONFIG_MENU where  LINK like  '/selfassessment/questionare' ))
+
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (5423,(select MENU_ID from CONFIG_MENU where  LINK like  '/selfassessment/questiondetails' and menu_key='SA_QD'))
+
+insert into CONFIG_PAGESlinkmenu(page_id,menu_id) values (5423,(select MENU_ID from CONFIG_MENU where  LINK like  '%/selfassessment/questions%' and menu_key='SA_Q'))
+
+
