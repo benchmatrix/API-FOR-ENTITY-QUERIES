@@ -761,7 +761,7 @@ end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentarea')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/assessmentarea',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Area'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/assessmentarea',(select menu_id from config_menu where link = '/config/RCSA/assessmentarea'))
 End
 
 
