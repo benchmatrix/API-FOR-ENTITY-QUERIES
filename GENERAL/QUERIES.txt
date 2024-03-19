@@ -786,12 +786,6 @@ values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID f
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/extraNotificationwfstate')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/extraNotificationwfstate',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/empstatusall')
 begin
@@ -1743,11 +1737,6 @@ values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID f
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/extraNotificationwfstate')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/extraNotificationwfstate',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/empstatusall')
@@ -2733,11 +2722,6 @@ values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID f
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/extraNotificationwfstate')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/extraNotificationwfstate',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
 
 if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/Controlmechanism')
 begin
@@ -3270,13 +3254,6 @@ values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID f
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/extraNotificationwfstate')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/extraNotificationwfstate',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/empstatusall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatusall',
@@ -3561,11 +3538,6 @@ values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID f
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/extraNotificationwfstate')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/extraNotificationwfstate',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
 
 if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/Controlmechanism')
 begin
@@ -4337,11 +4309,6 @@ values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID f
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/extraNotificationwfstate')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/extraNotificationwfstate',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
 
 if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/Controlmechanism')
 begin
@@ -4359,20 +4326,11 @@ values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID f
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/extraNotificationwfstate')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/extraNotificationwfstate',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/empstatusall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatusall',
 (select menu_id from config_menu where Link='/config/empstatus'))
 end
-
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/empstatus')
 begin
@@ -5622,11 +5580,7 @@ values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID f
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/extraNotificationwfstate')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/extraNotificationwfstate',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
+
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/empstatusall')
@@ -5692,11 +5646,6 @@ values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID f
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/extraNotificationwfstate')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/extraNotificationwfstate',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
 begin
@@ -7734,11 +7683,6 @@ values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID f
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/extraNotificationwfstate')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/extraNotificationwfstate',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/empstatusall')
@@ -7823,12 +7767,6 @@ values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID f
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/extraNotificationwfstate')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/extraNotificationwfstate',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/makercheckerall')
 begin
@@ -7885,11 +7823,6 @@ values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID f
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/extraNotificationwfstate')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/extraNotificationwfstate',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/empstatusall')
@@ -7943,11 +7876,6 @@ values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID f
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/extraNotificationwfstate')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/extraNotificationwfstate',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/makercheckerall')
@@ -9364,11 +9292,6 @@ values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID f
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/extraNotificationwfstate')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/extraNotificationwfstate',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/positionsall')
 begin
@@ -9391,11 +9314,6 @@ values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID f
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/extraNotificationwfstate')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/extraNotificationwfstate',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/empstatusall')
@@ -9469,11 +9387,6 @@ values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID f
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/extraNotificationwfstate')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/extraNotificationwfstate',
-(select MENU_ID from config_menu where Link='/config/workflow-setup'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/addkistodashboard')
 begin
