@@ -2611,13 +2611,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/ramcategoryth
 end
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/segmentAll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll',
-(select menu_id from config_menu where Link='/segment'))
-end
-
 if not exists
 (select * from config_apiforentityname where API='/api/ki/getdatafieldbydatestring')
 begin
@@ -3566,19 +3559,13 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/answertype'
 (select MENU_ID from config_menu where Link='/config/answer_type'))
 end
 
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/segmentAll')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll',
 (select menu_id from config_menu where Link='/config/segment'))
 end
 
-
-
 insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where link ='/config/compliance/correspondance/nature')) 
-
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/auditreporttypeall')
@@ -6740,13 +6727,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/languageall
 (select menu_id from config_menu where Link='/config/LanguageTerms'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/segmentAll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll',
-(select menu_id from config_menu where Link='/segment'))
-end
-
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
 begin
@@ -8651,14 +8631,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/productlinkedprocess',
 (select MENU_ID from config_menu where Link='/config/productlinked_process'))
 end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/segmentAll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll',
-(select menu_id from config_menu where Link='/config/segment'))
-end
-
 
 if not exists
 (select * from config_apiforentityname where API='/api/dashboard/lossdataall')
