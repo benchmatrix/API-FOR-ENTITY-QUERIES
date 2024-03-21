@@ -3581,13 +3581,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/ramcategoryth
 end
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/rcsa/fraudcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/rcsa/fraudcategoryall',
-(select menu_id from config_menu where Link='/config/rcsa/fraudcategory'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/timeSheetall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/timeSheetall',
