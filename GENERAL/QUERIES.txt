@@ -2750,13 +2750,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/marsratinga
 end
 
 
-
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getActiveEntityReplaceTab')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getActiveEntityReplaceTab',	(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement'))
-	End
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getEntityReplaceByTab')
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getEntityReplaceByTab',
@@ -3648,12 +3641,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll'
 end
 
 
-
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getActiveEntityReplaceTab')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getActiveEntityReplaceTab',	(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement'))
-	End
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getEntityReplaceByTab')
 	begin
@@ -8827,11 +8814,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getActiveEntityReplaceTab')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getActiveEntityReplaceTab',	(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement'))
-End
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getEntityReplaceByTab')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getEntityReplaceByTab',
@@ -10667,4 +10649,8 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/auditriskle
 (select menu_id from config_menu where Link='/config/auditrisklevel'))
 end
 
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getActiveEntityReplaceTab')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getActiveEntityReplaceTab', (select menu_id from config_menu where  link='/config/entity-replacement’))
+	End
 
