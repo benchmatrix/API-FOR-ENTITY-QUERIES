@@ -2753,18 +2753,7 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/marsratingall',
 (select menu_id from config_menu where Link='/config/marsrating'))
 end
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/auditratingall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/auditratingall',
-(select menu_id from config_menu where Link='/config/auditrating'))
-end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/auditrisklevelall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/auditrisklevelall',
-(select menu_id from config_menu where Link='/config/auditrisklevel'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskseveritysall')
@@ -3670,23 +3659,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll'
 (select menu_id from config_menu where Link='/config/segment'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/marsratingall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/marsratingall',
-(select menu_id from config_menu where Link='/config/marsrating'))
-end
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/auditratingall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/auditratingall',
-(select menu_id from config_menu where Link='/config/auditrating'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/auditrisklevelall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/auditrisklevelall',
-(select menu_id from config_menu where Link='/config/auditrisklevel'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskseveritysall')
@@ -8865,22 +8837,10 @@ values('/api/dashboard/lossdataall',null,
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/marsratingall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/marsratingall',
-(select menu_id from config_menu where Link='/config/marsrating'))
-end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/auditratingall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/auditratingall',
 (select menu_id from config_menu where Link='/config/auditrating'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/auditrisklevelall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/auditrisklevelall',
-(select menu_id from config_menu where Link='/config/auditrisklevel'))
 end
 
 
@@ -8892,23 +8852,23 @@ end
 
 
 
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getActiveEntityReplaceTab')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getActiveEntityReplaceTab',	(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement'))
-	End
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getActiveEntityReplaceTab')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getActiveEntityReplaceTab',	(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement'))
+End
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getEntityReplaceByTab')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getEntityReplaceByTab',
-	(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement'))
-	end
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getEntityReplaceByTab',
+(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement'))
+end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/getBucketReplacedRecordsisActive')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/getBucketReplacedRecordsisActive',
-	(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE REPLACEMENT'))
-	end
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/getBucketReplacedRecordsisActive',
+(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE REPLACEMENT'))
+end
 insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement')) 
 
 insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE')) 
@@ -10724,4 +10684,12 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersWithAdditionalInfoall',
 (select MENU_ID from config_menu where Link='/config/employee-replacement’))
 end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/auditrisklevelall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/auditrisklevelall',
+(select menu_id from config_menu where Link='/config/auditrisklevel'))
+end
+
 
