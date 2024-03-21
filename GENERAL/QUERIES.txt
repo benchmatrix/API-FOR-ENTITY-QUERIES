@@ -3561,16 +3561,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/ramcategoryth
 (select menu_id from config_menu where Link='/RAM'))
 end
 
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/biaclassificationall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/biaclassificationall',null,
-(select MENU_ID from config_menu where LINK ='/config/bia_classification'))
-end
-
 if not exists
 (select * from config_apiforentityname where API='/api/config/assetfunctionall')
 begin
@@ -6487,14 +6477,6 @@ end
 
 
 if not exists
-(select * from config_apiforentityname where API='/api/config/biaclassificationall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/biaclassificationall',null,
-(select MENU_ID from config_menu where LINK ='/config/bia_classification'))
-end
-
-if not exists
 (select * from config_apiforentityname where API='/api/config/assetfunctionall')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
@@ -8568,15 +8550,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/jsonuploader/error
 end
 
 
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/biaclassificationall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/biaclassificationall',null,
-(select MENU_ID from config_menu where LINK ='/config/bia_classification'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/config/assetfunctionall')
