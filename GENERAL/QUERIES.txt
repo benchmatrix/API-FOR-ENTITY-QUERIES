@@ -1054,12 +1054,7 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'TYPE'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationnatureall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationnatureall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'NATURE'))
-end
+
 delete CONFIG_APIFORENTITYNAME where API= '/api/config/observationnature'	
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationnature')
@@ -2761,16 +2756,6 @@ insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(se
 	End
 
 
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/natureall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/natureall',
-	(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE'))
-	end
-
-
-
-
-
 if not exists(select * from CONFIG_MENU where LINK='/listingFilters')
 begin
 insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
@@ -3629,16 +3614,6 @@ end
 
 
 insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where link ='/config/compliance/correspondance/nature')) 
-
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/natureall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/natureall',
-	(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE'))
-	end
-
-
-
 
 
 if not exists(select * from CONFIG_MENU where LINK='/listingFilters')
@@ -8776,18 +8751,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskseverit
 (select menu_id from config_menu where Link='/config/compliance/risk_severity'))
 end
 
-
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/natureall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/natureall',
-	(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE'))
-	end
-
-
-
-
-
 if not exists(select * from CONFIG_MENU where LINK='/listingFilters')
 begin
 insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
@@ -9590,15 +9553,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevel',
 (select menu_id from config_menu where Link='/config/compliance/prioritylevel'))
 end
-
-
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/natureall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/natureall',
-	(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE'))
-	end
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/archivedAll')
@@ -10590,4 +10544,9 @@ end
 	(select menu_id from config_menu where link ='/config/employee-replacement'))
 	end
 
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/natureall')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/natureall',
+	(select menu_id from config_menu where link ='/config/compliance/correspondance/nature'))
+	end
 
