@@ -2343,13 +2343,6 @@ values('/api/config/assetfunctionall',null,
 (select MENU_ID from config_menu where LINK ='/config/asset_function'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/closeAuditFactorsall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/closeAuditFactorsall',null,
-(select MENU_ID from config_menu where LINK ='/config/close_Audit_Factors'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/config/sourceoffindingall')
@@ -3561,21 +3554,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/ramcategoryth
 (select menu_id from config_menu where Link='/RAM'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/assetfunctionall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assetfunctionall',null,
-(select MENU_ID from config_menu where LINK ='/config/asset_function'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/closeAuditFactorsall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/closeAuditFactorsall',null,
-(select MENU_ID from config_menu where LINK ='/config/close_Audit_Factors'))
-end
 
 
 if not exists
@@ -6476,16 +6454,6 @@ values('/api/config/eyriskcategoryall',null,
 end
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/assetfunctionall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assetfunctionall',null,
-(select MENU_ID from config_menu where LINK ='/config/asset_function'))
-end
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/rcsa/fraudcategoryall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/rcsa/fraudcategoryall',
@@ -6593,14 +6561,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values
 ('/api/config/languagesall',(select menu_id from config_menu where DISPLAYNAME = 'Language'))
 end
 
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/closeAuditFactorsall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/closeAuditFactorsall',null,
-(select MENU_ID from config_menu where LINK ='/config/close_Audit_Factors'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/ramcategorythreshold')
@@ -8550,14 +8510,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/jsonuploader/error
 end
 
 
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/assetfunctionall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assetfunctionall',null,
-(select MENU_ID from config_menu where LINK ='/config/asset_function'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/config/closeAuditFactorsall')
