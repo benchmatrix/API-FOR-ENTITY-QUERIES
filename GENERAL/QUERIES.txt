@@ -2744,7 +2744,7 @@ if not exists
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/dashboard/rcsaall',null,
-(select MENU_ID from config_menu where DISPLAYNAME ='Dashboards' and link = '/dashboard/dashboards'))
+(select MENU_ID from config_menu where  link ='/dashboard/dashboards'))
 end
 
 if not exists
@@ -3676,18 +3676,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll',
 (select menu_id from config_menu where Link='/config/segment'))
 end
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/dashboard/rcsaall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/dashboard/rcsaall',null,
-(select MENU_ID from config_menu where DISPLAYNAME ='Dashboards' and link = '/dashboard/dashboards'))
-end
-
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/marsratingall')
 begin
@@ -7500,14 +7488,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowSta
 end
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/dashboard/rcsaall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/dashboard/rcsaall',null,
-(select MENU_ID from config_menu where DISPLAYNAME ='Dashboards' and link = '/dashboard/dashboards'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/dashboard/data')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/dashboard/data',
@@ -8882,15 +8862,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll'
 (select menu_id from config_menu where Link='/config/segment'))
 end
 
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/dashboard/rcsaall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/dashboard/rcsaall',null,
-(select MENU_ID from config_menu where DISPLAYNAME ='Dashboards' and link = '/dashboard/dashboards'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/dashboard/lossdataall')
