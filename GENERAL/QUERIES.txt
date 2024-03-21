@@ -2130,17 +2130,6 @@ set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctio
 where API='/api/config/businessFunctions'
 
 
-
-
-if not exists(select * from config_apiforentityname where API='/api/dynamicFiltersData')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/dynamicFiltersData',
-(select top 1 MENU_ID from config_menu where LINK = '/listingFilters' order by 
-MENU_ID desc))
-end
-
-
 if not exists(select * from config_apiforentityname where API='/api/config/Years')
 begin
 Insert into config_apiforentityname(API,MENU_ID)
@@ -2148,8 +2137,6 @@ values('/api/config/Years',
 (select top 1 MENU_ID from config_menu where LINK = '/Report/reportlisting' order by 
 MENU_ID desc))
 end
-
-
 
 
 if not exists(select * from config_apiforentityname where API='/api/config/memoryanalysisall')
@@ -2763,25 +2750,6 @@ values(GETDATE(),1,NULL,'Listing Filters',NULL,1,(select MODULE_ID from CONFIG_M
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/listingFilters',
 null,0,1,1)
 End
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/deleteDynamicFiltersData',
-(select top 1 MENU_ID from config_menu where LINK = '/listingFilters' order by 
-MENU_ID desc))
-end
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/dynamicFiltersData')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/dynamicFiltersData',
-(select top 1 MENU_ID from config_menu where LINK = '/listingFilters' order by 
-MENU_ID desc))
-end
-
 
 
 if not exists(select * from CONFIG_MENU where LINK='/compliance/remindercolumns')
@@ -3615,25 +3583,6 @@ end
 
 insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where link ='/config/compliance/correspondance/nature')) 
 
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/deleteDynamicFiltersData',
-(select top 1 MENU_ID from config_menu where LINK = '/listingFilters' order by 
-MENU_ID desc))
-end
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/dynamicFiltersData')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/dynamicFiltersData',
-(select top 1 MENU_ID from config_menu where LINK = '/listingFilters' order by 
-MENU_ID desc))
-end
 
 
 
@@ -8745,24 +8694,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskseverit
 end
 
 
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/deleteDynamicFiltersData',
-(select top 1 MENU_ID from config_menu where LINK = '/listingFilters' order by 
-MENU_ID desc))
-end
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/dynamicFiltersData')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/dynamicFiltersData',
-(select top 1 MENU_ID from config_menu where LINK = '/listingFilters' order by 
-MENU_ID desc))
-end
 
 
 
