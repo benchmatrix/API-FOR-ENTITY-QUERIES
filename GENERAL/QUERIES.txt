@@ -2750,18 +2750,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/marsratinga
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getEntityReplaceByTab')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getEntityReplaceByTab',
-	(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement'))
-	end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/getBucketReplacedRecordsisActive')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/getBucketReplacedRecordsisActive',
-	(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE REPLACEMENT'))
-	end
 insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement')) 
 
 insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE')) 
@@ -3642,18 +3630,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getEntityReplaceByTab')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getEntityReplaceByTab',
-	(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement'))
-	end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/getBucketReplacedRecordsisActive')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/getBucketReplacedRecordsisActive',
-	(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE REPLACEMENT'))
-	end
 insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement')) 
 
 insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE')) 
@@ -8813,19 +8789,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskseverit
 end
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getEntityReplaceByTab')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getEntityReplaceByTab',
-(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/getBucketReplacedRecordsisActive')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/getBucketReplacedRecordsisActive',
-(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE REPLACEMENT'))
-end
 insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement')) 
 
 insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE')) 
@@ -9653,11 +9616,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylev
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/getBucketReplacedRecordsisActive')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/getBucketReplacedRecordsisActive',
-	(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE REPLACEMENT'))
-	end
 insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement')) 
 
 insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE')) 
@@ -10651,6 +10609,21 @@ end
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getActiveEntityReplaceTab')
 	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getActiveEntityReplaceTab', (select menu_id from config_menu where  link='/config/entity-replacement’))
+	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getActiveEntityReplaceTab', (select menu_id from config_menu where  link='/config/entity-replacement'))
 	End
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getEntityReplaceByTab')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getEntityReplaceByTab',
+	(select menu_id from config_menu where link= '/config/entity-replacement'))
+	end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/getBucketReplacedRecordsisActive')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/getBucketReplacedRecordsisActive',
+	(select menu_id from config_menu where link ='/config/employee-replacement'))
+	end
+
 
