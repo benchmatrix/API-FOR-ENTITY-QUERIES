@@ -2760,8 +2760,6 @@ insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(se
 	(select menu_id from config_menu where link ='/config/user'))
 	End
 
-insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE')) 
-
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/natureall')
 	begin
@@ -3629,13 +3627,8 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll'
 end
 
 
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/userstree')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/userstree',
-	(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE'))
-	End
 
-insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE')) 
+insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where link ='/config/compliance/correspondance/nature')) 
 
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/natureall')
@@ -8784,14 +8777,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskseverit
 end
 
 
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/userstree')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/userstree',
-	(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE'))
-	End
-
-insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE')) 
-
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/natureall')
 	begin
@@ -9606,14 +9591,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylev
 (select menu_id from config_menu where Link='/config/compliance/prioritylevel'))
 end
 
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/userstree')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/userstree',
-	(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE'))
-	End
-
-insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE')) 
 
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/natureall')
