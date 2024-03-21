@@ -2747,13 +2747,6 @@ values('/api/dashboard/rcsaall',null,
 (select MENU_ID from config_menu where  link ='/dashboard/dashboards'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/dashboard/lossdataall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/dashboard/lossdataall',null,
-(select MENU_ID from config_menu where DISPLAYNAME ='Dashboards' and link = '/dashboard/dashboards'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/marsratingall')
 begin
@@ -8868,8 +8861,9 @@ if not exists
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/dashboard/lossdataall',null,
-(select MENU_ID from config_menu where DISPLAYNAME ='Dashboards' and link = '/dashboard/dashboards'))
+(select MENU_ID from config_menu where  link ='/dashboard/dashboards'))
 end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/marsratingall')
 begin
