@@ -2355,15 +2355,6 @@ end
 
 
 if not exists
-(select * from config_apiforentityname where API='/api/config/incidentimpactall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/incidentimpactall',null,
-(select MENU_ID from config_menu where LINK ='/config/incident_impact'))
-end
-
-
-if not exists
 (select * from config_apiforentityname where API='/api/config/eyriskcategoryall')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
@@ -3337,15 +3328,6 @@ values('/api/config/assetapplicationall',null,
 (select MENU_ID from config_menu where LINK ='/config/asset_application'))
 end
 
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/incidentimpactall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/incidentimpactall',null,
-(select MENU_ID from config_menu where LINK ='/config/incident_impact'))
-end
 
 
 if not exists
@@ -8434,16 +8416,6 @@ values('/api/config/Vendorall',null,
 (select MENU_ID from config_menu where LINK ='/config/vendor'))
 end
 
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/incidentimpactall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/incidentimpactall',null,
-(select MENU_ID from config_menu where LINK ='/config/incident_impact'))
-end
 
 
 if not exists
