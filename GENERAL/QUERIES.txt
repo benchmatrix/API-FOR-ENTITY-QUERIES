@@ -2636,7 +2636,7 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/makerCheckerForDT')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/makerCheckerForDT',
-(select menu_id from config_menu where Link='/makerchecker'))
+(select menu_id from config_menu where Link='/config/makerChecker'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/syncHistoryAll')
@@ -3574,12 +3574,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/ramcategoryth
 (select menu_id from config_menu where Link='/RAM'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/makerCheckerForDT')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/makerCheckerForDT',
-(select menu_id from config_menu where Link='/makerchecker'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/syncHistoryAll')
 begin
@@ -6554,12 +6548,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/rcsa/fraudc
 (select menu_id from config_menu where Link='/config/rcsa/fraudcategory'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/makerCheckerForDT')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/makerCheckerForDT',
-(select menu_id from config_menu where Link='/makerchecker'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/syncHistoryAll')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/syncHistoryAll',
@@ -8622,11 +8610,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/jsonuploader/error
 (select menu_id from config_menu where Link='/config/libraryupdate'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/makerCheckerForDT')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/makerCheckerForDT',
-(select menu_id from config_menu where Link='/makerchecker'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/syncHistoryAll')
 begin
