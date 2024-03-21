@@ -2282,13 +2282,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/exceptions/excepti
 end 
 
 if not exists
-(select * from config_apiforentityname where API='/api/config/syncHistoryAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/syncHistoryAll',null,
-(select MENU_ID from config_menu where LINK ='/config/user'))
-end
-if not exists
 (select * from config_apiforentityname where API='/api/config/syncLogAll')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
@@ -2637,12 +2630,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/maker
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/makerCheckerForDT',
 (select menu_id from config_menu where Link='/config/makerChecker'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/syncHistoryAll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/syncHistoryAll',
-(select menu_id from config_menu where Link='/notification-center'))
 end
 
 
@@ -3575,12 +3562,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/ramcategoryth
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/syncHistoryAll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/syncHistoryAll',
-(select menu_id from config_menu where Link='/notification-center'))
-end
-
 
 if not exists
 (select * from config_apiforentityname where API='/api/config/biaclassificationall')
@@ -3827,14 +3808,6 @@ values('/api/rcsa/wsassessment',null,
 (select MENU_ID from config_menu where LINK ='/RCSA/riskandcontrolassessment'))
 end
 
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/syncHistoryAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/syncHistoryAll',null,
-(select MENU_ID from config_menu where LINK ='/config/user'))
-end
 if not exists
 (select * from config_apiforentityname where API='/api/config/syncLogAll')
 begin
@@ -4044,13 +4017,7 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/genericupload/uploadtemplate',null,
 (select MENU_ID from config_menu where LINK ='/config/userprofile'))
 end
-if not exists
-(select * from config_apiforentityname where API='/api/config/syncHistoryAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/syncHistoryAll',null,
-(select MENU_ID from config_menu where LINK ='/config/user'))
-end
+
 if not exists
 (select * from config_apiforentityname where API='/api/config/syncLogAll')
 begin
@@ -6548,11 +6515,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/rcsa/fraudc
 (select menu_id from config_menu where Link='/config/rcsa/fraudcategory'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/syncHistoryAll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/syncHistoryAll',
-(select menu_id from config_menu where Link='/notification-center'))
-end
 
 
 /*ApiEntity insertion*/
@@ -8612,13 +8574,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/syncHistoryAll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/syncHistoryAll',
-(select menu_id from config_menu where Link='/notification-center'))
-end
-
-
 if not exists
 (select * from config_apiforentityname where API='/api/config/rcsaactivityall')
 begin
@@ -8864,14 +8819,6 @@ values('/api/genericupload/uploadtemplate',null,
 (select MENU_ID from config_menu where LINK ='/config/userprofile'))
 end
 
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/syncHistoryAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/syncHistoryAll',null,
-(select MENU_ID from config_menu where LINK ='/config/user'))
-end
 if not exists
 (select * from config_apiforentityname where API='/api/config/syncLogAll')
 begin
@@ -10365,3 +10312,9 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/timeSheetal
 (select menu_id from config_menu where Link='/config/time_Sheet'))
 end
 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/syncHistoryAll')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/syncHistoryAll',
+(select menu_id from config_menu where Link='/config/ADSync))
+end
