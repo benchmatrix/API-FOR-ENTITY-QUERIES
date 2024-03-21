@@ -937,13 +937,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/auditreporttypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/auditreporttypeall',
-(select menu_id from config_menu where Link='/compliance/observation/auditreporttype'))
-end
-
-
 if not exists
 (select * from config_apiforentityname where API='/api/internalaudit/auditengagementlinkusersByAuditEngagementres')
 begin
