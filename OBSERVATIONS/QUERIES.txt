@@ -317,13 +317,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/auditreport
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/observation/getallauditauthoritiesbyauditreporttypeandaudittype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/observation/getallauditauthoritiesbyauditreporttypeandaudittype',
-(select menu_id from config_menu where Link='/config/compliance/observation/auditauthorities'))
-end
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/auditreporttype')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/auditreporttype',
@@ -331,11 +324,6 @@ null,
 (select menu_id from config_menu where LINK='/config/compliance/observation/auditreporttype'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/observation/getallauditauthoritiesbyauditreporttypeandaudittype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/observation/getallauditauthoritiesbyauditreporttypeandaudittype',
-(select menu_id from config_menu where Link='/config/compliance/observation/auditauthorities'))
-end
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/config/getColumnsOfFindings')
@@ -852,11 +840,7 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/observationratingtype',
 (select MENU_ID from config_menu where Link='/compliance/observation/observationratingtype'))
 end
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/observation/getallauditauthoritiesbyauditreporttypeandaudittype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/observation/getallauditauthoritiesbyauditreporttypeandaudittype',
-(select menu_id from config_menu where Link='/config/compliance/observation/auditauthorities'))
-end
+
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/observation/getallobervationsbyobservationtype')
