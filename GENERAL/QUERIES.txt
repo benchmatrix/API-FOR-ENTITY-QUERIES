@@ -2658,11 +2658,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/syncHistory
 (select menu_id from config_menu where Link='/notification-center'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/dashboard/data')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/dashboard/data',
-(select menu_id from config_menu where Link='/dashboard/dashboard-datasource'))
-end
 
 if not exists(select * from CONFIG_MENU where LINK='/config/answer_type')
 begin
@@ -7296,12 +7291,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowSta
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/dashboard/data')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/dashboard/data',
-(select menu_id from config_menu where Link='/dashboard/dashboard-datasource'))
-end
-
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/workFlowStatus')
 where API='/api/config/WorkFlowStatus'
@@ -8693,10 +8682,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskseverit
 (select menu_id from config_menu where Link='/config/compliance/risk_severity'))
 end
 
-
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/jsonuploader/error')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/jsonuploader/error',
@@ -8704,11 +8689,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/jsonuploader/error
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/dashboard/data')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/dashboard/data',
-(select menu_id from config_menu where Link='/dashboard/dashboard-datasource'))
-end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/timeSheetall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/timeSheetall',
@@ -10468,3 +10448,8 @@ end
 	(select menu_id from config_menu where link ='/config/compliance/correspondance/nature'))
 	end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/dashboard/data')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/dashboard/data',
+(select menu_id from config_menu where Link='/dashboard/dashboard-datasource'))
+end
