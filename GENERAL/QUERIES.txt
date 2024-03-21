@@ -2750,14 +2750,14 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/marsratinga
 end
 
 
-insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement')) 
+insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where link ='/config/entity-replacement')) 
 
-insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE')) 
+insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where link ='/config/user')) 
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/userstree')
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/userstree',
-	(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE'))
+	(select menu_id from config_menu where link ='/config/user'))
 	End
 
 insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE')) 
@@ -3628,11 +3628,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll'
 (select menu_id from config_menu where Link='/config/segment'))
 end
 
-
-
-insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement')) 
-
-insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE')) 
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/userstree')
 	begin
@@ -8789,10 +8784,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskseverit
 end
 
 
-insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement')) 
-
-insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE')) 
-
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/userstree')
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/userstree',
@@ -9615,10 +9606,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylev
 (select menu_id from config_menu where Link='/config/compliance/prioritylevel'))
 end
 
-
-insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement')) 
-
-insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE')) 
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/userstree')
 	begin
@@ -10613,14 +10600,14 @@ end
 	End
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getEntityReplaceByTab')
+      if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getEntityReplaceByTab')
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getEntityReplaceByTab',
 	(select menu_id from config_menu where link= '/config/entity-replacement'))
 	end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/getBucketReplacedRecordsisActive')
+       if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/getBucketReplacedRecordsisActive')
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/getBucketReplacedRecordsisActive',
 	(select menu_id from config_menu where link ='/config/employee-replacement'))
