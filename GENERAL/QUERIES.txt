@@ -2352,46 +2352,6 @@ values('/api/config/sourceoffindingall',null,
 (select MENU_ID from config_menu where LINK ='/config/sourceoffinding'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/sourceoffindingall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/sourceoffindingall',null,
-(select MENU_ID from config_menu where LINK ='/config/sourceoffinding'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/Vendorall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/Vendorall',null,
-(select MENU_ID from config_menu where LINK ='/config/vendor'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/assettypecategoryall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assettypecategoryall',null,
-(select MENU_ID from config_menu where LINK ='/config/assettype_category'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/landscapeall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/landscapeall',null,
-(select MENU_ID from config_menu where LINK ='/risk/landscape'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/assetapplicationall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assetapplicationall',null,
-(select MENU_ID from config_menu where LINK ='/config/asset_application'))
-end
-
 
 
 if not exists
@@ -3367,45 +3327,7 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/thresholdcategory',
 (select MENU_ID from config_menu where Link='/config/rcsa/thresholdcategory'))
 end
-if not exists
-(select * from config_apiforentityname where API='/api/config/sourceoffindingall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/sourceoffindingall',null,
-(select MENU_ID from config_menu where LINK ='/config/sourceoffinding'))
-end
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/sourceoffindingall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/sourceoffindingall',null,
-(select MENU_ID from config_menu where LINK ='/config/sourceoffinding'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/Vendorall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/Vendorall',null,
-(select MENU_ID from config_menu where LINK ='/config/vendor'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/assettypecategoryall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assettypecategoryall',null,
-(select MENU_ID from config_menu where LINK ='/config/assettype_category'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/landscapeall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/landscapeall',null,
-(select MENU_ID from config_menu where LINK ='/risk/landscape'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/config/assetapplicationall')
@@ -6418,23 +6340,6 @@ values('/api/config/assettypecategoryall',null,
 (select MENU_ID from config_menu where LINK ='/config/assettype_category'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/landscapeall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/landscapeall',null,
-(select MENU_ID from config_menu where LINK ='/risk/landscape'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/assetapplicationall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assetapplicationall',null,
-(select MENU_ID from config_menu where LINK ='/config/asset_application'))
-end
-
-
 
 if not exists
 (select * from config_apiforentityname where API='/api/config/incidentimpactall')
@@ -8519,21 +8424,7 @@ values('/api/config/closeAuditFactorsall',null,
 (select MENU_ID from config_menu where LINK ='/config/close_Audit_Factors'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/sourceoffindingall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/sourceoffindingall',null,
-(select MENU_ID from config_menu where LINK ='/config/sourceoffinding'))
-end
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/sourceoffindingall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/sourceoffindingall',null,
-(select MENU_ID from config_menu where LINK ='/config/sourceoffinding'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/config/Vendorall')
@@ -8543,29 +8434,6 @@ values('/api/config/Vendorall',null,
 (select MENU_ID from config_menu where LINK ='/config/vendor'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/assettypecategoryall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assettypecategoryall',null,
-(select MENU_ID from config_menu where LINK ='/config/assettype_category'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/landscapeall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/landscapeall',null,
-(select MENU_ID from config_menu where LINK ='/risk/landscape'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/assetapplicationall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assetapplicationall',null,
-(select MENU_ID from config_menu where LINK ='/config/asset_application'))
-end
 
 
 
