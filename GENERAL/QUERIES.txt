@@ -672,33 +672,6 @@ end
 
 
 
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/levelsAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/levelsAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/levelsAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'LEVELS'))
-	end
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businesslinesall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businesslinesall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS LINES'))
-	end
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/businesslinesAI/'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businesslinesAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businesslinesAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS LINES'))
-	end
-
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowstatetype')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowstatetype',
@@ -712,7 +685,7 @@ End
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/locationsAI',
 	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'LOCATION'))
+	(select menu_id from config_menu where LINK = '/config/location'))
 	End
 
 	
@@ -744,41 +717,9 @@ End
 	'systemx.api.model.config',
 	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
 	end
-
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/levelsAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/levelsAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/levelsAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'LEVELS'))
-	end
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businesslinesall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businesslinesall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS LINES'))
-	end
 	
 
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/locationsAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/locationsAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/locationsAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'LOCATION'))
-	End
-
-	
-	
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/processAI'	
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/processAI'	
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/processAI')
 	begin
@@ -1887,57 +1828,15 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/loginAudit'
 (select menu_id from config_menu where Link='/config/loginAudit'))
 end
 
-
-   
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/levelsAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/levelsAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/levelsAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'LEVELS'))
-	end
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businesslinesall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businesslinesall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS LINES'))
-	end
-
-
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowstatetype')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowstatetype',
 (select menu_id from config_menu where Link='/config/workflowstatetype'))
 End
 
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/processAI'	
 
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/locationsAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/locationsAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/locationsAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'LOCATION'))
-	End
-
-	
-	
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/processAI'	
-
-	
-
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getAllMenu')
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getAllMenu')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getAllMenu',
 (select menu_id from config_menu where Link='/config/menu'))
@@ -3110,24 +3009,6 @@ end
 
 
 
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/levelsAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/levelsAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/levelsAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'LEVELS'))
-	end
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businesslinesall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businesslinesall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS LINES'))
-	end
-	
-
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowstatetype')
@@ -3137,14 +3018,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowsta
 End
 
 	
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/locationsAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/locationsAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/locationsAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'LOCATION'))
-	End
 
 	
 	
@@ -3420,42 +3293,14 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/loginAudit',
 (select menu_id from config_menu where Link='/config/loginAudit'))
 end
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/levelsAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/levelsAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/levelsAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'LEVELS'))
-	end
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businesslinesall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businesslinesall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS LINES'))
-	end
 	
 
-
-
-	
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/locationsAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/locationsAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/locationsAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'LOCATION'))
-	End
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyall')
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/hierarchyall',
 	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS HIERARCHY'))
+	(select menu_id from config_menu where link = '/config/business_hierarchy'))
 	end
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/getBusinessHierarchy'	
 
@@ -3463,14 +3308,14 @@ end
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/getBusinessHierarchy',
 	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS HIERARCHY'))
+	(select menu_id from config_menu where link = '/config/business_hierarchy'))
 	end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/processall')
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/processall',
 	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'PROCESS'))
+	(select menu_id from config_menu where link ='/config/process'))
 	end
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/processAI'	
 
@@ -4007,81 +3852,29 @@ end
 	'systemx.api.model.config',
 	(select menu_id from config_menu where DISPLAYNAME = 'LEVELS'))
 	end
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/levelsAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/levelsAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/levelsAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'LEVELS'))
-	end
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businesslinesall')
+	
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businesslinesall')
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businesslinesall',
 	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS LINES'))
+	(select menu_id from config_menu where link ='/config/business_lines'))
+	end
+	delete CONFIG_APIFORENTITYNAME where API= '/api/config/businesslinesAI/'	
+
+	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businesslinesAI')
+	begin
+	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businesslinesAI',
+	'systemx.api.model.config',
+	(select menu_id from config_menu where link ='/config/business_lines'))
 	end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowstatetypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowstatetypeall',
-(select menu_id from config_menu where Link='/config/workflowstatetype'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowstatetype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowstatetype',
-(select menu_id from config_menu where Link='/config/workflowstatetype'))
-End
-
-	
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/locationsAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/locationsAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/locationsAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'LOCATION'))
-	End
 	
 delete CONFIG_APIFORENTITYNAME where API= '/api/config/processAI'	
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
-	end
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/officetypeAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
-	end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/assignToProfileAll')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/assignToProfileAll',
-(select menu_id from config_menu where Link='/config/assigntoprofile'))
-end
 
 
-
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/officetypeAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
-	end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domain')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domain',
@@ -4098,13 +3891,6 @@ end
 	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
 	end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT'))
-	end
 	
 
 
@@ -4611,20 +4397,7 @@ end
 	(select menu_id from config_menu where link ='/config/levels'))
 	end
 
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businesslinesall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businesslinesall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS LINES'))
-	end
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/businesslinesAI/'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businesslinesAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businesslinesAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS LINES'))
-	end
+	
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowstatetypeall')
@@ -4639,47 +4412,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowsta
 (select menu_id from config_menu where Link='/config/workflowstatetype'))
 End
 
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/locationsAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/locationsAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/locationsAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'LOCATION'))
-	End
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/hierarchyall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/hierarchyall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS HIERARCHY'))
-	end
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/getBusinessHierarchy'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getBusinessHierarchy')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/getBusinessHierarchy',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS HIERARCHY'))
-	end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/processall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/processall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'PROCESS'))
-	end
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/processAI'	
-
-	
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/menuall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/menuall',
-(select menu_id from config_menu where Link='/config/menu'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getAllMenu')
 begin
@@ -4695,21 +4427,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/businessFun
 end
 
 
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
-	end
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/officetypeAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
-	end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/assignToProfileAll')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/assignToProfileAll',
@@ -4720,7 +4437,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/offic
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeall',
 	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
+	(select menu_id from config_menu where link ='/config/office_type'))
 	end
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/officetypeAI'	
 
@@ -4728,7 +4445,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/offic
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeAI',
 	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
+	(select menu_id from config_menu where link ='/config/office_type'))
 	end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domain')
 begin
@@ -4766,7 +4483,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/produ
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productall',
 	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT'))
+	(select menu_id from config_menu where link = '/config/product'))
 	end
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/productAI'	
 
@@ -4774,7 +4491,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/produ
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productAI',
 	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT'))
+	(select menu_id from config_menu where link = '/config/product'))
 	end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevel')
