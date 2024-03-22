@@ -684,16 +684,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/profileLink
 (select menu_id from config_menu where DISPLAYNAME = 'Profile Link WF state'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/themeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/themeall',
-(select menu_id from config_menu where DISPLAYNAME = 'Theme'))
-end 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/theme')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/theme',
-(select menu_id from config_menu where DISPLAYNAME = 'Theme'))
-end 
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losstypeall')
 begin
@@ -810,9 +801,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnai
 (select menu_id from config_menu where DISPLAYNAME = 'Questionniare Answer Type'))
 end
 
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/workFlowStatus')
-where API='/api/config/WorkFlowStatus'
+
 
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/questionnaire/answertype')
@@ -839,9 +828,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnai
 (select menu_id from config_menu where DISPLAYNAME = 'Questionniare Answer Type'))
 end
 
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/workFlowStatus')
-where API='/api/config/WorkFlowStatus'
 
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/questionnaire/answertype')
@@ -930,18 +916,16 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationpriorityall')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationpriorityall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'PRIORITY'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/observationpriorityall',
+(select menu_id from config_menu where Link='/config/compliance/observation/observationpriority'))
 end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/observationpriority'	
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationpriority')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationpriority',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'PRIORITY'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/observationpriority',
+(select menu_id from config_menu where Link='/config/compliance/observation/observationpriority'))
 end
+
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationrootcauseall')
@@ -1062,15 +1046,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationnature',
 'systemx.api.model.config.compliance',
 (select menu_id from config_menu where DISPLAYNAME = 'NATURE'))
-end
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/WorkFlowStatus')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/WorkFlowStatus',
-(select top 1 MENU_ID from config_menu where LINK = '/compliance/workFlowStatus' order by 
-MENU_ID desc))
 end
 
 /*ApiEntity insertion*/
@@ -1276,23 +1251,7 @@ End
 
 
 
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/processAI'	
-
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
-(select menu_id from config_menu where Link='/compliance/workFlowStatus'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatusall',
-(select menu_id from config_menu where Link='/compliance/workFlowStatus'))
-end
+	delete CONFIG_APIFORENTITYNAME where API= '/api/config/processAI'
 
 
 
@@ -1382,23 +1341,6 @@ End
 	'systemx.api.model.config',
 	(select menu_id from config_menu where LINK='/config/processlibrary'))
 	end
-
-
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
-(select menu_id from config_menu where Link='/compliance/workFlowStatus'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatusall',
-(select menu_id from config_menu where Link='/compliance/workFlowStatus'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businessFunctionsall')
@@ -1503,20 +1445,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'NATURE'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationpriorityall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationpriorityall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'PRIORITY'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/observationpriority'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationpriority')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationpriority',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'PRIORITY'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationrootcauseall')
@@ -1663,20 +1591,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatus',
 end
 
 
-
-
-
-
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/WorkFlowStatus')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/WorkFlowStatus',
-(select top 1 MENU_ID from config_menu where LINK = '/compliance/workFlowStatus' order by 
-MENU_ID desc))
-end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/generalDashboardFilters')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFilters',
@@ -2240,8 +2154,7 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/riskappetitematrix',
 (select menu_id from config_menu where LINK='/RCSA/riskappetitematrix'))
 end 
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select MENU_ID from config_menu where 
-Link='/compliance/workFlowStatus') where API = '/api/config/WorkFlowStatus'
+
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Risk/assetall')
@@ -2634,10 +2547,6 @@ values(GETDATE(),1,NULL,'Control Type',NULL,1,(select MODULE_ID from CONFIG_MODU
 End
 
 
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/workFlowStatus')
-where API='/api/config/WorkFlowStatus'
-
 if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/riskarea')
 begin
 insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
@@ -2702,11 +2611,6 @@ values(GETDATE(),1,NULL,'Workflow Status ',NULL,7,(select MODULE_ID from CONFIG_
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/compliance/workFlowStatus','GWS',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
-(select MENU_ID from config_menu where Link='/compliance/workFlowStatus'))
-end
 
 
 
@@ -2947,18 +2851,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
-(select menu_id from config_menu where Link='/compliance/workFlowStatus'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatusall',
-(select menu_id from config_menu where Link='/compliance/workFlowStatus'))
-end
-
 
 
 
@@ -3089,11 +2981,6 @@ values(GETDATE(),1,NULL,'Workflow Status ',NULL,7,(select MODULE_ID from CONFIG_
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/compliance/workFlowStatus','GWS',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
-(select MENU_ID from config_menu where Link='/compliance/workFlowStatus'))
-end
 
 
 
@@ -4137,16 +4024,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/profileLink
 (select menu_id from config_menu where DISPLAYNAME = 'Profile Link WF state'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/themeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/themeall',
-(select menu_id from config_menu where DISPLAYNAME = 'Theme'))
-end 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/theme')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/theme',
-(select menu_id from config_menu where DISPLAYNAME = 'Theme'))
-end 
+
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/responseall')
@@ -4271,14 +4149,6 @@ values(GETDATE(),1,NULL,'Workflow status',NULL,1,(select MODULE_ID from CONFIG_M
 null,0,1,1)
 End
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/WorkFlowStatus')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/WorkFlowStatus',
-(select top 1 MENU_ID from config_menu where LINK = '/compliance/workFlowStatus' order by 
-MENU_ID desc))
-end
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/config/userprofileall')
@@ -4387,16 +4257,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
-(select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
-End
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/workFlowStatus')
-where API='/api/config/WorkFlowStatus'
-
 
 
 
@@ -4404,18 +4264,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workf
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowstatetype',
 (select menu_id from config_menu where Link='/config/workflowstatetype'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatusall',
-(select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
-(select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
 end
 
 
@@ -4451,10 +4299,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fraudincide
 (select menu_id from config_menu where Link='/config/fraud_incident_goegraphy'))
 end
 
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/workFlowStatus')
-where API='/api/config/WorkFlowStatus'
 
 if not exists(select * from CONFIG_MENU where LINK='/config/workflow-setup')
 begin
@@ -4505,12 +4349,6 @@ insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON
 values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
 End
-
-
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/workFlowStatus')
-where API='/api/config/WorkFlowStatus'
 
 
 
@@ -5229,16 +5067,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/profileLink
 (select menu_id from config_menu where DISPLAYNAME = 'Profile Link WF state'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/themeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/themeall',
-(select menu_id from config_menu where DISPLAYNAME = 'Theme'))
-end 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/theme')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/theme',
-(select menu_id from config_menu where DISPLAYNAME = 'Theme'))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/responseall')
 begin
@@ -5355,14 +5183,7 @@ values(GETDATE(),1,NULL,'Workflow status',NULL,1,(select MODULE_ID from CONFIG_M
 null,0,1,1)
 End
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/WorkFlowStatus')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/WorkFlowStatus',
-(select top 1 MENU_ID from config_menu where LINK = '/compliance/workFlowStatus' order by 
-MENU_ID desc))
-end
+
 
 
 /*ApiEntity insertion*/
@@ -5506,26 +5327,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/menuall',
 (select menu_id from config_menu where Link='/config/menu'))
 end
 
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
-(select menu_id from config_menu where Link='/compliance/workFlowStatus'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatusall',
-(select menu_id from config_menu where Link='/compliance/workFlowStatus'))
-end
-
-
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/officetypeAI'	
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/officetypeAI'	
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeAI')
 	begin
@@ -5658,24 +5460,12 @@ values('/api/config/dimensionall',null,
 end
 
 
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatusall',
-(select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
 (select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
 End
 
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/workFlowStatus')
-where API='/api/config/WorkFlowStatus'
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowstatetype')
@@ -5690,18 +5480,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowSta
 (select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
-(select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/themeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/themeall',
-(select menu_id from config_menu where Link='/config/theme'))
-end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcoverageall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/impactcoverageall',
@@ -6012,14 +5790,6 @@ values(GETDATE(),1,NULL,'Workflow status',NULL,1,(select MODULE_ID from CONFIG_M
 null,0,1,1)
 End
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/WorkFlowStatus')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/WorkFlowStatus',
-(select top 1 MENU_ID from config_menu where LINK = '/compliance/workFlowStatus' order by 
-MENU_ID desc))
-end
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/config/userprofileall')
@@ -6191,26 +5961,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/proce
 
 
 
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
-(select menu_id from config_menu where Link='/compliance/workFlowStatus'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatusall',
-(select menu_id from config_menu where Link='/compliance/workFlowStatus'))
-end
-
-
-
-
-
-
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/officetypeAI'	
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeAI')
@@ -6285,21 +6035,6 @@ values('/api/dashboard/requirementdataall',null,
 (select MENU_ID from config_menu where DISPLAYNAME ='Dashboards' and link = '/dashboard/dashboards'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatusall',
-(select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
-(select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
-End
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/workFlowStatus')
-where API='/api/config/WorkFlowStatus'
 
 
 
@@ -6309,24 +6044,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowsta
 (select menu_id from config_menu where Link='/config/workflowstatetype'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatusall',
-(select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
-end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
-(select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/themeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/themeall',
-(select menu_id from config_menu where Link='/config/theme'))
-end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcoverageall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/impactcoverageall',
@@ -6420,11 +6138,6 @@ end
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
 where API='/api/config/businessFunctions'
-
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/workFlowStatus')
-where API='/api/config/WorkFlowStatus'
 
 
 
@@ -6572,11 +6285,6 @@ values(GETDATE(),1,NULL,'Workflow Status ',NULL,7,(select MODULE_ID from CONFIG_
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/compliance/workFlowStatus','GWS',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
-(select MENU_ID from config_menu where Link='/compliance/workFlowStatus'))
-end
 
 if not exists(select * from CONFIG_MENU where LINK='/compliance/remindercolumns')
 begin
@@ -6624,10 +6332,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowSta
 (select MENU_ID from config_menu where Link='/config/workflow-setup'))
 end
 
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/workFlowStatus')
-where API='/api/config/WorkFlowStatus'
 
 if not exists
 (select * from config_apiforentityname where API='/api/home/incidentproposalall')
@@ -7194,15 +6898,6 @@ null,0,1,1)
 End
 
 /*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/WorkFlowStatus')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/WorkFlowStatus',
-(select top 1 MENU_ID from config_menu where LINK = '/compliance/workFlowStatus' order by 
-MENU_ID desc))
-end
-
-/*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/config/userprofileall')
 begin
 Insert into config_apiforentityname(API,MENU_ID)
@@ -7362,45 +7057,12 @@ End
 	'systemx.api.model.config',
 	(select menu_id from config_menu where DISPLAYNAME = 'LOCATION'))
 	End
-
 	
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/processAI'	
 
-
-
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/processAI'	
-
-
-
-
-
-
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
-(select menu_id from config_menu where Link='/compliance/workFlowStatus'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatusall',
-(select menu_id from config_menu where Link='/compliance/workFlowStatus'))
-end
-
-
-
-
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeall')
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeall')
 	begin
-	insert into CONF
-
-IG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeall',
+	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeall',
 	'systemx.api.model.config',
 	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
 	end
@@ -7466,23 +7128,6 @@ values('/api/config/dimensionall',null,
 (select MENU_ID from config_menu where LINK ='/config/dimension'))
 end
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatusall',
-(select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
-(select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
-End
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/workFlowStatus')
-where API='/api/config/WorkFlowStatus'
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
@@ -7865,11 +7510,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/RCSAalll',
 end
 
 
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/workFlowStatus')
-where API='/api/config/WorkFlowStatus'
-
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/questionnaire/answertype')
 where API='/api/config/questionnaireanswertype'
@@ -7933,11 +7573,7 @@ values(GETDATE(),1,NULL,'Workflow Status ',NULL,7,(select MODULE_ID from CONFIG_
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/compliance/workFlowStatus','GWS',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
-(select MENU_ID from config_menu where Link='/compliance/workFlowStatus'))
-end
+
 
 if not exists(select * from CONFIG_MENU where LINK='/config/profilemapping')
 begin
@@ -8398,20 +8034,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getAl
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getAllMenu',
 (select menu_id from config_menu where Link='/config/menu'))
-end
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
-(select menu_id from config_menu where Link='/compliance/workFlowStatus'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatusall',
-(select menu_id from config_menu where Link='/compliance/workFlowStatus'))
 end
 
 
@@ -9287,15 +8909,11 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/profileLink
 (select menu_id from config_menu where DISPLAYNAME = 'Profile Link WF state'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/themeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/themeall',
-(select menu_id from config_menu where DISPLAYNAME = 'Theme'))
-end 
+
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/theme')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/theme',
-(select menu_id from config_menu where DISPLAYNAME = 'Theme'))
+(select menu_id from config_menu where link ='/config/theme'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/responseall')
@@ -9402,15 +9020,6 @@ values(GETDATE(),1,NULL,'Workflow status',NULL,1,(select MODULE_ID from CONFIG_M
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/compliance/workFlowStatus',
 null,0,1,1)
 End
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/WorkFlowStatus')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/WorkFlowStatus',
-(select top 1 MENU_ID from config_menu where LINK = '/compliance/workFlowStatus' order by 
-MENU_ID desc))
-end
 
 
 /*ApiEntity insertion*/
