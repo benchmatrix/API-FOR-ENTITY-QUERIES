@@ -1563,17 +1563,6 @@ end
 
 
 
-
-
-if not exists(select * from CONFIG_MENU where LINK='/config/workflow-setup')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
-End
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/empstatusall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatusall',
@@ -2310,12 +2299,7 @@ end
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
 LINK = '/config/RCSA/assessmentarea') where API = '/api/config/RCSA/assessmentarea'
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/positionsall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/positionsall',
-null,
-(select MENU_ID from config_menu where link ='/config/positions'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/ramcategorythreshold')
 begin
@@ -2568,11 +2552,6 @@ values(GETDATE(),1,NULL,'Risk Level ',NULL,6,(select MODULE_ID from CONFIG_MODUL
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/rcsa/risklevel','GRL',0,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/risklevel')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/risklevel',
-(select MENU_ID from config_menu where Link='/config/rcsa/risklevel'))
-end
 
 
 if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/methodology')
@@ -2866,13 +2845,6 @@ end
 	end
 
 
-if not exists(select * from CONFIG_MENU where LINK='/config/workflow-setup')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
-End
-
 
 if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/Controlmechanism')
 begin
@@ -2881,19 +2853,6 @@ values(GETDATE(),1,NULL,'Control Mechanism ',NULL,4,(select MODULE_ID from CONFI
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/rcsa/Controlmechanism','GCM',0,1,1)
 End
 
-
-if not exists(select * from CONFIG_MENU where LINK='/config/IntegrationLog')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Integration Log ',NULL,4,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/IntegrationLog','GIL',0,1,1)
-End
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/integrationlog')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/integrationlog',
-(select MENU_ID from config_menu where Link='/config/IntegrationLog'))
-end
 
 
 if not exists(select * from CONFIG_MENU where LINK='/config/empstatus')
@@ -3137,19 +3096,6 @@ values(GETDATE(),1,NULL,'Reminder Columns',NULL,15,(select MODULE_ID from CONFIG
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/compliance/remindercolumns','GRC',0,1,1)
 End
 
-if not exists(select * from CONFIG_MENU where LINK='/config/answer_type')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Answer Type',NULL,15,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/answer_type','GAT',0,1,1)
-End
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/answertype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/answertype',
-(select MENU_ID from config_menu where Link='/config/answer_type'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/segmentAll')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/segmentAll',
@@ -3203,12 +3149,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/configteamall',null,
 (select MENU_ID from config_menu where LINK ='/config/config-team'))
 end
-if not exists(select * from CONFIG_MENU where LINK='/config/workflow-setup')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
-End
 
 
 if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/Controlmechanism')
@@ -3427,14 +3367,6 @@ values('/api/config/activityProgressStatusAll',null,
 end
 
 
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/answertypeall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/answertypeall',null,
-(select MENU_ID from config_menu where LINK ='/config/answer_type'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/config/configteamall')
@@ -4330,14 +4262,6 @@ update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
 where API='/api/config/businessFunctions'
 
-
-
-if not exists(select * from CONFIG_MENU where LINK='/config/workflow-setup')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
-End
 
 
 
@@ -6074,13 +5998,6 @@ where API='/api/config/businessFunctions'
 
 
 
-if not exists(select * from CONFIG_MENU where LINK='/config/workflow-setup')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
-End
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/positionsall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/positionsall',
@@ -6145,13 +6062,6 @@ set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctio
 where API='/api/config/businessFunctions'
 
 
-if not exists(select * from CONFIG_MENU where LINK='/config/workflow-setup')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/workflow-setup','GENWF',0,1,1)
-End
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
@@ -6168,19 +6078,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/Report/SaveReportF
 (select MENU_ID from config_menu where Link='/Report/reportlisting'))
 end
 
-
-if not exists(select * from CONFIG_MENU where LINK='/config/IntegrationLog')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Integration Log ',NULL,4,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/IntegrationLog','GIL',0,1,1)
-End
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/integrationlog')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/integrationlog',
-(select MENU_ID from config_menu where Link='/config/IntegrationLog'))
-end
 
 
 if not exists(select * from CONFIG_MENU where LINK='/config/empstatus')
@@ -6230,19 +6127,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/remin
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/reminderLinkColumn',
 (select MENU_ID from config_menu where Link='/compliance/remindercolumns'))
-end
-
-if not exists(select * from CONFIG_MENU where LINK='/config/answer_type')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Answer Type',NULL,15,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/answer_type','GAT',0,1,1)
-End
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/answertype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/answertype',
-(select MENU_ID from config_menu where Link='/config/answer_type'))
 end
 
 
@@ -7356,12 +7240,6 @@ values(GETDATE(),1,NULL,'Extra Notification Wf State',NULL,4,(select MODULE_ID f
 End
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/positionsall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/positionsall',
-null,
-(select MENU_ID from config_menu where link ='/config/positions'))
-end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/loss/incidentreportlinkproductall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/loss/incidentreportlinkproductall',
@@ -7423,15 +7301,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/addkistodashboard',
 (select MENU_ID from config_menu where Link='/keyriskindicators/create-kidashboards'))
 end
-
-
-if not exists(select * from CONFIG_MENU where LINK='/config/IntegrationLog')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Integration Log ',NULL,4,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/IntegrationLog','GIL',0,1,1)
-End
-
 
 
 
