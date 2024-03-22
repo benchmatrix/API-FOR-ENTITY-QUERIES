@@ -79,14 +79,14 @@ end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttypeall')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttypeall',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttypeall',(select menu_id from config_menu where link ='/config/kiimpacttype'))
 end 
 
 delete CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttype'
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttype')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttype',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttype',(select menu_id from config_menu where link = '/config/kiimpacttype'))
 end
 -- KI category Queries--
 
