@@ -114,13 +114,13 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/scorethresholdall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/scorethresholdall',
-(select menu_id from config_menu where DISPLAYNAME = 'Score threshold'))
+(select menu_id from config_menu where link ='/config/RCSA/scorethreshold'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/scorethreshold')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/scorethreshold',
-(select menu_id from config_menu where DISPLAYNAME = 'Score threshold'))
+(select menu_id from config_menu where link = '/config/RCSA/scorethreshold'))
 end
 
 if not exists
@@ -223,29 +223,7 @@ end
 
 
 
--- KI Impacttype Queries
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttypeall',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
-end 
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttype'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttype',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
-end
-
-
-
-if not exists
-(select * from config_apiforentityname where API='api/home/kiSetupBreachesAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('api/home/kiSetupBreachesAll',null,
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
 
 
 
@@ -257,21 +235,6 @@ values('/api/home/KIall',null,
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
-
-
--- KI Impacttype Queries
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttypeall',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
-end 
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttype'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttype',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/getkidashboards')
@@ -299,48 +262,15 @@ end
 
 
 
--- KI Impacttype Queries
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttypeall',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
-end 
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttype'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttype',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
-end
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypeall',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
-end
 
 
 if not exists
-(select * from config_apiforentityname where API='api/home/kiSetupBreachesAll')
+(select * from config_apiforentityname where API='/api/home/kiSetupBreachesAll')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('api/home/kiSetupBreachesAll',null,
+values('/api/home/kiSetupBreachesAll',null,
 (select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
--- KI Impacttype Queries
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttypeall',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
-end 
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttype'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttype',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
 end
 
 
@@ -491,19 +421,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kimeasureal
 end 
 
 
--- KI Impacttype Queries
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttypeall',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
-end 
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttype'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttype',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
-end
 
 -- KI category Queries--
 
