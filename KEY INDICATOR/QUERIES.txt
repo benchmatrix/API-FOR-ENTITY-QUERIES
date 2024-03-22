@@ -36,29 +36,26 @@ delete from CONFIG_APIFORENTITYNAME where api='/api/config/kithreshold'
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithreshold')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID)values('/api/config/kithreshold',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID)values('/api/config/kithreshold',(select menu_id from config_menu where link ='/config/kithreshold'))
 end 
 
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/kithreshold')
-where API='/api/config/kithreshold'
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdall')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdall',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdall',(select menu_id from config_menu where link = '/config/kithreshold'))
 end
 
 -- KI Threshold Category Queries
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdcategoryall')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold Category'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdcategoryall',(select menu_id from config_menu where link = '/config/kithresholdcategory'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdcategory')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdcategory',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold Category'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdcategory',(select menu_id from config_menu where link = '/config/kithresholdcategory'))
 end
 
 
@@ -275,39 +272,11 @@ values('/api/ki/getdatafieldbydatestring',null,
 (select MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints'))
 end
 
-
--- KI Threshold Queries–
-
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/kithreshold'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithreshold')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID)values('/api/config/kithreshold',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold'))
-end 
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/kithreshold')
-where API='/api/config/kithreshold'
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdall')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdall',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdall',(select menu_id from config_menu where link='/config/kithreshold'))
 end
 
--- KI Threshold Category Queries
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold Category'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdcategory',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold Category'))
-end
 
 
 -- KI Format Queries
@@ -425,39 +394,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/home/KIall',null,
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
-
-
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/kithreshold'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithreshold')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID)values('/api/config/kithreshold',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold'))
-end 
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/kithreshold')
-where API='/api/config/kithreshold'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdall',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold'))
-end
-
--- KI Threshold Category Queries
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold Category'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdcategory',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold Category'))
-end
-
 
 -- KI Format Queries
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiformatall')
@@ -578,40 +514,6 @@ values('/api/ki/getallkireports',null,
 end
 
 
--- KI Threshold Queries
-
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/kithreshold'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithreshold')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID)values('/api/config/kithreshold',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold'))
-end 
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/kithreshold')
-where API='/api/config/kithreshold'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdall',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold'))
-end
-
--- KI Threshold Category Queries
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold Category'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdcategory',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold Category'))
-end
-
-
 -- KI Format Queries
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiformatall')
 begin
@@ -716,39 +618,6 @@ values('api/home/kiSetupBreachesAll',null,
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
-
--- KI Threshold Queries–
-
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/kithreshold'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithreshold')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID)values('/api/config/kithreshold',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold'))
-end 
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/kithreshold')
-where API='/api/config/kithreshold'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdall',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold'))
-end
-
--- KI Threshold Category Queries
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold Category'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdcategory',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold Category'))
-end
 
 
 -- KI Format Queries
@@ -976,38 +845,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kimeasureall',(select menu_id from config_menu where link = '/config/ki_measure'))
 end 
 
--- KI Threshold Queries
-
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/kithreshold'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithreshold')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID)values('/api/config/kithreshold',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold'))
-end 
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/kithreshold')
-where API='/api/config/kithreshold'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdall',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold'))
-end
-
--- KI Threshold Category Queries
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold Category'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kithresholdcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kithresholdcategory',(select menu_id from config_menu where DISPLAYNAME = 'KI Threshold Category'))
-end
 
 
 -- KI Format Queries
