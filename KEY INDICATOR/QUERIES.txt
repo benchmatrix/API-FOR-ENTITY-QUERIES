@@ -20,12 +20,12 @@ end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiweightage')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiweightage',(select menu_id from config_menu where DISPLAYNAME = 'KI Weightage'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiweightage',(select menu_id from config_menu where link ='/config/kiweightage'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiweightageall')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiweightageall',(select menu_id from config_menu where DISPLAYNAME = 'KI Weightage'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiweightageall',(select menu_id from config_menu where link = '/config/kiweightage'))
 end 
 
 -- KI Threshold Queries–
@@ -275,17 +275,6 @@ values('/api/ki/getdatafieldbydatestring',null,
 (select MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints'))
 end
 
--- KI Weightage Queries--
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiweightage')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiweightage',(select menu_id from config_menu where DISPLAYNAME = 'KI Weightage'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiweightageall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiweightageall',(select menu_id from config_menu where DISPLAYNAME = 'KI Weightage'))
-end 
 
 -- KI Threshold Queries–
 
@@ -439,22 +428,6 @@ end
 
 
 
-
--- KI Weightage Queries--
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiweightage')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiweightage',(select menu_id from config_menu where DISPLAYNAME = 'KI Weightage'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiweightageall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiweightageall',(select menu_id from config_menu where DISPLAYNAME = 'KI Weightage'))
-end 
-
--- KI Threshold Queries–
-
-
 delete from CONFIG_APIFORENTITYNAME where api='/api/config/kithreshold'
 
 
@@ -605,18 +578,6 @@ values('/api/ki/getallkireports',null,
 end
 
 
--- KI Weightage Queries--
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiweightage')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiweightage',(select menu_id from config_menu where DISPLAYNAME = 'KI Weightage'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiweightageall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiweightageall',(select menu_id from config_menu where DISPLAYNAME = 'KI Weightage'))
-end 
-
 -- KI Threshold Queries
 
 
@@ -755,19 +716,6 @@ values('api/home/kiSetupBreachesAll',null,
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
-
-
--- KI Weightage Queries--
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiweightage')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiweightage',(select menu_id from config_menu where DISPLAYNAME = 'KI Weightage'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiweightageall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiweightageall',(select menu_id from config_menu where DISPLAYNAME = 'KI Weightage'))
-end 
 
 -- KI Threshold Queries–
 
@@ -1026,18 +974,6 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kimeasureall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kimeasureall',(select menu_id from config_menu where link = '/config/ki_measure'))
-end 
-
--- KI Weightage Queries--
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiweightage')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiweightage',(select menu_id from config_menu where DISPLAYNAME = 'KI Weightage'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiweightageall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiweightageall',(select menu_id from config_menu where DISPLAYNAME = 'KI Weightage'))
 end 
 
 -- KI Threshold Queries
