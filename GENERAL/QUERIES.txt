@@ -1801,15 +1801,6 @@ end
 
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/home/observationall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/observationall','systemx.api.model.complianceobservation',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-
 
 if not exists
 (select * from config_apiforentityname where API='/api/home/incidentreportall')
@@ -1893,13 +1884,7 @@ values('/api/home/assigncomplianceruleall','systemx.api.model.workflow.Bucket',
 (select MENU_ID from config_menu where MENU_KEY = 'RM'))
 end
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/home/workshopall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/workshopall','systemx.api.model.rcsa',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'RA_AW' order by MENU_ID desc))
-end
+
 if not exists
 (select * from config_apiforentityname where API='/api/home/controlplanlinkcontrollinkusersall')
 begin
@@ -1907,21 +1892,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/home/controlplanlinkcontrollinkusersall',null,
 (select MENU_ID from config_menu where LINK ='/bucket'))
 End
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/home/workshopall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/workshopall','systemx.api.model.rcsa',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'RA_AW' order by MENU_ID desc))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/correspondenceall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/correspondenceall',
-(select menu_id from config_menu where LINK ='/bucket'))
-end
 
 
 if not exists
@@ -2683,14 +2653,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/correspondenceall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/correspondenceall',
-(select menu_id from config_menu where LINK ='/bucket'))
-end
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertype',
@@ -3240,23 +3202,6 @@ MENU_ID desc))
 End
 
 
-
-if not exists(select * from config_apiforentityname where API='/api/home/workshopall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/workshopall','systemx.api.model.rcsa',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-if not exists(select * from config_apiforentityname where API='/api/home/kisetupall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/kisetupall','systemx.api.model.ki',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-
-
 if not exists
 (select * from config_apiforentityname where API='/api/home/assigndatapointsall')
 begin
@@ -3388,24 +3333,6 @@ MENU_ID desc))
 End
 
 
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/selfassessmentall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/selfassessmentall','systemx.api.model.compliance.selfassessment',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/compliancerequirementall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/compliancerequirementall','systemx.api.model.regulatorycompliance',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
 if not exists
 (select * from config_apiforentityname where API='/api/home/RCSAall')
 begin
@@ -3424,17 +3351,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('api/home/correspondenceall','systemx.api.model.correspondance',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/observationall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/observationall','systemx.api.model.complianceobservation',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
 
 
 if not exists
@@ -4344,18 +4260,6 @@ values('/api/config/staticConfiguration',null,
 end
 
 
-
-
-
-if not exists(select * from config_apiforentityname where API='/api/home/workshopall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/workshopall','systemx.api.model.rcsa',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-
-
 if not exists(select * from config_apiforentityname where API='/api/home/kisetupall')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
@@ -4363,48 +4267,6 @@ values('/api/home/kisetupall','systemx.api.model.ki',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/assigndatapointsall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/assigndatapointsall','systemx.api.model.ki',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-	if not exists(select * from CONFIG_MENU where MENU_KEY='RP')
-begin
-insert into CONFIG_MENU (DISPLAYNAME,MODULE_ID,PARENTID,CREATEDBY,CREATEDON,HIDE_IN_MENU,IS_CONFIG,MENU_KEY)
-values ('changePassword' , (select MODULE_ID from CONFIG_MODULE where MODULE_KEY='CNFG'), 
-(select menu_id from CONFIG_MENU where DISPLAYNAME='General'),1,GETDATE(),1,1,'RP')
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME  where api='/api/config/changePassword')
-begin
-insert into CONFIG_APIFORENTITYNAME (API,MENU_ID) values ('/api/config/changePassword',(select menu_id from CONFIG_MENU where MENU_KEY='RP'))
-end
-
-
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/selfassessmentall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/selfassessmentall','systemx.api.model.compliance.selfassessment',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/compliancerequirementall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/compliancerequirementall','systemx.api.model.regulatorycompliance',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/home/RCSAall')
@@ -5108,13 +4970,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/correspondenceall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/correspondenceall',
-(select menu_id from config_menu where LINK ='/bucket'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/languages',
@@ -5689,13 +5544,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/generalDashb
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFilters',
 (select menu_id from config_menu where LINK ='/dashboard/newdashboard'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/correspondenceall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/correspondenceall',
-(select menu_id from config_menu where LINK ='/bucket'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
@@ -7451,26 +7299,6 @@ values('/api/home/workshopall','systemx.api.model.rcsa',
 end
 
 
-
-if not exists(select * from config_apiforentityname where API='/api/home/kisetupall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/kisetupall','systemx.api.model.ki',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/assigndatapointsall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/assigndatapointsall','systemx.api.model.ki',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-
-
 if not exists
 (select * from config_apiforentityname where API='/api/home/selfassessmentall')
 begin
@@ -7506,17 +7334,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('api/home/correspondenceall','systemx.api.model.correspondance',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/observationall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/observationall','systemx.api.model.complianceobservation',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
 
 
 if not exists
@@ -7567,11 +7384,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFi
 (select menu_id from config_menu where LINK ='/dashboard/newdashboard'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/correspondenceall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/correspondenceall',
-(select menu_id from config_menu where LINK ='/bucket'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowWithColumns')
@@ -7607,12 +7419,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/correspondenceall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/correspondenceall',
-(select menu_id from config_menu where LINK ='/bucket'))
-end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/languages',
@@ -8001,22 +7807,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME (API,MENU_ID) values ('/api/config/changePassword',(select menu_id from CONFIG_MENU where MENU_KEY='RP'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/home/selfassessmentall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/selfassessmentall','systemx.api.model.compliance.selfassessment',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/compliancerequirementall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/compliancerequirementall','systemx.api.model.regulatorycompliance',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/home/RCSAall')
@@ -8036,17 +7826,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('api/home/correspondenceall','systemx.api.model.correspondance',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/observationall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/observationall','systemx.api.model.complianceobservation',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
 
 
 if not exists
@@ -8060,45 +7839,6 @@ end
 update  CONFIG_FIELDLINKPAGES set path='/api/config/frequency'  where FIELD_ID in (select FIELD_ID from CONFIG_FIELDS where FIELD_KEY='frequency')
 
 
-
-
-if not exists(select * from config_apiforentityname where API='/api/home/workshopall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/workshopall','systemx.api.model.rcsa',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-
-
-if not exists(select * from config_apiforentityname where API='/api/home/kisetupall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/kisetupall','systemx.api.model.ki',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/assigndatapointsall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/assigndatapointsall','systemx.api.model.ki',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/selfassessmentall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/selfassessmentall','systemx.api.model.compliance.selfassessment',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-
 if not exists
 (select * from config_apiforentityname where API='/api/home/RCSAall')
 begin
@@ -8115,16 +7855,6 @@ if not exists
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('api/home/correspondenceall','systemx.api.model.correspondance',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/observationall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/observationall','systemx.api.model.complianceobservation',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
