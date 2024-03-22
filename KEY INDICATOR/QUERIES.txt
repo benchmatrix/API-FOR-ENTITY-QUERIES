@@ -88,35 +88,10 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiimp
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttype',(select menu_id from config_menu where link = '/config/kiimpacttype'))
 end
--- KI category Queries--
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypecategoryall',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
-end 
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategory'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypecategory',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
-end
 
 
--- KI type
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kitype'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitype',(select menu_id from config_menu where DISPLAYNAME = 'KI type '))
-end 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypeall',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
-end
 
 --KI direction  query
 
@@ -289,35 +264,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttype',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
 end
 
--- KI category Queries--
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypecategoryall',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
-end 
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategory'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypecategory',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
-end
-
-
--- KI type
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kitype'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitype',(select menu_id from config_menu where DISPLAYNAME = 'KI type '))
-end 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypeall',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
-end
 
 --KI direction  query
 
@@ -387,35 +333,7 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttype',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
 end
 
--- KI category Queries--
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypecategoryall',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
-end 
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategory'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypecategory',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
-end
-
-
--- KI type
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kitype'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitype',(select menu_id from config_menu where DISPLAYNAME = 'KI type '))
-end 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypeall',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
-end
 
 --KI direction  query
 
@@ -488,29 +406,7 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttype',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
 end
 
--- KI category Queries--
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypecategoryall',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
-end 
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategory'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypecategory',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
-end
-
-
--- KI type
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kitype'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitype',(select menu_id from config_menu where DISPLAYNAME = 'KI type '))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/kisetupall')
 begin
@@ -576,33 +472,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttype',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypecategoryall',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
-end 
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategory'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypecategory',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
-end
-
-
--- KI type
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kitype'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitype',(select menu_id from config_menu where DISPLAYNAME = 'KI type '))
-end 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypeall',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
-end
 
 --KI direction  query
 
@@ -786,14 +655,14 @@ end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategoryall')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypecategoryall',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypecategoryall',(select menu_id from config_menu where link = '/config/kitypecategory'))
 end 
 
 delete CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategory'
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypecategory')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypecategory',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypecategory',(select menu_id from config_menu where link ='/config/kitypecategory'))
 end
 
 
@@ -803,13 +672,13 @@ delete CONFIG_APIFORENTITYNAME where api='/api/config/kitype'
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitype')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitype',(select menu_id from config_menu where DISPLAYNAME = 'KI type '))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitype',(select menu_id from config_menu where link ='/config/kitype'))
 end 
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypeall')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypeall',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypeall',(select menu_id from config_menu where link ='/config/kitype'))
 end
 
 --KI direction  query
