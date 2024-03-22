@@ -448,19 +448,6 @@ end
 
 
 
-if not exists(select * from config_apiforentityname where API='/api/controlRegister/doc')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/controlRegister/doc',null,
-(select top 1 MENU_ID from config_menu where LINK='/RCSA/control-register'))
-end
-
-if not exists(select * from config_apiforentityname where API='/api/controlRegister/linkages')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/controlRegister/linkages',null,
-(select top 1 MENU_ID from config_menu where LINK='/RCSA/control-register'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/RCSA/getrcsaformula')
 begin
@@ -1141,12 +1128,6 @@ values('/api/controlRegister/doc',null,
 (select top 1 MENU_ID from config_menu where LINK='/RCSA/control-register'))
 end
 
-if not exists(select * from config_apiforentityname where API='/api/controlRegister/linkages')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/controlRegister/linkages',null,
-(select top 1 MENU_ID from config_menu where LINK='/RCSA/control-register'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategoryall')
 begin
@@ -2468,26 +2449,19 @@ values('/api/config/RCSA/residualAssessment',null,
 (select MENU_ID from config_menu where LINK ='/RCSA/heatmap'))
 end
 
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Risk/assetall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/Risk/assetall',
 (select menu_id from config_menu where MENU_KEY='AST'))
 end 
 
-if not exists(select * from config_apiforentityname where API='/api/controlRegister/doc')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/controlRegister/doc',null,
-(select top 1 MENU_ID from config_menu where LINK='/RCSA/control-register'))
-end
+
 
 if not exists(select * from config_apiforentityname where API='/api/controlRegister/linkages')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/controlRegister/linkages',null,
-(select top 1 MENU_ID from config_menu where LINK='/RCSA/control-register'))
+(select MENU_ID from config_menu where LINK='/RCSA/control-register'))
 end
 
 if not exists(select * from config_apiforentityname where API='/api/home/workshopall')
