@@ -166,4 +166,10 @@ end
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
 LINK = '/config/controlplanthreshold') where api='/api/config/cpthresholdcategory'
 
+if not exists(select * from config_apiforentityname where API='/api/cp/controlplanall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/cp/controlplanall',null,
+(select MENU_ID from config_menu where LINK ='/controlplan/controlplanlisting'))
+end
 
