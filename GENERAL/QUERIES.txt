@@ -124,25 +124,10 @@ where link ='/config/actionplan_type'))
 end
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldlinkpagesall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldlinkpagesall',
-'systemx.api.model.config.dynamicpages.FieldLinkPages',
-(select menu_id from config_menu where DISPLAYNAME = 'FIELD LINK PAGES'))
-end
-
-
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where link = '/config/workflow-setup') where
 api='/api/config/workflowStateType'
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/domainall',
-'systemx.api.model.config.Domain',
-(select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboardall')
 begin
@@ -158,12 +143,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select MENU_ID from config_menu where LINK = '/config/dashboard'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/riskcategoryall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategory')
 begin
@@ -2494,12 +2473,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowsta
 (select menu_id from config_menu where Link='/config/workflowstatetype'))
 End
 
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/locationsall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/locationsall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'LOCATION'))
-	end
+
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/locationsAI'	
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/locationsAI')
@@ -3151,13 +3125,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldlinkpagesall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldlinkpagesall',
-'systemx.api.model.config.dynamicpages.FieldLinkPages',
-(select menu_id from config_menu where DISPLAYNAME = 'FIELD LINK PAGES'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflow')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/workflow',
@@ -3169,13 +3136,6 @@ update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu wh
 api='/api/config/workflow'
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/riskcategoryall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategory')
 begin
@@ -3927,33 +3887,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldlinkpagesall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldlinkpagesall',
-'systemx.api.model.config.dynamicpages.FieldLinkPages',
-(select menu_id from config_menu where DISPLAYNAME = 'FIELD LINK PAGES'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflow')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/workflow',
-'systemx.api.model.config.dynamicpages.FieldLinkPages',
-(select menu_id from config_menu where link = '/config/workflow-setup'))
-end
-
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where link = '/config/workflow-setup') where
-api='/api/config/workflow'
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/domainall',
-'systemx.api.model.config.Domain',
-(select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
-end
-
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/eventtypeall')
 begin
@@ -4606,21 +4539,6 @@ values('/api/config/compliance/compliance-key-area-all',
 MENU_ID desc))
 end
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/domainall',
-'systemx.api.model.config.Domain',
-(select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/riskcategoryall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategory')
 begin
@@ -5310,13 +5228,6 @@ values('/api/config/validationall','systemx.api.model.config.dynamicpages',
 (select MENU_ID from config_menu where DISPLAYNAME = 'Validation'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/workflow')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/workflow','systemx.api.model.workflow',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Workflow Setup'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/currencyAI')
@@ -5361,47 +5272,21 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldlinkpagesall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldlinkpagesall',
-'systemx.api.model.config.dynamicpages.FieldLinkPages',
-(select menu_id from config_menu where DISPLAYNAME = 'FIELD LINK PAGES'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflow')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/workflow',
-'systemx.api.model.config.dynamicpages.FieldLinkPages',
-(select menu_id from config_menu where link = '/config/workflow-setup'))
-end
-
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where link = '/config/workflow-setup') where
-api='/api/config/workflow'
-
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where link = '/config/workflow-setup') where
 api='/api/config/workflowStateType'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/domainall',
-'systemx.api.model.config.Domain',
-(select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
-end
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategoryall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/riskcategoryall',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
+(select menu_id from config_menu where link ='/config/risk_category'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategory')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/riskcategory',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
+(select menu_id from config_menu where link ='/config/risk_category'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/eventtypeall')
@@ -6467,12 +6352,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowsta
 (select menu_id from config_menu where Link='/config/workflowstatetype'))
 End
 
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/locationsall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/locationsall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'LOCATION'))
-	end
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/locationsAI'	
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/locationsAI')
@@ -6883,34 +6762,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/actionplans
 where link = '/config/actionplan_severity'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldlinkpagesall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldlinkpagesall',
-'systemx.api.model.config.dynamicpages.FieldLinkPages',
-(select menu_id from config_menu where DISPLAYNAME = 'FIELD LINK PAGES'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflow')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/workflow',
-'systemx.api.model.config.dynamicpages.FieldLinkPages',
-(select menu_id from config_menu where link = '/config/workflow-setup'))
-end
-
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where link = '/config/workflow-setup') where
-api='/api/config/workflow'
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/domainall',
-'systemx.api.model.config.Domain',
-(select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
-end
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/locationsall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/locationsall',
@@ -6918,21 +6769,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select MENU_ID from config_menu where LINK = '/config/location'))
 end
 
-
-
-
-
-
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/riskcategoryall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategory')
 begin
