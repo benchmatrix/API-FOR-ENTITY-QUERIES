@@ -9602,3 +9602,10 @@ values('/api/config/sourceofcauseall',null,
 (select top 1 MENU_ID from config_menu where LINK='/config/sourceOfCause'))
 end
 
+if not exists(select * from config_apiforentityname where API='/api/config/initialrecommendationall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/initialrecommendationall',null,
+(select MENU_ID from config_menu where LINK='/config/initalrecommendation'))
+end
+
