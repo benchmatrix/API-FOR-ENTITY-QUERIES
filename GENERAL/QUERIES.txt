@@ -366,16 +366,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/losstype',
 (select menu_id from config_menu where DISPLAYNAME = 'Loss type'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/responseall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/responseall',
-(select menu_id from config_menu where DISPLAYNAME = 'response'))
-end 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/response')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/response',
-(select menu_id from config_menu where DISPLAYNAME = 'response'))
-end 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowScreenOption
 ')
 begin
@@ -2991,16 +2981,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/actionplans
 where link = '/config/actionplan_severity'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/responseall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/responseall',
-(select menu_id from config_menu where DISPLAYNAME = 'response'))
-end 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/response')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/response',
-(select menu_id from config_menu where DISPLAYNAME = 'response'))
-end 
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowScreenOption
@@ -3541,17 +3521,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevelall',(select menu_id from config_menu where link = '/config/compliance/prioritylevel'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/responseall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/responseall',
-(select menu_id from config_menu where DISPLAYNAME = 'response'))
-end 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/response')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/response',
-(select menu_id from config_menu where DISPLAYNAME = 'response'))
-end 
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowScreenOption
@@ -6073,12 +6042,12 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/responseall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/responseall',
-(select menu_id from config_menu where DISPLAYNAME = 'response'))
+(select menu_id from config_menu where link ='compliance/correspondance/response'))
 end 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/response')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/response',
-(select menu_id from config_menu where DISPLAYNAME = 'response'))
+(select menu_id from config_menu where link ='compliance/correspondance/response'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowScreenOption
