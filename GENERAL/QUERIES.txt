@@ -56,11 +56,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'Currency'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldsAI','systemx.api.model.config.dynamicpages.Fields',
-(select menu_id from config_menu where DISPLAYNAME = 'FIELDS'))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/modules')
 begin
@@ -640,27 +635,8 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsAI',
-(select menu_id from config_menu where DISPLAYNAME ='Fields(dev)'))
-end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancetypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/compliancetypeall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'COMPLIANCE TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/compliancetype'	
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsAI',
-(select menu_id from config_menu where Link='/config/dynamicforms/fields'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsall')
 begin
@@ -952,36 +928,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/empst
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatus',
 (select menu_id from config_menu where Link='/config/empstatus'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/generalDashboardFilters')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFilters',
-(select menu_id from config_menu where LINK ='/dashboard/newdashboard'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languagesall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values
-('/api/config/languagesall',(select menu_id from config_menu where DISPLAYNAME = 'Language'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsAI',
-(select menu_id from config_menu where DISPLAYNAME ='Fields(dev)'))
-end
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsAI',
-(select menu_id from config_menu where Link='/config/dynamicforms/fields'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsall')
@@ -1901,11 +1847,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/integration
 (select MENU_ID from config_menu where Link='/config/IntegrationLog'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/generalDashboardFilters')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFilters',
-(select menu_id from config_menu where LINK ='/dashboard/newdashboard'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
@@ -1914,29 +1855,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnai
 (select menu_id from config_menu where LINK = '/selfassessment/questionare'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languagesall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values
-('/api/config/languagesall',(select menu_id from config_menu where DISPLAYNAME = 'Language'))
-end
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsAI',
-(select menu_id from config_menu where DISPLAYNAME ='Fields(dev)'))
-end
-
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsAI',
-(select menu_id from config_menu where Link='/config/dynamicforms/fields'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsall')
 begin
@@ -2614,11 +2533,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'Currency'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldsAI','systemx.api.model.config.dynamicpages.Fields',
-(select menu_id from config_menu where DISPLAYNAME = 'FIELDS'))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/validationAI')
 begin
@@ -3078,11 +2992,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where link ='/config/LanguageTerms'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldsAI','systemx.api.model.config.dynamicpages.Fields',
-(select menu_id from config_menu where DISPLAYNAME = 'FIELDS'))
-end 
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
@@ -3174,20 +3083,9 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languagesall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values
-('/api/config/languagesall',(select menu_id from config_menu where DISPLAYNAME = 'Language'))
+('/api/config/languagesall',(select menu_id from config_menu where link ='/config/LanguageTerms'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsAI',
-(select menu_id from config_menu where DISPLAYNAME ='Fields(dev)'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsAI',
-(select menu_id from config_menu where Link='/config/dynamicforms/fields'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsall')
 begin
@@ -3289,15 +3187,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domai
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domain',
 (select menu_id from config_menu where Link='/config/domain'))
-end
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/generalDashboardFilters')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFilters',
-(select menu_id from config_menu where LINK ='/dashboard/newdashboard'))
 end
 
 
@@ -3488,26 +3377,6 @@ End
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/generalDashboardFilters')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFilters',
-(select menu_id from config_menu where LINK ='/dashboard/newdashboard'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/languages',
-(select menu_id from config_menu where DISPLAYNAME ='Language'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languagesall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values
-('/api/config/languagesall',(select menu_id from config_menu where DISPLAYNAME = 'Language'))
-end
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/ramcategorythreshold')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/ramcategorythreshold',
@@ -3521,22 +3390,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/languageall
 (select menu_id from config_menu where Link='/config/LanguageTerms'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsAI',
-(select menu_id from config_menu where DISPLAYNAME ='Fields(dev)'))
-end
-
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsAI',
-(select menu_id from config_menu where Link='/config/dynamicforms/fields'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsall')
 begin
@@ -3951,13 +3804,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldsAI','systemx.api.model.config.dynamicpages.Fields',
-(select menu_id from config_menu where DISPLAYNAME = 'FIELDS'))
-end 
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/Report/Report','systemx.api.model.report.Report',
@@ -4105,28 +3951,12 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where link ='/config/compliance/observation/auditreporttype'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/generalDashboardFilters')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFilters',
-(select menu_id from config_menu where LINK ='/dashboard/newdashboard'))
-end
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/correspondenceall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/correspondenceall',
 (select menu_id from config_menu where LINK ='/bucket'))
 end
 
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsAI',
-(select menu_id from config_menu where Link='/config/dynamicforms/fields'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsall')
 begin
@@ -4289,19 +4119,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/languages','systemx.api.model.config.Languages',
-(select menu_id from config_menu where DISPLAYNAME = 'LANGUAGE'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldsAI','systemx.api.model.config.dynamicpages.Fields',
-(select menu_id from config_menu where DISPLAYNAME = 'FIELDS'))
-end 
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/Report/Report','systemx.api.model.report.Report',
@@ -4361,13 +4178,6 @@ values(GETDATE(),1,NULL,'Control Type',NULL,1,(select MODULE_ID from CONFIG_MODU
 ,0,1,1)
 End
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/generalDashboardFilters')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFilters',
-(select menu_id from config_menu where LINK ='/dashboard/newdashboard'))
-end
 if not exists
 (select * from config_apiforentityname where API='/api/config/currencyall')
 begin
@@ -4703,15 +4513,6 @@ values('api/home/correspondenceall','systemx.api.model.correspondance',
 end
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/generalDashboardFilters')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFilters',
-(select menu_id from config_menu where LINK ='/dashboard/newdashboard'))
-end
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowWithColumns')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowWithColumns',
@@ -4729,18 +4530,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/generalDashb
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFilters',
 (select menu_id from config_menu where LINK ='/dashboard/newdashboard'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languagesall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values
-('/api/config/languagesall',(select menu_id from config_menu where DISPLAYNAME = 'Language'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsAI',
-(select menu_id from config_menu where DISPLAYNAME ='Fields(dev)'))
 end
 
 
@@ -4811,7 +4600,7 @@ end
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/levelsall',
 	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'LEVELS'))
+	(select menu_id from config_menu where link ='/config/levels'))
 	end
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/levelsAI'	
 
@@ -4819,7 +4608,7 @@ end
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/levelsAI',
 	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'LEVELS'))
+	(select menu_id from config_menu where link ='/config/levels'))
 	end
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businesslinesall')
@@ -5200,19 +4989,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where link ='/config/dynamicforms/pages'))
 end 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/languages','systemx.api.model.config.Languages',
-(select menu_id from config_menu where DISPLAYNAME = 'LANGUAGE'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldsAI','systemx.api.model.config.dynamicpages.Fields',
-(select menu_id from config_menu where DISPLAYNAME = 'FIELDS'))
-end 
- 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
 begin
