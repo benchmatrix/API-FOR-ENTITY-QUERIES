@@ -355,14 +355,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/cpStatus',
 (select menu_id from config_menu where DISPLAYNAME = 'ControlPlan Status'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/profileLinkWfState')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/profileLinkWfState',
-(select menu_id from config_menu where DISPLAYNAME = 'Profile Link WF state'))
-end 
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losstypeall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/losstypeall',
@@ -2999,16 +2991,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/actionplans
 where link = '/config/actionplan_severity'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/profileLinkWfState')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/profileLinkWfState',
-(select menu_id from config_menu where DISPLAYNAME = 'Profile Link WF state'))
-end 
-
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/responseall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/responseall',
@@ -3558,16 +3540,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prior
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevelall',(select menu_id from config_menu where link = '/config/compliance/prioritylevel'))
 end
-
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/profileLinkWfState')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/profileLinkWfState',
-(select menu_id from config_menu where DISPLAYNAME = 'Profile Link WF state'))
-end 
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/responseall')
@@ -4668,12 +4640,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where link ='/config/productlinked_process'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/profileLinkWfState')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/profileLinkWfState',
-(select menu_id from config_menu where DISPLAYNAME = 'Profile Link WF state'))
-end 
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowScreenOption
@@ -6096,12 +6062,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/resolutiontypeall',(select menu_id from config_menu where link = '/config/resolutiontype'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/profileLinkWfState')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/profileLinkWfState',
-(select menu_id from config_menu where DISPLAYNAME = 'Profile Link WF state'))
-end 
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/theme')
