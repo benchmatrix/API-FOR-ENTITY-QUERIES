@@ -103,26 +103,15 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentdimensionandareaall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentdimensionandareaall',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Dimension and Area'))
+(select menu_id from config_menu where link ='/config/RCSA/assessmentdimensionandarea'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentdimensionandarea')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentdimensionandarea',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Dimension and Area'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentdimensionandarea',(select menu_id from config_menu where link = '/config/RCSA/assessmentdimensionandarea' ))
 end 
 
-----Assessment measure
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasureall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasureall',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasure')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasure',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure'))
-end
 
 ----Assessment measure values
 
@@ -520,29 +509,19 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/riskappetitem
 (select menu_id from config_menu where LINK='/RCSA/riskappetitematrix'))
 end 
 
---Assessment Dimension and area
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentdimensionandareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentdimensionandareaall',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Dimension and Area'))
-end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentdimensionandarea')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentdimensionandarea',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Dimension and Area'))
-end 
 
 ----Assessment measure
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasureall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasureall',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure'))
+(select menu_id from config_menu where link ='/config/RCSA/assessmentmeasure'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasure')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasure',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasure',(select menu_id from config_menu where link ='/config/RCSA/assessmentmeasure'))
 end
 
 ----Assessment measure values
@@ -987,30 +966,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcategory',(select menu_id from config_menu where DISPLAYNAME = 'Control Category'))
 end
 
---Assessment Dimension and area
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentdimensionandareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentdimensionandareaall',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Dimension and Area'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentdimensionandarea')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentdimensionandarea',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Dimension and Area'))
-end 
-
-----Assessment measure
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasureall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasureall',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasure')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasure',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure'))
-end
 
 ----Assessment measure values
 
@@ -2271,32 +2226,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcategory',(select menu_id from config_menu where DISPLAYNAME = 'Control Category'))
 end
 
-
-
---Assessment Dimension and area
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentdimensionandareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentdimensionandareaall',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Dimension and Area'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentdimensionandarea')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentdimensionandarea',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Dimension and Area'))
-end 
-
-----Assessment measure
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasureall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasureall',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasure')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasure',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure'))
-end
 
 ----Assessment measure values
 
