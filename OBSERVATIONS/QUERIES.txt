@@ -272,23 +272,6 @@ end
 
 
 
-if not exists(select * from config_apiforentityname where API='/api/observation/getallauditreports')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/getallauditreports',null,
-(select top 1 MENU_ID from config_menu where LINK='/compliance/Audit/internalauditReport' and DISPLAYNAME='Internal Reports'))
-end
-
-
-if not exists(select * from config_apiforentityname where API='/api/observation/getallauditreports')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/getallauditreports',null,
-(select top 1 MENU_ID from config_menu where LINK='/compliance/Audit/externalauditReport'))
-end
-
-
-
 if not exists(select * from config_apiforentityname where API='/api/observation/getObservationdocsbyobservationid')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
@@ -488,6 +471,12 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/observation/
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/observation/getallauditreports',
 (select menu_id from config_menu where LINK ='/compliance/Audit/externalauditReport' and menu_key='O_ER'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/observation/getallauditreports')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/observation/getallauditreports',
+(select menu_id from config_menu where LINK ='/compliance/Audit/internalauditReport' and menu_key='O_IR'))
 end 
 
 /*ApiEntity insertion*/
@@ -950,21 +939,6 @@ values('/api/observation/auditreportobservation',null,
 end
 
 
-
-if not exists(select * from config_apiforentityname where API='/api/observation/getallauditreports')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/getallauditreports',null,
-(select top 1 MENU_ID from config_menu where LINK='/compliance/Audit/internalauditReport' and DISPLAYNAME='Internal Reports'))
-end
-
-
-if not exists(select * from config_apiforentityname where API='/api/observation/getallauditreports')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/getallauditreports',null,
-(select top 1 MENU_ID from config_menu where LINK='/compliance/Audit/externalauditReport'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/config/RCSA/assessmentmeasurevalues' and MENU_ID=(select MENU_ID from config_menu where LINK like '%auditentitydetails%'))
