@@ -2392,104 +2392,12 @@ values('/api/config/assetenvironmentall',null,
 end
 
 if not exists
-(select * from config_apiforentityname where API='/api/config/incidentchannelall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/incidentchannelall',null,
-(select MENU_ID from config_menu where LINK ='/config/incident_channel'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/reportTypeall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/reportTypeall',null,
-(select MENU_ID from config_menu where LINK ='/config/report_Type'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/profileownerall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/profileownerall',null,
-(select MENU_ID from config_menu where LINK ='/config/profileowners'))
-end
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/assetserviceAvailabilityall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assetserviceAvailabilityall',null,
-(select MENU_ID from config_menu where LINK ='/config/asset_serviceavailability'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/potentialincidentimpactall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/potentialincidentimpactall',null,
-(select MENU_ID from config_menu where LINK ='/config/potential_incident_impact'))
-end
-
-
-
-
-
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/miscellaneousall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/miscellaneousall',null,
-(select MENU_ID from config_menu where LINK ='/config/miscellaneousfieldsoptions'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/workPaperExecutionResultall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/workPaperExecutionResultall',null,
-(select MENU_ID from config_menu where LINK ='/config/work_Paper_Execution_Result'))
-end
-if not exists
-(select * from config_apiforentityname where API='/api/config/activityProgressStatusAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/activityProgressStatusAll',null,
-(select MENU_ID from config_menu where LINK ='/config/activityProgressstatus'))
-end
-
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/riskmethdologyall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/riskmethdologyall',null,
-(select MENU_ID from config_menu where LINK ='/config/rcsa/methodology'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/assetapplicationcategoryall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assetapplicationcategoryall',null,
-(select MENU_ID from config_menu where LINK ='/config/asset_applicationcategory'))
-end
-if not exists
 (select * from config_apiforentityname where API='/api/config/operationalriskcategoryall')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/operationalriskcategoryall',null,
 (select MENU_ID from config_menu where LINK ='/config/operationalrisk_category'))
 end
-
-
-
 
 
 if not exists
@@ -3330,43 +3238,6 @@ end
 
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/eyriskcategoryall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/eyriskcategoryall',null,
-(select MENU_ID from config_menu where LINK ='/config/eyrisk_category'))
-end
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/assetlocationall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assetlocationall',null,
-(select MENU_ID from config_menu where LINK ='/config/asset_location'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/fraudincidenttypeall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/fraudincidenttypeall',null,
-(select MENU_ID from config_menu where LINK ='/config/fraud_incident_type'))
-end
-
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/assetenvironmentall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assetenvironmentall',null,
-(select MENU_ID from config_menu where LINK ='/config/asset_enviroment'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/incidenttype')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/incidenttype',
@@ -3459,81 +3330,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/ramcategoryth
 end
 
 
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/incidentchannelall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/incidentchannelall',null,
-(select MENU_ID from config_menu where LINK ='/config/incident_channel'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/reportTypeall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/reportTypeall',null,
-(select MENU_ID from config_menu where LINK ='/config/report_Type'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/profileownerall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/profileownerall',null,
-(select MENU_ID from config_menu where LINK ='/config/profileowners'))
-end
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/assetserviceAvailabilityall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assetserviceAvailabilityall',null,
-(select MENU_ID from config_menu where LINK ='/config/asset_serviceavailability'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/potentialincidentimpactall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/potentialincidentimpactall',null,
-(select MENU_ID from config_menu where LINK ='/config/potential_incident_impact'))
-end
-
-
-
-
-
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/miscellaneousall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/miscellaneousall',null,
-(select MENU_ID from config_menu where LINK ='/config/miscellaneousfieldsoptions'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/workPaperExecutionResultall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/workPaperExecutionResultall',null,
-(select MENU_ID from config_menu where LINK ='/config/work_Paper_Execution_Result'))
-end
-if not exists
-(select * from config_apiforentityname where API='/api/config/activityProgressStatusAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/activityProgressStatusAll',null,
-(select MENU_ID from config_menu where LINK ='/config/activityProgressstatus'))
-end
-
-
-
-
 if not exists
 (select * from config_apiforentityname where API='/api/config/riskmethdologyall')
 begin
@@ -3549,25 +3345,7 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/assetapplicationcategoryall',null,
 (select MENU_ID from config_menu where LINK ='/config/asset_applicationcategory'))
 end
-if not exists
-(select * from config_apiforentityname where API='/api/config/operationalriskcategoryall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/operationalriskcategoryall',null,
-(select MENU_ID from config_menu where LINK ='/config/operationalrisk_category'))
-end
 
-
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/configroleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/configroleall',null,
-(select MENU_ID from config_menu where LINK ='/config/config-role'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/config/answertypeall')
@@ -3795,11 +3573,6 @@ end
 
 
 
-
-
-
-
-
 if not exists
 (select * from config_apiforentityname where API='/api/config/miscellaneousall')
 begin
@@ -3824,42 +3597,6 @@ values('/api/config/activityProgressStatusAll',null,
 end
 
 
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/riskmethdologyall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/riskmethdologyall',null,
-(select MENU_ID from config_menu where LINK ='/config/rcsa/methodology'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/assetapplicationcategoryall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assetapplicationcategoryall',null,
-(select MENU_ID from config_menu where LINK ='/config/asset_applicationcategory'))
-end
-if not exists
-(select * from config_apiforentityname where API='/api/config/operationalriskcategoryall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/operationalriskcategoryall',null,
-(select MENU_ID from config_menu where LINK ='/config/operationalrisk_category'))
-end
-
-
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/configroleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/configroleall',null,
-(select MENU_ID from config_menu where LINK ='/config/config-role'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/config/answertypeall')
@@ -6289,30 +6026,6 @@ values('/api/config/childworkflows/','systemx.api.model.workflow.Bucket',
 (select MENU_ID from config_menu where MENU_KEY = 'B'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/assetenvironmentall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assetenvironmentall',null,
-(select MENU_ID from config_menu where LINK ='/config/asset_enviroment'))
-end
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/assetlocationall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assetlocationall',null,
-(select MENU_ID from config_menu where LINK ='/config/asset_location'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/fraudincidenttypeall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/fraudincidenttypeall',null,
-(select MENU_ID from config_menu where LINK ='/config/fraud_incident_type'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/config/assettypecategoryall')
@@ -6331,14 +6044,6 @@ values('/api/config/incidentimpactall',null,
 (select MENU_ID from config_menu where LINK ='/config/incident_impact'))
 end
 
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/eyriskcategoryall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/eyriskcategoryall',null,
-(select MENU_ID from config_menu where LINK ='/config/eyrisk_category'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/rcsa/fraudcategoryall')
@@ -8419,142 +8124,6 @@ end
 
 
 if not exists
-(select * from config_apiforentityname where API='/api/config/eyriskcategoryall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/eyriskcategoryall',null,
-(select MENU_ID from config_menu where LINK ='/config/eyrisk_category'))
-end
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/assetlocationall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assetlocationall',null,
-(select MENU_ID from config_menu where LINK ='/config/asset_location'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/fraudincidenttypeall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/fraudincidenttypeall',null,
-(select MENU_ID from config_menu where LINK ='/config/fraud_incident_type'))
-end
-
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/assetenvironmentall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assetenvironmentall',null,
-(select MENU_ID from config_menu where LINK ='/config/asset_enviroment'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/incidentchannelall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/incidentchannelall',null,
-(select MENU_ID from config_menu where LINK ='/config/incident_channel'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/reportTypeall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/reportTypeall',null,
-(select MENU_ID from config_menu where LINK ='/config/report_Type'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/profileownerall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/profileownerall',null,
-(select MENU_ID from config_menu where LINK ='/config/profileowners'))
-end
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/assetserviceAvailabilityall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assetserviceAvailabilityall',null,
-(select MENU_ID from config_menu where LINK ='/config/asset_serviceavailability'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/potentialincidentimpactall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/potentialincidentimpactall',null,
-(select MENU_ID from config_menu where LINK ='/config/potential_incident_impact'))
-end
-
-
-
-
-
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/miscellaneousall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/miscellaneousall',null,
-(select MENU_ID from config_menu where LINK ='/config/miscellaneousfieldsoptions'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/workPaperExecutionResultall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/workPaperExecutionResultall',null,
-(select MENU_ID from config_menu where LINK ='/config/work_Paper_Execution_Result'))
-end
-if not exists
-(select * from config_apiforentityname where API='/api/config/activityProgressStatusAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/activityProgressStatusAll',null,
-(select MENU_ID from config_menu where LINK ='/config/activityProgressstatus'))
-end
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/assetapplicationcategoryall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assetapplicationcategoryall',null,
-(select MENU_ID from config_menu where LINK ='/config/asset_applicationcategory'))
-end
-if not exists
-(select * from config_apiforentityname where API='/api/config/operationalriskcategoryall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/operationalriskcategoryall',null,
-(select MENU_ID from config_menu where LINK ='/config/operationalrisk_category'))
-end
-
-
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/configroleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/configroleall',null,
-(select MENU_ID from config_menu where LINK ='/config/config-role'))
-end
-
-if not exists
 (select * from config_apiforentityname where API='/api/config/configteamall')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
@@ -10069,3 +9638,5 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/syncHistoryAll',
 (select menu_id from config_menu where Link='/config/ADSync))
 end
+
+
