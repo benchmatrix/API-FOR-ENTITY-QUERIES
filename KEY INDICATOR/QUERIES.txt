@@ -264,14 +264,6 @@ values('/api/ki/datafield',null,
 end
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/ki/getkisbydashboardid')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/ki/getkisbydashboardid',null,
-(select MENU_ID from config_menu where LINK ='/keyriskindicators/kidashboards'))
-end
-
 
 
 if not exists
@@ -303,14 +295,6 @@ values('/api/ki/getdatafieldbydatestring',null,
 (select MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints'))
 end
 
-
-if not exists
-(select * from config_apiforentityname where API='/api/ki/getkisbydashboardid')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/ki/getkisbydashboardid',null,
-(select MENU_ID from config_menu where LINK ='/keyriskindicators/kidashboards'))
-end
 
 --Ki dashboard
 
@@ -1065,7 +1049,6 @@ values('/api/home/assigndatapointsall','systemx.api.model.ki',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
-
 if not exists
 (select * from config_apiforentityname where API='/api/ki/getkisbydashboardid')
 begin
@@ -1073,7 +1056,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/ki/getkisbydashboardid',null,
 (select MENU_ID from config_menu where LINK ='/keyriskindicators/kidashboards'))
 end
-
 
 if not exists
 (select * from config_apiforentityname where API='/api/deleteDynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/keyindicators/KIbreaches'))
