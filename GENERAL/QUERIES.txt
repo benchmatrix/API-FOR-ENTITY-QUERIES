@@ -167,15 +167,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/causalcategoryall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'CAUSAL CATEGORIES'))
-end
-
-
 delete from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategory'
 
 
@@ -186,38 +177,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 null,
 (select menu_id from config_menu where LINK ='/config/casual_category'))
 end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/impactcategoryall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'IMPACT CATEGORIES'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/impactcategory',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'IMPACT CATEGORIES'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/glaccountall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/glaccountall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'GL ACCOUNTS'))
-end
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/glaccount'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/glaccount')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/glaccount',
-(select menu_id from config_menu where LINK = '/config/GLA_Account'))
-end
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausalall')
@@ -3147,15 +3106,6 @@ end
 
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/causalcategoryall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'CAUSAL CATEGORIES'))
-end
-
-
 delete from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategory'
 
 
@@ -3166,39 +3116,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 null,
 (select menu_id from config_menu where LINK ='/config/casual_category'))
 end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/impactcategoryall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'IMPACT CATEGORIES'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/impactcategory',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'IMPACT CATEGORIES'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/glaccountall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/glaccountall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'GL ACCOUNTS'))
-end
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/glaccount'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/glaccount')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/glaccount',
-(select menu_id from config_menu where LINK = '/config/GLA_Account'))
-end
-
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausalall')
 begin
@@ -3875,16 +3792,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/causalcategoryall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'CAUSAL CATEGORIES'))
-end
-
-
 delete from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategory'
 
 
@@ -3895,38 +3802,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 null,
 (select menu_id from config_menu where LINK ='/config/casual_category'))
 end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/impactcategoryall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'IMPACT CATEGORIES'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/impactcategory',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'IMPACT CATEGORIES'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/glaccountall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/glaccountall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'GL ACCOUNTS'))
-end
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/glaccount'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/glaccount')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/glaccount',
-(select menu_id from config_menu where LINK = '/config/GLA_Account'))
-end
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausalall')
@@ -4521,17 +4396,7 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/causalcategoryall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'CAUSAL CATEGORIES'))
-end
-
-
 delete from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategory'
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategory')
@@ -4540,39 +4405,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 null,
 (select menu_id from config_menu where LINK ='/config/casual_category'))
 end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/impactcategoryall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'IMPACT CATEGORIES'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/impactcategory',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'IMPACT CATEGORIES'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/glaccountall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/glaccountall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'GL ACCOUNTS'))
-end
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/glaccount'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/glaccount')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/glaccount',
-(select menu_id from config_menu where LINK = '/config/GLA_Account'))
-end
-
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausalall')
 begin
@@ -5250,14 +5082,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/causalcategoryall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'CAUSAL CATEGORIES'))
-end
-
-
 delete from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategory'
 
 
@@ -5268,39 +5092,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 null,
 (select menu_id from config_menu where LINK ='/config/casual_category'))
 end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/impactcategoryall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'IMPACT CATEGORIES'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/impactcategory',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'IMPACT CATEGORIES'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/glaccountall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/glaccountall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'GL ACCOUNTS'))
-end
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/glaccount'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/glaccount')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/glaccount',
-(select menu_id from config_menu where LINK = '/config/GLA_Account'))
-end
-
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausalall')
 begin
@@ -6722,14 +6513,11 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
 end
 
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategoryall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/causalcategoryall',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'CAUSAL CATEGORIES'))
+(select menu_id from config_menu where link= '/config/casual_category'))
 end
 
 
@@ -6749,21 +6537,21 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impac
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/impactcategoryall',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'IMPACT CATEGORIES'))
+(select menu_id from config_menu where link ='/config/rcsa/impactcategory'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcategory')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/impactcategory',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'IMPACT CATEGORIES'))
+(select menu_id from config_menu where link ='/config/rcsa/impactcategory'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/glaccountall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/glaccountall',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'GL ACCOUNTS'))
+(select menu_id from config_menu where link ='/config/GLA_Account'))
 end
 
 delete from CONFIG_APIFORENTITYNAME where api='/api/config/glaccount'
