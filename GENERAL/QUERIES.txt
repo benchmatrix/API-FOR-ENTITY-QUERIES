@@ -3601,12 +3601,12 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prior
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/prioritylevelAI',
 'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'ACTIVITY PRIORITY'))
+(select menu_id from config_menu where link ='/config/compliance/prioritylevel'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevelall')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevelall',(select menu_id from config_menu where DISPLAYNAME = 'Activity Priority'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevelall',(select menu_id from config_menu where link = '/config/compliance/prioritylevel'))
 end
 
 --Resolution type--
