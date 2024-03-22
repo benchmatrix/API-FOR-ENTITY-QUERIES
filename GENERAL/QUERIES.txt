@@ -366,13 +366,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/losstype',
 (select menu_id from config_menu where DISPLAYNAME = 'Loss type'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowScreenOption
-')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowScreenOption
-',
-(select menu_id from config_menu where DISPLAYNAME = 'WorkflowScreenoption'))
-end 
 if not exists(select * from config_apiforentityname where API='/api/config/workflowison')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
@@ -984,17 +977,6 @@ end
 	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
 	end
 
-
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/dashboardFiltersData')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/dashboardFiltersData','systemx.api.model.dashboards',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_AD' order by MENU_ID desc))
-end
-
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/config/userprofileall')
 begin
@@ -1394,40 +1376,17 @@ if not exists(select * from config_apiforentityname where API='/api/home/bucketA
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/home/bucketAll','systemx.api.beans.LoginRequest',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
+(select MENU_ID from config_menu where MENU_KEY = 'B' and link='/bucket'))
 end
+
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/config/parentworkflows')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/parentworkflows','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
+(select MENU_ID from config_menu where MENU_KEY = 'B' and link='/bucket'))
 end
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/childworkflows/')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/childworkflows/','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/home/assigncomplianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/assigncomplianceruleall','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/home/assigncomplianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/assigncomplianceruleall','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'RM'))
-end
 
 
 if not exists
@@ -1462,20 +1421,7 @@ values('/api/home/incidentreportlinkUserall',null,
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/home/bucketAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/bucketAll','systemx.api.beans.LoginRequest',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/parentworkflows')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/parentworkflows','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
+
 
 if not exists(select * from config_apiforentityname where API='/api/config/workflowStep')
 begin
@@ -2983,55 +2929,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowScreenOption
-')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowScreenOption
-',
-(select menu_id from config_menu where DISPLAYNAME = 'WorkflowScreenoption'))
-end 
-
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/home/bucketAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/bucketAll','systemx.api.beans.LoginRequest',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/parentworkflows')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/parentworkflows','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/childworkflows/')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/childworkflows/','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/home/assigncomplianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/assigncomplianceruleall','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/home/assigncomplianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/assigncomplianceruleall','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'RM'))
-end
 
 ---------------------------Regulatory Monitoring ------------------------
 /*ApiEntity insertion*/
@@ -3523,66 +3420,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowScreenOption
-')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowScreenOption
-',
-(select menu_id from config_menu where DISPLAYNAME = 'WorkflowScreenoption'))
-end 
-
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/home/bucketAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/bucketAll','systemx.api.beans.LoginRequest',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/parentworkflows')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/parentworkflows','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/childworkflows/')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/childworkflows/','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/home/assigncomplianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/assigncomplianceruleall','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/home/assigncomplianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/assigncomplianceruleall','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'RM'))
-end
-
----------------------------Regulatory Monitoring ------------------------
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/dashboardFiltersData')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/dashboardFiltersData','systemx.api.model.dashboards',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_AD' order by MENU_ID desc))
-end
-
-
 if not exists(select * from config_apiforentityname where API='/api/config/workflowison')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
@@ -3933,23 +3770,6 @@ set MENU_ID=(select MENU_ID from config_menu where link='/config/external_causal
 where API='/api/config/externalcausal'
 
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/home/bucketAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/bucketAll','systemx.api.beans.LoginRequest',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/childworkflows/')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/childworkflows/','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
-
 
 if not exists
 (select * from config_apiforentityname where API='/api/config/assettypecategoryall')
@@ -3978,13 +3798,6 @@ end
 
 
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/dashboardFiltersData')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/dashboardFiltersData','systemx.api.model.dashboards',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_AD' order by MENU_ID desc))
-end
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/users/getConfigurationMenuRights')
@@ -4609,66 +4422,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where link ='/config/productlinked_process'))
 end
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowScreenOption
-')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowScreenOption
-',
-(select menu_id from config_menu where DISPLAYNAME = 'WorkflowScreenoption'))
-end 
-
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/home/bucketAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/bucketAll','systemx.api.beans.LoginRequest',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/parentworkflows')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/parentworkflows','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/childworkflows/')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/childworkflows/','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/home/assigncomplianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/assigncomplianceruleall','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/home/assigncomplianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/assigncomplianceruleall','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'RM'))
-end
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/dashboardFiltersData')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/dashboardFiltersData','systemx.api.model.dashboards',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_AD' order by MENU_ID desc))
-end
 
 
 /*ApiEntity insertion*/
@@ -6050,55 +5803,17 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/response',
 (select menu_id from config_menu where link ='compliance/correspondance/response'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowScreenOption
-')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowScreenOption
-',
-(select menu_id from config_menu where DISPLAYNAME = 'WorkflowScreenoption'))
-end 
-
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/home/bucketAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/bucketAll','systemx.api.beans.LoginRequest',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/parentworkflows')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/parentworkflows','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/config/childworkflows/')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/childworkflows/','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
-end
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/home/assigncomplianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/assigncomplianceruleall','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'B'))
+(select MENU_ID from config_menu where MENU_KEY = 'B' and link='/bucket'))
 end
 
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/home/assigncomplianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/assigncomplianceruleall','systemx.api.model.workflow.Bucket',
-(select MENU_ID from config_menu where MENU_KEY = 'RM'))
-end
+
 
 
 if not exists(select * from config_apiforentityname where API='/api/config/workflowison')
