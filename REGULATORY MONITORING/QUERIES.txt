@@ -396,13 +396,6 @@ where link = '/compliance/activity')
 End
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/complianceactivityall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/complianceactivityall',
-(select menu_id from config_menu where LINK='/compliance/compliance-activity'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/librarytype')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/librarytype',(select menu_id from config_menu where DISPLAYNAME = 'Regulation type'))
@@ -500,11 +493,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/libraryLogs',
 (select menu_id from config_menu where Link='/config/libraryupdate'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/complianceactivityall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/complianceactivityall',
-(select menu_id from config_menu where LINK='/compliance/compliance-activity'))
-end
 
 --Requirement status--
 
