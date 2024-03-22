@@ -116,12 +116,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/responseAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/responseAI',
-'systemx.api.model.config.compliance.Response',
-(select menu_id from config_menu where DISPLAYNAME = 'Response'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/actionplantypes')
 begin
@@ -130,13 +124,6 @@ where link ='/config/actionplan_type'))
 end
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/resolutiontypes')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/resolutiontypes',
-'systemx.api.model.config.actionplan.ResolutionType',
-(select menu_id from config_menu where DISPLAYNAME = 'RESOLUTION TYPE'))
-End
 
 delete CONFIG_APIFORENTITYNAME where api='/api/config/actionplanseverity'
 
@@ -3181,21 +3168,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/responseAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/responseAI',
-'systemx.api.model.config.compliance.Response',
-(select menu_id from config_menu where DISPLAYNAME = 'Response'))
-end
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/resolutiontypes')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/resolutiontypes',
-'systemx.api.model.config.actionplan.ResolutionType',
-(select menu_id from config_menu where DISPLAYNAME = 'RESOLUTION TYPE'))
-End
 
 delete CONFIG_APIFORENTITYNAME where api='/api/config/actionplanseverity'
 
@@ -3990,12 +3962,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/responseAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/responseAI',
-'systemx.api.model.config.compliance.Response',
-(select menu_id from config_menu where DISPLAYNAME = 'Response'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/pagesall')
 begin
@@ -4568,16 +4534,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFilters',
 (select menu_id from config_menu where LINK ='/dashboard/newdashboard'))
 end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/resolutiontypes')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/resolutiontypes',
-'systemx.api.model.config.actionplan.ResolutionType',
-(select menu_id from config_menu where DISPLAYNAME = 'RESOLUTION TYPE'))
-End
-
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/libraryLogs')
@@ -5448,21 +5404,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/responseAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/responseAI',
-'systemx.api.model.config.compliance.Response',
-(select menu_id from config_menu where DISPLAYNAME = 'Response'))
-end
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/resolutiontypes')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/resolutiontypes',
-'systemx.api.model.config.actionplan.ResolutionType',
-(select menu_id from config_menu where DISPLAYNAME = 'RESOLUTION TYPE'))
-End
 
 delete CONFIG_APIFORENTITYNAME where api='/api/config/actionplanseverity'
 
@@ -6039,13 +5980,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/responseAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/responseAI',
-'systemx.api.model.config.compliance.Response',
-(select menu_id from config_menu where DISPLAYNAME = 'Response'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlstrengthall')
@@ -6997,17 +6931,10 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/respo
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/responseAI',
 'systemx.api.model.config.compliance.Response',
-(select menu_id from config_menu where DISPLAYNAME = 'Response'))
+(select menu_id from config_menu where link = '/config/compliance/correspondance/response'))
 end
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/resolutiontypes')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/resolutiontypes',
-'systemx.api.model.config.actionplan.ResolutionType',
-(select menu_id from config_menu where DISPLAYNAME = 'RESOLUTION TYPE'))
-End
 
 delete CONFIG_APIFORENTITYNAME where api='/api/config/actionplanseverity'
 
@@ -7710,3 +7637,9 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where link= ' /config/compliance/correspondance/channel'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/resolutiontypes')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/resolutiontypes',
+'systemx.api.model.config.actionplan.ResolutionType',
+(select menu_id from config_menu where link= '/config/resolutiontype'))
+End
