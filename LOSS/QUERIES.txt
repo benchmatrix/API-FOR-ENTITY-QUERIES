@@ -10,28 +10,11 @@ end
 
 
 /*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/loss/newincidentreportall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/newincidentreportall','systemx.api.model.loss',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'LD_DI' order by MENU_ID desc))
-end
-
-/*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/loss/LinkIncidentProposal')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/loss/LinkIncidentProposal','systemx.api.model.loss',
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'LD_AIP' order by MENU_ID desc))
-end
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/loss/newincidentreportall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/newincidentreportall','systemx.api.model.loss',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'LD_DI' order by MENU_ID desc))
 end
 
 /*ApiEntity insertion*/
@@ -184,13 +167,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
 end
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/loss/newincidentreportall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/newincidentreportall','systemx.api.model.loss',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'LD_DI' order by MENU_ID desc))
-end
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/loss/LinkIncidentProposal/')
@@ -268,13 +244,6 @@ end
 
 
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/loss/newincidentreportall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/newincidentreportall','systemx.api.model.loss',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'LD_DI' order by MENU_ID desc))
-end
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/loss/LinkIncidentProposal/')
@@ -362,13 +331,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/p
 (select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
 end
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/loss/newincidentreportall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/newincidentreportall','systemx.api.model.loss',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'LD_DI' order by MENU_ID desc))
-end
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/loss/LinkIncidentProposal/')
@@ -599,13 +561,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/p
 end
 
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/loss/newincidentreportall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/newincidentreportall','systemx.api.model.loss',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'LD_DI' order by MENU_ID desc))
-end
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/loss/LinkIncidentProposal/')
