@@ -9595,4 +9595,10 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/syncHistory
 (select menu_id from config_menu where Link='/config/ADSync))
 end
 
+if not exists(select * from config_apiforentityname where API='/api/config/sourceofcauseall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/sourceofcauseall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/sourceOfCause'))
+end
 
