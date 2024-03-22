@@ -229,10 +229,10 @@ end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/actionplantypes')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/actionplantypes',
-'systemx.api.model.config.actionplan.ActionPlanType',
-(select menu_id from config_menu where DISPLAYNAME = 'ACTION PLAN TYPE'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/actionplantypes',(select menu_id from config_menu
+where link ='/config/actionplan_type'))
 end
+
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/resolutiontypes')
@@ -3899,12 +3899,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'Response'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/actionplantypes')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/actionplantypes',
-'systemx.api.model.config.actionplan.ActionPlanType',
-(select menu_id from config_menu where DISPLAYNAME = 'ACTION PLAN TYPE'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/resolutiontypes')
@@ -6919,12 +6913,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'Response'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/actionplantypes')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/actionplantypes',
-'systemx.api.model.config.actionplan.ActionPlanType',
-(select menu_id from config_menu where DISPLAYNAME = 'ACTION PLAN TYPE'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/resolutiontypes')
@@ -9073,12 +9061,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'Response'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/actionplantypes')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/actionplantypes',
-'systemx.api.model.config.actionplan.ActionPlanType',
-(select menu_id from config_menu where DISPLAYNAME = 'ACTION PLAN TYPE'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/resolutiontypes')
