@@ -149,14 +149,7 @@ Insert into config_apiforentityname(API,MENU_ID)
 values('/api/rcsa/ram',
 (select top 1 MENU_ID from config_menu where LINK = '/RCSA/heatmap' order by MENU_ID desc))
 end
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/rcsa/rcsaworkshopall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/rcsa/rcsaworkshopall',
-(select top 1 MENU_ID from config_menu where LINK = '/RCSA/workshop' order by 
-MENU_ID desc))
-end
+
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/rcsa/ram')
 begin
@@ -189,14 +182,7 @@ end
 update config_apiforentityname set MENU_ID = (select menu_id from config_menu where LINK = '/config/rcsa/risktype') where 
 API = '/api/config/risktype'
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/rcsa/rcsaworkshopall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/rcsa/rcsaworkshopall',
-(select top 1 MENU_ID from config_menu where LINK = '/RCSA/workshop' order by 
-MENU_ID desc))
-end
+
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/config/RCSA/formula')
 begin
@@ -530,28 +516,6 @@ end
 update config_apiforentityname set MENU_ID = (select menu_id from config_menu where LINK = '/config/rcsa/risktype') where 
 API = '/api/config/risktype'
 
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/RCSA/formula')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/RCSA/formula',
-(select top 1 MENU_ID from config_menu where LINK = '/config/RCSA/formula' order by 
-MENU_ID desc))
-end
-
-update config_apiforentityname set MENU_ID = (select top 1 MENU_ID from config_menu where 
-LINK = '/config/RCSA/formula' order by 
-MENU_ID desc) where API='/api/config/RCSA/formula'
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/rcsa/rcsaworkshopall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/rcsa/rcsaworkshopall',
-(select top 1 MENU_ID from config_menu where LINK = '/RCSA/workshop' order by 
-MENU_ID desc))
-end
 if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentareatype')
 begin
 insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
@@ -851,27 +815,7 @@ end
 update config_apiforentityname set MENU_ID = (select menu_id from config_menu where LINK = '/config/rcsa/risktype') where 
 API = '/api/config/risktype'
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/RCSA/formula')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/RCSA/formula',
-(select top 1 MENU_ID from config_menu where LINK = '/config/RCSA/formula' order by 
-MENU_ID desc))
-end
 
-update config_apiforentityname set MENU_ID = (select top 1 MENU_ID from config_menu where 
-LINK = '/config/RCSA/formula' order by 
-MENU_ID desc) where API='/api/config/RCSA/formula'
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/rcsa/rcsaworkshopall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/rcsa/rcsaworkshopall',
-(select top 1 MENU_ID from config_menu where LINK = '/RCSA/workshop' order by 
-MENU_ID desc))
-end
 
 update CONFIG_APIFORENTITYNAME set MENU_ID =(select menu_id from config_menu where LINK = '/config/RCSA/scorethreshold')  where api='/api/config/RCSA/scorethreshold'
 
@@ -959,18 +903,7 @@ end
 update config_apiforentityname set MENU_ID = (select menu_id from config_menu where LINK = '/config/rcsa/risktype') where 
 API = '/api/config/risktype'
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/RCSA/formula')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/RCSA/formula',
-(select top 1 MENU_ID from config_menu where LINK = '/config/RCSA/formula' order by 
-MENU_ID desc))
-end
 
-update config_apiforentityname set MENU_ID = (select top 1 MENU_ID from config_menu where 
-LINK = '/config/RCSA/formula' order by 
-MENU_ID desc) where API='/api/config/RCSA/formula'
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/rcsa/rcsaworkshopall')
@@ -1429,27 +1362,6 @@ end
 update config_apiforentityname set MENU_ID = (select menu_id from config_menu where LINK = '/config/rcsa/risktype') where 
 API = '/api/config/risktype'
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/RCSA/formula')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/RCSA/formula',
-(select top 1 MENU_ID from config_menu where LINK = '/config/RCSA/formula' order by 
-MENU_ID desc))
-end
-
-update config_apiforentityname set MENU_ID = (select top 1 MENU_ID from config_menu where 
-LINK = '/config/RCSA/formula' order by 
-MENU_ID desc) where API='/api/config/RCSA/formula'
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/rcsa/rcsaworkshopall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/rcsa/rcsaworkshopall',
-(select top 1 MENU_ID from config_menu where LINK = '/RCSA/workshop' order by 
-MENU_ID desc))
-end
 
 update CONFIG_APIFORENTITYNAME set MENU_ID =(select menu_id from config_menu where LINK = '/config/RCSA/scorethreshold')  where api='/api/config/RCSA/scorethreshold'
 
@@ -1961,28 +1873,7 @@ end
 update config_apiforentityname set MENU_ID = (select menu_id from config_menu where LINK = '/config/rcsa/risktype') where 
 API = '/api/config/risktype'
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/RCSA/formula')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/RCSA/formula',
-(select top 1 MENU_ID from config_menu where LINK = '/config/RCSA/formula' order by 
-MENU_ID desc))
-end
 
-
-update config_apiforentityname set MENU_ID = (select top 1 MENU_ID from config_menu where 
-LINK = '/config/RCSA/formula' order by 
-MENU_ID desc) where API='/api/config/RCSA/formula'
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/rcsa/rcsaworkshopall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/rcsa/rcsaworkshopall',
-(select top 1 MENU_ID from config_menu where LINK = '/RCSA/workshop' order by 
-MENU_ID desc))
-end
 
 
 update CONFIG_APIFORENTITYNAME set MENU_ID =(select menu_id from config_menu where LINK = '/config/RCSA/scorethreshold')  where api='/api/config/RCSA/scorethreshold'
