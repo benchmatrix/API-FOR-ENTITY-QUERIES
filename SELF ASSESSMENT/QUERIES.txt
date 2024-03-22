@@ -45,34 +45,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionareall'
 end 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tag')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tag',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Tag'))
-end
-
-
-----Category assessment---
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/categoryassessment')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/categoryassessment',
-(select menu_id from config_menu where DISPLAYNAME = 'Category assessment'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/categoryassessmentall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/categoryassessmentall',
-(select menu_id from config_menu where DISPLAYNAME = 'Category assessment'))
-end 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tagall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tagall',
-(select menu_id from config_menu where DISPLAYNAME = 'Tag'))
-end 
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/certificationtypeall')
 begin
@@ -146,34 +118,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/certificati
 (select menu_id from config_menu where DISPLAYNAME = 'Certification Type'))
 end 
 
-----Category assessment---
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/categoryassessment')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/categoryassessment',
-(select menu_id from config_menu where DISPLAYNAME = 'Category assessment'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/categoryassessmentall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/categoryassessmentall',
-(select menu_id from config_menu where DISPLAYNAME = 'Category assessment'))
-end 
-
---Tag-----
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tag')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tag',
-(select menu_id from config_menu where DISPLAYNAME = 'Tag'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tagall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tagall',
-(select menu_id from config_menu where DISPLAYNAME = 'Tag'))
-end 
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionsall')
@@ -188,14 +132,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionareall',
 (select MENU_ID from config_menu where LINK = '/selfassessment/questionare' and MENU_KEY='SA_QN'))
 end 
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tag')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tag',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Tag'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/SA/consolidationcriteriaall')
@@ -271,12 +207,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tag')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tag',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Tag'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionare')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionare',
@@ -324,30 +254,29 @@ End
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/categoryassessment')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/categoryassessment',
-(select menu_id from config_menu where DISPLAYNAME = 'Category assessment'))
+(select menu_id from config_menu where link ='/config/compliance/questionnaire/categoryassessment'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/categoryassessmentall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/categoryassessmentall',
-(select menu_id from config_menu where DISPLAYNAME = 'Category assessment'))
+(select menu_id from config_menu where link ='/config/compliance/questionnaire/categoryassessment'))
 end 
-
---Tag-----
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tag')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tag',
-(select menu_id from config_menu where DISPLAYNAME = 'Tag'))
+(select menu_id from config_menu where link= '/config/compliance/questionnaire/tag
+'))
 end 
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tagall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tagall',
-(select menu_id from config_menu where DISPLAYNAME = 'Tag'))
+(select menu_id from config_menu where link= '/config/compliance/questionnaire/tag
+'))
 end 
-
-
 
 
