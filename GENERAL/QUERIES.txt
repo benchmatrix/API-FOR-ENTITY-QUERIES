@@ -9659,6 +9659,35 @@ values('/api/config/compromisestatusall',null,
 (select  MENU_ID from config_menu where LINK='/config/compromisestatus'))
 end
 
+if not exists(select * from config_apiforentityname where API='/api/config/evidencesall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/evidencesall',null,
+(select MENU_ID from config_menu where LINK='/config/evidence'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/meansofexportationall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/meansofexportationall',null,
+(select  MENU_ID from config_menu where LINK='/config/meansofexportation'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/compromisetypeall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/compromisetypeall',null,
+(select MENU_ID from config_menu where LINK='/config/compromisetype'))
+end
+
+
+if not exists(select * from config_apiforentityname where API='/api/config/lawenforcementnotifiedall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/lawenforcementnotifiedall',null,
+(select  MENU_ID from config_menu where LINK='/config/lawenforcementnotified'))
+end
+
 
 
 
