@@ -15,12 +15,6 @@ values('/api/home/assigndatapointsall','systemx.api.model.ki',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='
-/api/ki/kidashboard')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('
-/api/ki/kidashboard',(select menu_id from config_menu where DISPLAYNAME = 'KI dashboard '))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/getallkidashboards')
 begin
@@ -296,15 +290,6 @@ values('/api/ki/getdatafieldbydatestring',null,
 end
 
 
---Ki dashboard
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='
-/api/ki/kidashboard')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('
-/api/ki/kidashboard',(select menu_id from config_menu where DISPLAYNAME = 'KI dashboard '))
-end 
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/getallkidashboards')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/getallkidashboards',(select menu_id from config_menu where DISPLAYNAME = 'KI Dashboard '))
@@ -483,15 +468,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/home/KIall',null,
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='
-/api/ki/kidashboard')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('
-/api/ki/kidashboard',(select menu_id from config_menu where DISPLAYNAME = 'KI dashboard '))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/getallkidashboards')
 begin
@@ -839,12 +815,6 @@ values('api/home/kiSetupBreachesAll',null,
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='
-/api/ki/kidashboard')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('
-/api/ki/kidashboard',(select menu_id from config_menu where DISPLAYNAME = 'KI dashboard '))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/getallkidashboards')
 begin
@@ -1010,12 +980,6 @@ values('api/home/kiSetupBreachesAll',null,
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='
-/api/ki/kidashboard')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('
-/api/ki/kidashboard',(select menu_id from config_menu where DISPLAYNAME = 'KI dashboard '))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/getallkidashboards')
 begin
@@ -1137,12 +1101,6 @@ values('/api/dynamicFiltersData',null,
 End
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='
-/api/ki/kidashboard')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('
-/api/ki/kidashboard',(select menu_id from config_menu where DISPLAYNAME = 'KI dashboard '))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/getallkidashboards')
 begin
@@ -1300,3 +1258,12 @@ values('/api/ki/assigndatapointsall',
 (select top 1 MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints' order by 
 MENU_ID desc))
 end
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='
+/api/ki/kidashboard')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('
+/api/ki/kidashboard',(select menu_id from config_menu where link= '/keyriskindicators/create-kidashboards'))
+end 
