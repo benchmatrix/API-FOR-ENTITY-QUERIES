@@ -45,11 +45,6 @@ end
 
 -------------Loss------------
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/loss/incidentproposalall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/loss/incidentproposalall',
-(select menu_id from config_menu where LINK = '/loss/losscapture'))
-end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getincidentreportsall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getincidentreportsall',
@@ -189,14 +184,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
 end
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/loss/incidentproposalall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/loss/incidentproposalall',
-(select menu_id from config_menu where LINK = '/loss/losscapture'))
-end
-
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/loss/newincidentreportall')
 begin
@@ -278,11 +265,7 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/losstype',
 (select menu_id from config_menu where link ='/config/losstype'))
 end 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/loss/incidentproposalall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/loss/incidentproposalall',
-(select menu_id from config_menu where LINK = '/loss/losscapture'))
-end
+
 
 
 /*ApiEntity insertion*/
@@ -615,13 +598,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/p
 (select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
 end
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/loss/incidentproposalall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/loss/incidentproposalall',
-(select menu_id from config_menu where LINK = '/loss/losscapture'))
-end
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/loss/newincidentreportall')
