@@ -495,24 +495,11 @@ values('/api/RCSA/wsrcsarisk',null,
 (select MENU_ID from config_menu where LINK ='/RCSA/workshopassessment'))
 end
 
-
-if not exists
-(select * from config_apiforentityname where API='/api/rcsa/wsassessment')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/rcsa/wsassessment',null,
-(select MENU_ID from config_menu where LINK ='/RCSA/riskandcontrolassessment'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/rcsarisk')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/rcsarisk',
 (select menu_id from config_menu where Link='/RCSA/workshopassessment'))
 end
-
-
-
-
 
 
 if not exists
@@ -639,14 +626,6 @@ values('/api/RCSA/wsrcsarisk',null,
 end
 
 
-
-if not exists
-(select * from config_apiforentityname where API='/api/rcsa/wsassessment')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/rcsa/wsassessment',null,
-(select MENU_ID from config_menu where LINK ='/RCSA/riskandcontrolassessment'))
-end
 if not exists
 (select * from config_apiforentityname where API='/api/rcsa/riskassessment')
 begin
