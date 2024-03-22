@@ -82,15 +82,6 @@ end
 
 
 
-
-if not exists
-(select * from config_apiforentityname where API='/api/internalaudit/auditengagementlinkusersByAuditEngagementres')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/internalaudit/auditengagementlinkusersByAuditEngagementres',null,
-(select MENU_ID from config_menu where LINK ='/internalaudit/auditengagementdetails'))
-end
-
 if not exists
 (select * from config_apiforentityname where API='/api/config/IA/assessmentmeasurevalues')
 begin
@@ -108,13 +99,6 @@ values('/api/config/IA/assessmentmeasurevalues',null,
 (select MENU_ID from config_menu where LINK ='/internalaudit/assessmentmeasurevalues'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/internalaudit/auditengagementlinkusersByAuditEngagementres')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/internalaudit/auditengagementlinkusersByAuditEngagementres',null,
-(select MENU_ID from config_menu where LINK ='/internalaudit/auditengagementdetails'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/IA/assessmentcategory')
