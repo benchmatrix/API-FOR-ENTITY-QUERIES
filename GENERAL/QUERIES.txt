@@ -108,15 +108,6 @@ update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
 where API='/api/config/businessFunctions'
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/channel')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/channel',
-'systemx.api.model.config.compliance.Channel',
-(select menu_id from config_menu where DISPLAYNAME = 'CHANNEL'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/nature')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/nature',
@@ -3183,16 +3174,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
 end
 
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/channel')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/channel',
-'systemx.api.model.config.compliance.Channel',
-(select menu_id from config_menu where DISPLAYNAME = 'CHANNEL'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/nature')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/nature',
@@ -3999,15 +3980,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/modul
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/modules','systemx.api.model.config.Module',
 (select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
-end
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/channel')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/channel',
-'systemx.api.model.config.compliance.Channel',
-(select menu_id from config_menu where DISPLAYNAME = 'CHANNEL'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/nature')
@@ -5468,15 +5440,6 @@ end
 
 
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/channel')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/channel',
-'systemx.api.model.config.compliance.Channel',
-(select menu_id from config_menu where DISPLAYNAME = 'CHANNEL'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/nature')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/nature',
@@ -6068,14 +6031,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
 end
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/channel')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/channel',
-'systemx.api.model.config.compliance.Channel',
-(select menu_id from config_menu where DISPLAYNAME = 'CHANNEL'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/nature')
 begin
@@ -7030,15 +6985,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where link = '/config/compliance/correspondance/subjectofcorrespondance'))
 end
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/channel')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/channel',
-'systemx.api.model.config.compliance.Channel',
-(select menu_id from config_menu where DISPLAYNAME = 'CHANNEL'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/nature')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/nature',
@@ -7755,5 +7701,12 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/sourceall',
 'systemx.api.model.config.compliance.Source',
 (select menu_id from config_menu where link= '/config/compliance/correspondance/source'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/channel')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/channel',
+'systemx.api.model.config.compliance.Channel',
+(select menu_id from config_menu where link= ' /config/compliance/correspondance/channel'))
 end
 
