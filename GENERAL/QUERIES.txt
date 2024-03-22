@@ -110,53 +110,6 @@ where API='/api/config/businessFunctions'
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainTree')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/domainTree',
-'systemx.api.model.config.Domain',
-(select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboard')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboard',
-'systemx.api.model.config.Dashboard',
-(select menu_id from config_menu where DISPLAYNAME = 'DASHBOARDS'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/subjectofcorrespondance')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/subjectofcorrespondance',
-'systemx.api.model.config.compliance.SubjectOfCorrespondence',
-(select menu_id from config_menu where DISPLAYNAME = 'SUBJECT OF CORRESPONDANCE'))
-end
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/subjectofcorrespondanceall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/subjectofcorrespondanceall',
-'systemx.api.model.config.compliance.SubjectOfCorrespondence',
-(select menu_id from config_menu where DISPLAYNAME = 'SUBJECT OF CORRESPONDANCE'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/source')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/source',
-'systemx.api.model.config.compliance.Source',
-(select menu_id from config_menu where DISPLAYNAME = 'SOURCE'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/sourceall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/sourceall',
-'systemx.api.model.config.compliance.Source',
-(select menu_id from config_menu where DISPLAYNAME = 'SOURCE'))
-end
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/channel')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/channel',
@@ -244,17 +197,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 'systemx.api.model.config.Dashboard',
 (select MENU_ID from config_menu where LINK = '/config/dashboard'))
 end
-
-
-
-
-
-
-
-
-
-
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategoryall')
 begin
@@ -807,30 +749,13 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainTree')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/domainTree',
-'systemx.api.model.config.Domain',
-(select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboard')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboard',
-'systemx.api.model.config.Dashboard',
-(select menu_id from config_menu where DISPLAYNAME = 'DASHBOARDS'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/subjectofcorrespondance')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/subjectofcorrespondance',
 'systemx.api.model.config.compliance.SubjectOfCorrespondence',
-(select menu_id from config_menu where DISPLAYNAME = 'SUBJECT OF CORRESPONDANCE'))
+(select menu_id from config_menu where link ='/config/compliance/correspondance/subjectofcorrespondance'))
 end
+
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationpriorityall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/observationpriorityall',
@@ -3199,23 +3124,6 @@ values('api/home/correspondenceall','systemx.api.model.correspondance',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainTree')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/domainTree',
-'systemx.api.model.config.Domain',
-(select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboard')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboard',
-'systemx.api.model.config.Dashboard',
-(select menu_id from config_menu where DISPLAYNAME = 'DASHBOARDS'))
-end
-
-
 if not exists
 (select * from config_apiforentityname where API='/api/config/currencyall')
 begin
@@ -3276,28 +3184,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/assigntoprofile')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/assigntoprofile',
-'systemx.api.model.config.compliance.AssignToProfile',
-(select menu_id from config_menu where DISPLAYNAME = 'ASSIGN TO PROFILE'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/source')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/source',
-'systemx.api.model.config.compliance.Source',
-(select menu_id from config_menu where DISPLAYNAME = 'SOURCE'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/sourceall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/sourceall',
-'systemx.api.model.config.compliance.Source',
-(select menu_id from config_menu where DISPLAYNAME = 'SOURCE'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/channel')
@@ -3363,22 +3249,6 @@ end
 
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where link = '/config/workflow-setup') where
 api='/api/config/workflow'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboardall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboardall',
-'systemx.api.model.config.Dashboard',
-(select MENU_ID from config_menu where LINK = '/config/dashboard'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboard')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboard',
-'systemx.api.model.config.Dashboard',
-(select MENU_ID from config_menu where LINK = '/config/dashboard'))
-end
-
-
 
 
 
@@ -4133,60 +4003,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/assigntoprofile')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/assigntoprofile',
-'systemx.api.model.config.compliance.AssignToProfile',
-(select menu_id from config_menu where DISPLAYNAME = 'ASSIGN TO PROFILE'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainTree')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/domainTree',
-'systemx.api.model.config.Domain',
-(select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboard')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboard',
-'systemx.api.model.config.Dashboard',
-(select menu_id from config_menu where DISPLAYNAME = 'DASHBOARDS'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/subjectofcorrespondance')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/subjectofcorrespondance',
-'systemx.api.model.config.compliance.SubjectOfCorrespondence',
-(select menu_id from config_menu where DISPLAYNAME = 'SUBJECT OF CORRESPONDANCE'))
-end
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/subjectofcorrespondanceall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/subjectofcorrespondanceall',
-'systemx.api.model.config.compliance.SubjectOfCorrespondence',
-(select menu_id from config_menu where DISPLAYNAME = 'SUBJECT OF CORRESPONDANCE'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/source')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/source',
-'systemx.api.model.config.compliance.Source',
-(select menu_id from config_menu where DISPLAYNAME = 'SOURCE'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/sourceall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/sourceall',
-'systemx.api.model.config.compliance.Source',
-(select menu_id from config_menu where DISPLAYNAME = 'SOURCE'))
-end
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/channel')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/channel',
@@ -4242,19 +4058,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboardall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboardall',
-'systemx.api.model.config.Dashboard',
-(select MENU_ID from config_menu where LINK = '/config/dashboard'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboard')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboard',
-'systemx.api.model.config.Dashboard',
-(select MENU_ID from config_menu where LINK = '/config/dashboard'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/eventtypeall')
@@ -4926,30 +4729,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 'systemx.api.model.config.Domain',
 (select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
 end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboardall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboardall',
-'systemx.api.model.config.Dashboard',
-(select MENU_ID from config_menu where LINK = '/config/dashboard'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboard')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboard',
-'systemx.api.model.config.Dashboard',
-(select MENU_ID from config_menu where LINK = '/config/dashboard'))
-end
-
-
-
-
-
-
-
-
-
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategoryall')
 begin
@@ -5688,51 +5467,7 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainTree')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/domainTree',
-'systemx.api.model.config.Domain',
-(select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
-end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboard')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboard',
-'systemx.api.model.config.Dashboard',
-(select menu_id from config_menu where DISPLAYNAME = 'DASHBOARDS'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/subjectofcorrespondance')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/subjectofcorrespondance',
-'systemx.api.model.config.compliance.SubjectOfCorrespondence',
-(select menu_id from config_menu where DISPLAYNAME = 'SUBJECT OF CORRESPONDANCE'))
-end
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/subjectofcorrespondanceall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/subjectofcorrespondanceall',
-'systemx.api.model.config.compliance.SubjectOfCorrespondence',
-(select menu_id from config_menu where DISPLAYNAME = 'SUBJECT OF CORRESPONDANCE'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/source')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/source',
-'systemx.api.model.config.compliance.Source',
-(select menu_id from config_menu where DISPLAYNAME = 'SOURCE'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/sourceall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/sourceall',
-'systemx.api.model.config.compliance.Source',
-(select menu_id from config_menu where DISPLAYNAME = 'SOURCE'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/channel')
@@ -5810,30 +5545,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 'systemx.api.model.config.Domain',
 (select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
 end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboardall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboardall',
-'systemx.api.model.config.Dashboard',
-(select MENU_ID from config_menu where LINK = '/config/dashboard'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboard')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboard',
-'systemx.api.model.config.Dashboard',
-(select MENU_ID from config_menu where LINK = '/config/dashboard'))
-end
-
-
-
-
-
-
-
-
-
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategoryall')
@@ -6357,60 +6068,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
 end
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/assigntoprofile')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/assigntoprofile',
-'systemx.api.model.config.compliance.AssignToProfile',
-(select menu_id from config_menu where DISPLAYNAME = 'ASSIGN TO PROFILE'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainTree')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/domainTree',
-'systemx.api.model.config.Domain',
-(select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboard')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboard',
-'systemx.api.model.config.Dashboard',
-(select menu_id from config_menu where DISPLAYNAME = 'DASHBOARDS'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/subjectofcorrespondance')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/subjectofcorrespondance',
-'systemx.api.model.config.compliance.SubjectOfCorrespondence',
-(select menu_id from config_menu where DISPLAYNAME = 'SUBJECT OF CORRESPONDANCE'))
-end
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/subjectofcorrespondanceall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/subjectofcorrespondanceall',
-'systemx.api.model.config.compliance.SubjectOfCorrespondence',
-(select menu_id from config_menu where DISPLAYNAME = 'SUBJECT OF CORRESPONDANCE'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/source')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/source',
-'systemx.api.model.config.compliance.Source',
-(select menu_id from config_menu where DISPLAYNAME = 'SOURCE'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/sourceall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/sourceall',
-'systemx.api.model.config.compliance.Source',
-(select menu_id from config_menu where DISPLAYNAME = 'SOURCE'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/channel')
@@ -7065,13 +6722,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/assignToPro
 (select menu_id from config_menu where Link='/config/assigntoprofile'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/assignToProfile')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/assignToProfile',
-(select menu_id from config_menu where Link='/config/assigntoprofile'))
-end
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeall')
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeall',
@@ -7371,56 +7021,15 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/assigntoprofile')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/assigntoprofile',
-'systemx.api.model.config.compliance.AssignToProfile',
-(select menu_id from config_menu where DISPLAYNAME = 'ASSIGN TO PROFILE'))
-end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainTree')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/domainTree',
-'systemx.api.model.config.Domain',
-(select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboard')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboard',
-'systemx.api.model.config.Dashboard',
-(select menu_id from config_menu where DISPLAYNAME = 'DASHBOARDS'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/subjectofcorrespondance')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/subjectofcorrespondance',
-'systemx.api.model.config.compliance.SubjectOfCorrespondence',
-(select menu_id from config_menu where DISPLAYNAME = 'SUBJECT OF CORRESPONDANCE'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/subjectofcorrespondanceall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/subjectofcorrespondanceall',
 'systemx.api.model.config.compliance.SubjectOfCorrespondence',
-(select menu_id from config_menu where DISPLAYNAME = 'SUBJECT OF CORRESPONDANCE'))
+(select menu_id from config_menu where link = '/config/compliance/correspondance/subjectofcorrespondance'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/source')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/source',
-'systemx.api.model.config.compliance.Source',
-(select menu_id from config_menu where DISPLAYNAME = 'SOURCE'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/sourceall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/sourceall',
-'systemx.api.model.config.compliance.Source',
-(select menu_id from config_menu where DISPLAYNAME = 'SOURCE'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/channel')
@@ -7499,19 +7108,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'DOMAIN'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboardall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboardall',
-'systemx.api.model.config.Dashboard',
-(select MENU_ID from config_menu where LINK = '/config/dashboard'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboard')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dashboard',
-'systemx.api.model.config.Dashboard',
-(select MENU_ID from config_menu where LINK = '/config/dashboard'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/locationsall')
 begin
@@ -8136,5 +7732,28 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workf
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/workflowStateType','systemx.api.model.workflow.WorkflowStateType',
 (select menu_id from config_menu where Link='/config/workflowstatetype'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainTree')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/domainTree',
+'systemx.api.model.config.Domain',
+(select menu_id from config_menu where link= '/config/domain'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/source')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/source',
+'systemx.api.model.config.compliance.Source',
+(select menu_id from config_menu where link= '/config/compliance/correspondance/source'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/sourceall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/sourceall',
+'systemx.api.model.config.compliance.Source',
+(select menu_id from config_menu where link= '/config/compliance/correspondance/source'))
 end
 
