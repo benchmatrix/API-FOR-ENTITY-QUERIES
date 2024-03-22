@@ -97,31 +97,7 @@ values('/api/home/RCSAall','systemx.api.model.rcsa',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
---Assessment area --
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareaall',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Area'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentarea')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentarea',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Area'))
-End
-
-
-
-
---Assessment Category
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Category'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Category'))
-end 
+-
 
 --Assessment Dimension
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentdimensionall')
@@ -307,12 +283,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/latestRiskByControl',
 (select menu_id from config_menu where LINK = '/RCSA/controlregister'))
 end
-
-
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where DISPLAYNAME = 'Assessment Category') where 
-API = '/api/config/RCSA/assessmentcategory'
-
-
 
 update config_apiforentityname set MENU_ID = (select menu_id from config_menu where LINK = '/config/rcsa/risktype') where 
 API = '/api/config/risktype'
@@ -564,32 +534,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/riskappetitem
 end 
 
 
-
---Assessment area --
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareaall',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Area'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentarea')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/assessmentarea',(select menu_id from config_menu where link = '/config/RCSA/assessmentarea'))
-End
-
-
-
---Assessment Category
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Category'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Category'))
-end 
-
 --Assessment Dimension
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentdimensionall')
 begin
@@ -771,10 +715,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/latestRiskByControl',
 (select menu_id from config_menu where LINK = '/RCSA/controlregister'))
 end
-
-
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where DISPLAYNAME = 'Assessment Category') where 
-API = '/api/config/RCSA/assessmentcategory'
 
 
 /*ApiEntity insertion*/
@@ -1074,30 +1014,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcategory',(select menu_id from config_menu where DISPLAYNAME = 'Control Category'))
 end
 
---Assessment area --
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareaall',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Area'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentarea')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/assessmentarea',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Area'))
-End
-
-
-
---Assessment Category
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Category'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Category'))
-end 
 
 --Assessment Dimension
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentdimensionall')
@@ -1261,11 +1177,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/latestRiskByControl',
 (select menu_id from config_menu where LINK = '/RCSA/controlregister'))
 end
-
-
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where DISPLAYNAME = 'Assessment Category') where 
-API = '/api/config/RCSA/assessmentcategory'
-
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/rcsa/ram')
@@ -1459,10 +1370,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/latestRiskByControl',
 (select menu_id from config_menu where LINK = '/RCSA/controlregister'))
 end
-
-
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where DISPLAYNAME = 'Assessment Category') where 
-API = '/api/config/RCSA/assessmentcategory'
 
 
 /*ApiEntity insertion*/
@@ -1935,11 +1842,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/latestRiskByC
 (select menu_id from config_menu where LINK = '/RCSA/controlregister'))
 end
 
-
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where DISPLAYNAME = 'Assessment Category') where 
-API = '/api/config/RCSA/assessmentcategory'
-
-
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/rcsa/ram')
 begin
@@ -2410,31 +2312,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcategory',(select menu_id from config_menu where DISPLAYNAME = 'Control Category'))
 end
 
---Assessment area --
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareaall',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Area'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentarea')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentarea',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Area'))
-End
-
-
-
-
---Assessment Category
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Category'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'Assessment Category'))
-end 
 
 --Assessment Dimension
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentdimensionall')
@@ -2609,10 +2486,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/latestRiskByC
 end
 
 
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where DISPLAYNAME = 'Assessment Category') where 
-API = '/api/config/RCSA/assessmentcategory'
-
-
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/rcsa/ram')
 begin
@@ -2701,3 +2574,25 @@ values('/api/config/RCSA/configChildMeasureMatrix',
 ))
 End
 
+--Assessment area --
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareaall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareaall',(select menu_id from config_menu where link='/config/RCSA/assessmentarea'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentarea')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/assessmentarea',(select menu_id from config_menu where link ='/config/RCSA/assessmentarea'))
+End
+
+--Assessment Category
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentcategoryall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentcategoryall',(select menu_id from config_menu where link ='/config/RCSA/assessmentcategory'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentcategory')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentcategoryall',(select menu_id from config_menu where link = '/config/RCSA/assessmentcategory'))
+end 
