@@ -2275,19 +2275,10 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/Risk/assetall',
 (select menu_id from config_menu where MENU_KEY='AST'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/exceptions/exceptionsall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/exceptions/exceptionsall',
-(select menu_id from config_menu where MENU_KEY='EX'))
-end 
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/syncLogAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/syncLogAll',null,
-(select MENU_ID from config_menu where LINK ='/config/user'))
-end
+
+
+
 
 if not exists(select * from config_apiforentityname where API='/api/config/RCSA/configChildMeasureMatrix')
 begin
@@ -3441,13 +3432,7 @@ values('/api/rcsa/wsassessment',null,
 (select MENU_ID from config_menu where LINK ='/RCSA/riskandcontrolassessment'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/syncLogAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/syncLogAll',null,
-(select MENU_ID from config_menu where LINK ='/config/user'))
-end
+
 if not exists(select * from config_apiforentityname where API='/api/config/RCSA/configChildMeasureMatrix')
 begin
 Insert into config_apiforentityname(API,MENU_ID)
@@ -3603,13 +3588,6 @@ values('/api/config/configteamall',null,
 end
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/syncLogAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/syncLogAll',null,
-(select MENU_ID from config_menu where LINK ='/config/user'))
-end
 
 if not exists(select * from config_apiforentityname where API='/api/config/RCSA/configChildMeasureMatrix')
 begin
@@ -8101,13 +8079,6 @@ values('/api/config/configteamall',null,
 end
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/syncLogAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/syncLogAll',null,
-(select MENU_ID from config_menu where LINK ='/config/user'))
-end
 
 if not exists(select * from config_apiforentityname where API='/api/config/RCSA/configChildMeasureMatrix')
 begin
