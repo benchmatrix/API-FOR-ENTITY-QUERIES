@@ -291,7 +291,7 @@ end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/complianceCategoryall')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/complianceCategoryall',(select menu_id from config_menu where DISPLAYNAME = 'Industry library'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/complianceCategoryall',(select menu_id from config_menu where link ='/config/compliance/library-tree'))
 end
 
 
@@ -3203,10 +3203,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/getkidashboards
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/complianceCategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/complianceCategoryall',(select menu_id from config_menu where DISPLAYNAME = 'Industry library'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/designation')
 begin
@@ -3848,13 +3844,6 @@ end
 	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
 	end
 
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/complianceCategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/complianceCategoryall',(select menu_id from config_menu where DISPLAYNAME = 'Industry library'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/generalDashboardFilters')
