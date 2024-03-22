@@ -5,22 +5,6 @@ values('/api/home/workshopall','systemx.api.model.rcsa',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 End
 
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentareatype')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assessment Area Type',NULL,1,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'CNFG'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'RCSA'),'fa fa-exclamation-triangle','/config/RCSA/assessmentareatype',
-null,1,1,1)
-End
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmenttypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmenttypeall',
-(select menu_id from config_menu where LINK ='/config/RCSA/assessmentareatype'))
-end
-
-
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskclassificationall')
 begin
@@ -112,20 +96,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assess
 end 
 
 
-----Assessment Area type
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareatype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareatype',
-(select menu_id from config_menu where Link='/config/RCSA/assessmentareatype'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareatypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareatypeall',
-(select menu_id from config_menu where Link='/config/RCSA/assessmentareatype'))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/riskall')
 begin
@@ -516,31 +487,6 @@ end
 update config_apiforentityname set MENU_ID = (select menu_id from config_menu where LINK = '/config/rcsa/risktype') where 
 API = '/api/config/risktype'
 
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentareatype')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assessment Area Type',NULL,1,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'CNFG'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'RCSA'),'fa fa-exclamation-triangle','/config/RCSA/assessmentareatype',
-null,1,1,1)
-End
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmenttypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmenttypeall',
-(select menu_id from config_menu where LINK ='/config/RCSA/assessmentareatype'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmenttype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmenttype',
-(select menu_id from config_menu where LINK = '/config/RCSA/assessmentareatype'))
-end
-
-
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
-LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmenttypeall'
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
-LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmenttype'
 
 
 
@@ -820,31 +766,8 @@ API = '/api/config/risktype'
 update CONFIG_APIFORENTITYNAME set MENU_ID =(select menu_id from config_menu where LINK = '/config/RCSA/scorethreshold')  where api='/api/config/RCSA/scorethreshold'
 
 
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentareatype')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assessment Area Type',NULL,1,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'CNFG'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'RCSA'),'fa fa-exclamation-triangle','/config/RCSA/assessmentareatype',
-null,1,1,1)
-End
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmenttypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmenttypeall',
-(select menu_id from config_menu where LINK ='/config/RCSA/assessmentareatype'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmenttype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmenttype',
-(select menu_id from config_menu where LINK = '/config/RCSA/assessmentareatype'))
-end
 
 
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
-LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmenttypeall'
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
-LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmenttype'
 
 
 
@@ -914,41 +837,12 @@ values('/api/rcsa/rcsaworkshopall',
 MENU_ID desc))
 end
 
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentareatype')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assessment Area Type',NULL,1,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'CNFG'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'RCSA'),'fa fa-exclamation-triangle','/config/RCSA/assessmentareatype',
-null,1,1,1)
-End
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmenttypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmenttypeall',
-(select menu_id from config_menu where LINK ='/config/RCSA/assessmentareatype'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmenttype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmenttype',
-(select menu_id from config_menu where LINK = '/config/RCSA/assessmentareatype'))
-end
-
-
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
-LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmenttypeall'
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
-LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmenttype'
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/rcsarisk')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/rcsarisk',
 (select menu_id from config_menu where Link='/RCSA/workshopassessment'))
 end
-
-
-
-
 
 
 if not exists
@@ -1366,31 +1260,6 @@ API = '/api/config/risktype'
 update CONFIG_APIFORENTITYNAME set MENU_ID =(select menu_id from config_menu where LINK = '/config/RCSA/scorethreshold')  where api='/api/config/RCSA/scorethreshold'
 
 
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentareatype')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assessment Area Type',NULL,1,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'CNFG'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'RCSA'),'fa fa-exclamation-triangle','/config/RCSA/assessmentareatype',
-null,1,1,1)
-End
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmenttypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmenttypeall',
-(select menu_id from config_menu where LINK ='/config/RCSA/assessmentareatype'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmenttype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmenttype',
-(select menu_id from config_menu where LINK = '/config/RCSA/assessmentareatype'))
-end
-
-
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
-LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmenttypeall'
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
-LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmenttype'
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmenttype')
