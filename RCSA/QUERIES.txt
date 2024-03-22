@@ -112,46 +112,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assess
 end 
 
 
-
-----Assessment measure values
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasurevaluesall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasurevaluesall',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure values'))
-end 
-
-
-
-----Assessment measure weightage
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasureweightageall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasureweightageall',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure weightage'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasureweightage')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasureweightage',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure weightage'))
-end 
-
-
-----Risk type
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/risktypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/risktypeall',
-(select menu_id from config_menu where DISPLAYNAME = 'Risk type'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/risktype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/risktype',
-(select menu_id from config_menu where DISPLAYNAME = 'Risk type'))
-end 
-
 ----Assessment Area type
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareatype')
@@ -165,18 +125,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareatypeall',
 (select menu_id from config_menu where Link='/config/RCSA/assessmentareatype'))
-end 
-----Formula
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/formulaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/formulaall',
-(select menu_id from config_menu where DISPLAYNAME = 'Formula'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/formula')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/formula',
-(select menu_id from config_menu where DISPLAYNAME = 'Formula'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/riskall')
@@ -524,46 +472,18 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasure',(select menu_id from config_menu where link ='/config/RCSA/assessmentmeasure'))
 end
 
-----Assessment measure values
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasurevaluesall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasurevaluesall',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure values'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasurevalues')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasurevalues',
-(select menu_id from config_menu where link ='/config/RCSA/assessmentmeasurevalues'))
-end 
-
-----Assessment measure weightage
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasureweightageall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasureweightageall',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure weightage'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasureweightage')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasureweightage',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure weightage'))
-end 
-
 ----Score thresholds
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/scorethresholdall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/scorethresholdall',
-(select menu_id from config_menu where DISPLAYNAME = 'Score threshold'))
+(select menu_id from config_menu where link ='/config/RCSA/scorethreshold'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/scorethreshold')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/scorethreshold',
-(select menu_id from config_menu where DISPLAYNAME = 'Score threshold'))
+(select menu_id from config_menu where link ='/config/RCSA/scorethreshold'))
 end
 
 
@@ -572,42 +492,13 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/risktypeall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/risktypeall',
-(select menu_id from config_menu where DISPLAYNAME = 'Risk type'))
+(select menu_id from config_menu where link ='/config/rcsa/risktype'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/risktype')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/risktype',
-(select menu_id from config_menu where DISPLAYNAME = 'Risk type'))
-end 
-
-
-----Assessment Area type
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareatype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareatype',
-(select menu_id from config_menu where Link='/config/RCSA/assessmentareatype'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareatypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareatypeall',
-(select menu_id from config_menu where Link='/config/RCSA/assessmentareatype'))
-end 
-
-----Formula
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/formulaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/formulaall',
-(select menu_id from config_menu where DISPLAYNAME = 'Formula'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/formula')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/formula',
-(select menu_id from config_menu where DISPLAYNAME = 'Formula'))
+(select menu_id from config_menu where link ='/config/rcsa/risktype'))
 end 
 
 
@@ -967,93 +858,20 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcate
 end
 
 
-----Assessment measure values
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasurevaluesall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasurevaluesall',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure values'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasurevalues')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasurevalues',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure values'))
-end 
 
 ----Assessment measure weightage
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasureweightageall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasureweightageall',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure weightage'))
+(select menu_id from config_menu where link ='/config/RCSA/assessmentmeasureweightage'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasureweightage')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasureweightage',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure weightage'))
+(select menu_id from config_menu where link ='/config/RCSA/assessmentmeasureweightage'))
 end 
-
-----Score thresholds
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/scorethresholdall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/scorethresholdall',
-(select menu_id from config_menu where DISPLAYNAME = 'Score threshold'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/scorethreshold')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/scorethreshold',
-(select menu_id from config_menu where DISPLAYNAME = 'Score threshold'))
-end
-
-
-----Risk type
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/risktypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/risktypeall',
-(select menu_id from config_menu where DISPLAYNAME = 'Risk type'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/risktype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/risktype',
-(select menu_id from config_menu where DISPLAYNAME = 'Risk type'))
-end 
-
-
-----Assessment Area type
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareatype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareatype',
-(select menu_id from config_menu where Link='/config/RCSA/assessmentareatype'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareatypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareatypeall',
-(select menu_id from config_menu  where Link='/config/RCSA/assessmentareatype'))
-end 
-
-----Formula
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/formulaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/formulaall',
-(select menu_id from config_menu where DISPLAYNAME = 'Formula'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/formula')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/formula',
-(select menu_id from config_menu where DISPLAYNAME = 'Formula'))
-end 
-
-
 
 ---- Control coso category-----
 
@@ -1182,64 +1000,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/likelihoodcategoryall',
 (select menu_id from config_menu where Link='/config/rcsa/likelihoodcategory'))
 end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/scorethresholdall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/scorethresholdall',
-(select menu_id from config_menu where DISPLAYNAME = 'Score threshold'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/scorethreshold')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/scorethreshold',
-(select menu_id from config_menu where DISPLAYNAME = 'Score threshold'))
-end
-
-
-----Risk type
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/risktypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/risktypeall',
-(select menu_id from config_menu where DISPLAYNAME = 'Risk type'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/risktype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/risktype',
-(select menu_id from config_menu where DISPLAYNAME = 'Risk type'))
-end 
-
-
-----Assessment Area type
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareatype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareatype',
-(select menu_id from config_menu where Link='/config/RCSA/assessmentareatype'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareatypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareatypeall',
-(select menu_id from config_menu where Link='/config/RCSA/assessmentareatype'))
-end 
-
-----Formula
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/formulaall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/formulaall',
-(select menu_id from config_menu where DISPLAYNAME = 'Formula'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/formula')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/formula',
-(select menu_id from config_menu where DISPLAYNAME = 'Formula'))
-end 
-
-
 
 ---- Control coso category-----
 
@@ -2232,7 +1992,7 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasurevaluesall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasurevaluesall',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure values'))
+(select menu_id from config_menu where link ='/config/RCSA/assessmentmeasurevalues'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasurevalues')
@@ -2241,76 +2001,19 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assess
 (select menu_id from config_menu where link ='/config/RCSA/assessmentmeasurevalues'))
 end 
 
-----Assessment measure weightage
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasureweightageall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasureweightageall',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure weightage'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasureweightage')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasureweightage',
-(select menu_id from config_menu where DISPLAYNAME = 'Assessment Measure weightage'))
-end 
-
-----Score thresholds
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/scorethresholdall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/scorethresholdall',
-(select menu_id from config_menu where DISPLAYNAME = 'Score threshold'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/scorethreshold')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/scorethreshold',
-(select menu_id from config_menu where DISPLAYNAME = 'Score threshold'))
-end
-
-
-----Risk type
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/risktypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/risktypeall',
-(select menu_id from config_menu where DISPLAYNAME = 'Risk type'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/risktype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/risktype',
-(select menu_id from config_menu where DISPLAYNAME = 'Risk type'))
-end 
-
-
-----Assessment Area type
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareatype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareatype',
-(select menu_id from config_menu where Link='/config/RCSA/assessmentareatype'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareatypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareatypeall',
-(select menu_id from config_menu where Link='/config/RCSA/assessmentareatype'))
-end 
 
 ----Formula
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/formulaall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/formulaall',
-(select menu_id from config_menu where DISPLAYNAME = 'Formula'))
+(select menu_id from config_menu where link = '/config/RCSA/formula'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/formula')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/formula',
-(select menu_id from config_menu where DISPLAYNAME = 'Formula'))
+(select menu_id from config_menu where link = '/config/RCSA/formula'))
 end 
 
 
