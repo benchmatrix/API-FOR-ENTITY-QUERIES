@@ -241,12 +241,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/riskall',
 (select menu_id from config_menu where LINK='/RCSA/riskregister'))
 end 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/RCSA/riskregisterall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/riskregisterall',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK REGISTER'))
-end 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/rcsa/ram')
 begin
@@ -308,14 +302,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/riskall',
 (select menu_id from config_menu where DISPLAYNAME = 'RISK REGISTER'))
 end 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/RCSA/riskregisterall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/riskregisterall',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK REGISTER'))
-end 
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/rcsacontrolall')
@@ -567,12 +553,6 @@ End
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/RCSA/riskregisterall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/riskregisterall',
-(select menu_id from config_menu where LINK = '/RCSA/riskregister'))
-end 
-
 
 if not exists
 (select * from config_apiforentityname where API='/api/RCSA/riskregisterheatmapall')
@@ -794,13 +774,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/riskall',
 (select menu_id from config_menu where DISPLAYNAME = 'RISK REGISTER'))
 end 
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/RCSA/riskregisterall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/riskregisterall',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK REGISTER'))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/rcsacontrolall')
 begin
@@ -1292,12 +1265,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/RCSA/riskregisterall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/riskregisterall',
-(select menu_id from config_menu where LINK = '/RCSA/riskregister'))
-end 
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/rcsacontrolall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/rcsacontrolall',
@@ -1495,11 +1462,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/riskall',
 end 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/RCSA/riskregisterall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/riskregisterall',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK REGISTER'))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/rcsacontrolall')
 begin
@@ -1975,12 +1937,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/getrcsaformul
 (select menu_id from config_menu where LINK = '/RCSA/riskregister'))
 end 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/RCSA/riskregisterall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/riskregisterall',
-(select menu_id from config_menu where LINK = '/RCSA/riskregister'))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/rcsacontrolall')
 begin
@@ -2662,11 +2618,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/riskall',
 end 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/RCSA/riskregisterall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/riskregisterall',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK REGISTER'))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/rcsacontrolall')
 begin
