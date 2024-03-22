@@ -564,21 +564,6 @@ End
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/audittypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/audittypeall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'AUDIT TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/audittype'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/audittype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/audittype',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'AUDIT TYPE'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationresponsetypeall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationresponsetypeall',
@@ -927,22 +912,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'PREINSPECTION CATEGORY'))
 End
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/audittypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/audittypeall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'AUDIT TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/audittype'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/audittype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/audittype',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'AUDIT TYPE'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationresponsetypeall')
 begin
@@ -4144,7 +4113,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/audit
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/audittypeall',
 'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'AUDIT TYPE'))
+(select menu_id from config_menu where link ='/config/compliance/observation/auditreporttype'))
 end
 delete CONFIG_APIFORENTITYNAME where API= '/api/config/audittype'	
 
@@ -4152,7 +4121,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/audit
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/audittype',
 'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'AUDIT TYPE'))
+(select menu_id from config_menu where link ='/config/compliance/observation/auditreporttype'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/generalDashboardFilters')
