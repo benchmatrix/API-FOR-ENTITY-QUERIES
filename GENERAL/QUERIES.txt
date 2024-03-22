@@ -1800,42 +1800,6 @@ values('api/home/correspondenceall','systemx.api.model.correspondance',
 end
 
 
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/incidentreportall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/incidentreportall','systemx.api.model.loss',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/incidentproposalall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/incidentproposalall','systemx.api.model.loss',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/actionplanall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/actionplanall','systemx.api.model.actionplan',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/complianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/complianceruleall','systemx.api.model.compliancelibrary',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-End
-
-
 if not exists
 (select * from config_apiforentityname where API='/api/home/assignedCorrespondenceall')
 begin
@@ -3353,48 +3317,6 @@ values('api/home/correspondenceall','systemx.api.model.correspondance',
 end
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/home/incidentreportall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/incidentreportall','systemx.api.model.loss',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/incidentproposalall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/incidentproposalall','systemx.api.model.loss',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/actionplanall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/actionplanall','systemx.api.model.actionplan',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/complianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/complianceruleall','systemx.api.model.compliancelibrary',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-End
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/assignedCorrespondenceall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/assignedCorrespondenceall','systemx.api.model.correspondance',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainTree')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/domainTree',
@@ -4333,13 +4255,6 @@ values('/api/home/complianceruleall','systemx.api.model.compliancelibrary',
 End
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/home/assignedCorrespondenceall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/assignedCorrespondenceall','systemx.api.model.correspondance',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/config/currencyall')
@@ -5990,39 +5905,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowSta
 end
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/home/incidentproposalall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/incidentproposalall','systemx.api.model.loss',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/actionplanall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/actionplanall','systemx.api.model.actionplan',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/complianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/complianceruleall','systemx.api.model.compliancelibrary',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-End
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/assignedCorrespondenceall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/assignedCorrespondenceall','systemx.api.model.correspondance',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
 
 if not exists
 (select * from config_apiforentityname where API='/api/config/currencyall')
@@ -7336,47 +7218,6 @@ values('api/home/correspondenceall','systemx.api.model.correspondance',
 end
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/home/incidentreportall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/incidentreportall','systemx.api.model.loss',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/incidentproposalall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/incidentproposalall','systemx.api.model.loss',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/actionplanall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/actionplanall','systemx.api.model.actionplan',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/complianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/complianceruleall','systemx.api.model.compliancelibrary',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-End
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/assignedCorrespondenceall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/assignedCorrespondenceall','systemx.api.model.correspondance',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/generalDashboardFilters')
 begin
@@ -7828,13 +7669,6 @@ values('api/home/correspondenceall','systemx.api.model.correspondance',
 end
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/home/incidentreportall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/incidentreportall','systemx.api.model.loss',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
 
 update  CONFIG_FIELDLINKPAGES set path='/api/config/frequency'  where FIELD_ID in (select FIELD_ID from CONFIG_FIELDS where FIELD_KEY='frequency')
 
@@ -7858,49 +7692,6 @@ values('api/home/correspondenceall','systemx.api.model.correspondance',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/incidentreportall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/incidentreportall','systemx.api.model.loss',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/incidentproposalall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/incidentproposalall','systemx.api.model.loss',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/actionplanall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/actionplanall','systemx.api.model.actionplan',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/complianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/complianceruleall','systemx.api.model.compliancelibrary',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-End
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/home/assignedCorrespondenceall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/assignedCorrespondenceall','systemx.api.model.correspondance',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
 
 
 if not exists
