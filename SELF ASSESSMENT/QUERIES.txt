@@ -12,14 +12,7 @@ LINK = '/config/compliance/questionnaire/certificationtype') where api ='/api/co
 
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
 LINK = '/config/compliance/questionnaire/certificationtype') where api ='/api/config/certificationtype' 
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertypeall',
-(select menu_id from config_menu where DISPLAYNAME = 'Questionniare Answer Type'))
-end 
+ 
 
 ----Certification Type---
 
@@ -104,16 +97,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tagall',
 end 
 
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertypeall',
-(select menu_id from config_menu where DISPLAYNAME = 'Questionniare Answer Type'))
-end 
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/certificationtypeall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/certificationtypeall',
@@ -144,11 +127,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/assignedselfassessmentall',(select menu_id from config_menu where DISPLAYNAME = 'Questionnaire Details'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertypeall',
-(select menu_id from config_menu where DISPLAYNAME = 'Questionniare Answer Type'))
-end 
 
 
 ----Certification Type---
@@ -206,7 +184,7 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertypeall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertypeall',
-(select menu_id from config_menu where DISPLAYNAME = 'Questionniare Answer Type'))
+(select menu_id from config_menu where link ='/config/compliance/questionnaire/answertype'))
 end 
 
 
@@ -415,11 +393,6 @@ values('/api/dynamicFiltersData',null,
 End
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertypeall',
-(select menu_id from config_menu where DISPLAYNAME = 'Questionniare Answer Type'))
-end 
 
 ----Certification Type---
 
