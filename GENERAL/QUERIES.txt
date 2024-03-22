@@ -535,7 +535,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/obser
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationrootcauseall',
 'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'ROOT CAUSE'))
+(select menu_id from config_menu where link ='/config/compliance/observation/observationrootcause'))
 end
 delete CONFIG_APIFORENTITYNAME where API= '/api/config/observationrootcause'	
 
@@ -543,7 +543,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/obser
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationrootcause',
 'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'ROOT CAUSE'))
+(select menu_id from config_menu where link ='/config/compliance/observation/observationrootcause'))
 end
 
 
@@ -923,22 +923,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where link ='/config/compliance/observation/observationnature'))
 end
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationrootcauseall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationrootcauseall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'ROOT CAUSE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/observationrootcause'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationrootcause')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationrootcause',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'ROOT CAUSE'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/preinspectioncategoriesall')
