@@ -264,14 +264,6 @@ values('/api/ki/datafield',null,
 end
 
 
-if not exists(select * from config_apiforentityname where API='/api/ki/datafieldall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/ki/datafieldall',
-(select top 1 MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints' order by 
-MENU_ID desc))
-end
-
 if not exists
 (select * from config_apiforentityname where API='/api/ki/getkisbydashboardid')
 begin
@@ -525,14 +517,6 @@ values('/api/home/KIall',null,
 end
 
 
-
-if not exists(select * from config_apiforentityname where API='/api/ki/datafieldall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/ki/datafieldall',
-(select top 1 MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints' order by 
-MENU_ID desc))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='
 /api/ki/kidashboard')
@@ -1083,8 +1067,7 @@ if not exists(select * from config_apiforentityname where API='/api/ki/datafield
 begin
 Insert into config_apiforentityname(API,MENU_ID)
 values('/api/ki/datafieldall',
-(select top 1 MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints' order by 
-MENU_ID desc))
+(select  MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints'))
 end
 
 
