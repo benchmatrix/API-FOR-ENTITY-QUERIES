@@ -125,24 +125,6 @@ end
 
 
 
-delete CONFIG_APIFORENTITYNAME where api='/api/config/actionplanseverity'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/actionplanseverity')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/actionplanseverity',(select menu_id from config_menu
-where link = '/config/actionplan_severity'))
-end
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/pagesall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/pagesall',
-'systemx.api.model.config.dynamicpages.Pages',
-(select menu_id from config_menu where DISPLAYNAME = 'PAGES'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldlinkpagesall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldlinkpagesall',
@@ -3169,23 +3151,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
-delete CONFIG_APIFORENTITYNAME where api='/api/config/actionplanseverity'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/actionplanseverity')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/actionplanseverity',(select menu_id from config_menu
-where link = '/config/actionplan_severity'))
-end
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/pagesall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/pagesall',
-'systemx.api.model.config.dynamicpages.Pages',
-(select menu_id from config_menu where DISPLAYNAME = 'PAGES'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldlinkpagesall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldlinkpagesall',
@@ -3961,14 +3926,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE'))
 end
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/pagesall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/pagesall',
-'systemx.api.model.config.dynamicpages.Pages',
-(select menu_id from config_menu where DISPLAYNAME = 'PAGES'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldlinkpagesall')
 begin
@@ -5403,24 +5360,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE'))
 end
 
-
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/actionplanseverity'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/actionplanseverity')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/actionplanseverity',(select menu_id from config_menu
-where link = '/config/actionplan_severity'))
-end
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/pagesall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/pagesall',
-'systemx.api.model.config.dynamicpages.Pages',
-(select menu_id from config_menu where DISPLAYNAME = 'PAGES'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldlinkpagesall')
 begin
@@ -6944,16 +6883,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/actionplans
 where link = '/config/actionplan_severity'))
 end
 
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/pagesall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/pagesall',
-'systemx.api.model.config.dynamicpages.Pages',
-(select menu_id from config_menu where DISPLAYNAME = 'PAGES'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldlinkpagesall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldlinkpagesall',
@@ -7643,3 +7572,17 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 'systemx.api.model.config.actionplan.ResolutionType',
 (select menu_id from config_menu where link= '/config/resolutiontype'))
 End
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/pagesall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/pagesall',
+'systemx.api.model.config.dynamicpages.Pages',
+(select menu_id from config_menu where link= '/config/dynamicforms/pages'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldlinkpagesall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldlinkpagesall',
+'systemx.api.model.config.dynamicpages.FieldLinkPages',
+(select menu_id from config_menu where link= ' /config/dynamicforms/fieldlinkpages'))
+end
