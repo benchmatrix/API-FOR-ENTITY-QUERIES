@@ -9609,3 +9609,17 @@ values('/api/config/initialrecommendationall',null,
 (select MENU_ID from config_menu where LINK='/config/initalrecommendation'))
 end
 
+if not exists(select * from config_apiforentityname where API='/api/config/indicatorofattackall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/indicatorofattackall',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/indicatorofattack'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/alertsreviewedall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/alertsreviewedall',null,
+(select MENU_ID from config_menu where LINK='/config/alertsreviewed'))
+end
+
