@@ -9636,3 +9636,29 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/prioritylevelall',null,
 (select MENU_ID from config_menu where LINK='/config/prioritylevel'))
 end
+
+if not exists(select * from config_apiforentityname where API='/api/config/environmentsinvestigatedall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/environmentsinvestigatedall',null,
+(select  MENU_ID from config_menu where LINK='/config/environmentsinvest'))
+end
+
+
+if not exists(select * from config_apiforentityname where API='/api/config/dataatriskall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/dataatriskall',null,
+(select MENU_ID from config_menu where LINK='/config/dataatrisk'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/compromisestatusall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/compromisestatusall',null,
+(select  MENU_ID from config_menu where LINK='/config/compromisestatus'))
+end
+
+
+
+
