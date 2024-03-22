@@ -215,12 +215,12 @@ end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategory')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/broadcategory',(select menu_id from config_menu where DISPLAYNAME = 'Broad category'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/broadcategory',(select menu_id from config_menu where link ='/config/compliance/broadcategory'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategoryall')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/broadcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'Broad category'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/broadcategoryall',(select menu_id from config_menu where link ='/config/compliance/broadcategory'))
 end
 
 --Compliance status--
@@ -1225,20 +1225,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFilters',
 (select menu_id from config_menu where LINK ='/dashboard/newdashboard'))
 end
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/broadcategoryall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/broadcategory'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/broadcategory',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languagesall')
@@ -2229,20 +2215,7 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFilters',
 (select menu_id from config_menu where LINK ='/dashboard/newdashboard'))
 end
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/broadcategoryall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/broadcategory'	
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/broadcategory',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
 begin
@@ -3058,19 +3031,6 @@ where link = '/config/actionplan_severity'))
 end
 
 
-
---Broad category----
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/broadcategory',(select menu_id from config_menu where DISPLAYNAME = 'Broad category'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/broadcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'Broad category'))
-end
-
 --Compliance status--
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancestatus')
@@ -3643,17 +3603,6 @@ set MENU_ID=(select MENU_ID from config_menu where link='/config/external_causal
 where API='/api/config/externalcausal'
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/broadcategory',(select menu_id from config_menu where DISPLAYNAME = 'Broad category'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/broadcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'Broad category'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancestatus')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancestatus',(select menu_id from config_menu where DISPLAYNAME = 'Rule status'))
@@ -3854,20 +3803,6 @@ values('/api/config/userprofileAI',
 MENU_ID desc))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/broadcategoryall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/broadcategory'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/broadcategory',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languagesall')
@@ -5619,20 +5554,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/generalDashb
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/generalDashboardFilters',
 (select menu_id from config_menu where LINK ='/dashboard/newdashboard'))
-end
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/broadcategoryall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/broadcategory'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/broadcategory',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languagesall')
