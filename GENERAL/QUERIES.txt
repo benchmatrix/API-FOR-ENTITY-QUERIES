@@ -4272,11 +4272,7 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/themeall',
 (select menu_id from config_menu where Link='/config/theme'))
 end
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcoverageall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/impactcoverageall',
-(select menu_id from config_menu where Link='/config/impactcoverage'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcoverage')
 begin
@@ -5480,11 +5476,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowSta
 (select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcoverageall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/impactcoverageall',
-(select menu_id from config_menu where Link='/config/impactcoverage'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcoverage')
 begin
@@ -6057,11 +6049,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/impactcover
 (select menu_id from config_menu where Link='/config/impactcoverage'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/channelall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/channelall',
-(select menu_id from config_menu where Link='/config/compliance/correspondance/channel'))
-end
+
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/getActivityNotificationsall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getActivityNotificationsall',
@@ -7253,27 +7241,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 'systemx.api.model.config.compliance.Response',
 (select menu_id from config_menu where DISPLAYNAME = 'Response'))
 end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcoverageall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/impactcoverageall',
-(select menu_id from config_menu where Link='/config/impactcoverage'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcoverage')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/impactcoverage',
-(select menu_id from config_menu where Link='/config/impactcoverage'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/channelall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/channelall',
-(select menu_id from config_menu where Link='/config/compliance/correspondance/channel'))
-end
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlstrengthall')
@@ -9286,6 +9253,18 @@ values('/api/config/systemsall',null,
 (select MENU_ID from config_menu where LINK='/config/systems'))
 end
 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationratingtypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/observationratingtypeall',
+(select menu_id from config_menu where Link='/config/compliance/observation/observationratingtype'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationratingtype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/observationratingtype',
+(select menu_id from config_menu where Link='/config/compliance/observation/observationratingtype'))
+end
 
 
 
