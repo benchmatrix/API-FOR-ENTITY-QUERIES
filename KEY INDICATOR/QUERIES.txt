@@ -62,7 +62,7 @@ end
 -- KI Format Queries
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiformatall')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiformatall',(select menu_id from config_menu where link = ''))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiformatall',(select menu_id from config_menu where link = '/config/kiformat'))
 end 
 
 delete from CONFIG_APIFORENTITYNAME where api='/api/config/kiformat'
@@ -70,13 +70,9 @@ delete from CONFIG_APIFORENTITYNAME where api='/api/config/kiformat'
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiformat')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiformat',(select menu_id from config_menu where DISPLAYNAME ='KI Format'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiformat',(select menu_id from config_menu where link ='/config/kiformat'))
 end
 
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/kiformat')
-where API='/api/config/kiformat'
 
 
 -- KI Impacttype Queries
@@ -279,26 +275,6 @@ end
 
 
 
--- KI Format Queries
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiformatall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiformatall',(select menu_id from config_menu where DISPLAYNAME = 'KI Format'))
-end 
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/kiformat'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiformat')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiformat',(select menu_id from config_menu where DISPLAYNAME ='KI Format'))
-end
-
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/kiformat')
-where API='/api/config/kiformat'
-
-
 -- KI Impacttype Queries
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttypeall')
@@ -395,24 +371,6 @@ values('/api/home/KIall',null,
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
--- KI Format Queries
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiformatall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiformatall',(select menu_id from config_menu where DISPLAYNAME = 'KI Format'))
-end 
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/kiformat'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiformat')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiformat',(select menu_id from config_menu where DISPLAYNAME ='KI Format'))
-end
-
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/kiformat')
-where API='/api/config/kiformat'
 
 
 -- KI Impacttype Queries
@@ -514,24 +472,6 @@ values('/api/ki/getallkireports',null,
 end
 
 
--- KI Format Queries
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiformatall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiformatall',(select menu_id from config_menu where DISPLAYNAME = 'KI Format'))
-end 
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/kiformat'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiformat')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiformat',(select menu_id from config_menu where DISPLAYNAME ='KI Format'))
-end
-
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/kiformat')
-where API='/api/config/kiformat'
 
 
 -- KI Impacttype Queries
@@ -620,24 +560,6 @@ end
 
 
 
--- KI Format Queries
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiformatall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiformatall',(select menu_id from config_menu where DISPLAYNAME = 'KI Format'))
-end 
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/kiformat'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiformat')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiformat',(select menu_id from config_menu where DISPLAYNAME ='KI Format'))
-end
-
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/kiformat')
-where API='/api/config/kiformat'
 
 
 -- KI Impacttype Queries
@@ -844,27 +766,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kimea
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kimeasureall',(select menu_id from config_menu where link = '/config/ki_measure'))
 end 
-
-
-
--- KI Format Queries
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiformatall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiformatall',(select menu_id from config_menu where DISPLAYNAME = 'KI Format'))
-end 
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/kiformat'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiformat')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiformat',(select menu_id from config_menu where DISPLAYNAME ='KI Format'))
-end
-
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/kiformat')
-where API='/api/config/kiformat'
 
 
 -- KI Impacttype Queries
