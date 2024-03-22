@@ -5251,3 +5251,11 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/discoverytype','systemx.api.model.config.loss',
 (select top 1 MENU_ID from config_menu where LINK = '/config/discoverytype' order by MENU_ID desc))
 end
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/kiSetupBreachesAll')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/kiSetupBreachesAll',null,
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
