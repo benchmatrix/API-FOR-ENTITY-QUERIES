@@ -606,24 +606,7 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 'systemx.api.model.config.compliance',
 (select menu_id from config_menu where DISPLAYNAME = 'RESPONSE TYPE'))
 end
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/userprofileall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/userprofileall',
-(select top 1 MENU_ID from config_menu where LINK = '/config/userprofile' order by 
-MENU_ID desc))
-end
 
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/userprofileAI')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/userprofileAI',
-(select top 1 MENU_ID from config_menu where LINK = '/config/userprofile' order by 
-MENU_ID desc))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationtypeall')
 begin
@@ -923,26 +906,6 @@ end
 	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
 	end
 
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/userprofileall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/userprofileall',
-(select top 1 MENU_ID from config_menu where LINK = '/config/userprofile' order by 
-MENU_ID desc))
-end
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/userprofileAI')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/userprofileAI',
-(select top 1 MENU_ID from config_menu where LINK = '/config/userprofile' order by 
-MENU_ID desc))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationtypeall')
 begin
@@ -2892,26 +2855,6 @@ End
 
 
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/userprofileall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/userprofileall',
-(select top 1 MENU_ID from config_menu where LINK = '/config/userprofile' order by 
-MENU_ID desc))
-end
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/userprofileAI')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/userprofileAI',
-(select top 1 MENU_ID from config_menu where LINK = '/config/userprofile' order by 
-MENU_ID desc))
-end
-
-
 
 
 
@@ -3651,25 +3594,6 @@ End
 
 
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/userprofileall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/userprofileall',
-(select top 1 MENU_ID from config_menu where LINK = '/config/userprofile' order by 
-MENU_ID desc))
-end
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/userprofileAI')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/userprofileAI',
-(select top 1 MENU_ID from config_menu where LINK = '/config/userprofile' order by 
-MENU_ID desc))
-end
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/generalDashboardFilters')
 begin
@@ -4257,24 +4181,6 @@ values(GETDATE(),1,NULL,'Workflow status',NULL,1,(select MODULE_ID from CONFIG_M
 null,0,1,1)
 End
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/userprofileall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/userprofileall',
-(select top 1 MENU_ID from config_menu where LINK = '/config/userprofile' order by 
-MENU_ID desc))
-end
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/userprofileAI')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/userprofileAI',
-(select top 1 MENU_ID from config_menu where LINK = '/config/userprofile' order by 
-MENU_ID desc))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/auditauthoritiesall')
 begin
@@ -5625,24 +5531,6 @@ End
 
 
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/userprofileall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/userprofileall',
-(select top 1 MENU_ID from config_menu where LINK = '/config/userprofile' order by 
-MENU_ID desc))
-end
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/userprofileAI')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/userprofileAI',
-(select top 1 MENU_ID from config_menu where LINK = '/config/userprofile' order by 
-MENU_ID desc))
-end
 
 
 delete from CONFIG_APIFORENTITYNAME where api='/api/config/workflowScreenOption'
