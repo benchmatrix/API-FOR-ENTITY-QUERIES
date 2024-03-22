@@ -75,7 +75,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/subje
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/subjectofcorrespondance',
 'systemx.api.model.config.compliance.SubjectOfCorrespondence',
-(select menu_id from config_menu where DISPLAYNAME = 'SUBJECT OF CORRESPONDANCE'))
+(select menu_id from config_menu where link = '/config/compliance/correspondance/subjectofcorrespondance'))
 end
 
 
@@ -84,7 +84,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/subje
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/subjectofcorrespondanceall',
 'systemx.api.model.config.compliance.SubjectOfCorrespondence',
-(select menu_id from config_menu where DISPLAYNAME = 'SUBJECT OF CORRESPONDANCE'))
+(select menu_id from config_menu where link = '/config/compliance/correspondance/subjectofcorrespondance'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/correspondenceall')
