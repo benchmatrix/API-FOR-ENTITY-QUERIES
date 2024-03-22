@@ -2097,7 +2097,7 @@ if not exists(select * from config_apiforentityname where API='/api/config/dynam
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/dynamicconfigbylink',null,
-(select top 1 MENU_ID from config_menu where LINK='/config/addadditionalmembers'))
+(select top 1 MENU_ID from config_menu where LINK='/config/dynamicconfig'))
 end
 if not exists(select * from config_apiforentityname where API='/api/config/malwareanalysisall')
 begin
@@ -4263,14 +4263,6 @@ set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctio
 where API='/api/config/businessFunctions'
 
 
-
-
-if not exists(select * from config_apiforentityname where API='/api/config/dynamicconfigbylink')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/dynamicconfigbylink',null,
-(select top 1 MENU_ID from config_menu where LINK='/config/addadditionalmembers'))
-end
 if not exists(select * from config_apiforentityname where API='/api/config/malwareanalysisall')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
@@ -7917,12 +7909,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/sentItemAll',
 end 
 
 
-if not exists(select * from config_apiforentityname where API='/api/config/dynamicconfigbylink')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/dynamicconfigbylink',null,
-(select top 1 MENU_ID from config_menu where LINK='/config/addadditionalmembers'))
-end
 if not exists(select * from config_apiforentityname where API='/api/config/malwareanalysisall')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
@@ -8992,12 +8978,6 @@ values('/api/config/lawenforcementnotifiedall',null,
 (select  MENU_ID from config_menu where LINK='/config/lawenforcementnotified'))
 end
 
-if not exists(select * from config_apiforentityname where API='/api/config/dynamicconfigbylink')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/dynamicconfigbylink',null,
-(select  MENU_ID from config_menu where LINK='/config/addadditionalmembers'))
-end
 
 
 if not exists(select * from config_apiforentityname where API='/api/config/malwareanalysisall')
