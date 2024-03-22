@@ -1,15 +1,4 @@
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/cpthresholdcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/cpthresholdcategoryall',
-(select menu_id from config_menu where DISPLAYNAME = 'Control Plan Threshold Category'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/cpthresholdcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/cpthresholdcategory',
-(select menu_id from config_menu where DISPLAYNAME = 'Control Plan Threshold Category'))
-end 
 
 ---- COntrol Plan Status
 
@@ -17,13 +6,13 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='
 /api/config/cpStatusall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/cpStatusall',
-(select menu_id from config_menu where DISPLAYNAME = 'ControlPlan Status'))
+(select menu_id from config_menu where link ='/config/controlplanStatus'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/cpStatus')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/cpStatus',
-(select menu_id from config_menu where DISPLAYNAME = 'ControlPlan Status'))
+(select menu_id from config_menu where link ='/config/controlplanStatus'))
 end 
 
 
@@ -58,34 +47,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlstre
 (select menu_id from config_menu where Link='/config/controlstrength'))
 end
 
----- COntrol Plan Threshold category
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/cpthresholdcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/cpthresholdcategoryall',
-(select menu_id from config_menu where DISPLAYNAME = 'Control Plan Threshold Category'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/cpthresholdcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/cpthresholdcategory',
-(select menu_id from config_menu where DISPLAYNAME = 'Control Plan Threshold Category'))
-end 
-
----- COntrol Plan Status
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='
-/api/config/cpStatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/cpStatusall',
-(select menu_id from config_menu where DISPLAYNAME = 'ControlPlan Status'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/cpStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/cpStatus',
-(select menu_id from config_menu where DISPLAYNAME = 'ControlPlan Status'))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/cpthresholdcategoryall')
 begin
@@ -120,34 +82,7 @@ end
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
 LINK = '/config/controlplanthreshold') where api='/api/config/cpthresholdcategory'
 
----- COntrol Plan Threshold category
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/cpthresholdcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/cpthresholdcategoryall',
-(select menu_id from config_menu where DISPLAYNAME = 'Control Plan Threshold Category'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/cpthresholdcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/cpthresholdcategory',
-(select menu_id from config_menu where DISPLAYNAME = 'Control Plan Threshold Category'))
-end 
-
----- COntrol Plan Status
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/cpStatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/cpStatusall',
-(select menu_id from config_menu where DISPLAYNAME = 'ControlPlan Status'))
-end 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/cpStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/cpStatus',
-(select menu_id from config_menu where DISPLAYNAME = 'ControlPlan Status'))
-end 
 
 ---- COntrol Plan Threshold category
 
