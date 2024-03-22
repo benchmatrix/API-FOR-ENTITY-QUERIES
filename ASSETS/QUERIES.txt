@@ -1,7 +1,7 @@
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Risk/assetall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/Risk/assetall',
-(select menu_id from config_menu where MENU_KEY='AST'))
+(select menu_id from config_menu where MENU_KEY='AST' and link='/config/Asset'))
 end 
 
 
