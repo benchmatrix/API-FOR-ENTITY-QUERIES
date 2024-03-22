@@ -22,15 +22,6 @@ values('/api/config/fieldsall','systemx.api.model.config.dynamicpages',
 (select MENU_ID from config_menu where DISPLAYNAME = 'Fields'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocessall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocessall',
-'systemx.api.model.config',
-(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
-end
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytypeall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/recoverytypeall',
@@ -179,47 +170,18 @@ null,
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausalall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/externalcausalall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'EXTERNAL CAUSAL'))
-end
-
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausal'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausal')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/externalcausal',
-'systemx.api.model.config.loss.ExternalCausal',
-(select menu_id from config_menu where DISPLAYNAME ='EXTERNAL CAUSAL'))
-end
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/external_causal')
 where API='/api/config/externalcausal'
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/individualinvolvedall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/individualinvolvedall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'INDIVIDUAL INVOLVED'))
-end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/individualinvolved')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/individualinvolved',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'INDIVIDUAL INVOLVED'))
-End
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losscontrolstatusall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/losscontrolstatusall',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
+(select menu_id from config_menu where link = '/config/losscontrol_status'))
 end
 delete CONFIG_APIFORENTITYNAME where API= '/api/config/losscontrolstatus'	
 
@@ -227,31 +189,25 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/lossc
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/losscontrolstatus',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
+(select menu_id from config_menu where link ='/config/losscontrol_status'))
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/config/potentialcustomerimpactall')
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentialcustomerimpactall')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/potentialcustomerimpactall',
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/potentialcustomerimpactall',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
+(select menu_id from config_menu where link = 'POTENTIAL CUSTOMER IMPACT'))
 end
-delete CONFIG_APIFORENTITYNAME where API= 'api/config/potentialcustomerimpact'	
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/config/potentialcustomerimpact')
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentialcustomerimpact')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/potentialcustomerimpact',
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/potentialcustomerimpact',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
+(select menu_id from config_menu where link = 'POTENTIAL CUSTOMER IMPACT'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocessall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocessall',
-'systemx.api.model.config',
-(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytypeall')
 begin
@@ -3117,67 +3073,9 @@ null,
 (select menu_id from config_menu where LINK ='/config/casual_category'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausalall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/externalcausalall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'EXTERNAL CAUSAL'))
-end
-
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausal'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausal')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/externalcausal',
-'systemx.api.model.config.loss.ExternalCausal',
-(select menu_id from config_menu where DISPLAYNAME ='EXTERNAL CAUSAL'))
-end
-
-
-
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/external_causal')
 where API='/api/config/externalcausal'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/individualinvolvedall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/individualinvolvedall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'INDIVIDUAL INVOLVED'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/individualinvolved')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/individualinvolved',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'INDIVIDUAL INVOLVED'))
-End
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/config/potentialcustomerimpactall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/potentialcustomerimpactall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
-end
-delete CONFIG_APIFORENTITYNAME where API= 'api/config/potentialcustomerimpact'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/config/potentialcustomerimpact')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/potentialcustomerimpact',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocessall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocessall',
-'systemx.api.model.config',
-(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
-end
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytypeall')
 begin
@@ -3804,67 +3702,9 @@ null,
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausalall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/externalcausalall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'EXTERNAL CAUSAL'))
-end
-
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausal'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausal')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/externalcausal',
-'systemx.api.model.config.loss.ExternalCausal',
-(select menu_id from config_menu where DISPLAYNAME ='EXTERNAL CAUSAL'))
-end
-
-
-
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/external_causal')
 where API='/api/config/externalcausal'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/individualinvolvedall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/individualinvolvedall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'INDIVIDUAL INVOLVED'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/individualinvolved')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/individualinvolved',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'INDIVIDUAL INVOLVED'))
-End
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/config/potentialcustomerimpactall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/potentialcustomerimpactall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
-end
-delete CONFIG_APIFORENTITYNAME where API= 'api/config/potentialcustomerimpact'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/config/potentialcustomerimpact')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/potentialcustomerimpact',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocessall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocessall',
-'systemx.api.model.config',
-(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
-end
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytypeall')
 begin
@@ -4406,44 +4246,12 @@ null,
 (select menu_id from config_menu where LINK ='/config/casual_category'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausalall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/externalcausalall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'EXTERNAL CAUSAL'))
-end
-
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausal'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausal')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/externalcausal',
-'systemx.api.model.config.loss.ExternalCausal',
-(select menu_id from config_menu where DISPLAYNAME ='EXTERNAL CAUSAL'))
-end
-
 
 
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/external_causal')
 where API='/api/config/externalcausal'
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/individualinvolvedall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/individualinvolvedall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'INDIVIDUAL INVOLVED'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/individualinvolved')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/individualinvolved',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'INDIVIDUAL INVOLVED'))
-End
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/home/bucketAll')
@@ -5093,24 +4901,6 @@ null,
 (select menu_id from config_menu where LINK ='/config/casual_category'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausalall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/externalcausalall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'EXTERNAL CAUSAL'))
-end
-
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausal'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/externalcausal')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/externalcausal',
-'systemx.api.model.config.loss.ExternalCausal',
-(select menu_id from config_menu where DISPLAYNAME ='EXTERNAL CAUSAL'))
-end
-
 
 
 update CONFIG_APIFORENTITYNAME
@@ -5122,21 +4912,21 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/indiv
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/individualinvolvedall',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'INDIVIDUAL INVOLVED'))
+(select menu_id from config_menu where link ='/config/individualinvolved'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/individualinvolved')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/individualinvolved',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'INDIVIDUAL INVOLVED'))
+(select menu_id from config_menu where link ='/config/individualinvolved'))
 End
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocessall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocessall',
 'systemx.api.model.config',
-(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
+(select menu_id from config_menu where link ='/config/productlinked_process'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytypeall')
@@ -6569,7 +6359,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/exter
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/externalcausalall',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'EXTERNAL CAUSAL'))
+(select menu_id from config_menu where link ='/config/external_causal'))
 end
 
 
@@ -6580,65 +6370,23 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/exter
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/externalcausal',
 'systemx.api.model.config.loss.ExternalCausal',
-(select menu_id from config_menu where DISPLAYNAME ='EXTERNAL CAUSAL'))
+(select menu_id from config_menu where link ='/config/external_causal'))
 end
 
 
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/external_causal')
-where API='/api/config/externalcausal'
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/individualinvolvedall')
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentialcustomerimpactall')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/individualinvolvedall',
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/potentialcustomerimpactall',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'INDIVIDUAL INVOLVED'))
+(select menu_id from config_menu where link ='/config/potentialcustomer_impact'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/individualinvolved')
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentialcustomerimpact')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/individualinvolved',
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/potentialcustomerimpact',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'INDIVIDUAL INVOLVED'))
-End
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losscontrolstatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/losscontrolstatusall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/losscontrolstatus'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losscontrolstatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/losscontrolstatus',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/config/potentialcustomerimpactall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/potentialcustomerimpactall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
-end
-delete CONFIG_APIFORENTITYNAME where API= 'api/config/potentialcustomerimpact'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/config/potentialcustomerimpact')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/potentialcustomerimpact',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocessall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocessall',
-'systemx.api.model.config',
-(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
+(select menu_id from config_menu where link ='/config/potentialcustomer_impact'))
 end
 
 
