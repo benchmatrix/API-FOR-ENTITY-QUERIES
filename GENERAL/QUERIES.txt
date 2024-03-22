@@ -451,32 +451,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getmandator
 end
 
 
-if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/controltype')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Control Type',NULL,1,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/rcsa/controltype','GCT'
-,0,1,1)
-End
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertype',
-(select menu_id from config_menu where DISPLAYNAME = 'Questionniare Answer Type'))
-end
-
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/compliance/questionnaire/answertype')
-where API='/api/config/questionnaireanswertype'
-
-
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasureweightage')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assessment Measure Weightage',NULL,2,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasureweightage','GAMW',
-0,1,1)
-End
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/addadditionalmemberall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/addadditionalmemberall',
@@ -3120,13 +3094,6 @@ end
 
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/dimensionall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/dimensionall',null,
-(select MENU_ID from config_menu where LINK ='/config/dimension'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
@@ -3144,7 +3111,7 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcoverage')
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/c')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/impactcoverage',
 (select menu_id from config_menu where Link='/config/impactcoverage'))
@@ -3370,16 +3337,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/getkidashboards
 (select menu_id from config_menu where Link='/keyriskindicators/create-kidashboards'))
 end
 
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/dimensionall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/dimensionall',null,
-(select MENU_ID from config_menu where LINK ='/config/dimension'))
-end
 
 
 if not exists
@@ -3895,14 +3852,6 @@ end
 
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/dimensionall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/dimensionall',null,
-(select MENU_ID from config_menu where LINK ='/config/dimension'))
-end
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
@@ -3955,14 +3904,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskclassif
 end
 
 
-
-if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/controltype')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Control Type',NULL,1,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/rcsa/controltype','GCT'
-,0,1,1)
-End
 
 if not exists
 (select * from config_apiforentityname where API='/api/config/currencyall')
