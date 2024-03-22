@@ -733,11 +733,6 @@ end
 
 
 
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
-where API='/api/config/businessFunctions'
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertype',
@@ -811,17 +806,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businessFunctions')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businessFunctions',
-'systemx.api.model.config.compliance.BusinessFunctions',
-(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS FUNCTIONS'))
-End
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
-where API='/api/config/businessFunctions'
 
 
 
@@ -1867,11 +1851,6 @@ end
 
 
 
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
-where API='/api/config/businessFunctions'
-
-
 if not exists(select * from config_apiforentityname where API='/api/config/Years')
 begin
 Insert into config_apiforentityname(API,MENU_ID)
@@ -2492,9 +2471,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatusal
 end
 
 
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
-where API='/api/config/businessFunctions'
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/addkistodashboard')
 begin
@@ -3019,11 +2995,6 @@ end
 
 
 
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
-where API='/api/config/businessFunctions'
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/makercheckerall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/makercheckerall',
@@ -3304,17 +3275,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businessFunctions')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businessFunctions',
-'systemx.api.model.config.compliance.BusinessFunctions',
-(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS FUNCTIONS'))
-End
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
-where API='/api/config/businessFunctions'
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/assigntoprofile')
@@ -3950,11 +3910,6 @@ end
 
 
 
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
-where API='/api/config/businessFunctions'
-
-
 if not exists(select * from config_apiforentityname where API='/api/config/malwareanalysisall')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
@@ -4176,17 +4131,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businessFunctions')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businessFunctions',
-'systemx.api.model.config.compliance.BusinessFunctions',
-(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS FUNCTIONS'))
-End
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
-where API='/api/config/businessFunctions'
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/assigntoprofile')
@@ -5525,13 +5469,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/users',
 end
 
 
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
-where API='/api/config/businessFunctions'
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/positionsall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/positionsall',
@@ -5588,15 +5525,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatus',
 (select menu_id from config_menu where Link='/config/empstatus'))
 end
-
-
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
-where API='/api/config/businessFunctions'
-
-
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersall')
 begin
@@ -5758,19 +5686,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/workflowStateType','systemx.api.model.workflow.WorkflowStateType',
 (select menu_id from config_menu where DISPLAYNAME = 'WORKFLOW STATE TYPE'))
 end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businessFunctions')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businessFunctions',
-'systemx.api.model.config.compliance.BusinessFunctions',
-(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS FUNCTIONS'))
-End
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
-where API='/api/config/businessFunctions'
-
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainTree')
@@ -6443,17 +6358,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businessFunctions')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businessFunctions',
-'systemx.api.model.config.compliance.BusinessFunctions',
-(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS FUNCTIONS'))
-End
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
-where API='/api/config/businessFunctions'
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/assigntoprofile')
 begin
@@ -6657,13 +6561,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/users',
 (select menu_id from config_menu where DISPLAYNAME ='Model & Hierarchy'))
 end
 
-
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
-where API='/api/config/businessFunctions'
-
-
 if not exists(select * from CONFIG_MENU where LINK='/config/workflow-setup')
 begin
 insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
@@ -6703,10 +6600,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatus',
 (select menu_id from config_menu where Link='/config/empstatus'))
 end
 
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
-where API='/api/config/businessFunctions'
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
 begin
@@ -7477,20 +7370,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/modules','systemx.api.model.config.Module',
 (select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
 end
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businessFunctions')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businessFunctions',
-'systemx.api.model.config.compliance.BusinessFunctions',
-(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS FUNCTIONS'))
-End
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
-where API='/api/config/businessFunctions'
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/assigntoprofile')
 begin
