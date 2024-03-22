@@ -257,20 +257,13 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/audittype',
 (select menu_id from config_menu where LINK ='/compliance/ExternaladdAuditReport'))
 end 
+
 if not exists(select * from config_apiforentityname where API='/api/observation/auditreportobservation')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/observation/auditreportobservation',null,
-(select top 1 MENU_ID from config_menu where LINK='/compliance/addObservation'))
+(select MENU_ID from config_menu where LINK='/compliance/addObservation'))
 end
-if not exists(select * from config_apiforentityname where API='/api/observation/auditreportobservation')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/auditreportobservation',null,
-(select top 1 MENU_ID from config_menu where LINK='/compliance/addExternalObservation'))
-end
-
-
 
 if not exists(select * from config_apiforentityname where API='/api/observation/getObservationdocsbyobservationid')
 begin
@@ -924,19 +917,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/observation/getall
 (select menu_id from config_menu where Link='/config/compliance/observation/auditauthorities'))
 end
 
-
-if not exists(select * from config_apiforentityname where API='/api/observation/auditreportobservation')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/auditreportobservation',null,
-(select top 1 MENU_ID from config_menu where LINK='/compliance/addObservation'))
-end
-if not exists(select * from config_apiforentityname where API='/api/observation/auditreportobservation')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/auditreportobservation',null,
-(select top 1 MENU_ID from config_menu where LINK='/compliance/addExternalObservation'))
-end
 
 
 
