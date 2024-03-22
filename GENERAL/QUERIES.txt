@@ -366,12 +366,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/losstype',
 (select menu_id from config_menu where DISPLAYNAME = 'Loss type'))
 end 
 
-if not exists(select * from config_apiforentityname where API='/api/config/workflowison')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/workflowison','systemx.api.model.workflow',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_Q' order by MENU_ID desc))
-end
 ---- COntrol Plan Threshold category
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/cpthresholdcategoryall')
@@ -2939,12 +2933,6 @@ values('/api/dashboardFiltersData','systemx.api.model.dashboards',
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_AD' order by MENU_ID desc))
 end
 
-if not exists(select * from config_apiforentityname where API='/api/config/workflowison')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/workflowison','systemx.api.model.workflow',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_Q' order by MENU_ID desc))
-end
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/users/getConfigurationMenuRights')
@@ -3418,14 +3406,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevelall',(select menu_id from config_menu where link = '/config/compliance/prioritylevel'))
 end
 
-
-
-if not exists(select * from config_apiforentityname where API='/api/config/workflowison')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/workflowison','systemx.api.model.workflow',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_Q' order by MENU_ID desc))
-end
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/users/getConfigurationMenuRights')
@@ -5813,16 +5793,6 @@ values('/api/config/childworkflows/','systemx.api.model.workflow.Bucket',
 end
 
 
-
-
-
-if not exists(select * from config_apiforentityname where API='/api/config/workflowison')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/workflowison','systemx.api.model.workflow',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_Q' order by MENU_ID desc))
-end
-
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/users/getConfigurationMenuRights')
 begin
@@ -6195,4 +6165,11 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldlinkpagesall',
 'systemx.api.model.config.dynamicpages.FieldLinkPages',
 (select menu_id from config_menu where link= ' /config/dynamicforms/fieldlinkpages'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/workflowison')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/workflowison','systemx.api.model.workflow',
+(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_Q' order by MENU_ID desc))
 end
