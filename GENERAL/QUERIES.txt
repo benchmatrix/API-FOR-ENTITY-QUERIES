@@ -734,12 +734,12 @@ end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlcategoryall')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'Control Category'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcategoryall',(select menu_id from config_menu where link = 'rcsa/controlcategory'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlcategory')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcategory',(select menu_id from config_menu where DISPLAYNAME = 'Control Category'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcategory',(select menu_id from config_menu where link = 'rcsa/controlcategory'))
 end
 
 
