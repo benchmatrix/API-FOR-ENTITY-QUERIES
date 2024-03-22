@@ -684,22 +684,7 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/bucketStatus',null,
 (select MENU_ID from config_menu where LINK ='/config/business_hierarchy'))
 end
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/users/getConfigurationMenuRights')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/users/getConfigurationMenuRights','systemx.api.model.loss',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'A' order by MENU_ID desc))
-end
 
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/discoverytype')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/discoverytype','systemx.api.model.config.loss',
-(select top 1 MENU_ID from config_menu where LINK = '/lossmanagement/lossmanagement' order by MENU_ID desc))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlcategoryall')
 begin
@@ -732,16 +717,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcoso
 (select menu_id from config_menu where DISPLAYNAME = 'Control Coso Category'))
 end 
 
-
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/discoverytype')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/discoverytype','systemx.api.model.config.loss',
-(select top 1 MENU_ID from config_menu where LINK = '/lossmanagement/lossmanagement' order by MENU_ID desc))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
@@ -875,20 +850,6 @@ End
 
 
 
-
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/discoverytype'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/discoverytype')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/discoverytype',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
-	end
-
-
-
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/levelsAI'	
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/levelsAI')
@@ -962,14 +923,7 @@ end
 	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
 	end
 
-      delete CONFIG_APIFORENTITYNAME where API= '/api/config/discoverytype'	
 
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/discoverytype')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/discoverytype',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
-	end
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/config/userprofileall')
@@ -1126,17 +1080,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/observation/getallobervationsbyobservationtype','systemx.api.model.complianceobservation',
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'O_EO' order by MENU_ID desc))
 end
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/users/getConfigurationMenuRights')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/users/getConfigurationMenuRights','systemx.api.model.loss',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'A' order by MENU_ID desc))
-end
-
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/empstatusall')
@@ -2934,14 +2877,6 @@ values('/api/dashboardFiltersData','systemx.api.model.dashboards',
 end
 
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/users/getConfigurationMenuRights')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/users/getConfigurationMenuRights','systemx.api.model.loss',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'A' order by MENU_ID desc))
-end
-
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/config/usersbytermall')
@@ -3016,23 +2951,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domain',
 (select menu_id from config_menu where Link='/config/domain'))
 end
 
-
-
-
-
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/discoverytype'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/discoverytype')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/discoverytype',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
-	end
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/productAI'	
+  delete CONFIG_APIFORENTITYNAME where API= '/api/config/productAI'	
 
 	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productAI')
 	begin
@@ -3408,24 +3327,6 @@ end
 
 
 /*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/users/getConfigurationMenuRights')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/users/getConfigurationMenuRights','systemx.api.model.loss',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'A' order by MENU_ID desc))
-end
-
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/discoverytype')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/discoverytype','systemx.api.model.config.loss',
-(select top 1 MENU_ID from config_menu where LINK = '/lossmanagement/lossmanagement' order by MENU_ID desc))
-end
-
-/*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/config/bucketStatus')
 begin
 Insert into config_apiforentityname(API,MENU_ID)
@@ -3587,20 +3488,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domain',
 (select menu_id from config_menu where Link='/config/domain'))
 end
 
-
-
-
-
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/discoverytype'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/discoverytype')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/discoverytype',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
-	end
 
 
 
@@ -3775,19 +3662,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/rcsa/fraudcategoryall',
 (select menu_id from config_menu where Link='/config/rcsa/fraudcategory'))
 end
-
-
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/users/getConfigurationMenuRights')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/users/getConfigurationMenuRights','systemx.api.model.loss',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'A' order by MENU_ID desc))
-end
-
-
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/config/discoverytype')
@@ -4412,14 +4286,6 @@ values('/api/config/getColumnsOfFindings','systemx.api.model.config.dynamicpages
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'O_IO' order by MENU_ID desc))
 end
 
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/users/getConfigurationMenuRights')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/users/getConfigurationMenuRights','systemx.api.model.loss',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'A' order by MENU_ID desc))
-end
 
 
 /*ApiEntity insertion*/
@@ -5802,15 +5668,6 @@ values('/api/users/getConfigurationMenuRights','systemx.api.model.loss',
 end
 
 
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/discoverytype')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/discoverytype','systemx.api.model.config.loss',
-(select top 1 MENU_ID from config_menu where LINK = '/lossmanagement/lossmanagement' order by MENU_ID desc))
-end
-
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/config/bucketStatus')
 begin
@@ -6172,4 +6029,13 @@ begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/workflowison','systemx.api.model.workflow',
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_Q' order by MENU_ID desc))
+end
+
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/config/discoverytype')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/discoverytype','systemx.api.model.config.loss',
+(select top 1 MENU_ID from config_menu where LINK = '/config/discoverytype' order by MENU_ID desc))
 end
