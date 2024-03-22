@@ -85,13 +85,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'FIELDS'))
 end 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/Report/Report','systemx.api.model.report.Report',
-(select menu_id from config_menu where DISPLAYNAME = 'REPORT'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/modules')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/modules','systemx.api.model.config.Module',
@@ -811,11 +804,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/updatedVers
 (select menu_id from config_menu where LINK = '/config/updatedVersion'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/Report/Report','systemx.api.model.report.Report',
-(select menu_id from config_menu where DISPLAYNAME = 'REPORT'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/modules')
 begin
@@ -823,11 +811,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStateType')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/workflowStateType','systemx.api.model.workflow.WorkflowStateType',
-(select menu_id from config_menu where DISPLAYNAME = 'WORKFLOW STATE TYPE'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businessFunctions')
 begin
@@ -1259,15 +1242,6 @@ End
 	(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS LINES'))
 	end
 	
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowstatetype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowstatetype',
-(select menu_id from config_menu where Link='/config/workflowstatetype'))
-End
 
 
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/locationsAI'	
@@ -3323,11 +3297,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where link ='/config/validation'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/Report/Report','systemx.api.model.report.Report',
-(select menu_id from config_menu where DISPLAYNAME = 'REPORT'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/modules')
 begin
@@ -3335,11 +3304,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStateType')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/workflowStateType','systemx.api.model.workflow.WorkflowStateType',
-(select menu_id from config_menu where DISPLAYNAME = 'WORKFLOW STATE TYPE'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businessFunctions')
 begin
@@ -3439,11 +3403,6 @@ end
 
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where link = '/config/workflow-setup') where
 api='/api/config/workflow'
-
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where link = '/config/workflow-setup') where
-api='/api/config/workflowStateType'
-
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboardall')
 begin
@@ -3917,9 +3876,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/designation
 (select menu_id from config_menu where Link='/config/designation'))
 end
 
-
-
-
 if not exists
 (select * from config_apiforentityname where API='/api/config/getreportsall')
 begin
@@ -3927,11 +3883,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/getreportsall',null,
 (select MENU_ID from config_menu where LINK ='/config/report'))
 end
-
-
-
-
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowstatetype')
 begin
@@ -4225,11 +4176,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStateType')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/workflowStateType','systemx.api.model.workflow.WorkflowStateType',
-(select menu_id from config_menu where DISPLAYNAME = 'WORKFLOW STATE TYPE'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businessFunctions')
 begin
@@ -4343,8 +4289,6 @@ end
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where link = '/config/workflow-setup') where
 api='/api/config/workflow'
 
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where link = '/config/workflow-setup') where
-api='/api/config/workflowStateType'
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
@@ -4990,13 +4934,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowSta
 End
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowstatetype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowstatetype',
-(select menu_id from config_menu where Link='/config/workflowstatetype'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatusall',
@@ -5037,15 +4974,6 @@ values('/api/config/compliance/compliance-key-area-all',
 MENU_ID desc))
 end
 
-
-
-'systemx.api.model.config.dynamicpages.FieldLinkPages',
-(select menu_id from config_menu where DISPLAYNAME = 'FIELD LINK PAGES'))
-end
-
-
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where link = '/config/workflow-setup') where
-api='/api/config/workflowStateType'
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
@@ -5410,11 +5338,6 @@ end
 	
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowstatetype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowstatetype',
-(select menu_id from config_menu where Link='/config/workflowstatetype'))
-End
 
 	
 	delete CONFIG_APIFORENTITYNAME where API= '/api/config/locationsAI'	
@@ -5821,7 +5744,7 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/Report/Report','systemx.api.model.report.Report',
-(select menu_id from config_menu where DISPLAYNAME = 'REPORT'))
+(select menu_id from config_menu where link ='/config/report'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/modules')
@@ -6519,11 +6442,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStateType')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/workflowStateType','systemx.api.model.workflow.WorkflowStateType',
-(select menu_id from config_menu where DISPLAYNAME = 'WORKFLOW STATE TYPE'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businessFunctions')
 begin
@@ -7560,11 +7478,7 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStateType')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/workflowStateType','systemx.api.model.workflow.WorkflowStateType',
-(select menu_id from config_menu where DISPLAYNAME = 'WORKFLOW STATE TYPE'))
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businessFunctions')
 begin
@@ -7696,8 +7610,7 @@ end
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where link = '/config/workflow-setup') where
 api='/api/config/workflow'
 
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where link = '/config/workflow-setup') where
-api='/api/config/workflowStateType'
+
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domainall')
@@ -8340,4 +8253,9 @@ values('/api/config/modulesall','systemx.api.model.config',
 (select MENU_ID from config_menu where link='/config/modules'))
 end
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStateType')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/workflowStateType','systemx.api.model.workflow.WorkflowStateType',
+(select menu_id from config_menu where Link='/config/workflowstatetype'))
+end
 
