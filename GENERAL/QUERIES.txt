@@ -79,25 +79,12 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'Currency'))
 end 
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/languages','systemx.api.model.config.Languages',
-(select menu_id from config_menu where DISPLAYNAME = 'LANGUAGE'))
-end 
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldsAI','systemx.api.model.config.dynamicpages.Fields',
 (select menu_id from config_menu where DISPLAYNAME = 'FIELDS'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/validationAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/validationAI','systemx.api.model.config.dynamicpages.Validation',
-(select menu_id from config_menu where DISPLAYNAME = 'VALIDATION'))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
 begin
@@ -1563,11 +1550,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/languages',
-(select menu_id from config_menu where DISPLAYNAME ='Language'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languagesall')
 begin
@@ -2586,13 +2568,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnai
 (select menu_id from config_menu where LINK = '/selfassessment/questionare'))
 end 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/languages',
-(select menu_id from config_menu where DISPLAYNAME ='Language'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languagesall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values
@@ -3336,14 +3311,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'Currency'))
 end 
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/languages','systemx.api.model.config.Languages',
-(select menu_id from config_menu where DISPLAYNAME = 'LANGUAGE'))
-end 
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldsAI','systemx.api.model.config.dynamicpages.Fields',
@@ -3353,7 +3320,7 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/validationAI')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/validationAI','systemx.api.model.config.dynamicpages.Validation',
-(select menu_id from config_menu where DISPLAYNAME = 'VALIDATION'))
+(select menu_id from config_menu where link ='/config/validation'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
@@ -4236,7 +4203,7 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/languages','systemx.api.model.config.Languages',
-(select menu_id from config_menu where DISPLAYNAME = 'LANGUAGE'))
+(select menu_id from config_menu where link ='/config/LanguageTerms'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
@@ -4245,11 +4212,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'FIELDS'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/validationAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/validationAI','systemx.api.model.config.dynamicpages.Validation',
-(select menu_id from config_menu where DISPLAYNAME = 'VALIDATION'))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
 begin
@@ -4793,11 +4755,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/languages',
-(select menu_id from config_menu where DISPLAYNAME ='Language'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languagesall')
 begin
@@ -5854,24 +5811,12 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end 
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/languages','systemx.api.model.config.Languages',
-(select menu_id from config_menu where DISPLAYNAME = 'LANGUAGE'))
-end 
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldsAI','systemx.api.model.config.dynamicpages.Fields',
 (select menu_id from config_menu where DISPLAYNAME = 'FIELDS'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/validationAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/validationAI','systemx.api.model.config.dynamicpages.Validation',
-(select menu_id from config_menu where DISPLAYNAME = 'VALIDATION'))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
 begin
@@ -6561,11 +6506,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'FIELDS'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/validationAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/validationAI','systemx.api.model.config.dynamicpages.Validation',
-(select menu_id from config_menu where DISPLAYNAME = 'VALIDATION'))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
 begin
@@ -7112,12 +7052,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'BROAD CATEGORY'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/languages',
-(select menu_id from config_menu where DISPLAYNAME ='Language'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languagesall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values
@@ -7612,12 +7546,7 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldsAI','systemx.api.model.config.dynamicpages.Fields',
 (select menu_id from config_menu where DISPLAYNAME = 'FIELDS'))
 end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/validationAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/validationAI','systemx.api.model.config.dynamicpages.Validation',
-(select menu_id from config_menu where DISPLAYNAME = 'VALIDATION'))
-end 
+ 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
 begin
