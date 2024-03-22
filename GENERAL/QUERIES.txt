@@ -228,14 +228,14 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancestatus')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancestatus',
-(select menu_id from config_menu where LINK='/compliance/rule'))
+(select menu_id from config_menu where LINK='/config/compliance/compliancestatus'))
 end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancestatusall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancestatusall',
-(select menu_id from config_menu where LINK='/compliance/rule'))
+(select menu_id from config_menu where LINK='/config/compliance/compliancestatus'))
 end
 
 
@@ -3031,17 +3031,6 @@ where link = '/config/actionplan_severity'))
 end
 
 
---Compliance status--
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancestatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancestatus',(select menu_id from config_menu where DISPLAYNAME = 'Rule status'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancestatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancestatusall',(select menu_id from config_menu where DISPLAYNAME = 'Rule status'))
-end
 
 
 --Resolution type--
@@ -3603,15 +3592,6 @@ set MENU_ID=(select MENU_ID from config_menu where link='/config/external_causal
 where API='/api/config/externalcausal'
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancestatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancestatus',(select menu_id from config_menu where DISPLAYNAME = 'Rule status'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/compliancestatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/compliancestatusall',(select menu_id from config_menu where DISPLAYNAME = 'Rule status'))
-end
 
 --Activity Priority level--
 
