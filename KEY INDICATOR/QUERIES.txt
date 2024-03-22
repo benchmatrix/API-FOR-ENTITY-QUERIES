@@ -123,25 +123,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/scoret
 (select menu_id from config_menu where DISPLAYNAME = 'Score threshold'))
 end
 
-
-if not exists(select * from config_apiforentityname where API='/api/ki/assigndatapointsall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/ki/assigndatapointsall',
-(select top 1 MENU_ID from config_menu where LINK = '/keyriskindicators/assigndatapointsListing' order by 
-MENU_ID desc))
-end
-
-if not exists(select * from config_apiforentityname where API='/api/ki/assigndatapointsall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/ki/assigndatapointsall',
-(select top 1 MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints' order by 
-MENU_ID desc))
-end
-
-
-
 if not exists
 (select * from config_apiforentityname where API='api/home/kiSetupBreachesAll')
 begin
@@ -258,15 +239,6 @@ end
 
 
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/ki/assigndatapointsall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/ki/assigndatapointsall',
-(select top 1 MENU_ID from config_menu where LINK = '/keyriskindicators/assigndatapointsListing' order by 
-MENU_ID desc))
-end
-
 if not exists
 (select * from config_apiforentityname where API='api/home/kiSetupBreachesAll')
 begin
@@ -301,15 +273,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttype',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
 end
 
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/ki/assigndatapointsall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/ki/assigndatapointsall',
-(select top 1 MENU_ID from config_menu where LINK = '/keyriskindicators/assigndatapointsListing' order by 
-MENU_ID desc))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/getkidashboards')
 begin
@@ -350,14 +313,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttype',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
 end
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/ki/assigndatapointsall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/ki/assigndatapointsall',
-(select top 1 MENU_ID from config_menu where LINK = '/keyriskindicators/assigndatapointsListing' order by 
-MENU_ID desc))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kitypeall')
@@ -580,15 +535,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypeall',(select menu_id from config_menu where link ='/config/kitype'))
 end
 
-
-
-if not exists(select * from config_apiforentityname where API='/api/ki/assigndatapointsall')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/ki/assigndatapointsall',
-(select top 1 MENU_ID from config_menu where LINK ='/keyriskindicators/ki_datapoints' order by 
-MENU_ID desc))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='
 /api/ki/kidashboard')
