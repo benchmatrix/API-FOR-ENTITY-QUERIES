@@ -9623,3 +9623,16 @@ values('/api/config/alertsreviewedall',null,
 (select MENU_ID from config_menu where LINK='/config/alertsreviewed'))
 end
 
+if not exists(select * from config_apiforentityname where API='/api/config/artifactsreviewedall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/artifactsreviewedall',null,
+(select MENU_ID from config_menu where LINK='/config/artifactsreviewed'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/prioritylevelall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/prioritylevelall',null,
+(select MENU_ID from config_menu where LINK='/config/prioritylevel'))
+end
