@@ -155,7 +155,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/event
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/eventtypeall',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'EVENT TYPE'))
+(select menu_id from config_menu where link= '/config/financialstatus'))
 end
 delete CONFIG_APIFORENTITYNAME where API= '/api/config/eventtype'
 
@@ -163,8 +163,9 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/event
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/eventtype',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'EVENT TYPE'))
+(select menu_id from config_menu where link = '/config/financialstatus'))
 end
+
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategoryall')
@@ -3144,20 +3145,7 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/eventtypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/eventtypeall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'EVENT TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/eventtype'
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/eventtype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/eventtype',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'EVENT TYPE'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategoryall')
@@ -3888,21 +3876,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/eventtypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/eventtypeall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'EVENT TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/eventtype'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/eventtype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/eventtype',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'EVENT TYPE'))
-end
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategoryall')
 begin
@@ -4547,20 +4520,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/eventtypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/eventtypeall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'EVENT TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/eventtype'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/eventtype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/eventtype',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'EVENT TYPE'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategoryall')
@@ -5289,20 +5248,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where link ='/config/risk_category'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/eventtypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/eventtypeall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'EVENT TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/eventtype'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/eventtype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/eventtype',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'EVENT TYPE'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategoryall')
@@ -6777,20 +6722,7 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/eventtypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/eventtypeall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'EVENT TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/eventtype'
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/eventtype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/eventtype',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'EVENT TYPE'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategoryall')
