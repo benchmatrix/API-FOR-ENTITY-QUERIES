@@ -22,26 +22,12 @@ values('/api/config/fieldsall','systemx.api.model.config.dynamicpages',
 (select MENU_ID from config_menu where DISPLAYNAME = 'Fields'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/recoverytypeall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RECOVERY TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/recoverytype'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/recoverytype',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RECOVERY TYPE'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/systemnameall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/systemnameall',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'SYSTEM NAME'))
+(select menu_id from config_menu where link ='/config/system_name'))
 end
 delete CONFIG_APIFORENTITYNAME where API= '/api/config/systemname'	
 
@@ -49,7 +35,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/syste
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/systemname',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'SYSTEM NAME'))
+(select menu_id from config_menu where link ='/config/system_name'))
 end
 
 
@@ -207,40 +193,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 'systemx.api.model.config.loss',
 (select menu_id from config_menu where link = 'POTENTIAL CUSTOMER IMPACT'))
 end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/recoverytypeall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RECOVERY TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/recoverytype'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/recoverytype',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RECOVERY TYPE'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/systemnameall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/systemnameall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'SYSTEM NAME'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/systemname'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/systemname')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/systemname',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'SYSTEM NAME'))
-end
-
-
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/actionplantypeall')
@@ -3081,7 +3033,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recov
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/recoverytypeall',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RECOVERY TYPE'))
+(select menu_id from config_menu where link ='/config/recoverytype'))
 end
 delete CONFIG_APIFORENTITYNAME where API= '/api/config/recoverytype'	
 
@@ -3089,24 +3041,8 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recov
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/recoverytype',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RECOVERY TYPE'))
+(select menu_id from config_menu where link ='/config/recoverytype'))
 end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/systemnameall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/systemnameall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'SYSTEM NAME'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/systemname'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/systemname')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/systemname',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'SYSTEM NAME'))
-end
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/actionplantypeall')
@@ -3706,35 +3642,6 @@ update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/external_causal')
 where API='/api/config/externalcausal'
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/recoverytypeall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RECOVERY TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/recoverytype'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/recoverytype',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RECOVERY TYPE'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/systemnameall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/systemnameall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'SYSTEM NAME'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/systemname'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/systemname')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/systemname',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'SYSTEM NAME'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategory')
@@ -4928,37 +4835,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 'systemx.api.model.config',
 (select menu_id from config_menu where link ='/config/productlinked_process'))
 end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/recoverytypeall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RECOVERY TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/recoverytype'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/recoverytype',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RECOVERY TYPE'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/systemnameall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/systemnameall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'SYSTEM NAME'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/systemname'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/systemname')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/systemname',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'SYSTEM NAME'))
-end
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/profileLinkWfState')
@@ -6387,38 +6263,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/potentialcustomerimpact',
 'systemx.api.model.config.loss',
 (select menu_id from config_menu where link ='/config/potentialcustomer_impact'))
-end
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/recoverytypeall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RECOVERY TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/recoverytype'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/recoverytype',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RECOVERY TYPE'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/systemnameall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/systemnameall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'SYSTEM NAME'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/systemname'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/systemname')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/systemname',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'SYSTEM NAME'))
 end
 
 
