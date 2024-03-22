@@ -9,15 +9,9 @@ if not exists(select * from config_apiforentityname where API='/api/config/asset
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/assetlinkage',null,
-(select top 1 MENU_ID from config_menu where LINK='/config/Asset/AssetForm'))
+(select MENU_ID from config_menu where LINK='/config/Asset/AssetForm'))
 end
 
-if not exists(select * from config_apiforentityname where API='/api/config/assetlinkage')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/assetlinkage',null,
-(select top 1 MENU_ID from config_menu where LINK='/config/Asset/AssetForm'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/config/RCSA' and MENU_ID=(select MENU_ID from config_menu where LINK like '%Asset/AssetForm%'))
