@@ -9688,6 +9688,65 @@ values('/api/config/lawenforcementnotifiedall',null,
 (select  MENU_ID from config_menu where LINK='/config/lawenforcementnotified'))
 end
 
+if not exists(select * from config_apiforentityname where API='/api/config/dynamicconfigbylink')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/dynamicconfigbylink',null,
+(select  MENU_ID from config_menu where LINK='/config/addadditionalmembers'))
+end
+
+
+if not exists(select * from config_apiforentityname where API='/api/config/malwareanalysisall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/malwareanalysisall',null,
+(select  MENU_ID from config_menu where LINK='/config/malwareanalysis'))
+end
+
+
+if not exists(select * from config_apiforentityname where API='/api/config/addstakeholderall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/addstakeholderall',null,
+(select  MENU_ID from config_menu where LINK='/config/addstakeholders'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/memoryanalysisall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/memoryanalysisall',null,
+(select  MENU_ID from config_menu where LINK='/config/memoryanalysis'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/registryanalysisall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/registryanalysisall',null,
+(select  MENU_ID from config_menu where LINK='/config/registryanalysis'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/loganalysisall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/loganalysisall',null,
+(select  MENU_ID from config_menu where LINK='/config/loganalysis'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/originofattackall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/originofattackall',null,
+(select  MENU_ID from config_menu where LINK='/config/originofattack'))
+end
+
+if not exists(select * from config_apiforentityname where API='/api/config/systemsall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/systemsall',null,
+(select MENU_ID from config_menu where LINK='/config/systems'))
+end
+
+
 
 
 
