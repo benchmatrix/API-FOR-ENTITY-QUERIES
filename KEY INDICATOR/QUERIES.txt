@@ -99,14 +99,14 @@ delete CONFIG_APIFORENTITYNAME where api='/api/config/kidirection'
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kidirection')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kidirection',(select menu_id from config_menu where DISPLAYNAME = 'KI direction'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kidirection',(select menu_id from config_menu where link ='/config/kidirection'))
 end 
 
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kidirectionall')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kidirectionall',(select menu_id from config_menu where DISPLAYNAME = 'KI direction'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kidirectionall',(select menu_id from config_menu where link ='/config/kidirection'))
 end
 
 ----Score thresholds
@@ -265,22 +265,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttyp
 end
 
 
---KI direction  query
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kidirection'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kidirection')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kidirection',(select menu_id from config_menu where DISPLAYNAME = 'KI direction'))
-end 
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kidirectionall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kidirectionall',(select menu_id from config_menu where DISPLAYNAME = 'KI direction'))
-end
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/kisetupall')
@@ -335,21 +319,6 @@ end
 
 
 
---KI direction  query
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kidirection'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kidirection')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kidirection',(select menu_id from config_menu where DISPLAYNAME = 'KI direction'))
-end 
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kidirectionall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kidirectionall',(select menu_id from config_menu where DISPLAYNAME = 'KI direction'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/kisetupall')
@@ -430,21 +399,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypeall',(select menu_id from config_menu where DISPLAYNAME = 'KI type categories'))
 end
 
---KI direction  query
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kidirection'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kidirection')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kidirection',(select menu_id from config_menu where DISPLAYNAME = 'KI direction'))
-end 
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kidirectionall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kidirectionall',(select menu_id from config_menu where DISPLAYNAME = 'KI direction'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='api/home/kiSetupBreachesAll')
@@ -453,10 +407,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('api/home/kiSetupBreachesAll',null,
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
-
-
-
-
 
 -- KI Impacttype Queries
 
@@ -470,23 +420,6 @@ delete CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttype'
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kiimpacttype')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kiimpacttype',(select menu_id from config_menu where DISPLAYNAME = 'KI Impact type'))
-end
-
-
---KI direction  query
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kidirection'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kidirection')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kidirection',(select menu_id from config_menu where DISPLAYNAME = 'KI direction'))
-end 
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kidirectionall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kidirectionall',(select menu_id from config_menu where DISPLAYNAME = 'KI direction'))
 end
 
 
@@ -681,21 +614,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypeall',(select menu_id from config_menu where link ='/config/kitype'))
 end
 
---KI direction  query
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/kidirection'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kidirection')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kidirection',(select menu_id from config_menu where DISPLAYNAME = 'KI direction'))
-end 
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/kidirectionall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kidirectionall',(select menu_id from config_menu where DISPLAYNAME = 'KI direction'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/kisetupall')
