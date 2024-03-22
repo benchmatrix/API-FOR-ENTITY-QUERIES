@@ -27,13 +27,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controltype
 end
 
 
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasureweightage')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assessment Measure Weightage',NULL,2,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasureweightage','GAMW',
-0,1,1)
-End
 
 
 if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentarea')
@@ -64,14 +57,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controltype
 (select menu_id from config_menu where Link='/config/rcsa/controltype'))
 end
 
-
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasureweightage')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assessment Measure Weightage',NULL,2,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasureweightage','GAMW',
-0,1,1)
-End
 
 if not exists
 (select * from config_apiforentityname where API='/api/home/RCSAall')
@@ -208,13 +193,6 @@ values(GETDATE(),1,NULL,'Assesment Measure Values',NULL,4,(select MODULE_ID from
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasurevalues','GAMV',0,1,1)
 End
 
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasureweightage')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assessment Measure Weightage',NULL,2,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasureweightage','GAMW',
-0,1,1)
-End
 
 
 
@@ -278,13 +256,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/Workshop/WorkshopL
 (select menu_id from config_menu where Link='/RCSA/workshop'))
 end
 
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasureweightage')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assessment Measure Weightage',NULL,2,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasureweightage','GAMW',
-0,1,1)
-End
+
 
 if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentarea')
 begin
@@ -294,14 +266,7 @@ values(GETDATE(),1,NULL,'Assessment Area',NULL,2,(select MODULE_ID from CONFIG_M
 End
 
 
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasureweightage')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assessment Measure Weightage',NULL,2,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasureweightage','GAMW',
-0,1,1)
-End
-f not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentarea')
+if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentarea')
 begin
 insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
 values(GETDATE(),1,NULL,'Assessment Area',NULL,2,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
@@ -356,17 +321,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controltypeall',
 (select menu_id from config_menu where Link='/config/rcsa/controltype'))
 end
-
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasureweightage')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assessment Measure Weightage',NULL,2,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasureweightage','GAMW',
-0,1,1)
-End
-
-
-
 
 if not exists
 (select * from config_apiforentityname where API='/api/RCSA/riskregisterheatmapall')
@@ -545,13 +499,7 @@ end
 
 update CONFIG_APIFORENTITYNAME set MENU_ID =(select menu_id from config_menu where LINK = '/config/RCSA/scorethreshold')  where api='/api/config/RCSA/scorethreshold'
 
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasureweightage')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assessment Measure Weightage',NULL,2,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasureweightage','GAMW',
-0,1,1)
-End
+
 
 
 if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentarea')
@@ -596,13 +544,6 @@ values(GETDATE(),1,NULL,'Control Mechanism ',NULL,4,(select MODULE_ID from CONFI
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/rcsa/Controlmechanism','GCM',0,1,1)
 End
 
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasureweightage')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assessment Measure Weightage',NULL,2,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasureweightage','GAMW',
-0,1,1)
-End
 
 
 
@@ -937,15 +878,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controltype
 end
 
 
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasureweightage')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assessment Measure Weightage',NULL,2,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasureweightage','GAMW',
-0,1,1)
-End
-
-
 if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentarea')
 begin
 insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
@@ -1011,13 +943,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controltype
 end
 
 
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasureweightage')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assessment Measure Weightage',NULL,2,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasureweightage','GAMW',
-0,1,1)
-End
 
 if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentarea')
 begin
@@ -1250,13 +1175,6 @@ LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmentt
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
 LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmenttype'
 
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasureweightage')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assessment Measure Weightage',NULL,2,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasureweightage','GAMW',
-0,1,1)
-End
 
 if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/Controlmechanism')
 begin
@@ -1302,14 +1220,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controltype
 end
 
 
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasureweightage')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assessment Measure Weightage',NULL,2,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasureweightage','GAMW',
-0,1,1)
-End
-
 
 
 if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentarea')
@@ -1326,14 +1236,6 @@ values(GETDATE(),1,NULL,'Assesment Measure Values',NULL,4,(select MODULE_ID from
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasurevalues','GAMV',0,1,1)
 End
 
-
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasureweightage')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assessment Measure Weightage',NULL,2,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasureweightage','GAMW',
-0,1,1)
-End
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controltypeall')
