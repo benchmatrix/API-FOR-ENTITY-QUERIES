@@ -2300,14 +2300,6 @@ update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu wh
 LINK ='/config/RCSA/assessmentareatype') where api='/api/config/RCSA/assessmenttype'
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/RCSA/residualAssessment')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/RCSA/residualAssessment',null,
-(select MENU_ID from config_menu where LINK ='/RCSA/heatmap'))
-end
-
 
 if not exists(select * from config_apiforentityname where API='/api/controlRegister/linkages')
 begin
