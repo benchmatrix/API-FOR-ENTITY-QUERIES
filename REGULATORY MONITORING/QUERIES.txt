@@ -10,7 +10,7 @@ if not exists(select * from config_apiforentityname where API='/api/compliance/c
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/compliance/complianceruleall','systemx.api.model.compliancelibrary',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_R' order by MENU_ID desc))
+(select  MENU_ID from config_menu where MENU_KEY = 'RM_R' and link ='/compliance/compliance-rule'))
 end
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/compliance/rulecomments')
@@ -165,13 +165,6 @@ values(GETDATE(),1,NULL,'Workflow status',NULL,1,(select MODULE_ID from CONFIG_M
 null,0,1,1)
 End
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/compliance/complianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/compliance/complianceruleall','systemx.api.model.compliancelibrary',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_R' order by MENU_ID desc))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/librarytypeall')
 begin
@@ -452,14 +445,6 @@ values('/api/library/getComplianceLibraryParentAndFirstChildren','systemx.api.mo
 end
 
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/compliance/complianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/compliance/complianceruleall','systemx.api.model.compliancelibrary',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_R' order by MENU_ID desc))
-end
-
 if not exists(select * from config_apiforentityname where API='/api/library/complianceCategoryall')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
@@ -514,14 +499,6 @@ values('/api/library/getComplianceLibraryParentAndFirstChildren','systemx.api.mo
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_L' order by MENU_ID desc))
 end
 
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/compliance/complianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/compliance/complianceruleall','systemx.api.model.compliancelibrary',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_R' order by MENU_ID desc))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/activitystatus')
 begin
@@ -671,14 +648,6 @@ values('/api/library/getComplianceLibraryParentAndFirstChildren','systemx.api.mo
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_L' order by MENU_ID desc))
 end
 
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/compliance/complianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/compliance/complianceruleall','systemx.api.model.compliancelibrary',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_R' order by MENU_ID desc))
-end
 
 
 if not exists(select * from config_apiforentityname where API='/api/library/complianceCategoryall')
@@ -867,14 +836,6 @@ values('/api/library/getComplianceLibraryParentAndFirstChildren','systemx.api.mo
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_L' order by MENU_ID desc))
 end
 
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/compliance/complianceruleall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/compliance/complianceruleall','systemx.api.model.compliancelibrary',
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_R' order by MENU_ID desc))
-end
 
 
 if not exists(select * from config_apiforentityname where API='/api/library/complianceCategoryall')
