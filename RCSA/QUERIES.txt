@@ -474,14 +474,6 @@ end
 
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/RCSA/wsrcsarisk')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/RCSA/wsrcsarisk',null,
-(select MENU_ID from config_menu where LINK ='/RCSA/workshopassessment'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/rcsarisk')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/rcsarisk',
@@ -594,42 +586,6 @@ values(GETDATE(),1,NULL,'Assessment Measure Weightage',NULL,2,(select MODULE_ID 
 0,1,1)
 End
 
-if not exists
-(select * from config_apiforentityname where API='/api/rcsa/riskassessment')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/rcsa/riskassessment',null,
-(select MENU_ID from config_menu where menu_key='RA'))
-end
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/RCSA/wsrcsarisk')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/RCSA/wsrcsarisk',null,
-(select MENU_ID from config_menu where LINK ='/RCSA/workshopassessment'))
-end
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/rcsa/riskassessment')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/rcsa/riskassessment',null,
-(select MENU_ID from config_menu where menu_key='RA'))
-end
-
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/RCSA/wsrcsarisk')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/RCSA/wsrcsarisk',null,
-(select MENU_ID from config_menu where LINK ='/RCSA/workshopassessment'))
-end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/RCSA/getrcsaformula')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/getrcsaformula',
@@ -2402,13 +2358,6 @@ values('/api/rcsa/wsassessment',null,
 (select MENU_ID from config_menu where LINK ='/RCSA/riskandcontrolassessment'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/rcsa/riskassessment')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/rcsa/riskassessment',null,
-(select MENU_ID from config_menu where menu_key='RA'))
-end
 
 
 
