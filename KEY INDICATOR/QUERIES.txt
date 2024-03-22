@@ -123,13 +123,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/scoret
 (select menu_id from config_menu where link = '/config/RCSA/scorethreshold'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='api/home/kiSetupBreachesAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('api/home/kiSetupBreachesAll',null,
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
+
 if not exists
 (select * from config_apiforentityname where API='/api/ki/getallki')
 begin
@@ -243,13 +237,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/getkidashboards
 (select menu_id from config_menu where Link='/keyriskindicators/create-kidashboards'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='api/home/kiSetupBreachesAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('api/home/kiSetupBreachesAll',null,
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
+
 
 if not exists
 (select * from config_apiforentityname where API='/api/ki/getallkireports')
@@ -289,13 +277,6 @@ values('/api/ki/assigndatapointsall',
 MENU_ID desc))
 end
 
-if not exists
-(select * from config_apiforentityname where API='api/home/kiSetupBreachesAll')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('api/home/kiSetupBreachesAll',null,
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
 
 
 if not exists(select * from config_apiforentityname where API='/api/ki/datafieldall')
