@@ -3,7 +3,7 @@ if not exists
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/currencyall','systemx.api.model.config',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Currency'))
+(select MENU_ID from config_menu where link = '/config/currency'))
 end
 
 if not exists
@@ -47,21 +47,16 @@ if not exists
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/validationall','systemx.api.model.config.dynamicpages',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Validation'))
+(select MENU_ID from config_menu where link = '/config/validation'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/currencyAI')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/currencyAI','systemx.api.model.config.Currency',
-(select menu_id from config_menu where DISPLAYNAME = 'Currency'))
+(select menu_id from config_menu where link = '/config/currency'))
 end 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/modules')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/modules','systemx.api.model.config.Module',
-(select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStateType')
 begin
@@ -421,13 +416,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatus',
 end
 
 
-delete CONFIG_APIFORENTITYNAME where api='/api/config/users'
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/users')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/users',
-(select menu_id from config_menu where DISPLAYNAME ='Model & Hierarchy'))
-end
 
 
 
@@ -470,14 +459,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/updatedVersionAll',
 (select menu_id from config_menu where LINK = '/config/updatedVersion'))
 end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/modules')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/modules','systemx.api.model.config.Module',
-(select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
-end
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/subjectofcorrespondance')
 begin
@@ -666,7 +647,7 @@ End
 
 
 
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/processAI'
+	
 
 
 
@@ -1117,14 +1098,6 @@ begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/broadcategory',null,
 (select MENU_ID from config_menu where LINK ='/config/compliance/broadcategory'))
-end
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/users'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/users')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/users',
-(select menu_id from config_menu where DISPLAYNAME ='Model & Hierarchy'))
 end
 
 
@@ -2340,20 +2313,13 @@ values('api/home/correspondenceall','systemx.api.model.correspondance',
 (select MENU_ID from config_menu where LINK ='/bucket'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/currencyall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/currencyall','systemx.api.model.config',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Currency'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/config/prefixall')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/prefixall','systemx.api.model.config',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Prefix'))
+(select MENU_ID from config_menu  where link = '/config/prefix'))
 end
 
 if not exists
@@ -2365,21 +2331,6 @@ values('/api/config/fieldsall','systemx.api.model.config.dynamicpages',
 end
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/validationall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/validationall','systemx.api.model.config.dynamicpages',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Validation'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/currencyAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/currencyAI','systemx.api.model.config.Currency',
-(select menu_id from config_menu where DISPLAYNAME = 'Currency'))
-end 
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/validationAI')
 begin
@@ -2387,12 +2338,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where link ='/config/validation'))
 end 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/modules')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/modules','systemx.api.model.config.Module',
-(select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/nature')
 begin
@@ -2526,14 +2471,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domain',
 (select menu_id from config_menu where Link='/config/domain'))
 end
 
-  delete CONFIG_APIFORENTITYNAME where API= '/api/config/productAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT'))
-	end
 
 
 
@@ -2624,15 +2561,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/empst
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatus',
 (select menu_id from config_menu where Link='/config/empstatus'))
-end
-
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/users'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/users')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/users',
-(select menu_id from config_menu where DISPLAYNAME ='Model & Hierarchy'))
 end
 
 
@@ -2791,23 +2719,6 @@ values('/api/home/complianceruleall','systemx.api.model.compliancelibrary',
 End
 
 
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/currencyall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/currencyall','systemx.api.model.config',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Currency'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/prefixall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/prefixall','systemx.api.model.config',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Prefix'))
-end
-
 if not exists
 (select * from config_apiforentityname where API='/api/config/fieldsall')
 begin
@@ -2815,21 +2726,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/fieldsall','systemx.api.model.config.dynamicpages',
 (select MENU_ID from config_menu where DISPLAYNAME = 'Fields'))
 end
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/validationall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/validationall','systemx.api.model.config.dynamicpages',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Validation'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/currencyAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/currencyAI','systemx.api.model.config.Currency',
-(select menu_id from config_menu where DISPLAYNAME = 'Currency'))
-end 
 
 
 
@@ -2847,11 +2743,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/Report/
 (select menu_id from config_menu where DISPLAYNAME = 'REPORT'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/modules')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/modules','systemx.api.model.config.Module',
-(select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/nature')
 begin
@@ -2966,18 +2857,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowsta
 End
 
 	
-
-	
-	
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/processAI'	
-
-	
-
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/menuall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/menuall',
@@ -3394,14 +3273,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatus',
 (select menu_id from config_menu where Link='/config/empstatus'))
 end
 
-delete CONFIG_APIFORENTITYNAME where api='/api/config/users'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/users')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/users',
-(select menu_id from config_menu where DISPLAYNAME ='Model & Hierarchy'))
-end
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/positionsall')
 begin
@@ -3539,22 +3410,6 @@ end
 
 
 if not exists
-(select * from config_apiforentityname where API='/api/config/currencyall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/currencyall','systemx.api.model.config',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Currency'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/prefixall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/prefixall','systemx.api.model.config',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Prefix'))
-end
-
-if not exists
 (select * from config_apiforentityname where API='/api/config/fieldsall')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
@@ -3563,34 +3418,12 @@ values('/api/config/fieldsall','systemx.api.model.config.dynamicpages',
 end
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/validationall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/validationall','systemx.api.model.config.dynamicpages',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Validation'))
-end
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/currencyAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/currencyAI','systemx.api.model.config.Currency',
-(select menu_id from config_menu where DISPLAYNAME = 'Currency'))
-end 
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/Report/Report','systemx.api.model.report.Report',
 (select menu_id from config_menu where link ='/config/report'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/modules')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/modules','systemx.api.model.config.Module',
-(select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStateType')
 begin
@@ -3801,11 +3634,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/busin
 
 
 
-	
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/processAI'	
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domain')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domain',
@@ -3834,11 +3662,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/Report/
 (select menu_id from config_menu where DISPLAYNAME = 'REPORT'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/modules')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/modules','systemx.api.model.config.Module',
-(select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/nature')
@@ -3880,45 +3703,12 @@ end
 
 
 if not exists
-(select * from config_apiforentityname where API='/api/config/currencyall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/currencyall','systemx.api.model.config',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Currency'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/prefixall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/prefixall','systemx.api.model.config',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Prefix'))
-end
-
-if not exists
 (select * from config_apiforentityname where API='/api/config/fieldsall')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/fieldsall','systemx.api.model.config.dynamicpages',
 (select MENU_ID from config_menu where DISPLAYNAME = 'Fields'))
 end
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/validationall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/validationall','systemx.api.model.config.dynamicpages',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Validation'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/currencyAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/currencyAI','systemx.api.model.config.Currency',
-(select menu_id from config_menu where DISPLAYNAME = 'Currency'))
-end 
-
-
 
 
 if not exists(select * from CONFIG_MENU where LINK='/config/workflow-setup')
@@ -3949,15 +3739,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/empst
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatus',
 (select menu_id from config_menu where Link='/config/empstatus'))
-end
-
-
-delete CONFIG_APIFORENTITYNAME where api='/api/config/users'
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/users')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/users',
-(select menu_id from config_menu where DISPLAYNAME ='Model & Hierarchy'))
 end
 
 if not exists(select * from CONFIG_MENU where LINK='/config/workflow-setup')
@@ -4092,11 +3873,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowSta
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocess')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/productlinkedprocess',
-(select MENU_ID from config_menu where Link='/config/productlinked_process'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/dashboard/lossdataall')
@@ -4566,23 +4342,6 @@ values('api/home/correspondenceall','systemx.api.model.correspondance',
 end
 
 
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/currencyall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/currencyall','systemx.api.model.config',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Currency'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/prefixall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/prefixall','systemx.api.model.config',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Prefix'))
-end
-
 if not exists
 (select * from config_apiforentityname where API='/api/config/fieldsall')
 begin
@@ -4590,23 +4349,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/fieldsall','systemx.api.model.config.dynamicpages',
 (select MENU_ID from config_menu where DISPLAYNAME = 'Fields'))
 end
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/validationall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/validationall','systemx.api.model.config.dynamicpages',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Validation'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/currencyAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/currencyAI','systemx.api.model.config.Currency',
-(select menu_id from config_menu where DISPLAYNAME = 'Currency'))
-end 
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prefixAI')
 begin
@@ -4628,11 +4370,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/Report/
 (select menu_id from config_menu where DISPLAYNAME = 'REPORT'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/modules')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/modules','systemx.api.model.config.Module',
-(select menu_id from config_menu where DISPLAYNAME = 'MODULE'))
-end
 
 
 
@@ -5182,3 +4919,102 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/landscapeall',null,
 (select MENU_ID from config_menu where LINK ='/risk/landscape'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/config/modules')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/config/modules','systemx.api.model.config.Module',(select menu_id from config_menu where link = '/config/modules'));
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/config/currency')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/config/currency','systemx.api.model.config.Currency',(select menu_id from config_menu where link = '/config/currency'));
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/config/prefix')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/config/prefix','systemx.api.model.config.Prefix',(select menu_id from config_menu where link = '/config/prefix'));
+end
+
+
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api = '/api/config/validation')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/config/validation',
+'systemx.api.model.config.dynamicpages.Validation',
+(select menu_id from config_menu 
+where link = '/config/validation'));
+end 
+
+
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api = '/api/config/savemenu')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/config/savemenu',
+'systemx.api.model.config.Menu',
+(select menu_id from config_menu 
+where link = '/config/menu'));
+end
+
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api = '/api/config/hierarchyOwnerTypes')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/config/hierarchyOwnerTypes',
+'systemx.api.model.config.BusinessHierarchy_Owners',
+(select menu_id from config_menu 
+where link = '/config/business_hierarchy'));
+end
+
+
+if not exists
+(select * from CONFIG_APIFORENTITYNAME where api = '/api/config/process')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/config/process',
+'systemx.api.model.config.Process',
+(select menu_id from config_menu 
+where link = '/config/process'));
+end
+
+
+if not exists(select * from config_apiforentityname where api = '/api/config/menurights')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/menurights','systemx.api.model.config.MenuRights',Null)
+
+
+
+if not exists(select * from config_apiforentityname where api = '/api/config/users')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/users','systemx.api.model.config.BusinessHierarchyRights',Null)
+
+
+
+if not exists(select * from config_apiforentityname where api = '/api/config/languagetermdefinition')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/languagetermdefinition','systemx.api.model.config.LanguageTermDefinition',Null)
+
+if not exists(select * from config_apiforentityname where api = '/api/email/savetemplate')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/email/savetemplate','systemx.api.model.email.NotificationandEmailTemplate',(select MENU_ID from config_MEnu where Displayname = 'Email And Notification' and Link = '/config/notificationandemail_listing'))
+
+if not exists(select * from config_apiforentityname where api = '/api/config/product')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/product','systemx.api.model.config.Product',(select MENU_ID from config_MEnu where Displayname = 'Product' and Link = '/config/product'))
+
+if not exists(select * from config_apiforentityname where api = '/api/config/hierarchyOwner')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/hierarchyOwner','systemx.api.model.config.BusinessHierarchy',(select MENU_ID from config_MEnu where Displayname = 'Business Hierarchy' and Link = '/config/business_hierarchy'))
