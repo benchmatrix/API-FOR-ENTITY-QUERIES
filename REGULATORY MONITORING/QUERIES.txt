@@ -66,25 +66,6 @@ values
 end
 
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/activitylinkusers')
-begin
-insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
-values
-('/api/compliance/activitylinkusers',null,(select top 1  menu_id from config_menu where menu_key = 'RM_AA'));
-end
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/activitydocs')
-begin
-insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
-values
-('/api/compliance/activitydocs',null,(select top 1  menu_id from config_menu where menu_key = 'RM_AA'));
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/linkedRequirementsInActivity')
 begin
 insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
@@ -92,12 +73,7 @@ values
 ('/api/compliance/linkedRequirementsInActivity',null,(select top 1  menu_id from config_menu where menu_key = 'RM_AA'));
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/sendNotificationCheck')
-begin
-insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
-values
-('/api/compliance/sendNotificationCheck',null,(select top 1  menu_id from config_menu where menu_key = 'RM_AA'));
-end
+
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/riskregister')
 begin
@@ -221,13 +197,7 @@ values('/api/compliance/complianceactivity',null,
 (select MENU_ID from config_menu where LINK ='/compliance/activity'))
 end
 
-if not exists
-(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/compliancerequirement_linkki')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID,ENTITYNAME) values('/api/compliance/compliancerequirement_linkki',
-(select MENU_ID from config_menu where LINK = '/compliance/requirement'),'systemx.api.model.regulatorycompliance.RequirementLinkKI'
-)
-end 
+
 
 if not exists
 (select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/requirementlinkrule')
@@ -285,12 +255,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/complia
 (select menu_id from config_menu where LINK like '%compliance/rule%'))
 end
 
-if not exists
-(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/activity_linkcorrespondance')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/activity_linkcorrespondance',
-(select menu_id from config_menu where LINK like '%compliance/activity%'))
-end 
+
 
 if not exists
 (select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/complianceactivity_linkproduct')
@@ -306,13 +271,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/complia
 (select menu_id from config_menu where LINK like '%compliance/activity%'))
 end 
 
-if not exists
-(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/compliancerequirement_linkcorrespondance')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/compliancerequirement_linkcorrespondance',
-(select MENU_ID from config_menu where LINK = '/compliance/requirement')
-)
-end 
 if not exists
 (select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/compliancerequirement_linkproduct')
 begin
@@ -676,12 +634,6 @@ values(GETDATE(),1,NULL,'Compliance Key Area',NULL,1,(select MODULE_ID from CONF
 null,1,1,1)
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/complianceactivityall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/complianceactivityall',
-(select menu_id from config_menu where LINK='/compliance/compliance-activity'))
-end
-
 if not exists
 (select * from config_apiforentityname where API='/api/deleteDynamicFiltersData' and MENU_ID=(select MENU_ID from config_menu where LINK ='/compliance/compliance-rule'))
 begin
@@ -730,14 +682,6 @@ values('/api/dynamicFiltersData',null,
 (select MENU_ID from config_menu where LINK ='/compliance/compliance-requirement'))
 End
 
-
-
-if not exists(select * from config_apiforentityname where API='/api/compliance/compliancerequirementall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/compliance/compliancerequirementall',null,
-(select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_Q' order by MENU_ID desc))
-end
 
 
 --Regulation type--
@@ -817,9 +761,6 @@ values('/api/library/complianceCategoryall','systemx.api.model.compliancelibrary
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_Q' order by MENU_ID desc))
 end
 
-if not exists (select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/activitylinkrequirementmultiple' and menu_id = (select menu_id from CONFIG_MENU where link = '/compliance/activity') )
-insert into CONFIG_APIFORENTITYNAME (api,MENU_ID) values ('/api/compliance/activitylinkrequirementmultiple', (select menu_id from CONFIG_MENU where link = 
-'/compliance/activity'))
 
 if not exists (select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/complianceactivity_linkproduct' and menu_id = (select menu_id from CONFIG_MENU where link = '/compliance/addObservation') )
 insert into CONFIG_APIFORENTITYNAME (api,MENU_ID) values ('/api/compliance/complianceactivity_linkproduct', (select menu_id from CONFIG_MENU where link = 
@@ -925,36 +866,6 @@ values('/api/compliancerule/doc',null,
 end
 
 
- if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/copyRuleToRequirement')
-
-begin
-
-insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
-
-values
-
-('/api/compliance/copyRuleToRequirement','systemx.api.model.regulatorycompliance.ComplianceRequirement',
-
-(select menu_id from config_menu where menu_key = 'RM_AQ'));
-
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/copyRequirementToActivity')
-
-begin
-
-insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
-
-values
-
-('/api/compliance/copyRequirementToActivity','systemx.api.model.regulatorycompliance.ComplianceActivity',
-
-(select menu_id from config_menu where menu_key = 'RM_AA'));
-
-end
-
-
-
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/compliance/compliancerule_linkrisk')
 begin
@@ -963,13 +874,6 @@ values('/api/compliance/compliancerule_linkrisk','systemx.api.model.regulatoryco
 (select menu_id from config_menu where DISPLAYNAME='Rule Details'));
 end
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/activity/activity_linkactivity')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/activity/activity_linkactivity','systemx.api.model.regulatorycompliance.ActivityLinkActivity',
-(select menu_id from config_menu where DISPLAYNAME='Activity Details'));
-end
 
 
 /*ApiEntity insertion*/
@@ -979,6 +883,254 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/compliance/compliancerule_linkki','systemx.api.model.regulatorycompliance.RuleLinkKi',
 (select menu_id from config_menu where DISPLAYNAME='Rule Details'));
 end
+
+
+if not exists(select * from config_apiforentityname where api = '/api/activity/inactiveusers')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/activity/inactiveusers','systemx.api.model.regulatorycompliance.ActivityLinkUsers',(select MENU_ID from config_MEnu where Displayname = 'Activity Details' and Link = '/compliance/activity'))
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/compliance/compliancerequirement_linkobservation')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/compliancerequirement_linkobservation','systemx.api.model.complianceobservation.ObservationLinkRequirement',(select MENU_ID from config_MEnu where Displayname = 'Requirement Details' and Link = '/compliance/requirement'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/compliance/compliancerequirement_linkcorrespondance')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/compliancerequirement_linkcorrespondance','systemx.api.model.correspondance.CorrespondanceLinkRequirement',(select MENU_ID from config_MEnu where Displayname = 'Requirement Details' and Link = '/compliance/requirement'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/compliance/compliancerequirement')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/compliancerequirement','systemx.api.model.regulatorycompliance.ComplianceRequirementDetail',(select MENU_ID from config_MEnu where Displayname = 'Requirement Details' and Link = '/compliance/requirement'))
+
+
+
+if not exists(select * from config_apiforentityname where api = '/api/compliance/compliancerequirementwithactivity')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/compliancerequirementwithactivity','systemx.api.model.regulatorycompliance.ComplianceRequirementDetail',(select MENU_ID from config_MEnu where Displayname = 'Requirement Details' and Link = '/compliance/requirement'))
+
+
+if not exists(select * from config_apiforentityname where api = 'api/compliance/updaterequirementviewdepartment')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('api/compliance/updaterequirementviewdepartment','systemx.api.model.regulatorycompliance.ComplianceRequirement',(select MENU_ID from config_MEnu where Displayname = 'Requirement Details' and Link = '/compliance/requirement'))
+
+if not exists(select * from config_apiforentityname where api = '/api/compliance/compliancerequirementbulkedit')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/compliancerequirementbulkedit','systemx.api.model.regulatorycompliance.ComplianceRequirement',(select MENU_ID from config_MEnu where Displayname = 'Requirement Details' and Link = '/compliance/requirement'))
+
+
+if not exists(select * from config_apiforentityname where api = '/api/compliance/compliancerequirementIndependent')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/compliancerequirementIndependent','systemx.api.model.regulatorycompliance.ComplianceRequirement',(select MENU_ID from config_MEnu where Displayname = 'Requirement Details' and Link = '/compliance/requirement'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/compliance/requirementlinkrulemultiple')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/requirementlinkrulemultiple','systemx.api.model.regulatorycompliance.RequirementLinkRule',(select MENU_ID from config_MEnu where Displayname = 'Requirement Details' and Link = '/compliance/requirement'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/compliance/complianceactivitybulkedit')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/complianceactivitybulkedit','systemx.api.model.regulatorycompliance.ComplianceActivityDetail',(select MENU_ID from config_MEnu where Displayname = 'Activity Details' and Link = '/compliance/activity'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/compliance/complianceactivityIndependent')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/complianceactivityIndependent','systemx.api.model.regulatorycompliance.ComplianceActivityDetail',(select MENU_ID from config_MEnu where Displayname = 'Activity Details' and Link = '/compliance/activity'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/compliance/activitylinkrequirement')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/activitylinkrequirement','systemx.api.model.regulatorycompliance.RuleLinkRequirementLinkActivity',(select MENU_ID from config_MEnu where Displayname = 'Requirement Details' and Link = '/compliance/requirement'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/compliance/activitylinkrequirementforlibrary')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/activitylinkrequirementforlibrary','systemx.api.model.regulatorycompliance.RuleLinkRequirementLinkActivity',(select MENU_ID from config_MEnu where Displayname = 'Requirement Details' and Link = '/compliance/requirement'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/compliance/activitylinkrequirementmultiple')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/activitylinkrequirementmultiple','systemx.api.model.regulatorycompliance.RuleLinkRequirementLinkActivity',(select MENU_ID from config_MEnu where Displayname = 'Activity Details' and Link = '/compliance/activity'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/compliance/compliancerequirementall')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/compliancerequirementall','systemx.api.model.compliancelibrary.ComplianceRequirement',(select MENU_ID from config_MEnu where Displayname = 'Requirement' and Link = '/compliance/compliance-requirement'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/compliance/complianceRequirementLinkagesall')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/complianceRequirementLinkagesall','systemx.api.model.compliancelibrary.ComplianceRequirement',(select MENU_ID from config_MEnu where Displayname = 'Requirement Details' and Link = '/compliance/requirement'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/compliance/complianceActivityLinkagesall')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/complianceActivityLinkagesall','systemx.api.model.regulatorycompliance.ComplianceActivity',(select MENU_ID from config_MEnu where Displayname = 'Activity Details' and Link = '/compliance/activity'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/compliance/complianceactivityall')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/complianceactivityall','systemx.api.model.regulatorycompliance.ComplianceActivity',(select MENU_ID from config_MEnu where Displayname = 'Activity' and Link = '/compliance/compliance-activity'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/compliance/manualNotificationActivity')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/manualNotificationActivity','systemx.api.model.regulatorycompliance.ComplianceActivity',(select MENU_ID from config_MEnu where Displayname = 'Activity Details' and Link = '/compliance/activity'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/compliance/activitylinkusers')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/activitylinkusers','systemx.api.model.regulatorycompliance.ActivityLinkUsers',(select MENU_ID from config_MEnu where Displayname = 'Activity Details' and Link = '/compliance/activity'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/compliance/assignToActivitylinkusers')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/assignToActivitylinkusers','systemx.api.model.regulatorycompliance.ActivityLinkUsers',(select MENU_ID from config_MEnu where Displayname = 'Activity Details' and Link = '/compliance/activity'))
+
+if not exists(select * from config_apiforentityname where api = '/api/compliance/saveAndAssignToActivitylinkusers')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/saveAndAssignToActivitylinkusers','systemx.api.model.regulatorycompliance.ActivityLinkUsers',(select MENU_ID from config_MEnu where Displayname = 'Activity Details' and Link = '/compliance/activity'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/compliance/activitydocs')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/activitydocs','systemx.api.model.regulatorycompliance.ComplianceActivityDocs',(select MENU_ID from config_MEnu where Displayname = 'Activity Details' and Link = '/compliance/activity'))
+
+
+
+if not exists(select * from config_apiforentityname where api = '/api/compliance/requirementdocslinkage')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/requirementdocslinkage','systemx.api.model.regulatorycompliance.ComplianceRequirementDocs',(select MENU_ID from config_MEnu where Displayname = 'Requirement Details' and Link = '/compliance/requirement'))
+
+
+
+if not exists(select * from config_apiforentityname where api = '/api/compliance/activitycomments')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/activitycomments','systemx.api.model.regulatorycompliance.ComplianceActivityComment',(select MENU_ID from config_MEnu where Displayname = 'Activity Details' and Link = '/compliance/activity'))
+
+
+if not exists(select * from config_apiforentityname where api = '/api/compliance/requirementassesment')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/requirementassesment','systemx.api.model.regulatorycompliance.RequirementRiskAssesment',(select MENU_ID from config_MEnu where Displayname = 'Requirement Details' and Link = '/compliance/requirement'))
+
+
+if not exists(select * from config_apiforentityname where api = '/api/compliance/delinkActivity')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/delinkActivity','systemx.api.model.regulatorycompliance.RuleLinkRequirementLinkActivity',(select MENU_ID from config_MEnu where Displayname = 'Activity Details' and Link = '/compliance/activity'))
+
+
+if not exists(select * from config_apiforentityname where api = '/api/compliance/delinkRequirement')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/delinkRequirement','systemx.api.model.regulatorycompliance.RuleLinkRequirementLinkActivity',(select MENU_ID from config_MEnu where Displayname = 'Requirement Details' and Link = '/compliance/requirement'))
+
+if not exists(select * from config_apiforentityname where api = '/api/compliance/copyRuleToRequirement')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/copyRuleToRequirement','systemx.api.model.regulatorycompliance.ComplianceRequirement',(select MENU_ID from config_MEnu where Displayname = 'Requirement Details' and Link = '/compliance/requirement'))
+
+
+if not exists(select * from config_apiforentityname where api = '/api/compliance/copyRequirementToActivity')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/copyRequirementToActivity','systemx.api.model.regulatorycompliance.ComplianceActivity',(select MENU_ID from config_MEnu where Displayname = 'Activity Details' and Link = '/compliance/activity'))
+
+
+
+if not exists(select * from config_apiforentityname where api = '/api/compliance/delinkUserFromActivity')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/delinkUserFromActivity','systemx.api.model.regulatorycompliance.ActivityLinkUsers',(select MENU_ID from config_MEnu where Displayname = 'Activity Details' and Link = '/compliance/activity'))
+
+
+if not exists(select * from config_apiforentityname where api = '/api/compliance/sendNotificationCheck')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/sendNotificationCheck','systemx.api.model.regulatorycompliance.ActivityLinkUsers',(select MENU_ID from config_MEnu where Displayname = 'Activity Details' and Link = '/compliance/activity'))
+
+
+
+if not exists(select * from config_apiforentityname where api = '/api/activity/activity_linkobservation')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/activity/activity_linkobservation','systemx.api.model.complianceobservation.ObservationLinkActivity',(select MENU_ID from config_MEnu where Displayname = 'Activity Details' and Link = '/compliance/activity'))
+
+
+if not exists(select * from config_apiforentityname where api = '/api/compliance/activity_linkcorrespondance')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/activity_linkcorrespondance','systemx.api.model.correspondance.CorrespondanceLinkActivity',(select MENU_ID from config_MEnu where Displayname = 'Activity Details' and Link = '/compliance/activity'))
+
+
+if not exists(select * from config_apiforentityname where api = '/api/activity/activity_linkactivity')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/activity/activity_linkactivity','systemx.api.model.regulatorycompliance.ActivityLinkActivity',(select MENU_ID from config_MEnu where Displayname = 'Activity Details' and Link = '/compliance/activity'))
+
+
+if not exists(select * from config_apiforentityname where api = '/api/compliance/compliancerequirement_linkrisk')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/compliancerequirement_linkrisk','systemx.api.model.regulatorycompliance.RequirementLinkRisk',(select MENU_ID from config_MEnu where Displayname = 'Requirement Details' and Link = '/compliance/requirement'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/compliance/compliancerequirement_linkki')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/compliancerequirement_linkki','systemx.api.model.regulatorycompliance.RequirementLinkKI',(select MENU_ID from config_MEnu where Displayname = 'Requirement Details' and Link = '/compliance/requirement'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/library/markRequirement')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/library/markRequirement','systemx.api.model.regulatorycompliance.RequirementLinkUsers',(select MENU_ID from config_MEnu where Displayname = 'Requirement Details' and Link = '/compliance/requirement'))
+
+
 
 
 
