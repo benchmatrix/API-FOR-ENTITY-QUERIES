@@ -1,11 +1,4 @@
---/api/observation/tableofcontent
-if not exists
-(select * from config_apiforentityname where API='/api/observation/tableofcontent')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/tableofcontent',null,
-(select MENU_ID from config_menu where LINK ='/compliance/InternaladdAuditReport'))
-end
+
 
 --api/observation/auditreports
 if not exists
@@ -52,11 +45,6 @@ values('/api/observations/observationall',null,
 (select MENU_ID from config_menu where DISPLAYNAME ='Observations' AND MENU_KEY='O'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/observation/assisgnobservationtousers')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/observation/assisgnobservationtousers',
-(select MENU_ID from config_menu where LINK = '/compliance/Audit/observations'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/observation/getallauditreports/I')
 begin
@@ -72,21 +60,7 @@ values('/api/observation/getauditreportbyid',null,
 (select MENU_ID from config_menu where LINK ='/compliance/ExternaladdAuditReport' and menu_key='O_ERD'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/observation/auditreportattachments')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/auditreportattachments',null,
-(select MENU_ID from config_menu where LINK ='/compliance/Audit/InternalAuditReport' and menu_key='O_IRO' ))
-end
 
-if not exists
-(select * from config_apiforentityname where API='/api/observation/auditreportattachments')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/auditreportattachments',null,
-(select MENU_ID from config_menu where LINK ='/compliance/Audit/ExternalAuditReport' and menu_key='O_ERO'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/observation/auditReportMultipleDocs')
@@ -96,37 +70,6 @@ values('/api/observation/auditReportMultipleDocs',null,
 (select MENU_ID from config_menu where LINK ='/compliance/Audit/ExternalAuditReport' and menu_key='O_ERO'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/observation/observationLinkObservation')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/observationLinkObservation',null,
-(select MENU_ID from config_menu where LINK ='/compliance/addExternalObservation'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/observation/observationLinkObservation')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/observationLinkObservation',null,
-(select MENU_ID from config_menu where LINK ='/compliance/addObservation'))
-End
-
-if not exists
-(select * from config_apiforentityname where API='/api/observation/observation_linkcorrespondance')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/observation_linkcorrespondance',null,
-(select MENU_ID from config_menu where LINK ='/compliance/addExternalObservation'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/observation/observation_linkcorrespondance')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/observation_linkcorrespondance',null,
-(select MENU_ID from config_menu where LINK ='/compliance/addObservation'))
-end
 
 if not exists
 (select * from config_apiforentityname where API='/api/observation/observationLinkActivity')
@@ -258,25 +201,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/audittype',
 (select menu_id from config_menu where LINK ='/compliance/ExternaladdAuditReport'))
 end 
 
-if not exists(select * from config_apiforentityname where API='/api/observation/auditreportobservation')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/auditreportobservation',null,
-(select MENU_ID from config_menu where LINK='/compliance/addObservation'))
-end
 
-if not exists(select * from config_apiforentityname where API='/api/observation/getObservationdocsbyobservationid')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/getObservationdocsbyobservationid',null,
-(select MENU_ID from config_menu where LINK ='/compliance/Audit/observations'))
-end
-if not exists(select * from config_apiforentityname where API='/api/observation/auditreportobservationcomment')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/auditreportobservationcomment',null,
-(select MENU_ID from config_menu where LINK ='/compliance/Audit/observations'))
-end
 
 if not exists(select * from config_apiforentityname where API='/api/observation/observationresponse')
 begin
@@ -1136,12 +1061,6 @@ if not exists (select * from CONFIG_APIFORENTITYNAME where api = '/api/observati
 insert into CONFIG_APIFORENTITYNAME (api,MENU_ID) values ('/api/observation/auditreports/', (select menu_id from CONFIG_MENU where link = '/compliance/ExternaladdAuditReport'))
 
 
-if not exists (select * from CONFIG_APIFORENTITYNAME where api = '/api/observation/saveobservationAuditcomments' and menu_id = (select menu_id from CONFIG_MENU where link = '/compliance/addExternalObservation') )
-insert into CONFIG_APIFORENTITYNAME (api,MENU_ID) values ('/api/observation/saveobservationAuditcomments', (select menu_id from CONFIG_MENU where link = '/compliance/addExternalObservation'))
-
-if not exists (select * from CONFIG_APIFORENTITYNAME where api = '/api/observation/saveobservationAuditcomments' and menu_id = (select menu_id from CONFIG_MENU where link = '/compliance/addObservation') )
-insert into CONFIG_APIFORENTITYNAME (api,MENU_ID) values ('/api/observation/saveobservationAuditcomments', (select menu_id from CONFIG_MENU where link = 
-'/compliance/addObservation'))
 
 if not exists
 (select * from config_apiforentityname where API='/api/dynamic/OBS_DETAILS')
@@ -1183,6 +1102,193 @@ Insert into config_apiforentityname(API,MENU_ID)
 values('/api/dynamic/OBS',
 (select MENU_ID from config_menu where LINK ='/compliance/Audit/InternalAuditReport' and MENU_KEY='O_IRO'))
 end
+
+------------
+if not exists(select * from config_apiforentityname where api = '/api/observation/auditreportobservation')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/auditreportobservation','systemx.api.model.complianceobservation.Observations',(select MENU_ID from config_MEnu where Displayname = 'Observation Details' and Link = '/compliance/addObservation'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/observation/auditreportobservation')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/auditreportobservation','systemx.api.model.complianceobservation.Observations',(select MENU_ID from config_MEnu where Displayname = 'External Observation Details' and Link = '/compliance/addExternalObservation'))
+
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/observation/saveobservationAuditcomments')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/saveobservationAuditcomments','systemx.api.model.complianceobservation.ObservationAuditComments',(select MENU_ID from config_MEnu where Displayname = 'Observation Details' and Link = '/compliance/addObservation'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/observation/saveobservationAuditcomments')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/saveobservationAuditcomments','systemx.api.model.complianceobservation.ObservationAuditComments',(select MENU_ID from config_MEnu where Displayname = 'External Observation Details' and Link = '/compliance/addExternalObservation'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/observation/observationdocs')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/observationdocs','systemx.api.model.complianceobservation.ObservationDocs',(select MENU_ID from config_MEnu where Displayname = 'Observation Details' and Link = '/compliance/addObservation'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/observation/observationdocs')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/observationdocs','systemx.api.model.complianceobservation.ObservationDocs',(select MENU_ID from config_MEnu where Displayname = 'External Observation Details' and Link = '/compliance/addExternalObservation'))
+
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/observation/observationLinkRequirement')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/observationLinkRequirement','systemx.api.model.complianceobservation.ObservationLinkRequirement',(select MENU_ID from config_MEnu where Displayname = 'Observation Details' and Link = '/compliance/addObservation'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/observation/observationLinkRequirement')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/observationLinkRequirement','systemx.api.model.complianceobservation.ObservationLinkRequirement',(select MENU_ID from config_MEnu where Displayname = 'External Observation Details' and Link = '/compliance/addExternalObservation'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/observation/observationLinkRule')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/observationLinkRule','systemx.api.model.complianceobservation.ObservationLinkRule',(select MENU_ID from config_MEnu where Displayname = 'Observation Details' and Link = '/compliance/addObservation'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/observation/observationLinkRule')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/observationLinkRule','systemx.api.model.complianceobservation.ObservationLinkRule',(select MENU_ID from config_MEnu where Displayname = 'External Observation Details' and Link = '/compliance/addExternalObservation'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/observation/tableofcontent')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/tableofcontent','systemx.api.model.complianceobservation.TableOfContent',(select MENU_ID from config_MEnu where Displayname = 'Internal Report Details' and Link = '/compliance/InternaladdAuditReport'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/observation/tableofcontent')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/tableofcontent','systemx.api.model.complianceobservation.TableOfContent',(select MENU_ID from config_MEnu where Displayname = 'External Report Details' and Link = '/compliance/ExternaladdAuditReport'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/observation/saveobservationresponse')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/saveobservationresponse','systemx.api.model.complianceobservation.ObservationResponseLinkCompliancePlan',(select MENU_ID from config_MEnu where Displayname = 'Assign Observation' and Link = '/compliance/Audit/observations'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/observation/assisgnobservationtousers')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/assisgnobservationtousers','systemx.api.model.complianceobservation.ObservationResponseLinkEmployee',(select MENU_ID from config_MEnu where Displayname = 'Assign Observation' and Link = '/compliance/Audit/observations'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/observation/observationresponseattachments')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/observationresponseattachments','systemx.api.model.complianceobservation.ObservationResponseDocuments',(select MENU_ID from config_MEnu where Displayname = 'Assign Observation' and Link = '/compliance/Audit/observations'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/observation/getobservationcomments/')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/getobservationcomments/','systemx.api.model.complianceobservation.ObservationAuditComments',(select MENU_ID from config_MEnu where Displayname = 'Observation Details' and Link = '/compliance/addObservation'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/observation/getobservationcomments/')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/getobservationcomments/','systemx.api.model.complianceobservation.ObservationAuditComments',(select MENU_ID from config_MEnu where Displayname = 'External Observation Details' and Link = '/compliance/addExternalObservation'))
+
+
+
+
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/observation/getauditreportdocsbyauditreportid')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/getauditreportdocsbyauditreportid','systemx.api.model.complianceobservation.AuditReportDocs',(select MENU_ID from config_MEnu where Displayname = 'Assign Observation' and Link = '/compliance/Audit/observations'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/observation/getObservationdocsbyobservationid')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/getObservationdocsbyobservationid','systemx.api.model.complianceobservation.ObservationDocs',(select MENU_ID from config_MEnu where Displayname = 'Assign Observation' and Link = '/compliance/Audit/observations'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/observation/auditreportobservationcommentupdate')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/auditreportobservationcommentupdate','systemx.api.model.complianceobservation.ObservationComments',(select MENU_ID from config_MEnu where Displayname = 'Assign Observation' and Link = '/compliance/Audit/observations'))
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/dynamic/OBS')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamic/OBS','systemx.api.model.complianceobservation.AuditReports',(select MENU_ID from config_MEnu where Displayname = 'Internal Reports Observation' and Link = '/compliance/Audit/InternalAuditReport'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/dynamic/OBS')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamic/OBS','systemx.api.model.complianceobservation.AuditReports',(select MENU_ID from config_MEnu where Displayname = 'External Reports Observation' and Link = '/compliance/Audit/ExternalAuditReport'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/dynamic/OBS_DETAILS')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamic/OBS_DETAILS','systemx.api.model.complianceobservation.ObservationResponseLinkEmployee',(select MENU_ID from config_MEnu where Displayname = 'Assign Observation' and Link = '/compliance/Audit/observations'))
+
 
 
 
