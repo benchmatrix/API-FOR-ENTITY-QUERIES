@@ -5023,3 +5023,28 @@ if not exists(select * from config_apiforentityname where api = '/api/config/hie
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/hierarchy','systemx.api.model.config.BusinessHierarchy',(select MENU_ID from config_MEnu where
 Displayname = 'Business Hierarchy' and Link = '/config/business_hierarchy'))
+
+--Process Linkage---
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where API = '/api/config/processlinkage')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values ('/api/config/processlinkage',(select MENU_ID from CONFIG_MENU where LINK = '/config/process'))
+end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/dashboard/datasource')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/dashboard/datasource',null,(select menu_id from config_menu where menu_key = 'DDS'));
+end
+
+
+
+
+update config_menu_rights set linkageright = 1 where viewright = 1;
+
+if not exists(select * from STATICCONFIGURATION where code='Dashboard')
+begin
+insert into STATICCONFIGURATION(code, value) values('Dashboard','0')
+end
+
