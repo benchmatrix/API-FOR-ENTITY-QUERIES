@@ -1507,3 +1507,8 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentdimension',(select menu_id from config_menu where link = '/config/RCSA/assessmentdimension'))
 end 
 
+---
+if not exists(select * from config_apiforentityname where api = '/api/RCSA/delinkUserFromRCSAWorkshop')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/RCSA/delinkUserFromRCSAWorkshop','systemx.api.model.rcsa.WorkshopLinkUsers',(select MENU_ID from config_MEnu where Displayname = 'Workshop Details' and Link = '/RCSA/workshop-details'))
+
