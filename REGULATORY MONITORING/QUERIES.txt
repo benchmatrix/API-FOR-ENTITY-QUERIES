@@ -972,6 +972,13 @@ values('/api/activity/activity_linkactivity','systemx.api.model.regulatorycompli
 end
 
 
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/compliance/compliancerule_linkki')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/compliance/compliancerule_linkki','systemx.api.model.regulatorycompliance.RuleLinkKi',
+(select menu_id from config_menu where DISPLAYNAME='Rule Details'));
+end
 
 
 
