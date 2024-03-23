@@ -1271,7 +1271,18 @@ end
 
 
 
+if not exists (select * from CONFIG_APIFORENTITYNAME where api='/api/dynamic/CAU')
+begin
+insert into CONFIG_APIFORENTITYNAME (API,ENTITYNAME,MENU_ID)
+values ('/api/dynamic/CAU','systemx.api.model.regulatorycompliance.ComplianceActivityDetail',
+(select menu_id from CONFIG_MENU where MENU_KEY='RM_AA' and LINK='/compliance/activity'))
+end
 
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/downloadLibrary')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/downloadLibrary','',(select MENU_ID from config_MEnu where Displayname = 'Download Library' and Link = '/api/downloadLibrary'))
 
 
 
