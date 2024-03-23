@@ -1290,5 +1290,13 @@ values('/api/downloadLibrary','',(select MENU_ID from config_MEnu where Displayn
 
 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliance/riskregister')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/compliance/riskregister',null,(select top 1  menu_id from config_menu where menu_key = 'RM_AQ'));
+end
+
+
 
 
