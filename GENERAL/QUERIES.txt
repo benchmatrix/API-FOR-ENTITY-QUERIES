@@ -4111,13 +4111,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/getAllMenu'
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businessFunctionsall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/businessFunctionsall',
-(select menu_id from config_menu where Link='/config/businessFunctions'))
-end
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/assignToProfileAll')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/assignToProfileAll',
@@ -5018,3 +5011,15 @@ values('/api/config/product','systemx.api.model.config.Product',(select MENU_ID 
 if not exists(select * from config_apiforentityname where api = '/api/config/hierarchyOwner')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/hierarchyOwner','systemx.api.model.config.BusinessHierarchy',(select MENU_ID from config_MEnu where Displayname = 'Business Hierarchy' and Link = '/config/business_hierarchy'))
+
+if not exists(select * from config_apiforentityname where api = '/api/config/businesslines')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/businesslines','systemx.api.model.config.BusinessLines',(select MENU_ID from config_MEnu where
+Displayname = 'Business Lines' and Link = '/config/business_lines'))
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/config/hierarchy')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/hierarchy','systemx.api.model.config.BusinessHierarchy',(select MENU_ID from config_MEnu where
+Displayname = 'Business Hierarchy' and Link = '/config/business_hierarchy'))
