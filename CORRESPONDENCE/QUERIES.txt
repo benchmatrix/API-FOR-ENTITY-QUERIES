@@ -179,3 +179,13 @@ if not exists(select * from config_apiforentityname where api = '/api/correspond
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/correspondance/correspondancedocs','systemx.api.model.correspondance.CorrespondanceDocs',(select MENU_ID from config_MEnu where Displayname = 'Correspondence Details' and Link = '/compliance/correspondance'))
 
+
+if not exists (select * from CONFIG_APIFORENTITYNAME where api='/api/dynamic/AU')
+begin
+insert into CONFIG_APIFORENTITYNAME (API,ENTITYNAME,MENU_ID)
+values ('/api/dynamic/AU','systemx.api.model.correspondance.Correspondance',
+(select menu_id from CONFIG_MENU where MENU_KEY='C_A' and LINK='/compliance/correspondance'))
+end
+
+
+
