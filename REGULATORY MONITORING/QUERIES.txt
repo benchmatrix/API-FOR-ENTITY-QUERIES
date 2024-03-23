@@ -1252,8 +1252,21 @@ values
 end
 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/compliancerule/version')
+begin
+insert into CONFIG_APIFORENTITYNAME(api, entityname, menu_id)
+values
+('/api/compliancerule/version',null,(select top 1  menu_id from config_menu where menu_key = 'RM_AR'));
+end
 
 
+
+-- API INSERTION -- COMPLIANCE LIBRARY FOLDER--
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where API = '/api/library/complianceCategoryFolder')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values ('/api/library/complianceCategoryFolder',(select MENU_ID from CONFIG_MENU where MENU_KEY='RM_AR'))
+end
 
 
 
