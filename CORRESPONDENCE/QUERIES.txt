@@ -6,12 +6,6 @@ values('/api/correspondancelinkusers',null,
 (select MENU_ID from config_menu where LINK ='/compliance/correspondance'))
 end
 
-if not exists(select * from config_apiforentityname where API='/api/correspondance/correspondance_linkobservation')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/correspondance/correspondance_linkobservation',null,
-(select MENU_ID from config_menu where LINK ='/compliance/correspondance'))
-end
 
 if not exists(select * from config_apiforentityname where API='/api/correspondance/correspondanceMultipleDocs')
 begin
@@ -111,35 +105,77 @@ values ('/api/dynamic/CORR','systemx.api.model.correspondance.Correspondance',
 (select menu_id from CONFIG_MENU where MENU_KEY='C_A' and LINK='/compliance/correspondance'))
 end
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/correspondance/correspondance_linkrule')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/correspondance/correspondance_linkrule','systemx.api.model.correspondance.CorrespondanceLinkRule',
-(select menu_id from config_menu where DISPLAYNAME='Correspondence Details'));
-end
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/correspondance/correspondance_linkactivity')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/correspondance/correspondance_linkactivity','systemx.api.model.correspondance.CorrespondanceLinkActivity',
-(select menu_id from config_menu where DISPLAYNAME='Correspondence Details'));
-end
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/correspondance/correspondance_linkrequirement')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/correspondance/correspondance_linkrequirement','systemx.api.model.correspondance.CorrespondanceLinkRequirement',
-(select menu_id from config_menu where DISPLAYNAME='Correspondence Details'));
-end
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/correspondance/correspondance_linkcorrespondance')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/correspondance/correspondance_linkcorrespondance','systemx.api.model.correspondance.CorrespondanceLinkCorrespondance',
-(select menu_id from config_menu where DISPLAYNAME='Correspondence Details'));
-end
+---
+if not exists(select * from config_apiforentityname where api = '/api/correspondance/correspondancecomments')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/correspondance/correspondancecomments','systemx.api.model.correspondance.CorrespondanceComments',(select MENU_ID from config_MEnu where Displayname = 'Correspondence Details' and Link = '/compliance/correspondance'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/correspondance/correspondance_linkactivity')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/correspondance/correspondance_linkactivity','systemx.api.model.correspondance.CorrespondanceLinkActivity',(select MENU_ID from config_MEnu where Displayname = 'Correspondence Details' and Link = '/compliance/correspondance'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/correspondance/correspondance_linkrequirement')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/correspondance/correspondance_linkrequirement','systemx.api.model.correspondance.CorrespondanceLinkRequirement',(select MENU_ID from config_MEnu where Displayname = 'Correspondence Details' and Link = '/compliance/correspondance'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/correspondance/correspondance_linkrule')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/correspondance/correspondance_linkrule','systemx.api.model.correspondance.CorrespondanceLinkRule',(select MENU_ID from config_MEnu where Displayname = 'Correspondence Details' and Link = '/compliance/correspondance'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/correspondance/correspondance_linkobservation')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/correspondance/correspondance_linkobservation','systemx.api.model.correspondance.CorrespondanceLinkObservation',(select MENU_ID from config_MEnu where Displayname = 'Correspondence Details' and Link = '/compliance/correspondance'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/correspondance/correspondance_linkcorrespondance')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/correspondance/correspondance_linkcorrespondance','systemx.api.model.correspondance.CorrespondanceLinkCorrespondance',(select MENU_ID from config_MEnu where Displayname = 'Correspondence Details' and Link = '/compliance/correspondance'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/correspondance')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/correspondance','systemx.api.model.correspondance.Correspondance',(select MENU_ID from config_MEnu where Displayname = 'Correspondence Details' and Link = '/compliance/correspondance'))
+
+
+
+
+
+if not exists(select * from config_apiforentityname where api = '/api/assignTocorrespondancelinkusers')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/assignTocorrespondancelinkusers','systemx.api.model.correspondance.CorrespondanceLinkUsers',(select MENU_ID from config_MEnu where Displayname = 'Correspondence Details' and Link = '/compliance/correspondance'))
+
+
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/correspondance/correspondancedocs')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/correspondance/correspondancedocs','systemx.api.model.correspondance.CorrespondanceDocs',(select MENU_ID from config_MEnu where Displayname = 'Correspondence Details' and Link = '/compliance/correspondance'))
 
