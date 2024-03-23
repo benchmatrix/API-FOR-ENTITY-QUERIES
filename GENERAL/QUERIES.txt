@@ -146,9 +146,6 @@ null,
 end
 
 
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/external_causal')
-where API='/api/config/externalcausal'
 
 
 
@@ -2379,9 +2376,6 @@ null,
 (select menu_id from config_menu where LINK ='/config/casual_category'))
 end
 
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/external_causal')
-where API='/api/config/externalcausal'
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/recoverytypeall')
 begin
@@ -2763,13 +2757,6 @@ null,
 (select menu_id from config_menu where LINK ='/config/casual_category'))
 end
 
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/external_causal')
-where API='/api/config/externalcausal'
-
-
-
 --Activity Priority level--
 
 delete CONFIG_APIFORENTITYNAME where API= '/api/config/prioritylevelAI'	
@@ -3014,13 +3001,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 null,
 (select menu_id from config_menu where LINK ='/config/casual_category'))
 end
-
-
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/external_causal')
-where API='/api/config/externalcausal'
-
 
 
 if not exists
@@ -3472,10 +3452,6 @@ null,
 end
 
 
-
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/external_causal')
-where API='/api/config/externalcausal'
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/individualinvolvedall')
@@ -5047,4 +5023,22 @@ if not exists(select * from STATICCONFIGURATION where code='Dashboard')
 begin
 insert into STATICCONFIGURATION(code, value) values('Dashboard','0')
 end
+
+if not exists(select * from config_apiforentityname where api = '/api/config/productandLink')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/productandLink','systemx.api.model.config.Product',Null)
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/config/processandLink')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/processandLink','systemx.api.model.config.Process',Null)
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/config/auditlogall')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/auditlogall','systemx.api.model.logs.AuditTable',(select MENU_ID from config_MEnu where Displayname = 'System Audit' and Link = '/config/systemaudit'))
 
