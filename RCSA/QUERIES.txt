@@ -258,12 +258,6 @@ values(GETDATE(),1,NULL,'Assessment Area',NULL,2,(select MODULE_ID from CONFIG_M
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentarea','GAA',0,1,1)
 End
 
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasurevalues')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assesment Measure Values',NULL,4,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasurevalues','GAMV',0,1,1)
-End
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/RCSA/workshoprisk')
 begin
@@ -428,14 +422,6 @@ values(GETDATE(),1,NULL,'Assessment Area',NULL,2,(select MODULE_ID from CONFIG_M
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentarea','GAA',0,1,1)
 End
 
-
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasurevalues')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assesment Measure Values',NULL,4,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasurevalues','GAMV',0,1,1)
-End
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Workshop/ShowWorkshopLinkages')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/Workshop/ShowWorkshopLinkages',
@@ -498,20 +484,6 @@ values(GETDATE(),1,NULL,'Assessment Area',NULL,2,(select MODULE_ID from CONFIG_M
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentarea','GAA',0,1,1)
 End
 
-
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasurevalues')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assesment Measure Values',NULL,4,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasurevalues','GAMV',0,1,1)
-End
-
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasurevalues')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assesment Measure Values',NULL,4,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasurevalues','GAMV',0,1,1)
-End
 
 
 
@@ -828,13 +800,6 @@ values(GETDATE(),1,NULL,'Assessment Area',NULL,2,(select MODULE_ID from CONFIG_M
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentarea','GAA',0,1,1)
 End
 
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasurevalues')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assesment Measure Values',NULL,4,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasurevalues','GAMV',0,1,1)
-End
-
 
 if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentarea')
 begin
@@ -842,14 +807,6 @@ insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON
 values(GETDATE(),1,NULL,'Assessment Area',NULL,2,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentarea','GAA',0,1,1)
 End
-
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasurevalues')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assesment Measure Values',NULL,4,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasurevalues','GAMV',0,1,1)
-End
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/RCSAalll')
@@ -883,13 +840,6 @@ values(GETDATE(),1,NULL,'Assessment Area',NULL,2,(select MODULE_ID from CONFIG_M
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentarea','GAA',0,1,1)
 End
 
-
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasurevalues')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assesment Measure Values',NULL,4,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasurevalues','GAMV',0,1,1)
-End
 if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/Controlmechanism')
 begin
 insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
@@ -1130,13 +1080,6 @@ begin
 insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
 values(GETDATE(),1,NULL,'Assessment Area',NULL,2,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentarea','GAA',0,1,1)
-End
-
-if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasurevalues')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Assesment Measure Values',NULL,4,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/RCSA/assessmentmeasurevalues','GAMV',0,1,1)
 End
 
 
