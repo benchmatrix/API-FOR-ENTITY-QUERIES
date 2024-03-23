@@ -752,5 +752,20 @@ values('/api/loss/incidentreportall','systemx.api.model.loss.IncidentReport',(se
 
 
 
+---
+if not exists(select * from config_apiforentityname where api = '/api/loss/commentgrid')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/loss/commentgrid','systemx.api.model.loss.IncidentReportLinkUser',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/loss/incidentReportLinkCorrespondance')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/loss/incidentReportLinkCorrespondance','systemx.api.model.loss.IncidentReportLinkCorrespondance',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+
+
 
 
