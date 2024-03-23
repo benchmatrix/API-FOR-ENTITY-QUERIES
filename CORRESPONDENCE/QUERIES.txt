@@ -1,10 +1,4 @@
-if not exists
-(select * from config_apiforentityname where API='/api/correspondance/correspondanceall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/correspondance/correspondanceall','systemx.api.model.correspondance.Correspondance',
-(select MENU_ID from config_menu where LINK ='/compliance/correspondancelisting'))
-end
+
 if not exists(select * from config_apiforentityname where API='/api/correspondancelinkusers')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
@@ -109,4 +103,43 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/dynamicFiltersData',null,
 (select MENU_ID from config_menu where LINK ='/compliance/correspondancelisting'))
 End
+
+if not exists (select * from CONFIG_APIFORENTITYNAME where api='/api/dynamic/CORR')
+begin
+insert into CONFIG_APIFORENTITYNAME (API,ENTITYNAME,MENU_ID)
+values ('/api/dynamic/CORR','systemx.api.model.correspondance.Correspondance',
+(select menu_id from CONFIG_MENU where MENU_KEY='C_A' and LINK='/compliance/correspondance'))
+end
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/correspondance/correspondance_linkrule')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/correspondance/correspondance_linkrule','systemx.api.model.correspondance.CorrespondanceLinkRule',
+(select menu_id from config_menu where DISPLAYNAME='Correspondence Details'));
+end
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/correspondance/correspondance_linkactivity')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/correspondance/correspondance_linkactivity','systemx.api.model.correspondance.CorrespondanceLinkActivity',
+(select menu_id from config_menu where DISPLAYNAME='Correspondence Details'));
+end
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/correspondance/correspondance_linkrequirement')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/correspondance/correspondance_linkrequirement','systemx.api.model.correspondance.CorrespondanceLinkRequirement',
+(select menu_id from config_menu where DISPLAYNAME='Correspondence Details'));
+end
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/correspondance/correspondance_linkcorrespondance')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/correspondance/correspondance_linkcorrespondance','systemx.api.model.correspondance.CorrespondanceLinkCorrespondance',
+(select menu_id from config_menu where DISPLAYNAME='Correspondence Details'));
+end
 
