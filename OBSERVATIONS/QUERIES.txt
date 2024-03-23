@@ -1290,6 +1290,26 @@ insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/dynamic/OBS_DETAILS','systemx.api.model.complianceobservation.ObservationResponseLinkEmployee',(select MENU_ID from config_MEnu where Displayname = 'Assign Observation' and Link = '/compliance/Audit/observations'))
 
 
+---
+if not exists(select * from config_apiforentityname where api = '/api/dynamic/AUD')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamic/AUD','systemx.api.model.complianceobservation.AuditReports',(select MENU_ID from config_MEnu where Displayname = 'Internal Report Details' and Link = '/compliance/InternaladdAuditReport'))
+
+
+
+
+---
+if not exists(select * from config_apiforentityname where api = '/api/dynamic/AUD')
+insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dynamic/AUD','systemx.api.model.complianceobservation.AuditReports',(select MENU_ID from config_MEnu where Displayname = 'External Report Details' and Link = '/compliance/ExternaladdAuditReport'))
+
+
+
+
+
+
+
+
 
 
 
