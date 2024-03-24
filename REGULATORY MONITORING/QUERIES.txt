@@ -1241,3 +1241,17 @@ end
 
 
 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where API = '/api/rule/auditReportMultipleDocs')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID)values('/api/rule/auditReportMultipleDocs',
+(select Menu_id from CONFIG_MENu where displayname='Rule Details'))
+end
+
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where API = '/api/requirement/auditReportMultipleDocs')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID)values('/api/requirement/auditReportMultipleDocs',
+(select Menu_id from CONFIG_MENu where displayname='Requirement Details'))
+end
