@@ -250,3 +250,10 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/SA/consolid
 (select menu_id from config_menu where link ='/config/compliance/questionnaire/consolidationcriteria'))
 end 
 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/reference')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/reference',
+(select menu_id from config_menu where LINK='/selfassessment/questiondetails'))
+end 
+
