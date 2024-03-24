@@ -288,14 +288,6 @@ end
 
 
 
-
-if not exists(select * from config_apiforentityname where API='/api/home/kisetupall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/home/kisetupall','systemx.api.model.ki',
-(select MENU_ID from config_menu where LINK ='/bucket'))
-end
-
 if not exists
 (select * from config_apiforentityname where API='/api/home/assigndatapointsall')
 begin
@@ -446,3 +438,26 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/getallkid
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/getallkidashboards',(select menu_id from config_menu where link= '/keyriskindicators/create-kidashboards'))
 end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/kilinkages')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/kilinkages',
+(select menu_id from config_menu where LINK='/keyriskindicators/create-ki'))
+end 
+
+
+if not exists
+(select * from config_apiforentityname where API='/api/dashboard/kiall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dashboard/kiall',null,
+(select MENU_ID from config_menu where DISPLAYNAME ='Dashboards' and link = '/dashboard/dashboards'))
+End
+
+if not exists
+(select * from config_apiforentityname where API='/api/home/KIall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/KIall',null,
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
