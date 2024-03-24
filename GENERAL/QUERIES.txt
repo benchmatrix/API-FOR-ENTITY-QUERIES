@@ -1314,11 +1314,6 @@ values('/api/ki/getdatafieldbydatestring',null,
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/rcsa/fraudcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/rcsa/fraudcategoryall',
-(select menu_id from config_menu where Link='/config/rcsa/fraudcategory'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/holidayall')
@@ -1891,23 +1886,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/auditst
 (select MENU_ID from config_menu where Link='/config/compliance/auditstatus'))
 end
 
-
-
-
-
-if not exists(select * from CONFIG_MENU where LINK='/compliance/questionnaire/audittag')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Audit Tag',NULL,15,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/compliance/questionnaire/audittag','GAT',0,1,1)
-End
-
-if not exists(select * from CONFIG_MENU where LINK='/compliance/remindercolumns')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Reminder Columns',NULL,15,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/compliance/remindercolumns','GRC',0,1,1)
-End
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/segmentAll')
 begin
@@ -3417,16 +3395,6 @@ end
 
 
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/Report/Report','systemx.api.model.report.Report',
-(select menu_id from config_menu where DISPLAYNAME = 'REPORT'))
-end
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/nature')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/nature',
@@ -3588,29 +3556,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/auditstatus',
 (select MENU_ID from config_menu where Link='/config/compliance/auditstatus'))
 end
-
-
-
-
-if not exists(select * from CONFIG_MENU where LINK='/config/profilemapping')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Profile Mapping',NULL,11,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/profilemapping','GPM',0,1,1)
-End
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/profilemapping')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/profilemapping',
-(select MENU_ID from config_menu where Link='/config/incident_type'))
-end
-
-if not exists(select * from CONFIG_MENU where LINK='/compliance/remindercolumns')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Reminder Columns',NULL,15,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/compliance/remindercolumns','GRC',0,1,1)
-End
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowState')
@@ -4742,14 +4687,6 @@ insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/auditlogall','systemx.api.model.logs.AuditTable',(select MENU_ID from config_MEnu where Displayname = 'System Audit' and Link = '/config/systemaudit'))
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocess')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocess',
-'systemx.api.model.config',
-(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
-end
-
-
 
 if not exists
 (select * from config_apiforentityname where API='/api/genericupload/uploadtemplate')
@@ -4803,6 +4740,7 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/home/assigncomplianceruleall','systemx.api.model.workflow.Bucket',
 (select MENU_ID from config_menu where MENU_KEY = 'B'))
 end
+
 
 
 
