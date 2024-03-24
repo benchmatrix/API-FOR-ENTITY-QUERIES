@@ -762,5 +762,21 @@ insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/loss/incidentReportLinkCorrespondance','systemx.api.model.loss.IncidentReportLinkCorrespondance',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/loss/lossamountlinkuserbyId')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/loss/lossamountlinkuserbyId',
+(select menu_id from config_menu where LINK='/lossmanagement/lossAmountLinkUsers'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/loss/incidentreportDTO')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/loss/incidentreportDTO',
+(select menu_id from config_menu where LINK='/lossmanagement/lossmanagement'))
+end 
 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/lossAmountall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/lossAmountall',
+(select menu_id from config_menu where LINK='/bucket'))
+end 
