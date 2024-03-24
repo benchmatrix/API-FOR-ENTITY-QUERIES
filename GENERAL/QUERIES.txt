@@ -42,18 +42,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStateType')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/workflowStateType','systemx.api.model.workflow.WorkflowStateType',
-(select menu_id from config_menu where DISPLAYNAME = 'WORKFLOW STATE TYPE'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businessFunctions')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businessFunctions',
-'systemx.api.model.config.compliance.BusinessFunctions',
-(select menu_id from config_menu where DISPLAYNAME = 'BUSINESS FUNCTIONS'))
-End
 
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
@@ -63,7 +51,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/natur
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/nature',
 'systemx.api.model.config.compliance.Nature',
-(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE'))
+(select menu_id from config_menu where link ='/config/compliance/correspondance/nature'))
 end
 
 
@@ -95,12 +83,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/riskcategory',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/eventtypeall')
 begin
@@ -282,77 +264,20 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/categoryass
 (select menu_id from config_menu where link='/config/compliance/questionnaire/categoryassessment'))
 end 
 
---Tag-----
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tag')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tag',
-(select menu_id from config_menu where DISPLAYNAME = 'Tag'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tagall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tagall',
-(select menu_id from config_menu where DISPLAYNAME = 'Tag'))
-end 
-
----- COntrol Plan Threshold category
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/cpthresholdcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/cpthresholdcategoryall',
-(select menu_id from config_menu where DISPLAYNAME = 'Control Plan Threshold Category'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/cpthresholdcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/cpthresholdcategory',
-(select menu_id from config_menu where DISPLAYNAME = 'Control Plan Threshold Category'))
-end 
-
----- COntrol Plan Status
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/cpStatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/cpStatusall',
-(select menu_id from config_menu where DISPLAYNAME = 'ControlPlan Status'))
-end 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/cpStatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/cpStatus',
-(select menu_id from config_menu where DISPLAYNAME = 'ControlPlan Status'))
-end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losstypeall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/losstypeall',
-(select menu_id from config_menu where DISPLAYNAME = 'Loss type'))
+(select menu_id from config_menu where link = '/config/losstype'))
 end 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losstype')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/losstype',
-(select menu_id from config_menu where DISPLAYNAME = 'Loss type'))
+(select menu_id from config_menu where link = '/config/losstype'))
 end 
 
----- COntrol Plan Threshold category
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/cpthresholdcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/cpthresholdcategoryall',
-(select menu_id from config_menu where LINK = '/config/controlplanthreshold'))
-end 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/cpthresholdcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/cpthresholdcategory',
-(select menu_id from config_menu where LINK = '/config/controlplanthreshold'))
-end 
-
-update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where 
-LINK = '/config/controlplanthreshold') where api='/api/config/cpthresholdcategory'
 
 if not exists
 (select * from config_apiforentityname where API='/api/config/compliance/compliance-key-area-all')
@@ -478,30 +403,9 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/preinspectioncategoriesall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/preinspectioncategoriesall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'PREINSPECTION CATEGORY'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/preinspectioncategories'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/preinspectioncategories')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/preinspectioncategories',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'PREINSPECTION CATEGORY'))
-End
-
 
 delete CONFIG_APIFORENTITYNAME where API= '/api/config/observationnature'	
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationnature')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/observationnature',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'NATURE'))
-end
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/config/RCSA/formula')
@@ -559,14 +463,14 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlcosocategory')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcosocategory',
-(select menu_id from config_menu where DISPLAYNAME = 'Control Coso Category'))
+(select menu_id from config_menu where link = '/config/csa/controlcosocategory'))
 end 
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlcosocategoryall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcosocategoryall',
-(select menu_id from config_menu where DISPLAYNAME = 'Control Coso Category'))
+(select menu_id from config_menu where link = '/config/csa/controlcosocategory'))
 end 
 
 
@@ -574,11 +478,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsall',
-(select menu_id from config_menu where Link='/config/dynamicforms/fields'))
-End
 
 
 delete CONFIG_APIFORENTITYNAME where api='/api/config/userprofile'
@@ -617,35 +516,7 @@ End
 	(select menu_id from config_menu where LINK = '/config/location'))
 	End
 
-	
 
-
-
-	
-
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/officetypeAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
-	end
-
-
-
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/officetypeAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
-	end
 	
 
 delete CONFIG_APIFORENTITYNAME where API= '/api/config/processAI'	
@@ -664,32 +535,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/businessFun
 (select menu_id from config_menu where Link='/config/businessFunctions'))
 end
 
-
-	
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/officetypeAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
-	end
-
-
-
-
-
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/officetypeAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
-	end
-
+ 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationtypeall')
 begin
@@ -799,12 +645,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatus',
 (select menu_id from config_menu where Link='/config/empstatus'))
 end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsall',
-(select menu_id from config_menu where Link='/config/dynamicforms/fields'))
-End
 
 
 
@@ -1686,18 +1526,6 @@ end
 
 
 
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/officetypeAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
-	end
-
-
-
 if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/Controlmechanism')
 begin
 insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
@@ -2179,14 +2007,6 @@ values('/api/config/prefixall','systemx.api.model.config',
 (select MENU_ID from config_menu  where link = '/config/prefix'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/fieldsall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/fieldsall','systemx.api.model.config.dynamicpages',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Fields'))
-end
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/validationAI')
@@ -2196,12 +2016,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/nature')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/nature',
-'systemx.api.model.config.compliance.Nature',
-(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflow')
@@ -2307,18 +2121,6 @@ MENU_ID desc))
 End
 
 
-
-
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/officetypeAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
-	end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domain')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domain',
@@ -2514,14 +2316,6 @@ values('/api/home/complianceruleall','systemx.api.model.compliancelibrary',
 End
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/fieldsall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/fieldsall','systemx.api.model.config.dynamicpages',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Fields'))
-end
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/languages')
@@ -2532,19 +2326,7 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/Report/Report','systemx.api.model.report.Report',
-(select menu_id from config_menu where DISPLAYNAME = 'REPORT'))
-end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/nature')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/nature',
-'systemx.api.model.config.compliance.Nature',
-(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE'))
-end
 
 
 delete from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategory'
@@ -2651,26 +2433,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/menuall',
 (select menu_id from config_menu where Link='/config/menu'))
 end
 
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/officetypeAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
-	end
-
-
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/officetypeAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
-	end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/domain')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domain',
@@ -2865,13 +2627,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/languageall
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsall',
-(select menu_id from config_menu where Link='/config/dynamicforms/fields'))
-End
-
-
 delete CONFIG_APIFORENTITYNAME where api='/api/config/userprofile'
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/userprofile')
 begin
@@ -2915,46 +2670,12 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/proce
 
 
 
-
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/officetypeAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
-	end
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/assignToProfile')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/assignToProfile',
 (select menu_id from config_menu where Link='/config/assigntoprofile'))
 end
 
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/officetypeAI'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/officetypeAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/officetypeAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'OFFICE TYPE'))
-	end
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/discoverytype'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/discoverytype')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/discoverytype',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
-	end
 
 
 
@@ -3184,14 +2905,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/nature')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/nature',
-'systemx.api.model.config.compliance.Nature',
-(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE'))
-end
-
-
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where link = '/config/workflow-setup') where
 api='/api/config/workflowStateType'
 
@@ -3314,13 +3027,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/correspondenc
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsall',
-(select menu_id from config_menu where Link='/config/dynamicforms/fields'))
-End
-
-
 
 delete CONFIG_APIFORENTITYNAME where api='/api/config/userprofile'
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/userprofile')
@@ -3391,16 +3097,7 @@ end
 	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
 	end
 
-	
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/nature')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/nature',
-'systemx.api.model.config.compliance.Nature',
-(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE'))
-end
 
 
 
@@ -3827,22 +3524,6 @@ end
 
 
 
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dicoverytypeall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/dicoverytypeall',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
-	end
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/discoverytype'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/discoverytype')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/discoverytype',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
-	end
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productall')
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productall',
@@ -3959,14 +3640,6 @@ values('api/home/correspondenceall','systemx.api.model.correspondance',
 end
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/fieldsall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/fieldsall','systemx.api.model.config.dynamicpages',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Fields'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prefixAI')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/prefixAI','systemx.api.model.config.Prefix',
@@ -3981,12 +3654,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/Report/Report','systemx.api.model.report.Report',
-(select menu_id from config_menu where DISPLAYNAME = 'REPORT'))
-end
-
 
 
 
@@ -3997,12 +3664,7 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where link = '/config/compliance/correspondance/subjectofcorrespondance'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/nature')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/nature',
-'systemx.api.model.config.compliance.Nature',
-(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE'))
-end
+
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/responseAI')
