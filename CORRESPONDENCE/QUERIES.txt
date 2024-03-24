@@ -187,5 +187,18 @@ values ('/api/dynamic/AU','systemx.api.model.correspondance.Correspondance',
 (select menu_id from CONFIG_MENU where MENU_KEY='C_A' and LINK='/compliance/correspondance'))
 end
 
+--Multiple Doc Correspondence Api---
+if not exists(select * from CONFIG_APIFORENTITYNAME where API = '/api/correspondance/auditReportMultipleDocs')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID)values('/api/correspondance/auditReportMultipleDocs',
+(select Menu_id from CONFIG_MENu where  where LINK ='/compliance/correspondance'))
+end
+
+
+
+
+
+
+
 
 
