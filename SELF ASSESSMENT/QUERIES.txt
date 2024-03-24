@@ -257,3 +257,14 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/reference',
 (select menu_id from config_menu where LINK='/selfassessment/questiondetails'))
 end 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/categoryassessment')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/categoryassessment',
+(select menu_id from config_menu where link = '/configcompliance/questionnaire/categoryassessment'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/categoryassessmentall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/categoryassessmentall',
+(select menu_id from config_menu where link = '/config/compliance/questionnaire/categoryassessment'))
+end 
