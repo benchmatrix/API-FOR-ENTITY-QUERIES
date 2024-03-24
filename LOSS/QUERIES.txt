@@ -75,7 +75,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/lossc
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/losscontrolstatusall',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
+(select menu_id from config_menu where link = '/config/losscontrolstatus'))
 end
 delete CONFIG_APIFORENTITYNAME where API= '/api/config/losscontrolstatus'	
 
@@ -83,7 +83,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/lossc
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/losscontrolstatus',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
+(select menu_id from config_menu where link = '/config/losscontrolstatus'))
 end
 
 
@@ -91,7 +91,7 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentiallossall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentiallossall',
-(select menu_id from config_menu where DISPLAYNAME = 'Potential Loss'))
+(select menu_id from config_menu where link = '/config/potential_loss'))
 end
 
 
@@ -112,35 +112,10 @@ set MENU_ID=(select MENU_ID from config_menu where link='/config/potential_loss'
 where API='/api/config/potentialloss'
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentiallossall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentiallossall',
-(select menu_id from config_menu where DISPLAYNAME ='Potential Loss'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentialloss')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentialloss',
-(select menu_id from config_menu where DISPLAYNAME ='Potential Loss'))
-end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losscontrolstatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/losscontrolstatusall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/losscontrolstatus'	
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losscontrolstatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/losscontrolstatus',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losstypeall')
@@ -156,42 +131,12 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentiallossall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentiallossall',
-(select menu_id from config_menu where DISPLAYNAME = 'Potential Loss'))
-end
-
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/potentialloss'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentialloss')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentialloss',
-(select menu_id from config_menu where LINK = '/config/potential_loss'))
-end
-
-
 
 
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/potential_loss')
 where API='/api/config/potentialloss'
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentiallossall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentiallossall',
-(select menu_id from config_menu where DISPLAYNAME ='Potential Loss'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentialloss')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentialloss',
-(select menu_id from config_menu where DISPLAYNAME ='Potential Loss'))
-end
 
 
 
@@ -203,27 +148,13 @@ values('/api/loss/attributionall',null,
 (select MENU_ID from config_menu where LINK ='/lossmanagement/lossmanagement'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losscontrolstatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/losscontrolstatusall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/losscontrolstatus'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losscontrolstatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/losscontrolstatus',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/config/potentialcustomerimpactall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/potentialcustomerimpactall',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
+(select menu_id from config_menu where link = '/config/potentialcustomerimpact'))
 end
 delete CONFIG_APIFORENTITYNAME where API= 'api/config/potentialcustomerimpact'	
 
@@ -231,26 +162,10 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/config/potent
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/potentialcustomerimpact',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
+(select menu_id from config_menu where link = '/config/potentialcustomerimpact'))
 end
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentiallossall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentiallossall',
-(select menu_id from config_menu where DISPLAYNAME = 'Potential Loss'))
-end
-
-
-delete from CONFIG_APIFORENTITYNAME where api='/api/config/potentialloss'
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentialloss')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentialloss',
-(select menu_id from config_menu where LINK = '/config/potential_loss'))
-end
 
 
 
@@ -259,19 +174,6 @@ update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/potential_loss')
 where API='/api/config/potentialloss'
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentiallossall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentiallossall',
-(select menu_id from config_menu where DISPLAYNAME ='Potential Loss'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentialloss')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentialloss',
-(select menu_id from config_menu where DISPLAYNAME ='Potential Loss'))
-end
 
 
 
@@ -315,7 +217,7 @@ if not exists
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/dashboard/lossdataall',null,
-(select MENU_ID from config_menu where DISPLAYNAME ='Dashboards' and link = '/dashboard/dashboards'))
+(select MENU_ID from config_menu where link = '/dashboard/dashboards'))
 end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/marsratingall')
 begin
@@ -343,47 +245,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskseverit
 end
 
 
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getActiveEntityReplaceTab')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getActiveEntityReplaceTab',	(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement'))
-	End
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/entityReplacement/getEntityReplaceByTab')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/entityReplacement/getEntityReplaceByTab',
-	(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement'))
-	end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/getBucketReplacedRecordsisActive')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/getBucketReplacedRecordsisActive',
-	(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE REPLACEMENT'))
-	end
-insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'Entity Replacement')) 
-
-insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE')) 
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/userstree')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/userstree',
-	(select menu_id from config_menu where DISPLAYNAME = 'EMPLOYEE'))
-	End
-
-insert into CONFIG_MENU_RIGHTS(VIEWRIGHT,USERPROFILE_ID,MENU_ID) values (1,1,(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE')) 
-
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/natureall')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/natureall',
-	(select menu_id from config_menu where DISPLAYNAME = 'CORRESPONDENCE NATURE'))
-	end
-
-
-
-
-
 if not exists(select * from CONFIG_MENU where LINK='/listingFilters')
 begin
 insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
@@ -392,68 +253,6 @@ values(GETDATE(),1,NULL,'Listing Filters',NULL,1,(select MODULE_ID from CONFIG_M
 null,0,1,1)
 End
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/deleteDynamicFiltersData')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/deleteDynamicFiltersData',
-(select top 1 MENU_ID from config_menu where LINK = '/listingFilters' order by 
-MENU_ID desc))
-end
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/dynamicFiltersData')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/dynamicFiltersData',
-(select top 1 MENU_ID from config_menu where LINK = '/listingFilters' order by 
-MENU_ID desc))
-end
-
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/jsonuploader/error')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/jsonuploader/error',
-(select menu_id from config_menu where Link='/config/libraryupdate'))
-end
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losscontrolstatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/losscontrolstatusall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/losscontrolstatus'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losscontrolstatus')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/losscontrolstatus',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'LOSS CONTROL STATUS'))
-end
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/config/potentialcustomerimpactall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/potentialcustomerimpactall',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
-end
-delete CONFIG_APIFORENTITYNAME where API= 'api/config/potentialcustomerimpact'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/config/potentialcustomerimpact')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('api/config/potentialcustomerimpact',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'POTENTIAL CUSTOMER IMPACT'))
-end
 
 
 
@@ -542,7 +341,7 @@ end
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/setIncidentReportWorkflow')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/setIncidentReportWorkflow','systemx.api.model.loss.IncidentReport',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/setIncidentReportWorkflow','systemx.api.model.loss.IncidentReport',(select MENU_ID from config_MEnu where Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -550,7 +349,7 @@ values('/api/loss/setIncidentReportWorkflow','systemx.api.model.loss.IncidentRep
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/searchincidentreportbykey')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/searchincidentreportbykey','systemx.api.model.loss.IncidentReport',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/searchincidentreportbykey','systemx.api.model.loss.IncidentReport',(select MENU_ID from config_MEnu where  Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -558,7 +357,7 @@ values('/api/loss/searchincidentreportbykey','systemx.api.model.loss.IncidentRep
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/incidentreportdocs')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/incidentreportdocs','systemx.api.model.loss.IncidentReportDocs',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/incidentreportdocs','systemx.api.model.loss.IncidentReportDocs',(select MENU_ID from config_MEnu where  Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -566,7 +365,7 @@ values('/api/loss/incidentreportdocs','systemx.api.model.loss.IncidentReportDocs
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/incidentreportwithentity')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/incidentreportwithentity','systemx.api.model.loss.IncidentReport',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/incidentreportwithentity','systemx.api.model.loss.IncidentReport',(select MENU_ID from config_MEnu where Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -574,7 +373,7 @@ values('/api/loss/incidentreportwithentity','systemx.api.model.loss.IncidentRepo
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/comments')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/comments','systemx.api.model.loss.Comments',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/comments','systemx.api.model.loss.Comments',(select MENU_ID from config_MEnu where  Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -582,7 +381,7 @@ values('/api/loss/comments','systemx.api.model.loss.Comments',(select MENU_ID fr
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/incidentreportlinkriskcategory')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/incidentreportlinkriskcategory','systemx.api.model.loss.IncidentReportLinkRiskCategory',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/incidentreportlinkriskcategory','systemx.api.model.loss.IncidentReportLinkRiskCategory',(select MENU_ID from config_MEnu where  Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -590,7 +389,7 @@ values('/api/loss/incidentreportlinkriskcategory','systemx.api.model.loss.Incide
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/incidentreportlinkcausalcategory')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/incidentreportlinkcausalcategory','systemx.api.model.loss.IncidentReportLinkCausalCategory',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/incidentreportlinkcausalcategory','systemx.api.model.loss.IncidentReportLinkCausalCategory',(select MENU_ID from config_MEnu where Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -598,7 +397,7 @@ values('/api/loss/incidentreportlinkcausalcategory','systemx.api.model.loss.Inci
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/serachriskcategorywithlossid')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/serachriskcategorywithlossid','systemx.api.model.loss.IncidentReportLinkRiskCategory',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/serachriskcategorywithlossid','systemx.api.model.loss.IncidentReportLinkRiskCategory',(select MENU_ID from config_MEnu where  Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -606,7 +405,7 @@ values('/api/loss/serachriskcategorywithlossid','systemx.api.model.loss.Incident
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/serachcausalcategorywithlossid')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/serachcausalcategorywithlossid','systemx.api.model.loss.IncidentReportLinkCausalCategory',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/serachcausalcategorywithlossid','systemx.api.model.loss.IncidentReportLinkCausalCategory',(select MENU_ID from config_MEnu where Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -614,7 +413,7 @@ values('/api/loss/serachcausalcategorywithlossid','systemx.api.model.loss.Incide
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/productwithlossid')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/productwithlossid','systemx.api.model.loss.IncidentReportLinkProduct',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/productwithlossid','systemx.api.model.loss.IncidentReportLinkProduct',(select MENU_ID from config_MEnu where Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -622,7 +421,7 @@ values('/api/loss/productwithlossid','systemx.api.model.loss.IncidentReportLinkP
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/processwithlossid')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/processwithlossid','systemx.api.model.loss.IncidentReportLinkProcess',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/processwithlossid','systemx.api.model.loss.IncidentReportLinkProcess',(select MENU_ID from config_MEnu where Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -630,7 +429,7 @@ values('/api/loss/processwithlossid','systemx.api.model.loss.IncidentReportLinkP
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/attributionwithlossid')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/attributionwithlossid','systemx.api.model.loss.Attribution',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/attributionwithlossid','systemx.api.model.loss.Attribution',(select MENU_ID from config_MEnu where  Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -638,7 +437,7 @@ values('/api/loss/attributionwithlossid','systemx.api.model.loss.Attribution',(s
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/attribution')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/attribution','systemx.api.model.loss.Attribution',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/attribution','systemx.api.model.loss.Attribution',(select MENU_ID from config_MEnu where  Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -646,7 +445,7 @@ values('/api/loss/attribution','systemx.api.model.loss.Attribution',(select MENU
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/getlossamountsbyincidentandrecoverytype')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/getlossamountsbyincidentandrecoverytype','systemx.api.model.loss.LossAmount',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/getlossamountsbyincidentandrecoverytype','systemx.api.model.loss.LossAmount',(select MENU_ID from config_MEnu where  Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -654,7 +453,7 @@ values('/api/loss/getlossamountsbyincidentandrecoverytype','systemx.api.model.lo
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/lossamount')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/lossamount','systemx.api.model.loss.LossAmount',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/lossamount','systemx.api.model.loss.LossAmount',(select MENU_ID from config_MEnu where Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -662,7 +461,7 @@ values('/api/loss/lossamount','systemx.api.model.loss.LossAmount',(select MENU_I
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/lastlossamount')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/lastlossamount','systemx.api.model.loss.LossAmount',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/lastlossamount','systemx.api.model.loss.LossAmount',(select MENU_ID from config_MEnu where  Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -670,7 +469,7 @@ values('/api/loss/lastlossamount','systemx.api.model.loss.LossAmount',(select ME
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/recoveriesbyevents')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/recoveriesbyevents','systemx.api.model.config.loss.RecoveryType',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/recoveriesbyevents','systemx.api.model.config.loss.RecoveryType',(select MENU_ID from config_MEnu where  Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -678,7 +477,7 @@ values('/api/loss/recoveriesbyevents','systemx.api.model.config.loss.RecoveryTyp
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/recoveriesforincident')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/recoveriesforincident','systemx.api.model.loss.LossAmount',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/recoveriesforincident','systemx.api.model.loss.LossAmount',(select MENU_ID from config_MEnu where Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -686,7 +485,7 @@ values('/api/loss/recoveriesforincident','systemx.api.model.loss.LossAmount',(se
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/classification')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/classification','systemx.api.model.loss.IncidentReport',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/classification','systemx.api.model.loss.IncidentReport',(select MENU_ID from config_MEnu where Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -694,7 +493,7 @@ values('/api/loss/classification','systemx.api.model.loss.IncidentReport',(selec
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/incidentreportlinkproduct')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/incidentreportlinkproduct','systemx.api.model.loss.IncidentReportLinkProduct',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/incidentreportlinkproduct','systemx.api.model.loss.IncidentReportLinkProduct',(select MENU_ID from config_MEnu where Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -702,7 +501,7 @@ values('/api/loss/incidentreportlinkproduct','systemx.api.model.loss.IncidentRep
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/incidentreportlinkprocess')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/incidentreportlinkprocess','systemx.api.model.loss.IncidentReportLinkProcess',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/incidentreportlinkprocess','systemx.api.model.loss.IncidentReportLinkProcess',(select MENU_ID from config_MEnu where  Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -710,7 +509,7 @@ values('/api/loss/incidentreportlinkprocess','systemx.api.model.loss.IncidentRep
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/incidentreportlinkincidentreport')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/incidentreportlinkincidentreport','systemx.api.model.loss.IncidentReportLinkIncidentReport',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/incidentreportlinkincidentreport','systemx.api.model.loss.IncidentReportLinkIncidentReport',(select MENU_ID from config_MEnu where  Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -718,7 +517,7 @@ values('/api/loss/incidentreportlinkincidentreport','systemx.api.model.loss.Inci
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/incidentreportlinkki')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/incidentreportlinkki','systemx.api.model.loss.IncidentReportLinkKISetup',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/incidentreportlinkki','systemx.api.model.loss.IncidentReportLinkKISetup',(select MENU_ID from config_MEnu where  Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -726,7 +525,7 @@ values('/api/loss/incidentreportlinkki','systemx.api.model.loss.IncidentReportLi
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/incidentreportlinkrcsacontrol')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/incidentreportlinkrcsacontrol','systemx.api.model.loss.IncidentReportLinkRCSAControl',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/incidentreportlinkrcsacontrol','systemx.api.model.loss.IncidentReportLinkRCSAControl',(select MENU_ID from config_MEnu where  Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -734,7 +533,7 @@ values('/api/loss/incidentreportlinkrcsacontrol','systemx.api.model.loss.Inciden
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/incidentReportLinkRisk')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/incidentReportLinkRisk','systemx.api.model.loss.IncidentReportLinkRisk',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/incidentReportLinkRisk','systemx.api.model.loss.IncidentReportLinkRisk',(select MENU_ID from config_MEnu where  Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -743,14 +542,14 @@ values('/api/loss/incidentReportLinkRisk','systemx.api.model.loss.IncidentReport
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/incidentreportall')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/incidentreportall','systemx.api.model.loss.IncidentReport',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incidents' and Link = '/lossmanagement/lossmanagementlisting'))
+values('/api/loss/incidentreportall','systemx.api.model.loss.IncidentReport',(select MENU_ID from config_MEnu where   Link = '/lossmanagement/lossmanagementlisting'))
 
 
 
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/commentgrid')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/commentgrid','systemx.api.model.loss.IncidentReportLinkUser',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/commentgrid','systemx.api.model.loss.IncidentReportLinkUser',(select MENU_ID from config_MEnu where  Link = '/lossmanagement/lossmanagement'))
 
 
 
@@ -759,7 +558,7 @@ values('/api/loss/commentgrid','systemx.api.model.loss.IncidentReportLinkUser',(
 ---
 if not exists(select * from config_apiforentityname where api = '/api/loss/incidentReportLinkCorrespondance')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/loss/incidentReportLinkCorrespondance','systemx.api.model.loss.IncidentReportLinkCorrespondance',(select MENU_ID from config_MEnu where Displayname = 'Detailed Incident Form' and Link = '/lossmanagement/lossmanagement'))
+values('/api/loss/incidentReportLinkCorrespondance','systemx.api.model.loss.IncidentReportLinkCorrespondance',(select MENU_ID from config_MEnu where  Link = '/lossmanagement/lossmanagement'))
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/loss/lossamountlinkuserbyId')
