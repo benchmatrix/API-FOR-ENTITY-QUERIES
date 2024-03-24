@@ -322,10 +322,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/empstatus',
 end
 
 
-
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/questionnaireanswertype')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnaireanswertype',
@@ -570,20 +566,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/preinspectioncategoriesall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/preinspectioncategoriesall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'PREINSPECTION CATEGORY'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/config/preinspectioncategories'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/preinspectioncategories')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/preinspectioncategories',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'PREINSPECTION CATEGORY'))
-End
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/observationresponsetypeall')
@@ -729,7 +711,7 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/potentiallossall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentiallossall',
-(select menu_id from config_menu where DISPLAYNAME = 'Potential Loss'))
+(select menu_id from config_menu where LINK = '/config/potential_loss'))
 end
 
 
@@ -2030,14 +2012,6 @@ api='/api/config/workflow'
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/riskcategory',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
-end
-
-
 
 delete from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategory'
 
@@ -2547,13 +2521,6 @@ MENU_ID desc))
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/riskcategory',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
-end
-
 
 delete from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategory'
 
@@ -2900,7 +2867,7 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowStateType')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/workflowStateType','systemx.api.model.workflow.WorkflowStateType',
-(select menu_id from config_menu where DISPLAYNAME = 'WORKFLOW STATE TYPE'))
+(select menu_id from config_menu where link = '/config/workflowstatetype'))
 end
 
 
@@ -3061,7 +3028,7 @@ end
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/levelsall',
 	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'LEVELS'))
+	(select menu_id from config_menu where link ='/config/levels'))
 	end
 	
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businesslinesall')
@@ -3086,18 +3053,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/domain',
 (select menu_id from config_menu where Link='/config/domain'))
 end
-
-
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/discoverytype'	
-
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/discoverytype')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/discoverytype',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where DISPLAYNAME = 'DISCOVERY TYPE'))
-	end
-
-
 
 
 
@@ -3692,12 +3647,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/riskcategory',
-'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategoryall')
 begin
