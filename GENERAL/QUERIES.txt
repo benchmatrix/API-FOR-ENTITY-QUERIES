@@ -6,22 +6,6 @@ values('/api/config/currencyall','systemx.api.model.config',
 (select MENU_ID from config_menu where link = '/config/currency'))
 end
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/prefixall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/prefixall','systemx.api.model.config',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Prefix'))
-end
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/fieldsall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/fieldsall','systemx.api.model.config.dynamicpages',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Fields'))
-end
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/systemnameall')
 begin
@@ -1742,17 +1726,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsall',
-(select menu_id from config_menu where Link='/config/dynamicforms/fields'))
-End
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fields')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fields',
-(select menu_id from config_menu where Link='/config/dynamicforms/fields'))
-end
 
 
 
@@ -3389,15 +3362,6 @@ end
 
 
 
-if not exists
-(select * from config_apiforentityname where API='/api/config/fieldsall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/fieldsall','systemx.api.model.config.dynamicpages',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Fields'))
-end
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/Report/Report')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/Report/Report','systemx.api.model.report.Report',
@@ -3676,15 +3640,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskclassif
 (select menu_id from config_menu where Link='/config/rcsa/riskclassification'))
 end
 
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/fieldsall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/fieldsall','systemx.api.model.config.dynamicpages',
-(select MENU_ID from config_menu where DISPLAYNAME = 'Fields'))
-end
 
 
 if not exists(select * from CONFIG_MENU where LINK='/config/workflow-setup')
@@ -3998,18 +3953,6 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsAI')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsAI',
-(select menu_id from config_menu where Link='/config/dynamicforms/fields'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fieldsall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fieldsall',
-(select menu_id from config_menu where Link='/config/dynamicforms/fields'))
-End
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/fields')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/fields',
 (select menu_id from config_menu where Link='/config/dynamicforms/fields'))
 end
 
@@ -4526,16 +4469,6 @@ values('/api/users/getConfigurationMenuRights','systemx.api.model.loss',
 end
 
 
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/bucketStatus')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/bucketStatus',
-(select top 1 MENU_ID from config_menu where LINK ='/config/configurations' 
-order by 
-MENU_ID desc))
-End
-
 
 
 
@@ -5042,3 +4975,10 @@ if not exists(select * from config_apiforentityname where api = '/api/config/aud
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/auditlogall','systemx.api.model.logs.AuditTable',(select MENU_ID from config_MEnu where Displayname = 'System Audit' and Link = '/config/systemaudit'))
 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocess')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/productlinkedprocess',
+'systemx.api.model.config',
+(select menu_id from config_menu where DISPLAYNAME = 'PRODUCT LINKED PROCESS'))
+end
