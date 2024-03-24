@@ -1041,12 +1041,6 @@ values('/api/observation/auditreportobservation','systemx.api.model.complianceob
 
 
 
----
-if not exists(select * from config_apiforentityname where api = '/api/observation/auditreportobservation')
-insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/auditreportobservation','systemx.api.model.complianceobservation.Observations',(select MENU_ID from config_MEnu where Displayname = 'External Observation Details' and Link = '/compliance/addExternalObservation'))
-
-
 
 
 
