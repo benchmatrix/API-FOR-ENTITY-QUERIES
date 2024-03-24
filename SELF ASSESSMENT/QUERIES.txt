@@ -38,31 +38,31 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/certificationtypeall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/certificationtypeall',
-(select menu_id from config_menu where DISPLAYNAME = 'Certification Type'))
+(select menu_id from config_menu where link = '/config/compliance/questionnaire/certificationtype'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api ='/api/SA/questionareLinkObservation')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionareLinkObservation',
-(select menu_id from config_menu where DISPLAYNAME ='/selfassessment/createquestionare'))
+(select menu_id from config_menu where link ='/selfassessment/createquestionare'))
 end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='api/SA/questionareusersIRAF')
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/SA/questionareusersIRAF')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('api/SA/questionareusersIRAF',(select menu_id from config_menu where DISPLAYNAME = 'Questionnaire Details'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/SA/questionareusersIRAF',(select menu_id from config_menu where link = '/selfassessment/createquestionare'))
 end
 
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/usersbyassigntoprofilesall')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersbyassigntoprofilesall',(select menu_id from config_menu where DISPLAYNAME = 'Questionnaire Details'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/usersbyassigntoprofilesall',(select menu_id from config_menu where link = '/selfassessment/createquestionare'))
 end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/home/assignedselfassessmentall')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/assignedselfassessmentall',(select menu_id from config_menu where DISPLAYNAME = 'Questionnaire Details'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/assignedselfassessmentall',(select menu_id from config_menu where link = '/selfassessment/createquestionare'))
 end
 
 
@@ -70,7 +70,7 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tagall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tagall',
-(select menu_id from config_menu where DISPLAYNAME = 'Tag'))
+(select menu_id from config_menu where link = '/config/compliance/questionnaire/tag'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/audittag')
@@ -94,13 +94,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/questionnai
 (select menu_id from config_menu where link ='/config/compliance/questionnaire/answertype'))
 end 
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/certificationtypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/certificationtypeall',
-(select menu_id from config_menu where DISPLAYNAME = 'Certification Type'))
-end 
 
 
 
