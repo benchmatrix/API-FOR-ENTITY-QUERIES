@@ -50,6 +50,13 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controltype
 end
 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controltype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controltypeall',
+(select menu_id from config_menu where Link='/config/rcsa/controltype'))
+end
+
+
 if not exists
 (select * from config_apiforentityname where API='/api/home/RCSAall')
 begin
@@ -118,13 +125,6 @@ end
 update config_apiforentityname set MENU_ID = (select menu_id from config_menu where LINK = '/config/rcsa/risktype') where 
 API = '/api/config/risktype'
 
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/riskall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/riskall',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK REGISTER'))
-end 
 
 
 update config_apiforentityname set MENU_ID = (select menu_id from config_menu where LINK = '/config/rcsa/risktype') where 
@@ -220,27 +220,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/rcsa/riskassessment',null,
 (select MENU_ID from config_menu where menu_key='RA'))
 end
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/rcsarisk')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/rcsarisk',
-(select menu_id from config_menu where Link='/RCSA/workshopassessment'))
-end
-
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/rcsaactivityall')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/rcsaactivityall',null,
-(select MENU_ID from config_menu where LINK ='/config/RCSA/rcsa_activity'))
-end
-
-
-
-
 
 
 if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentarea')
@@ -387,12 +366,6 @@ values('/api/home/workshopall','systemx.api.model.rcsa',
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'RA_AW' order by MENU_ID desc))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/riskall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/riskall',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK REGISTER'))
-end 
-
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/rcsa/ram')
@@ -455,11 +428,7 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskthresholdall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskthresholdall',
-(select menu_id from config_menu where Link='/config/compliance/riskthreshold'))
-end
+
 
 
 update CONFIG_APIFORENTITYNAME set MENU_ID =(select menu_id from config_menu where LINK = '/config/RCSA/scorethreshold')  where api='/api/config/RCSA/scorethreshold'
@@ -486,14 +455,6 @@ End
 
 
 
-
-
-if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/Controlmechanism')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Control Mechanism ',NULL,4,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/rcsa/Controlmechanism','GCM',0,1,1)
-End
 
 
 
@@ -535,14 +496,14 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskc
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/riskcategoryall',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
+(select menu_id from config_menu where link = '/config/risk_category'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskcategory')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/riskcategory',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK CATEGORIES'))
+(select menu_id from config_menu where link = '/config/risk_category'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskclassificationall')
@@ -560,14 +521,6 @@ values(GETDATE(),1,NULL,'Control Type',NULL,1,(select MODULE_ID from CONFIG_MODU
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/rcsa/controltype','GCT'
 ,0,1,1)
 End
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlmechanismall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlmechanismall',
-(select MENU_ID from config_menu where Link='/config/rcsa/Controlmechanism'))
-end
 
 
 
@@ -602,13 +555,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assess
 end 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/riskall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/riskall',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK REGISTER'))
-end 
-
-
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/rcsa/ram')
 begin
@@ -634,20 +580,6 @@ API = '/api/config/risktype'
 update CONFIG_APIFORENTITYNAME set MENU_ID =(select menu_id from config_menu where LINK = '/config/RCSA/scorethreshold')  where api='/api/config/RCSA/scorethreshold'
 
 
-
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlfrequency')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlfrequency',
-(select menu_id from config_menu where Link='/config/rcsa/controlfrequency'))
-end
-
-
-
-
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/home/workshopall')
 begin
@@ -655,13 +587,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/home/workshopall','systemx.api.model.rcsa',
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'RA_AW' order by MENU_ID desc))
 end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/riskall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/riskall',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK REGISTER'))
-end 
-
 
 
 /*ApiEntity insertion*/
@@ -696,13 +621,6 @@ MENU_ID desc))
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/rcsarisk')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/rcsarisk',
-(select menu_id from config_menu where Link='/RCSA/workshopassessment'))
-end
-
-
 if not exists
 (select * from config_apiforentityname where API='/api/config/rcsaactivityall')
 begin
@@ -722,12 +640,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskseverit
 (select menu_id from config_menu where Link='/compliance/risk_severity'))
 end
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlfrequency')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlfrequency',
-(select menu_id from config_menu where Link='/config/rcsa/controlfrequency'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/likelihoodcategory')
 begin
@@ -758,14 +670,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/ruleTyp
 (select menu_id from config_menu where Link='/config/compliance/regulationtype'))
 end
 
-
-
-
-
-
-
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/riskclassificationall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskclassificationall',
@@ -781,8 +685,6 @@ values(GETDATE(),1,NULL,'Control Type',NULL,1,(select MODULE_ID from CONFIG_MODU
 (select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/rcsa/controltype','GCT'
 ,0,1,1)
 End
-
-
 
 
 if not exists(select * from CONFIG_MENU where LINK='/config/RCSA/assessmentmeasureweightage')
@@ -972,13 +874,6 @@ values('/api/home/workshopall','systemx.api.model.rcsa',
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/riskall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/riskall',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK REGISTER'))
-end 
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/RCSA/getrcsaformula')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/RCSA/getrcsaformula',
@@ -1117,20 +1012,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/suggestedac
 end
 
 
-if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/impactcategory')
-begin
-insert into CONFIG_MENU (CREATEDON,CREATEDBY,MAKER_CHECKER,DISPLAYNAME,UPDATEDON,SEQUENCE,MODULE_ID,PARENTID,ICON_CLASS,LINK,MENU_KEY,IS_CONFIG,HIDE_IN_MENU,SHOW_CLOSE_BUTTON)
-values(GETDATE(),1,NULL,'Impact Category',NULL,13,(select MODULE_ID from CONFIG_MODULE where MODULENAME = 'General'),
-(select MENU_ID from CONFIG_MENU where DISPLAYNAME = 'General'),null,'/config/rcsa/impactcategory','GIC',0,1,1)
-End
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/rcsaimpactcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/rcsaimpactcategory',
-(select MENU_ID from config_menu where Link='/config/rcsa/impactcategory'))
-end
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/ramcategorythreshold')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/ramcategorythreshold',
@@ -1197,12 +1078,6 @@ values('/api/RCSA/wsrcsarisk',null,
 end
 
 
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/rcsarisk')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/rcsarisk',
-(select menu_id from config_menu where Link='/RCSA/workshopassessment'))
-end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmenttype')
 begin
@@ -1396,14 +1271,6 @@ values('/api/home/workshopall','systemx.api.model.rcsa',
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/riskall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/riskall',
-(select menu_id from config_menu where DISPLAYNAME = 'RISK REGISTER'))
-end 
-
-
-
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/rcsa/ram')
 begin
@@ -1512,3 +1379,24 @@ if not exists(select * from config_apiforentityname where api = '/api/RCSA/delin
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/RCSA/delinkUserFromRCSAWorkshop','systemx.api.model.rcsa.WorkshopLinkUsers',(select MENU_ID from config_MEnu where Displayname = 'Workshop Details' and Link = '/RCSA/workshop-details'))
 
+----Assessment Area type
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareatype')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareatype',
+(select menu_id from config_menu where Link='/config/RCSA/assessmentareatype'))
+end
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentareatypeall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentareatypeall',
+(select menu_id from config_menu  where Link='/config/RCSA/assessmentareatype'))
+end 
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/rcsa/rcsacontrolclassification')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/rcsa/rcsacontrolclassification',
+(select menu_id from config_menu where Link='/RCSA/control-register'))
+end
