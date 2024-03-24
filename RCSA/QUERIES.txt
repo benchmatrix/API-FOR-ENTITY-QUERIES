@@ -1197,15 +1197,6 @@ values('/api/dynamicFiltersData',null,
 (select MENU_ID from config_menu where LINK ='/RCSA/workshopassessment'))
 End
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlcategoryall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcategoryall',(select menu_id from config_menu where DISPLAYNAME = 'Control Category'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlcategory')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcategory',(select menu_id from config_menu where DISPLAYNAME = 'Control Category'))
-end
 
 
 ----Assessment measure values
