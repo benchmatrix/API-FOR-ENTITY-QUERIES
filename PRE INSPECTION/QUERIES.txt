@@ -7,12 +7,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/preinspection/preinspectionall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/preinspection/preinspectionall',
-(select menu_id from config_menu where Link='/preinspection/preinspection'))
-end
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/preinspectioncategoriesall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/preinspectioncategoriesall',
@@ -32,18 +26,14 @@ End
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/preinspection/preinspectionall')
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/preinspection/preinspection')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/preinspection/preinspectionall',
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/preinspection/preinspection',
 (select menu_id from config_menu where Link='/preinspection/preinspection'))
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/preinspection/preinspectionall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/preinspection/preinspectionall',
-(select menu_id from config_menu where Link='/preinspection/preinspection'))
-end
+
 
 
 
