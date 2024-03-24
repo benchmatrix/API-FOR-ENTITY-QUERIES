@@ -346,17 +346,7 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/categoryassessment')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/categoryassessment',
-(select menu_id from config_menu where DISPLAYNAME = 'Category assessment'))
-end 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/categoryassessmentall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/categoryassessmentall',
-(select menu_id from config_menu where DISPLAYNAME = 'Category assessment'))
-end 
 
 /*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/home/workshopall')
