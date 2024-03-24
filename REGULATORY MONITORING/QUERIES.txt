@@ -104,7 +104,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/libra
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/librarytypeall',
 'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'REGULATION TYPE'))
+(select menu_id from config_menu where link = '/config/compliance/regulationtype'))
 end
 delete CONFIG_APIFORENTITYNAME where API= '/api/compliance/ruleTypeAllAI'	
 
@@ -112,7 +112,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/r
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/compliance/ruleTypeAllAI',
 'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'REGULATION TYPE'))
+(select menu_id from config_menu where link = '/config/compliance/regulationtype'))
 end
 
 
@@ -120,7 +120,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/requi
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/requirementstatusall',
 'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'REQUIREMENT STATUS'))
+(select menu_id from config_menu where link = '/config/compliance/requirementstatus'))
 end
 delete CONFIG_APIFORENTITYNAME where API= '/api/compliance/ruleTypeAllAI'	
 
@@ -128,7 +128,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/r
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/compliance/ruleTypeAllAI',
 'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'REQUIREMENT STATUS'))
+(select menu_id from config_menu where link = '/config/compliance/regulationtype'))
 end
 
 if not exists
@@ -186,27 +186,6 @@ null,
 where link = '/compliance/activity')
 );
 End
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/librarytype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/librarytype',(select menu_id from config_menu where DISPLAYNAME = 'Regulation type'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/librarytypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/librarytypeall',(select menu_id from config_menu where DISPLAYNAME = 'Regulation type'))
-end
-
-
-
-
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/activitystatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/activitystatusall',(select menu_id from config_menu where DISPLAYNAME = 'Activity status' and Link = '/config/activitystatus'))
-end
 
 if not exists(select * from config_apiforentityname where API='/api/library/getComplianceLibraryParentAndFirstChildren')
 begin
@@ -268,36 +247,8 @@ values('/api/library/complianceCategoryall','systemx.api.model.compliancelibrary
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'RM_Q' order by MENU_ID desc))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/librarytypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/librarytypeall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'REGULATION TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/compliance/ruleTypeAllAI'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/ruleTypeAllAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/compliance/ruleTypeAllAI',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'REGULATION TYPE'))
-end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/requirementstatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/requirementstatusall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'REQUIREMENT STATUS'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/compliance/ruleTypeAllAI'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/ruleTypeAllAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/compliance/ruleTypeAllAI',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'REQUIREMENT STATUS'))
-end
 
 
 
@@ -337,36 +288,6 @@ end
 
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/librarytypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/librarytypeall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'REGULATION TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/compliance/ruleTypeAllAI'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/ruleTypeAllAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/compliance/ruleTypeAllAI',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'REGULATION TYPE'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/requirementstatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/requirementstatusall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'REQUIREMENT STATUS'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/compliance/ruleTypeAllAI'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/ruleTypeAllAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/compliance/ruleTypeAllAI',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'REQUIREMENT STATUS'))
-end
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/libraryLogs')
@@ -398,36 +319,7 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/compliance/ruleTyp
 (select menu_id from config_menu where Link='/config/compliance/regulationtype'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/librarytypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/librarytypeall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'REGULATION TYPE'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/compliance/ruleTypeAllAI'	
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/ruleTypeAllAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/compliance/ruleTypeAllAI',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'REGULATION TYPE'))
-end
-
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/requirementstatusall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/requirementstatusall',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'REQUIREMENT STATUS'))
-end
-delete CONFIG_APIFORENTITYNAME where API= '/api/compliance/ruleTypeAllAI'	
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/compliance/ruleTypeAllAI')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/compliance/ruleTypeAllAI',
-'systemx.api.model.config.compliance',
-(select menu_id from config_menu where DISPLAYNAME = 'REQUIREMENT STATUS'))
-end
 
 if not exists
 (select * from CONFIG_MENU where LINK='/compliance/compliance-key-area')
@@ -486,19 +378,6 @@ values('/api/dynamicFiltersData',null,
 (select MENU_ID from config_menu where LINK ='/compliance/compliance-requirement'))
 End
 
-
-
---Regulation type--
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/librarytype')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/librarytype',(select menu_id from config_menu where DISPLAYNAME = 'Regulation type'))
-end
-
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/librarytypeall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/librarytypeall',(select menu_id from config_menu where DISPLAYNAME = 'Regulation type'))
-end
 
 
 
