@@ -1233,5 +1233,11 @@ values
 end
 
 
+--Multiple Doc Activity Api---
+if not exists(select * from CONFIG_APIFORENTITYNAME where API = '/api/activity/activityMultipleDocs')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID)values('/api/activity/activityMultipleDocs',(select Menu_id from CONFIG_MENu where displayname='Activity details'))
+end
+
 
 
