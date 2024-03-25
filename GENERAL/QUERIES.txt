@@ -4322,3 +4322,77 @@ null,
 (select menu_id from config_menu where link ='/config/businessFunctions'))
 end
 
+
+
+
+
+-- FAILED EMAIL LOG QUERY--
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where API='/api/email/failedmaillogall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values ('/api/email/failedmaillogall',(select Menu_id from config_menu where displayname='Failed Mail Log'))
+end 
+-- SENT MAIL LOG--
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where API='/api/email/sentmaillogall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values ('/api/email/sentmaillogall',(select Menu_id from config_menu where displayname='Sent Mail Log'))
+end 
+
+
+--SYSTEM AUDIT--
+if not exists(select * from CONFIG_APIFORENTITYNAME where API='/api/config/auditlogall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values ('/api/config/auditlogall',(select Menu_id from config_menu where displayname='System Audit'))
+end 
+
+
+-- SCHEDULE REMINDER LOG--
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where API='/api/config/schedulereminderlogall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values ('/api/config/schedulereminderlogall',(select Menu_id from config_menu where displayname='SCHEDULE REMINDER LOG'))
+end 
+
+
+-- MANUAL REMINDER--
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where API='/api/config/manualreminderlogall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values ('/api/config/manualreminderlogall',(select Menu_id from config_menu where displayname='Manual Reminder'))
+end
+
+
+--SUCESSFUL AUDITS--
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where API='/api/config/auditpagesall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values ('/api/config/auditpagesall',(select Menu_id from config_menu where displayname='Successful Audits'))
+end
+
+
+
+--FAILED AUDITS--
+
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where API='/api/config/failedauditpagesall')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values ('/api/config/failedauditpagesall',(select Menu_id from config_menu where displayname='Failed Audits'))
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
