@@ -24,8 +24,6 @@ end
 
 
 
-
-
 if not exists
 (select * from config_apiforentityname where API='/api/config/validationall')
 begin
@@ -41,8 +39,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end 
 
 
-
-
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
 where API='/api/config/businessFunctions'
@@ -55,7 +51,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end
 
 
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/actionplantypes')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/actionplantypes',(select menu_id from config_menu
@@ -65,7 +60,6 @@ end
 
 update CONFIG_APIFORENTITYNAME set MENU_ID = (select menu_id from config_menu where link = '/config/workflow-setup') where
 api='/api/config/workflowStateType'
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/dashboardall')
@@ -81,7 +75,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 'systemx.api.model.config.Dashboard',
 (select MENU_ID from config_menu where LINK = '/config/dashboard'))
 end
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/eventtypeall')
@@ -103,17 +96,12 @@ end
 delete from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategory'
 
 
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/causalcategory')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/causalcategory',
 null,
 (select menu_id from config_menu where LINK ='/config/casual_category'))
 end
-
-
-
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losscontrolstatusall')
@@ -161,9 +149,6 @@ where link = '/config/actionplan_severity'))
 end
 
 
-
-
--------------Compliance queries-------------------
 --Broad category----
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/broadcategory')
@@ -203,7 +188,6 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/libra
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/librarytypeall',(select menu_id from config_menu where link = '/config/compliance/regulationtype'))
 end
-
 
 
 --Requirement status--
@@ -248,7 +232,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/complianceC
 end
 
 
-
 ----Category assessment---
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/categoryassessment')
@@ -265,7 +248,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/categoryass
 end 
 
 
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/losstypeall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/losstypeall',
@@ -278,7 +260,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/losstype',
 end 
 
 
-
 if not exists
 (select * from config_apiforentityname where API='/api/config/compliance/compliance-key-area-all')
 begin
@@ -287,14 +268,6 @@ values('/api/config/compliance/compliance-key-area-all',
 (select top 1 MENU_ID from config_menu where LINK = '/compliance/compliance-key-area' order by 
 MENU_ID desc))
 end
-
-
-
-
-
-
-
-
 
 
 if not exists(select * from CONFIG_MENU where LINK='/config/workflow-setup')
@@ -448,11 +421,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcategory',(select menu_id from config_menu where link = 'rcsa/controlcategory'))
 end
 
-
-
-
-
-
 ---- Control coso category-----
 
 
@@ -470,20 +438,12 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/controlcoso
 end 
 
 
-
-
-
-
-
-
 delete CONFIG_APIFORENTITYNAME where api='/api/config/userprofile'
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/userprofile')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/userprofile',
 (select menu_id from config_menu where Link='/config/userprofile'))
 end
-
-
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/loginAudit')
@@ -494,8 +454,6 @@ end
 
 
 
-
-
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/workflowstatetype')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowstatetype',
@@ -503,14 +461,14 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/workflowsta
 End
 
 	
-	delete CONFIG_APIFORENTITYNAME where API= '/api/config/locationsAI'	
+delete CONFIG_APIFORENTITYNAME where API= '/api/config/locationsAI'	
 
-	if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/locationsAI')
-	begin
-	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/locationsAI',
-	'systemx.api.model.config',
-	(select menu_id from config_menu where LINK = '/config/location'))
-	End
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/locationsAI')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/locationsAI',
+'systemx.api.model.config',
+(select menu_id from config_menu where LINK = '/config/location'))
+End
 
 
 	
@@ -563,8 +521,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 'systemx.api.model.config.compliance',
 (select menu_id from config_menu where link ='/config/compliance/observation/observationnature'))
 end
-
-
 
 
 
@@ -663,8 +619,6 @@ end
 
 
 
-
-
 delete CONFIG_APIFORENTITYNAME where  api='/api/config/frequency'
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/frequency')
@@ -725,8 +679,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/potentiallo
 end
 
 
-
-
 update CONFIG_APIFORENTITYNAME
 set MENU_ID=(select MENU_ID from config_menu where link='/config/potential_loss')
 where API='/api/config/potentialloss'
@@ -759,9 +711,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/actionPlanCategory',
 (select menu_id from config_menu where Link='/config/actionPlanCategoryComponent'))
 End
-
-
-
 
 
 
@@ -812,8 +761,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/parentworkflows','systemx.api.model.workflow.Bucket',
 (select MENU_ID from config_menu where MENU_KEY = 'B' and link='/bucket'))
 end
-
-
 
 if not exists
 (select * from config_apiforentityname where API='/api/home/controlplanlinkcontrollinkusersall')
@@ -982,8 +929,6 @@ End
 
 
 
-
-
 if not exists
 (select * from config_apiforentityname where API='/api/config/configteamall')
 begin
@@ -1055,8 +1000,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/fraudincidenttypeall',null,
 (select MENU_ID from config_menu where LINK ='/config/fraud_incident_type'))
 end
-
-
 
 
 if not exists
@@ -1388,8 +1331,6 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/riskobjective',
 (select MENU_ID from config_menu where Link='/config/rcsa/riskobjective'))
 end
-
-
 
 
 if not exists(select * from CONFIG_MENU where LINK='/config/rcsa/suggestedaction')
