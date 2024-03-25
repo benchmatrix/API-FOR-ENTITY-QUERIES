@@ -579,3 +579,15 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/home/lossAmountall',
 (select menu_id from config_menu where LINK='/bucket'))
 end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/loss/incidentreportbyid')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/loss/incidentreportbyid',
+(select menu_id from config_menu where LINK='/lossmanagement/lossmanagement'))
+end 
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/dynamic/EVT')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/dynamic/EVT',
+(select menu_id from config_menu where LINK='/lossmanagement/lossmanagement'))
+end 
