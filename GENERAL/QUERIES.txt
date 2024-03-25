@@ -4293,6 +4293,14 @@ values('/api/home/assigncomplianceruleall','systemx.api.model.workflow.Bucket',
 (select MENU_ID from config_menu where MENU_KEY = 'B'))
 end
 
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/dynamicFiltersData')
+begin
+Insert into config_apiforentityname(API,MENU_ID)
+values('/api/dynamicFiltersData',
+(select top 1 MENU_ID from config_menu where LINK = '/notification-center' order by 
+MENU_ID desc))
+end
 
 
 
