@@ -4303,6 +4303,20 @@ MENU_ID desc))
 end
 
 
+if not exists(select * from config_apiforentityname where API='/api/dashboardFiltersData')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dashboardFiltersData','systemx.api.model.dashboards',
+(select top 1 MENU_ID from config_menu where link = '/config/dashboard' order by MENU_ID desc))
+end
+
+/*ApiEntity insertion*/
+if not exists(select * from config_apiforentityname where API='/api/dashboardFiltersData')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/dashboardFiltersData','systemx.api.model.dashboards',
+(select top 1 MENU_ID from config_menu where link = '/keyriskindicators/kidashboards' order by MENU_ID desc))
+end
 
 
 
