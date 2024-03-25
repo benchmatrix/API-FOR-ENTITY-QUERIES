@@ -39,9 +39,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 end 
 
 
-update CONFIG_APIFORENTITYNAME
-set MENU_ID=(select MENU_ID from config_menu where link='/config/businessFunctions')
-where API='/api/config/businessFunctions'
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/nature')
 begin
@@ -4050,7 +4047,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/field
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/fieldlinkpagesall',
 'systemx.api.model.config.dynamicpages.FieldLinkPages',
-(select menu_id from config_menu where link= ' /config/dynamicforms/fieldlinkpages'))
+(select menu_id from config_menu where link='/config/dynamicforms/fieldlinkpages'))
 end
 
 if not exists(select * from config_apiforentityname where API='/api/config/workflowison')
@@ -4318,5 +4315,10 @@ values('/api/dashboardFiltersData','systemx.api.model.dashboards',
 (select top 1 MENU_ID from config_menu where link = '/keyriskindicators/kidashboards' order by MENU_ID desc))
 end
 
-
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/businessFunctions')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/businessFunctions',
+null,
+(select menu_id from config_menu where link ='/config/businessFunctions'))
+end
 
