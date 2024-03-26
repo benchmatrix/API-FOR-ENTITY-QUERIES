@@ -383,30 +383,6 @@ MENU_ID desc))
 end
 
 
-UPDATE CONFIG_APIFORENTITYNAME
-set MENU_ID=(select menu_id from config_menu where link='/config/user')
-where api='/api/config/bucketStatus'
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/bucketStatus')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/bucketStatus',null,
-(select MENU_ID from config_menu where LINK ='/config/user'))
-end
-
-UPDATE CONFIG_APIFORENTITYNAME
-set MENU_ID=(select menu_id from config_menu where link='/config/business_hierarchy')
-where api='/api/config/bucketStatus'
-
-if not exists
-(select * from config_apiforentityname where API='/api/config/bucketStatus')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/bucketStatus',null,
-(select MENU_ID from config_menu where LINK ='/config/business_hierarchy'))
-end
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/controlcategoryall')
 begin
@@ -2027,7 +2003,7 @@ if not exists(select * from config_apiforentityname where API='/api/config/bucke
 begin
 Insert into config_apiforentityname(API,MENU_ID)
 values('/api/config/bucketStatus',
-(select top 1 MENU_ID from config_menu where LINK ='/config/configurations' 
+(select top 1 MENU_ID from config_menu where LINK ='/bucket' 
 order by 
 MENU_ID desc))
 End
@@ -2270,16 +2246,6 @@ end
 
 
 /*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/bucketStatus')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/bucketStatus',
-(select top 1 MENU_ID from config_menu where LINK ='/config/configurations' 
-order by 
-MENU_ID desc))
-End
-
-/*ApiEntity insertion*/
 if not exists(select * from config_apiforentityname where API='/api/config/userprofileall')
 begin
 Insert into config_apiforentityname(API,MENU_ID)
@@ -2503,18 +2469,6 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/discoverytype','systemx.api.model.config.loss',
 (select top 1 MENU_ID from config_menu where LINK = '/lossmanagement/lossmanagement' order by MENU_ID desc))
 end
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/bucketStatus')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/bucketStatus',
-(select top 1 MENU_ID from config_menu where LINK ='/config/configurations' 
-order by 
-MENU_ID desc))
-End
-
 
 
 
@@ -2874,17 +2828,6 @@ values('/api/config/getColumnsOfFindings','systemx.api.model.config.dynamicpages
 (select top 1 MENU_ID from config_menu where MENU_KEY = 'O_IO' order by MENU_ID desc))
 end
 
-
-
-/*ApiEntity insertion*/
-if not exists(select * from config_apiforentityname where API='/api/config/bucketStatus')
-begin
-Insert into config_apiforentityname(API,MENU_ID)
-values('/api/config/bucketStatus',
-(select top 1 MENU_ID from config_menu where LINK ='/config/configurations' 
-order by 
-MENU_ID desc))
-End
 
 if not exists(select * from CONFIG_MENU where LINK='/compliance/workFlowStatus')
 begin
