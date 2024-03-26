@@ -2414,14 +2414,14 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatus')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatus',
-(select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
+(select menu_id from config_menu where Link='/compliance/workFlowStatus'))
 End
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/WorkFlowStatusall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/WorkFlowStatusall',
-(select menu_id from config_menu where Link='/config/compliance/workFlowStatus'))
+(select menu_id from config_menu where Link='/compliance/workFlowStatus'))
 end
 
 
