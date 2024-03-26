@@ -6,17 +6,17 @@ if not exists
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/observation/auditreports/',null,
-(select MENU_ID from config_menu where LINK ='/compliance/Audit/externalauditReport' and DISPLAYNAME='External Reports'))
+(select MENU_ID from config_menu where LINK ='/compliance/Audit/externalauditReport' and  MENU_KEY='O_ERD_STR'))
 end
 
+--api/observation/auditreports
 if not exists
-(select * from config_apiforentityname where API='/api/observation/auditreports')
+(select * from config_apiforentityname where API='/api/observation/auditreports/I')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/auditreports',null,
-(select MENU_ID from config_menu where LINK ='/compliance/Audit/externalauditReport' and DISPLAYNAME='External Reports'))
+values('/api/observation/auditreports/I',null,
+(select MENU_ID from config_menu where LINK ='/compliance/InternaladdAuditReport' and MENU_KEY='O_IRD_STR'))
 end
-
 
 
 
@@ -633,10 +633,6 @@ values('/api/dynamicFiltersData',null,
 (select MENU_ID from config_menu where LINK ='/compliance/Audit/externalobservation-listing'))
 End
 
-
-
-if not exists (select * from CONFIG_APIFORENTITYNAME where api = '/api/observation/auditreports/' and menu_id = (select menu_id from CONFIG_MENU where link = '/compliance/ExternaladdAuditReport') )
-insert into CONFIG_APIFORENTITYNAME (api,MENU_ID) values ('/api/observation/auditreports/', (select menu_id from CONFIG_MENU where link = '/compliance/ExternaladdAuditReport'))
 
 
 
