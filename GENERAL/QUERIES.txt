@@ -3610,7 +3610,7 @@ if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impac
 begin
 insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/impactcategoryall',
 'systemx.api.model.config.loss',
-(select menu_id from config_menu where link ='/config/rcsa/impactcategory'))
+(select menu_id from config_menu where link ='/config/impactcategory'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/impactcategory')
