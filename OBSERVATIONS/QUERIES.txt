@@ -46,9 +46,9 @@ values('/api/observations/observationall',null,
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/observation/getallauditreports/I')
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/observation/getallauditreports')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/observation/getallauditreports/I',
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/observation/getallauditreports',
 (select menu_id from config_menu where LINK ='/compliance/Audit/internalauditReport' and menu_key='O_IR'))
 end 
 
@@ -192,6 +192,8 @@ Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/observation/auditreportobservation','systemx.api.model.complianceobservation.Observations',
 (select MENU_ID from config_menu where LINK='/compliance/addExternalObservation' and menu_key='O_EOD'))
 end
+
+
 
 
 
@@ -874,7 +876,12 @@ insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/dynamic/AUD','systemx.api.model.complianceobservation.AuditReports',(select MENU_ID from config_MEnu where Displayname = 'External Report Details' and Link = '/compliance/ExternaladdAuditReport'))
 
 
-
+if not exists(select * from config_apiforentityname where API='/api/observation/auditreportobservation' and menu_id=(select MENU_ID from config_menu where LINK='/compliance/addObservation' and menu_key='O_IOD'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/observation/auditreportobservation','systemx.api.model.complianceobservation.Observations',
+(select MENU_ID from config_menu where LINK='/compliance/addObservation' and menu_key='O_IOD'))
+end
 
 
 
