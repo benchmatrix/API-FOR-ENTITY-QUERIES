@@ -51,14 +51,6 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/observation/getall
 (select menu_id from config_menu where LINK ='/compliance/Audit/internalauditReport' and menu_key='O_IR'))
 end 
 
-if not exists
-(select * from config_apiforentityname where API='/api/observation/getauditreportbyid/')
-begin
-Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/getauditreportbyid/',null,
-(select MENU_ID from config_menu where LINK ='/compliance/ExternaladdAuditReport' and menu_key='O_ERD'))
-end
-
 
 
 if not exists
