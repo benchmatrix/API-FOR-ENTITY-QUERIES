@@ -52,10 +52,10 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/observation/getall
 end 
 
 if not exists
-(select * from config_apiforentityname where API='/api/observation/getauditreportbyid')
+(select * from config_apiforentityname where API='/api/observation/getauditreportbyid/')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/getauditreportbyid',null,
+values('/api/observation/getauditreportbyid/',null,
 (select MENU_ID from config_menu where LINK ='/compliance/ExternaladdAuditReport' and menu_key='O_ERD'))
 end
 
@@ -660,13 +660,12 @@ values('/api/observation/getallobervationsbyreportid/',
 end
 
 
-if not exists(select * from config_apiforentityname where API='/api/observation/getallobervationsbyreportid/I')
+if not exists(select * from config_apiforentityname where API='/api/observation/getallobervationsbyreportid/' and menu_id=(select MENU_ID from config_menu where LINK ='/compliance/Audit/InternalAuditReport' and MENU_KEY='O_IRO'))
 begin
 Insert into config_apiforentityname(API,MENU_ID)
-values('/api/observation/getallobervationsbyreportid/I',
+values('/api/observation/getallobervationsbyreportid/',
 (select MENU_ID from config_menu where LINK ='/compliance/Audit/InternalAuditReport' and MENU_KEY='O_IRO'))
 end
-
 
 
 if not exists(select * from config_apiforentityname where API='/api/dynamic/OBS' and menu_id=(select MENU_ID from config_menu where LINK ='/compliance/Audit/InternalAuditReport' and MENU_KEY='O_IRO'))
@@ -848,11 +847,10 @@ values('/api/dynamic/AUD','systemx.api.model.complianceobservation.AuditReports'
 
 
 
-
----
-if not exists(select * from config_apiforentityname where api = '/api/dynamic/AUD')
+if not exists(select * from config_apiforentityname where api = '/api/dynamic/AUD' and menu_id=(select MENU_ID from config_menu where menu_key='O_ERD'))
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/dynamic/AUD','systemx.api.model.complianceobservation.AuditReports',(select MENU_ID from config_MEnu where Displayname = 'External Report Details' and Link = '/compliance/ExternaladdAuditReport'))
+values('/api/dynamic/AUD','systemx.api.model.complianceobservation.AuditReports',(select MENU_ID from config_MEnu where menu_key='O_ERD' and Link = '/compliance/ExternaladdAuditReport'))
+
 
 
 if not exists(select * from config_apiforentityname where API='/api/observation/auditreportobservation' and menu_id=(select MENU_ID from config_menu where LINK='/compliance/addObservation' and menu_key='O_IOD'))
