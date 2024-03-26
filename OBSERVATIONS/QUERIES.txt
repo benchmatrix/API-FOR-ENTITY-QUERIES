@@ -669,7 +669,7 @@ end
 
 
 
-if not exists(select * from config_apiforentityname where API='/api/dynamic/OBS')
+if not exists(select * from config_apiforentityname where API='/api/dynamic/OBS' and menu_id=(select MENU_ID from config_menu where LINK ='/compliance/Audit/InternalAuditReport' and MENU_KEY='O_IRO'))
 begin
 Insert into config_apiforentityname(API,MENU_ID)
 values('/api/dynamic/OBS',
@@ -832,22 +832,6 @@ values('/api/observation/getObservationdocsbyobservationid','systemx.api.model.c
 if not exists(select * from config_apiforentityname where api = '/api/observation/auditreportobservationcommentupdate')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/observation/auditreportobservationcommentupdate','systemx.api.model.complianceobservation.ObservationComments',(select MENU_ID from config_MEnu where Displayname = 'Assign Observation' and Link = '/compliance/Audit/observations'))
-
-
-
----
-if not exists(select * from config_apiforentityname where api = '/api/dynamic/OBS')
-insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/dynamic/OBS','systemx.api.model.complianceobservation.AuditReports',(select MENU_ID from config_MEnu where Displayname = 'Internal Reports Observation' and Link = '/compliance/Audit/InternalAuditReport'))
-
-
-
-
----
-if not exists(select * from config_apiforentityname where api = '/api/dynamic/OBS')
-insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/dynamic/OBS','systemx.api.model.complianceobservation.AuditReports',(select MENU_ID from config_MEnu where Displayname = 'External Reports Observation' and Link = '/compliance/Audit/ExternalAuditReport'))
-
 
 
 
