@@ -41,7 +41,7 @@ if not exists(select * from config_apiforentityname where API='/api/observations
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/observations/observationall',null,
-(select MENU_ID from config_menu where DISPLAYNAME ='Observations' AND MENU_KEY='O'))
+(select MENU_ID from config_menu where  MENU_KEY='O'))
 end
 
 
