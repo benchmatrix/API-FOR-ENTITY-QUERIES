@@ -1,13 +1,13 @@
 
 
---api/observation/auditreports
 if not exists
 (select * from config_apiforentityname where API='/api/observation/auditreports')
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/observation/auditreports/',null,
-(select MENU_ID from config_menu where LINK ='/compliance/ExternaladdAuditReport' and  MENU_KEY='O_ER'))
+values('/api/observation/auditreports',null,
+(select MENU_ID from config_menu where LINK ='/compliance/ExternaladdAuditReport' and  MENU_KEY='O_ERD'))
 end
+
 
 --api/observation/auditreports
 if not exists
