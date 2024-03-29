@@ -424,11 +424,9 @@ insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/kitypeall',
 end
 
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='
-/api/ki/kidashboard')
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/ki/kidashboard')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('
-/api/ki/kidashboard',(select menu_id from config_menu where link= '/keyriskindicators/create-kidashboards'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/ki/kidashboard',(select menu_id from config_menu where link= '/keyriskindicators/create-kidashboards'))
 end 
 
 
