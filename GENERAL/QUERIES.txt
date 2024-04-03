@@ -4104,7 +4104,7 @@ values('/api/config/menurights','systemx.api.model.config.MenuRights',Null)
 
 if not exists(select * from config_apiforentityname where api = '/api/config/users')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/config/users','systemx.api.model.config.BusinessHierarchyRights',Null)
+values('/api/config/users','systemx.api.model.config.BusinessHierarchyRights',(select MENU_ID from config_menu where Link='/config/user'))
 
 
 
