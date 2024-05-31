@@ -76,7 +76,7 @@ end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentdimensionandarea')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentdimensionandarea',(select menu_id from config_menu where link = '/config/RCSA/assessmentdimensionandarea' ))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentdimensionandarea',(select menu_id from config_menu where link ='/config/RCSA/assessmentdimensionandarea' ))
 end 
 
 
@@ -1339,7 +1339,7 @@ end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentcategory')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentcategory',(select menu_id from config_menu where link = '/config/RCSA/assessmentcategory'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentcategory',(select menu_id from config_menu where link ='/config/RCSA/assessmentcategory'))
 end 
 
 
@@ -1347,12 +1347,12 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentdimensionall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentdimensionall',
-(select menu_id from config_menu where link = '/config/RCSA/assessmentdimension'))
+(select menu_id from config_menu where link ='/config/RCSA/assessmentdimension'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentdimension')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentdimension',(select menu_id from config_menu where link = '/config/RCSA/assessmentdimension'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentdimension',(select menu_id from config_menu where link ='/config/RCSA/assessmentdimension'))
 end 
 
 ---
