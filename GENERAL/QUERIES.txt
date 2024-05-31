@@ -4346,6 +4346,13 @@ values('/api/config/Years',null,
 (select MENU_ID from config_menu where link = '/Report/reportlisting'))
 end
 
+if not exists
+(select * from config_apiforentityname where API='/api/home/assigncompliancerequirementall')
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/home/assigncompliancerequirementall',null,
+(select MENU_ID from config_menu where LINK ='/bucket'))
+end
 
 
 
