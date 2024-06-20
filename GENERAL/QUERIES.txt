@@ -4385,3 +4385,9 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/library
 'systemx.api.model.config.compliance.Channel',
 (select menu_id from config_menu where link='/compliance/library-tree'))
 end
+
+if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/productlinkedprocess')
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/productlinkedprocess',
+(select menu_id from config_menu where link='/config/productlinked_process'))
+end 
