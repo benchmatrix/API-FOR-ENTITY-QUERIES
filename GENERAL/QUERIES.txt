@@ -820,7 +820,7 @@ if not exists(select * from config_apiforentityname where API='/api/config/prior
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/config/prioritylevelall',null,
-(select top 1 MENU_ID from config_menu where LINK='/config/prioritylevel'))
+(select top 1 MENU_ID from config_menu where LINK='/config/compliance/prioritylevel'))
 end
 
 
@@ -2221,10 +2221,6 @@ insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/
 (select menu_id from config_menu where link ='/config/compliance/prioritylevel'))
 end
 
-if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/prioritylevelall')
-begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/prioritylevelall',(select menu_id from config_menu where link = '/config/compliance/prioritylevel'))
-end
 
 
 /*ApiEntity insertion*/
