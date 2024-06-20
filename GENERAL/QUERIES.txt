@@ -452,7 +452,7 @@ delete CONFIG_APIFORENTITYNAME where API= '/api/config/processAI'
 	begin
 	insert into CONFIG_APIFORENTITYNAME(API,ENTITYNAME,MENU_ID) values('/api/config/processAI',
 	'systemx.api.model.config',
-	(select menu_id from config_menu where LINK='/config/processlibrary'))
+	(select menu_id from config_menu where LINK='/config/process'))
 	end
 
 
@@ -4092,7 +4092,7 @@ values
 ('/api/config/process',
 'systemx.api.model.config.Process',
 (select menu_id from config_menu 
-where link = '/config/processlibrary'));
+where link ='/config/process'));
 end
 
 
@@ -4140,7 +4140,7 @@ Displayname = 'Business Hierarchy' and Link = '/config/business_hierarchy'))
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where API = '/api/config/processlinkage')
 begin
-insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values ('/api/config/processlinkage',(select MENU_ID from CONFIG_MENU where LINK = '/config/process'))
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values ('/api/config/processlinkage',(select MENU_ID from CONFIG_MENU where LINK ='/config/process'))
 end
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api = '/api/dashboard/datasource')
