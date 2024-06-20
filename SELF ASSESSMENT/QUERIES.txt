@@ -70,7 +70,7 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tagall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tagall',
-(select menu_id from config_menu where link = '/config/compliance/questionnaire/tag'))
+(select menu_id from config_menu where link ='/config/compliance/questionnaire/tag'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/audittag')
@@ -204,16 +204,14 @@ end
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tag')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tag',
-(select menu_id from config_menu where link= '/config/compliance/questionnaire/tag
-'))
+(select menu_id from config_menu where link='/config/compliance/questionnaire/tag'))
 end 
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/tagall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/tagall',
-(select menu_id from config_menu where link= '/config/compliance/questionnaire/tag
-'))
+(select menu_id from config_menu where link='/config/compliance/questionnaire/tag'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/SA/consolidationcriteria')
