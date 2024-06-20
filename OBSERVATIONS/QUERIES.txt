@@ -28,7 +28,7 @@ if not exists
  end
 
 if not exists
- (select * from config_apiforentityname where API='/api/observation/auditreportattachments')
+ (select * from config_apiforentityname where API='/api/observation/auditreportattachments' and menu_id=(select MENU_ID from config_menu where LINK ='/compliance/Audit/ExternalAuditReport' and menu_key='O_ERO' and DISPLAYNAME='External Reports Observation'))
  begin
  Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
  values('/api/observation/auditreportattachments',null,
