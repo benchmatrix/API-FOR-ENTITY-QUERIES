@@ -853,6 +853,11 @@ end
 
 
 
+if not exists(select * from CONFIG_APIFORENTITYNAME where api= '/api/observation/observationLinkActionPlan' and menu_id=(select menu_id from config_menu where Link='/compliance/addExternalObservation'))
+begin
+insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/library/complianceCategoryFolder',
+(select menu_id from config_menu where Link='/compliance/addExternalObservation'))
+end
 
 
 
