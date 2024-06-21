@@ -4391,3 +4391,9 @@ begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/productlinkedprocess',
 (select menu_id from config_menu where link='/config/productlinked_process'))
 end 
+if not exists(select * from config_apiforentityname where API='/api/config/dynamicconfigbylink' and menu_id=(select top 1 MENU_ID from config_menu where LINK='/config/initalrecommendation'))
+begin
+Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
+values('/api/config/dynamicconfigbylink',null,
+(select top 1 MENU_ID from config_menu where LINK='/config/initalrecommendation'))
+end
