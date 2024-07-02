@@ -614,7 +614,7 @@ values('/api/compliance/complianceActivityLinkagesall','systemx.api.model.regula
 ---
 if not exists(select * from config_apiforentityname where api = '/api/compliance/complianceactivityall')
 insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
-values('/api/compliance/complianceactivityall','systemx.api.model.regulatorycompliance.ComplianceActivity',(select MENU_ID from config_MEnu where Displayname = 'Activity' and Link = '/compliance/compliance-activity'))
+values('/api/compliance/complianceactivityall','systemx.api.model.regulatorycompliance.ComplianceActivity',(select MENU_ID from config_MEnu where Displayname = 'Activity' and Link ='/compliance/compliance-activity'))
 
 
 
