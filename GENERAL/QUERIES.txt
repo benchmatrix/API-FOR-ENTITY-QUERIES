@@ -1113,8 +1113,9 @@ if not exists
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/dashboard/rcsaall',null,
-(select MENU_ID from config_menu where  link ='/dashboard/dashboards'))
+(select MENU_ID from config_menu where  link ='/dashboard/dashboards' and menu_key='RA_DB'))
 end
+
 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/marsratingall')
@@ -3093,9 +3094,8 @@ if not exists
 begin
 Insert into config_apiforentityname(API,ENTITYNAME,MENU_ID)
 values('/api/dashboard/lossdataall',null,
-(select MENU_ID from config_menu where  link ='/dashboard/dashboards'))
+(select MENU_ID from config_menu where  link ='/dashboard/dashboards' and menu_key='LD_D'))
 end
-
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/auditratingall')
 begin
