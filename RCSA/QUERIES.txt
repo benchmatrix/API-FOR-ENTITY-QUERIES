@@ -1205,13 +1205,13 @@ End
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasurevaluesall')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasurevaluesall',
-(select menu_id from config_menu where link ='/config/RCSA/assessmentmeasurevalues'))
+(select menu_id from config_menu where link ='/config/RCSA/assessmentmeasurevalues' and DISPLAYNAME='Assessment Measure Values'))
 end 
 
 if not exists(select * from CONFIG_APIFORENTITYNAME where api='/api/config/RCSA/assessmentmeasurevalues')
 begin
 insert into CONFIG_APIFORENTITYNAME(API,MENU_ID) values('/api/config/RCSA/assessmentmeasurevalues',
-(select menu_id from config_menu where link ='/config/RCSA/assessmentmeasurevalues'))
+(select menu_id from config_menu where link ='/config/RCSA/assessmentmeasurevalues' and DISPLAYNAME='Assessment Measure Values'))
 end 
 
 
