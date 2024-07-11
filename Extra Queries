@@ -1,0 +1,5 @@
+update config_menu set MODULE_ID = (select MODULE_ID from CONFIG_MODULE  where MODULE_KEY = 'CNFG')  where MENU_ID= ( (select MENU_ID from config_menu where LINK ='/config/RCSA/assessmentareatype'))
+
+if not exists (select * from CONFIG_APIFORENTITYNAME where api = '/api/rcsa/exceltemplateControlAssessmentWithoutMeasures2' and MENU_ID = (select menu_id from CONFIG_MENU where link like  '/config/datauploaders')) begin
+insert into CONFIG_APIFORENTITYNAME (api,MENU_ID ) values ('/api/rcsa/exceltemplateControlAssessmentWithoutMeasures2',(select menu_id from CONFIG_MENU where link like  '/config/datauploaders'))
+end
